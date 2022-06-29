@@ -1,8 +1,6 @@
 'use strict';
 const {
-  Model
-} = require('sequelize');
-const { Model, Validator } = require('sequelize');
+  Model, Validator} = require('sequelize');
 const bcrypt = require('bcryptjs')
 
 module.exports = (sequelize, DataTypes) => {
@@ -43,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
         email,
         hashedPassword
       });
-      return await User.scope('currentUser').findByPk(user.id)
+      return await User.scope('currentUser').findByPk(user.id);
     }
 
     static associate(models) {
@@ -82,12 +80,12 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'User',
     defaultScope: {
       attributes:{
-        exclude:["hashedPassword","email","createdAt","updatedAt"]
+        exclude: ["hashedPassword", "email", "createdAt", "updatedAt"]
       }
     },
     scopes: {
       currentUser:{
-        attributes:{ exclude:["hashedPassword"]}
+        attributes: { exclude: ["hashedPassword"] }
       },
       loginUser:{
         attributes:{}

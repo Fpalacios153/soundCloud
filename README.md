@@ -2,7 +2,7 @@
 
 ## Database Schema Design
 
-`<insert database schema design here>`
+![SoundCloud]([image path](https://dbdiagram.io/d/62b08b5c69be0b672c049253))
 
 ## API Documentation
 

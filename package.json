@@ -1,0 +1,24 @@
+{
+  "name": "authenticate-me-long-practice",
+  "version": "1.0.0",
+  "description": "## Database Schema Design <img width=\"961\" alt=\"Screen Shot 2022-07-01 at 2 28 01 PM\" src=\"https://user-images.githubusercontent.com/101391912/176969956-f5a1c4ef-dedb-4173-8494-30aa3aac666a.png\">",
+  "main": "index.js",
+  "scripts": {
+    "install": "npm --prefix backend install backend",
+    "dev:backend": "npm install --prefix backend start",
+    "sequelize": "npm run --prefix backend sequelize",
+    "sequelize-cli": "npm run --prefix backend sequelize-cli",
+    "start": "npm start --prefix backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fpalacios153/AuthentiateMe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fpalacios153/AuthentiateMe/issues"
+  },
+  "homepage": "https://github.com/Fpalacios153/AuthentiateMe#readme"
+}

@@ -269,6 +269,7 @@ Returns all the songs created by the current user.
 * Request
   * Method: GET
   * URL: /user/songs
+
   * Body: none
 
 * Successful Response

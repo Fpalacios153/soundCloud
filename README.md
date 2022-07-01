@@ -1,8 +1,8 @@
 # SoundCloud Clone
 
 ## Database Schema Design
+<img width="1051" alt="Screen Shot 2022-07-01 at 11 15 43 AM" src="https://user-images.githubusercontent.com/101391912/176948851-2d2a8d50-c57f-4011-bc01-50d96150b9af.png">
 
-![SoundCloud]([image path](https://dbdiagram.io/d/62b08b5c69be0b672c049253))
 
 ## API Documentation
 

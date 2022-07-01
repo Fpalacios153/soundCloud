@@ -1,8 +1,7 @@
 # SoundCloud Clone
 
 ## Database Schema Design
-<img width="961" alt="Screen Shot 2022-07-01 at 2 28 01 PM" src="https://user-images.githubusercontent.com/101391912/176969956-f5a1c4ef-dedb-4173-8494-30aa3aac666a.png">
-
+<img width="883" alt="Screen Shot 2022-07-01 at 4 26 58 PM" src="https://user-images.githubusercontent.com/101391912/176977378-303f39a1-1de2-42c6-9b62-5717035ff444.png">
 
 ## API Documentation
 
@@ -50,7 +49,7 @@ Returns the information about the current user that is logged in.
 * Require Authentication: true
 * Request
   * Method: GET
-  * URL: /user
+  * URL: /user/currentuser
   * Body: none
 
 * Successful Response

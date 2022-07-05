@@ -26,9 +26,11 @@ const validateSignUp =[
         .exists({checkFalsy:true})
         .isLength({min:6})
         .withMessage('Password must be 6 characters or more.'),
+
     handleValidationErrors
+
 ]
-router.get('/', async(req,res)=>{
+router.get('/', async(req,res)=>{//delete this
     const users = await User.findAll()
     console.log(users)
 

@@ -5,10 +5,24 @@ const {User} = require('../../db/models');
 const {Album} = require('../../db/models');
 const {Artist} = require('../../db/models');
 const {requireAuth} = require('../../utils/auth');
+const {check} = require('express-validator');
+const{handleValidationErrors} = require('../../utils/validation');
 
 
 
 const router = express.Router();
+
+const validateSongs =[
+    check('title')
+        .exists({checkFalsy:true})
+        .withMessage('Song title is required'),
+    check('url')
+        .exists({checkFalsy:true})
+        .isLength({min:4})
+        .withMessage('Audio is required'),
+
+    handleValidationErrors
+]
 
 router.get('/user', requireAuth, async(req,res)=>{
     const {user} = req;
@@ -61,7 +75,7 @@ router.get('/', async (req,res)=>{
 })
 
 
-router.post('/:albumId',requireAuth ,async(req, res)=>{
+router.post('/:albumId',validateSongs, requireAuth ,async(req, res)=>{
     if(!requireAuth){
         res.status(403);
         res.json({
@@ -87,7 +101,7 @@ let {title, description, url, imageUrl}= req.body
 
 
 
-router.put('/:songId',requireAuth, async(req,res)=>{
+router.put('/:songId',validateSongs,requireAuth, async(req,res)=>{
     if(!requireAuth){
         res.status(403);
         res.json({

@@ -10,9 +10,6 @@ const {requireAuth} = require('../../utils/auth');
 
 const router = express.Router();
 
-
-
-
 router.get('/user', requireAuth, async(req,res)=>{
     const {user} = req;
     // console.log(user.dataValues.id)
@@ -121,35 +118,39 @@ router.put('/:songId',requireAuth, async(req,res)=>{
     res.json(song)
 
 })
-
-
-
 router.delete('/:songId', requireAuth, async(req ,res)=>{
     if(!requireAuth){
         res.status(403);
-        res.json({
+        return res.json({
             "message": "Authentication required",
             "statusCode": 401
           })
     }
     //check in its belongs to the user, if it does
-    let {songId}= req.params
-    let song = await Song.findByPk(songId)
-
-    if(!song){
+    let {songId} = req.params
+    let songDelete = await Song.findOne({
+        where: {
+            id :songId
+        }
+    }
+    )
+    if(!songDelete){
         res.status(404);
-        res.json({
+        return res.json({
             message: "Song couldn't be found",
             "statusCode": 404
           })
     }
-    await song.destroy()
+    await songDelete.destroy()
     return res.json({
         "message": "Successfully deleted",
         "statusCode": 200
       })
 
 })
+
+
+
 
 
 

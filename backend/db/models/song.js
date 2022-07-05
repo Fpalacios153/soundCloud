@@ -14,13 +14,13 @@ module.exports = (sequelize, DataTypes) => {
       Song.belongsTo(
         models.Album,
         {foreignKey:'albumId',
-        onDelete:'cascade', hooks:true
+        // onDelete:'cascade', hooks:true
       }
       )
       Song.belongsTo(
         models.Artist,
         {foreignKey:'artistId'
-        ,onDelete:'cascade', hooks:true
+        // ,onDelete:'cascade', hooks:true
       }
       )
     }

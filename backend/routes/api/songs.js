@@ -7,6 +7,7 @@ const {Artist} = require('../../db/models');
 const {requireAuth} = require('../../utils/auth');
 const {check} = require('express-validator');
 const{handleValidationErrors} = require('../../utils/validation');
+const user = require('../../db/models/user');
 
 
 
@@ -84,6 +85,7 @@ router.post('/:albumId',validateSongs, requireAuth ,async(req, res)=>{
           })
     }
 //check in its belongs to the user, if it does
+
 let {albumId} = req.params
 let {title, description, url, imageUrl}= req.body
 

@@ -126,7 +126,7 @@ router.put('/:songId', validateSongs,requireAuth, isAuthorizedSong, async(req,re
     song.title = title,
     song.description= description,
     song.url =url,
-    song.imageUrl = imageUrl
+    song.previewImage = imageUrl
 
     await song.save()
 

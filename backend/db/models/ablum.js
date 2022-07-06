@@ -13,11 +13,15 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Album.belongsTo(
         models.Artist,
-        {foreignKey:'artistId', onDelete:'cascade',hooks:true}
+        {foreignKey:'artistId'
+        // , onDelete:'cascade',hooks:true
+      }
       )
       Album.hasMany(
         models.Song,
-        {foreignKey:'albumId', onDelete:'cascade',hooks:true}
+        {foreignKey:'albumId'
+        // , onDelete:'cascade',hooks:true
+      }
 
 
       )
@@ -25,7 +29,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   Album.init({
     title:{
-       type:DataTypes.STRING
+       type:DataTypes.STRING,
+       allowNull:false
       },
     previewImage: {
       type:DataTypes.STRING

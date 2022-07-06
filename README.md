@@ -568,7 +568,7 @@ Returns all the Albums created by the current user.
 * Require Authentication: true
 * Request
   * Method: GET
-  * URL: /user/albums
+  * URL: /albums/user
   * Body: none
 
 * Successful Response
@@ -659,7 +659,7 @@ Creates and returns a new album.
 * Require Authentication: true
 * Request
   * Method: POST
-  * URL: /user/albums
+  * URL: /albums
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -714,7 +714,7 @@ Updates and returns an existing album.
 * Require proper authorization: Album must belong to the current user
 * Request
   * Method: PUT
-  * URL: /user/album/:albumId
+  * URL: /albums/:albumId
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -782,7 +782,7 @@ Deletes an existing album.
 * Require proper authorization: Album must belong to the current user
 * Request
   * Method: DELETE
-  * URL: /user/albums/:albumId
+  * URL: /albums/:albumId
   * Body: none
 
 * Successful Response

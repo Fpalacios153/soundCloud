@@ -32,11 +32,7 @@ const validateSignUp =[
     check('lastName')
         .exists({checkFalsy:true})
         .withMessage('Last Name is required'),
-
-
-
     handleValidationErrors
-
 ]
 router.get('/', async(req,res)=>{//delete this
     const users = await User.findAll()

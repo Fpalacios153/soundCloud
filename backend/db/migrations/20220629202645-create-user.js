@@ -13,14 +13,27 @@ module.exports = {
         allowNullL:false,
         unique:true
       },
+      firstName:{
+        type: Sequelize.STRING,
+        allowNull:false
+      },
+      lastName:{
+        type: Sequelize.STRING,
+        allowNull:false
+      },
       email: {
         type: Sequelize.STRING(256),
         allowNull:false,
-        uniquet:true
+        unique:true
       },
       hashedPassword: {
         type: Sequelize.STRING.BINARY,
-        allowNull:false
+        allowNull: false
+      },
+      isArtist :{
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
       },
       createdAt: {
         allowNull: false,

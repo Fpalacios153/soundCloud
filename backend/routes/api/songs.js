@@ -85,7 +85,19 @@ router.post('/:albumId',validateSongs, requireAuth ,async(req, res)=>{
           })
     }
 //check in its belongs to the user, if it does
+const artist = await Artist.findOne({
+    where: {userId: req.user.id}
+})
+console.log(artist)
+if(req.user.id !== artist.userId){
+    console.log(artist.userId)
+    res.status(403);
+    return res.json({
+        "message": "Forbidden",
+        "statusCode": 403
+      })
 
+}
 let {albumId} = req.params
 let {title, description, url, imageUrl}= req.body
 

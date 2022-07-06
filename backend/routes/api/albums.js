@@ -1,13 +1,11 @@
 const express = require('express')
 
 const {Song} = require('../../db/models');
-const {User} = require('../../db/models');
 const {Album} = require('../../db/models');
 const {Artist} = require('../../db/models');
-const {requireAuth} = require('../../utils/auth');
+const {requireAuth, isAuthorized} = require('../../utils/auth');
 const {check} = require('express-validator');
 const{handleValidationErrors} = require('../../utils/validation');
-const ablum = require('../../db/models/ablum');
 
 
 
@@ -91,7 +89,7 @@ router.post('/',validateAlbums,requireAuth,async (req,res)=>{
     res.json(newAlbum)
 });
 
-router.put('/:albumId',validateAlbums,requireAuth, async(req,res)=>{
+router.put('/:albumId',validateAlbums,requireAuth,isAuthorized, async(req,res)=>{
     if(!requireAuth){
         res.status(403);
         res.json({
@@ -120,7 +118,7 @@ router.put('/:albumId',validateAlbums,requireAuth, async(req,res)=>{
     return res.json(album)
 })
 
-router.delete('/:albumId',requireAuth ,async(req,res)=>{
+router.delete('/:albumId',requireAuth,isAuthorized,async(req,res)=>{
     if(!requireAuth){
         res.status(403);
         res.json({

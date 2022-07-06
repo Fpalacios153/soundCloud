@@ -818,7 +818,7 @@ Returns all the comments that belong to a song specified by id.
 * Require Authentication: false
 * Request
   * Method: GET
-  * URL: /song/:songId/comments
+  * URL: /api/comments/:songId
   * Body: none
 
 * Successful Response
@@ -866,7 +866,7 @@ Create and return a new comment for a song specified by id.
 * Require Authentication: true
 * Request
   * Method: POST
-  * URL: /songs/:songId/comments
+  * URL: /api/comments/:songId
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -931,7 +931,7 @@ Update and return an existing comment.
 * Require proper authorization: Comment must belong to the current user
 * Request
   * Method: PUT
-  * URL: /user/comments/:commentId
+  * URL: /api/comments/:commentId
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -996,7 +996,7 @@ Delete an existing comment.
 * Require proper authorization: Comment must belong to the current user
 * Request
   * Method: DELETE
-  * URL: /comments/:commentId
+  * URL: /api/comments/:commentId
   * Body: none
 
 * Successful Response
@@ -1032,7 +1032,7 @@ Returns the details of an artist specified by their id.
 * Require Authentication: false
 * Request
   * Method: GET
-  * URL: /artists/:artistId
+  * URL: api/artists/:artistId
   * Body: none
 
 * Successful Response
@@ -1071,7 +1071,7 @@ Returns all the songs created by the specified artist.
 * Require Authentication: false
 * Request
   * Method: GET
-  * URL: /artists/:artistId/songs
+  * URL: api/artists/:artistId/songs
   * Body: none
 
 * Successful Response
@@ -1118,7 +1118,7 @@ Returns all the albums created by the specified artist.
 * Require Authentication: false
 * Request
   * Method: GET
-  * URL:/artists/:artistId/albums
+  * URL:/api/artists/:artistId/albums
   * Body: none
 
 * Successful Response
@@ -1163,7 +1163,7 @@ Returns all the playlists created by the specified artist.
 * Require Authentication: false
 * Request
   * Method: GET
-  * URL: /artists/:artistId/playlist
+  * URL: api/artists/:artistId/playlist
   * Body: none
 
 * Successful Response

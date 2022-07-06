@@ -7,8 +7,6 @@ const {Artist} = require('../../db/models');
 const {requireAuth, isAuthorized, isAuthorizedSong} = require('../../utils/auth');
 const {check} = require('express-validator');
 const{handleValidationErrors} = require('../../utils/validation');
-const user = require('../../db/models/user');
-
 
 
 const router = express.Router();
@@ -27,7 +25,6 @@ const validateSongs =[
 
 router.get('/user', requireAuth, async(req,res)=>{
     const {user} = req;
-    // console.log(user.dataValues.id)
     if(!requireAuth){
         res.status(403);
         res.json({
@@ -83,27 +80,11 @@ router.post('/:albumId',validateSongs, requireAuth, isAuthorized,async(req, res)
             "statusCode": 401
             })
         }
-
-        // const artists = await User.scope(["defaultScope",'isValidArtist']).findAll()
-        // console.log(artists)
-
 let {albumId} = req.params
 let {title, description, url, imageUrl}= req.body
 
  const album = await Album.findByPk(albumId);
-//  console.log(album)
  const artist = album.artistId
-//  console.log(artistId)
-///************************** */
-            // const validArtist = await Artist.findByPk(artist)
-            // if(validArtist.userId !== req.user.id){
-            //     res.status(403)
-            //     res.json({
-            //         message: "Forbidden",
-            //         "statusCode": 403
-            //       })
-            // }
-    ///////************************* */
  if(!album){
     res.status(404);
     res.json({
@@ -121,8 +102,6 @@ let {title, description, url, imageUrl}= req.body
 
     res.json(songInAlbum)
 })
-
-
 
 router.put('/:songId', validateSongs,requireAuth, isAuthorizedSong, async(req,res)=>{
     if(!requireAuth){
@@ -143,18 +122,6 @@ router.put('/:songId', validateSongs,requireAuth, isAuthorizedSong, async(req,re
             "statusCode": 404
           })
     }
-    //check in its belongs to the user, if it does
-    // const artistfromSong = song.artistId
-    // const validArtist = await Artist.findByPk(artistfromSong)
-    // if(validArtist.userId !== req.user.id){
-    //     res.status(403)
-    //     res.json({
-    //         message: "Forbidden",
-    //         "statusCode": 403
-    //       })
-    // }
-    ///********** */
-
 
     song.title = title,
     song.description= description,
@@ -173,7 +140,8 @@ router.delete('/:songId', requireAuth,isAuthorizedSong, async(req ,res)=>{
             "message": "Authentication required",
             "statusCode": 401
           })
-    }
+        }
+
     let {songId} = req.params
     let songDelete = await Song.findOne({
         where: {
@@ -189,17 +157,6 @@ router.delete('/:songId', requireAuth,isAuthorizedSong, async(req ,res)=>{
             "statusCode": 404
         })
     }
-    //check in its belongs to the user, if it does
-    // const artistfromSong = songDelete.artistId
-    // const validArtist = await Artist.findByPk(artistfromSong)
-    // if(validArtist.userId !== req.user.id){
-    //     res.status(403)
-    //     res.json({
-    //         message: "Forbidden",
-    //         "statusCode": 403
-    //       })
-    // }
-    ////******** */
     await songDelete.destroy()
     return res.json({
         message: "Successfully deleted",
@@ -207,11 +164,4 @@ router.delete('/:songId', requireAuth,isAuthorizedSong, async(req ,res)=>{
       })
 
 })
-
-
-
-
-
-
-
 module.exports= router;

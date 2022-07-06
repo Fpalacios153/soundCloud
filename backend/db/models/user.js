@@ -49,6 +49,16 @@ module.exports = (sequelize, DataTypes) => {
 
     static associate(models) {
       // define association here
+      User.hasMany(
+        models.Comment,{
+          foreignKey:'userId'
+        }
+      ),
+      User.hasMany(
+        models.Playlist,{
+          foreignKey:'userId'
+        }
+      )
     }
   }
   User.init({

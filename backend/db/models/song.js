@@ -23,6 +23,17 @@ module.exports = (sequelize, DataTypes) => {
         // ,onDelete:'cascade', hooks:true
       }
       )
+      Song.hasMany(
+        models.Comment,{
+          foreignKey:'songId'
+        }
+      )
+      Comment.belongsTo(
+        models.Song,
+        {
+          foreignKey:'songId'
+        }
+      )
     }
   }
   Song.init({

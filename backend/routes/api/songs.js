@@ -36,17 +36,13 @@ router.get('/user', requireAuth, async(req,res)=>{
           })
     }
     if(user) {
-        const songs = await Artist.findOne({
+        const artist = await Artist.findOne({
          where: {
             userId : req.user.id
-         },
-         include: {
-            model: Song,
-            // attribute: {}
-        }
-    })
+         }}
+         )
+        const songs = await artist.getSongs();
         return res.json({Songs: songs})
-
     }
 })
 
@@ -54,9 +50,14 @@ router.get('/:songId', async (req,res)=>{
     let {songId}= req.params
 
     const songById = await Song.findByPk(songId,{
-        include:{
-            model: Album
-        }
+        include:
+            [{
+                model: Artist
+            },
+            {
+                model: Album
+            }]
+
     })
     if(!songById){
         res.status(404);
@@ -85,23 +86,26 @@ router.post('/:albumId',validateSongs, requireAuth ,async(req, res)=>{
           })
     }
 //check in its belongs to the user, if it does
-const artist = await Artist.findOne({
-    where: {userId: req.user.id}
-})
-console.log(artist)
-if(req.user.id !== artist.userId){
-    console.log(artist.userId)
-    res.status(403);
-    return res.json({
-        "message": "Forbidden",
-        "statusCode": 403
-      })
+// const artist = await Artist.findOne({
+//     where: {userId: req.user.id}
+// })
+// console.log(artist)
+// if(req.user.id !== artist.userId){
+//     console.log(artist.userId)
+//     res.status(403);
+//     return res.json({
+//         "message": "Forbidden",
+//         "statusCode": 403
+//       })
 
-}
+// }
 let {albumId} = req.params
 let {title, description, url, imageUrl}= req.body
 
  const album = await Album.findByPk(albumId);
+//  console.log(album)
+ const artist = album.artistId
+//  console.log(artistId)
  if(!album){
     res.status(404);
     res.json({
@@ -109,13 +113,20 @@ let {title, description, url, imageUrl}= req.body
         "statusCode": 404
       })
     }
-    const songInAlbum =await album.createSong({title, description, url, imageUrl})
+    const songInAlbum =await album.createSong({
+        title,
+        description,
+        url,
+        imageUrl,
+        artistId:artist
+    })
+
     res.json(songInAlbum)
 })
 
 
 
-router.put('/:songId',validateSongs,requireAuth, async(req,res)=>{
+router.put('/:songId', validateSongs,requireAuth, async(req,res)=>{
     if(!requireAuth){
         res.status(403);
         res.json({
@@ -171,7 +182,7 @@ router.delete('/:songId', requireAuth, async(req ,res)=>{
     }
     await songDelete.destroy()
     return res.json({
-        "message": "Successfully deleted",
+        message: "Successfully deleted",
         "statusCode": 200
       })
 

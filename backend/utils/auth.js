@@ -80,18 +80,6 @@ const restoreUser = (req, res, next) => {
         "statusCode": 403
       })
     }
-    // const validArtist = await Artist.findOne({
-    //   where:{
-    //     userId: req.user.id}
-    // })
-
-    // if(validArtist.userId !== req.user.id){
-    //       res.status(403)
-    //     res.json({
-    //         message: "Forbidden",
-    //         "statusCode": 403
-    //       })
-    //     }
     else return next();
   }
 
@@ -109,10 +97,6 @@ const restoreUser = (req, res, next) => {
             "statusCode": 403
           })
     }    else return next();
-
-
-
-
   }
 
   module.exports = { setTokenCookie, restoreUser, requireAuth,isAuthorized, isAuthorizedSong };

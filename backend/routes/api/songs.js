@@ -111,7 +111,7 @@ router.put('/:songId', validateSongs,requireAuth, isAuthorizedSong, async(req,re
             "statusCode": 401
           })
     }
-    let {title, description,url,imageUrl} = req.body
+    let {title, description,url,previewImage} = req.body
     let {songId} = req.params
 
     const song = await Song.findByPk(songId)
@@ -126,7 +126,7 @@ router.put('/:songId', validateSongs,requireAuth, isAuthorizedSong, async(req,re
     song.title = title,
     song.description= description,
     song.url =url,
-    song.imageUrl = imageUrl
+    song.previewImage = previewImage
 
     await song.save()
 

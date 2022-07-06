@@ -17,6 +17,12 @@ module.exports = (sequelize, DataTypes) => {
           foreignKey:'userId'
         }
       )
+      Comment.belongsTo(
+        models.Song,
+        {
+          foreignKey:'songId'
+        }
+      )
     }
   }
   Comment.init({

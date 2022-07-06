@@ -1,6 +1,11 @@
 const jwt = require('jsonwebtoken');
 const {jwtConfig} = require('../config');
 const {User} = require('../db/models')
+const {Artist} = require('../db/models');
+const {Album} = require('../db/models');
+const {Song} = require('../db/models');
+
+
 const {secret, expiresIn}= jwtConfig;
 
 
@@ -62,5 +67,52 @@ const restoreUser = (req, res, next) => {
     return next(err);
   }
 
+  const isAuthorized = async function(req, res, next){
+    let {albumId} = req.params
+    const album = await Album.findByPk(albumId)
+    // const artist = album.artistId
+    const validArtist = await album.getArtist()
+    // console.log(validArtist.userId)
+    if(validArtist.userId !== req.user.id){
+      res.status(403)
+      res.json({
+        message: "Forbidden",
+        "statusCode": 403
+      })
+    }
+    // const validArtist = await Artist.findOne({
+    //   where:{
+    //     userId: req.user.id}
+    // })
 
-  module.exports = { setTokenCookie, restoreUser, requireAuth };
+    // if(validArtist.userId !== req.user.id){
+    //       res.status(403)
+    //     res.json({
+    //         message: "Forbidden",
+    //         "statusCode": 403
+    //       })
+    //     }
+    else return next();
+  }
+
+  const isAuthorizedSong = async function(req, res, next){
+    let {songId} = req.params
+
+    const song = await Song.findByPk(songId)
+    // const artistfromSong = song.artistId
+
+    const validArtist = await song.getArtist()
+    if(validArtist.userId !== req.user.id){
+        res.status(403)
+        res.json({
+            message: "Forbidden",
+            "statusCode": 403
+          })
+    }    else return next();
+
+
+
+
+  }
+
+  module.exports = { setTokenCookie, restoreUser, requireAuth,isAuthorized, isAuthorizedSong };

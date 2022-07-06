@@ -116,7 +116,14 @@ module.exports = (sequelize, DataTypes) => {
       },
       loginUser:{
         attributes:{}
+      },
+      isValidArtist:{
+        where:{
+          isArtist:true
+        }
+
       }
+
     },
 
 

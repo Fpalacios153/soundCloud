@@ -4,7 +4,7 @@ const {Song} = require('../../db/models');
 const {User} = require('../../db/models');
 const {Album} = require('../../db/models');
 const {Artist} = require('../../db/models');
-const {requireAuth} = require('../../utils/auth');
+const {requireAuth, isAuthorized, isAuthorizedSong} = require('../../utils/auth');
 const {check} = require('express-validator');
 const{handleValidationErrors} = require('../../utils/validation');
 const user = require('../../db/models/user');
@@ -33,72 +33,60 @@ router.get('/user', requireAuth, async(req,res)=>{
         res.json({
             "message": "Authentication required",
             "statusCode": 401
-          })
+        })
     }
     if(user) {
         const artist = await Artist.findOne({
-         where: {
-            userId : req.user.id
-         }}
-         )
-        const songs = await artist.getSongs();
-        return res.json({Songs: songs})
-    }
-})
+            where: {
+                userId : req.user.id
+            }}
+            )
+            const songs = await artist.getSongs();
+            return res.json({Songs: songs})
+        }
+    })
 
 router.get('/:songId', async (req,res)=>{
-    let {songId}= req.params
+        let {songId}= req.params
 
-    const songById = await Song.findByPk(songId,{
-        include:
+        const songById = await Song.findByPk(songId,{
+            include:
             [{
                 model: Artist
             },
             {
                 model: Album
             }]
-
+        })
+        if(!songById){
+            res.status(404);
+            res.json({
+                message: "Song couldn't be found",
+                statusCode: 404
+            })
+        }
+        res.json(songById)
     })
-    if(!songById){
-        res.status(404);
-        res.json({
-            message: "Song couldn't be found",
-            statusCode: 404
-          })
-    }
-    res.json(songById)
-})
 
-router.get('/', async (req,res)=>{
+    router.get('/', async (req,res)=>{
 
-    const songs = await Song.findAll();
+        const songs = await Song.findAll();
 
-    res.json({Songs:songs})
-})
+        res.json({Songs:songs})
+    })
 
-
-router.post('/:albumId',validateSongs, requireAuth ,async(req, res)=>{
+router.post('/:albumId',validateSongs, requireAuth, isAuthorized,async(req, res)=>{
     if(!requireAuth){
         res.status(403);
         res.json({
             "message": "Authentication required",
             "statusCode": 401
-          })
-    }
-//check in its belongs to the user, if it does
-// const artist = await Artist.findOne({
-//     where: {userId: req.user.id}
-// })
-// console.log(artist)
-// if(req.user.id !== artist.userId){
-//     console.log(artist.userId)
-//     res.status(403);
-//     return res.json({
-//         "message": "Forbidden",
-//         "statusCode": 403
-//       })
+            })
+        }
 
-// }
+        // const artists = await User.scope(["defaultScope",'isValidArtist']).findAll()
+        // console.log(artists)
+
 let {albumId} = req.params
 let {title, description, url, imageUrl}= req.body
 
@@ -106,6 +94,16 @@ let {title, description, url, imageUrl}= req.body
 //  console.log(album)
  const artist = album.artistId
 //  console.log(artistId)
+///************************** */
+            // const validArtist = await Artist.findByPk(artist)
+            // if(validArtist.userId !== req.user.id){
+            //     res.status(403)
+            //     res.json({
+            //         message: "Forbidden",
+            //         "statusCode": 403
+            //       })
+            // }
+    ///////************************* */
  if(!album){
     res.status(404);
     res.json({
@@ -126,7 +124,7 @@ let {title, description, url, imageUrl}= req.body
 
 
 
-router.put('/:songId', validateSongs,requireAuth, async(req,res)=>{
+router.put('/:songId', validateSongs,requireAuth, isAuthorizedSong, async(req,res)=>{
     if(!requireAuth){
         res.status(403);
         res.json({
@@ -146,6 +144,17 @@ router.put('/:songId', validateSongs,requireAuth, async(req,res)=>{
           })
     }
     //check in its belongs to the user, if it does
+    // const artistfromSong = song.artistId
+    // const validArtist = await Artist.findByPk(artistfromSong)
+    // if(validArtist.userId !== req.user.id){
+    //     res.status(403)
+    //     res.json({
+    //         message: "Forbidden",
+    //         "statusCode": 403
+    //       })
+    // }
+    ///********** */
+
 
     song.title = title,
     song.description= description,
@@ -157,7 +166,7 @@ router.put('/:songId', validateSongs,requireAuth, async(req,res)=>{
     res.json(song)
 
 })
-router.delete('/:songId', requireAuth, async(req ,res)=>{
+router.delete('/:songId', requireAuth,isAuthorizedSong, async(req ,res)=>{
     if(!requireAuth){
         res.status(403);
         return res.json({
@@ -165,7 +174,6 @@ router.delete('/:songId', requireAuth, async(req ,res)=>{
             "statusCode": 401
           })
     }
-    //check in its belongs to the user, if it does
     let {songId} = req.params
     let songDelete = await Song.findOne({
         where: {
@@ -173,13 +181,25 @@ router.delete('/:songId', requireAuth, async(req ,res)=>{
         }
     }
     )
+
     if(!songDelete){
         res.status(404);
         return res.json({
             message: "Song couldn't be found",
             "statusCode": 404
-          })
+        })
     }
+    //check in its belongs to the user, if it does
+    // const artistfromSong = songDelete.artistId
+    // const validArtist = await Artist.findByPk(artistfromSong)
+    // if(validArtist.userId !== req.user.id){
+    //     res.status(403)
+    //     res.json({
+    //         message: "Forbidden",
+    //         "statusCode": 403
+    //       })
+    // }
+    ////******** */
     await songDelete.destroy()
     return res.json({
         message: "Successfully deleted",

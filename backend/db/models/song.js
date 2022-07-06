@@ -28,12 +28,6 @@ module.exports = (sequelize, DataTypes) => {
           foreignKey:'songId'
         }
       )
-      Comment.belongsTo(
-        models.Song,
-        {
-          foreignKey:'songId'
-        }
-      )
     }
   }
   Song.init({

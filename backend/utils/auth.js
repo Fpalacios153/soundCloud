@@ -72,6 +72,13 @@ const restoreUser = (req, res, next) => {
   const isAuthorized = async function(req, res, next){
     let {albumId} = req.params
     const album = await Album.findByPk(albumId)
+    if(!album){
+      res.status(404);
+      return res.json({
+          "message": "Album couldn't be found",
+          "statusCode": 404
+        })
+      }
     // const artist = album.artistId
     const validArtist = await album.getArtist()
     // console.log(validArtist.userId)
@@ -90,6 +97,13 @@ const restoreUser = (req, res, next) => {
 
     const song = await Song.findByPk(songId)
     // const artistfromSong = song.artistId
+    if(!song){
+      res.status(404);
+      return res.json({
+          message: "Song couldn't be found",
+          "statusCode": 404
+        })
+  }
 
     const validArtist = await song.getArtist()
     if(validArtist.userId !== req.user.id){
@@ -103,6 +117,13 @@ const restoreUser = (req, res, next) => {
   const isAuthorizedComment = async function(req, res, next){
     let {commentId} = req.params
     const comment = await Comment.findByPk(commentId)
+    if(!comment){
+      res.status(404);
+      return res.json({
+          message: "Comment couldn't be found",
+          "statusCode": 404
+        })
+  }
 
   if(comment.userId !== req.user.id){
     res.status(403)
@@ -110,7 +131,7 @@ const restoreUser = (req, res, next) => {
       message: "Forbidden",
       "statusCode": 403
     })
-  }
+  }else return next()
 }
 
   module.exports = { setTokenCookie, restoreUser, requireAuth,isAuthorized, isAuthorizedSong,isAuthorizedComment};

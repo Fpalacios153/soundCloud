@@ -8,12 +8,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      title: {
-        type: Sequelize.STRING
-      },
-      previewImage: {
-        type: Sequelize.STRING
-      },
       artistId: {
         type: Sequelize.INTEGER,
         references: {
@@ -21,11 +15,21 @@ module.exports = {
           key:'id'
         }
       },
+      title: {
+        type: Sequelize.STRING
+      },
+      description: {
+        type:Sequelize.STRING,
+        allowNull:false
+      },
+      previewImage: {
+        type: Sequelize.STRING,
+        allowNull:false
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
-
       },
       updatedAt: {
         allowNull: false,

@@ -16,13 +16,15 @@ module.exports = {
    await queryInterface.bulkInsert('Albums', [
     {
       title: 'Men At Work',
+      artistId:1,
       previewImage: 'link to image here',
-      artistId:1
+      description: "An album about working.",
    },
    {
     title: 'Words in Soup',
+    artistId:2,
     previewImage: 'link to image here',
-    artistId:2
+    description: "An album about words.",
  }
   ] )
 

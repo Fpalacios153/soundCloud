@@ -17,7 +17,7 @@ module.exports = {
       totalAblums: {
         type: Sequelize.INTEGER
       },
-      previewImages: {
+      previewImage: {
         type: Sequelize.STRING
       },
       userId: {

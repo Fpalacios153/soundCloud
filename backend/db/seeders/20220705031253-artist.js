@@ -16,14 +16,14 @@ module.exports = {
         name:'DEMOMEN',
         totalSongs: 10,
         totalAblums: 1,
-        previewImages: 'some link herer',
+        previewImage: 'some link herer',
         userId: 1
       },
       {
         name:'Alpha-Bet',
         totalSongs: 10,
         totalAblums: 1,
-        previewImages: 'some link herer',
+        previewImage: 'some link herer',
         userId: 2
       }
 

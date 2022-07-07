@@ -20,13 +20,7 @@ const validateAlbums =[
 
 router.get('/user', requireAuth,async (req,res)=>{
     const {user} = req;
-    if(!requireAuth){
-        res.status(403);
-        return res.json({
-            message: "Authentication required",
-            "statusCode": 401
-        })
-    }
+
     if(user) {
         const artist = await Artist.findOne({
          where: {
@@ -42,7 +36,8 @@ router.get('/:albumId',async(req,res)=>{
 
     const albumsById = await Album.findByPk(albumId,{
         include: [{
-            model: Artist
+            model: Artist,
+            attributes:['id','name','previewImage']
         },
         {
             model: Song
@@ -58,21 +53,13 @@ router.get('/:albumId',async(req,res)=>{
     res.json(albumsById)
 })
 router.get('/', async(req, res)=>{
-
-
     const albums = await Album.findAll();
 
     res.json({Albums:albums})
 })
 
 router.post('/',validateAlbums,requireAuth,async (req,res)=>{
-    if(!requireAuth){
-        res.status(403);
-        res.json({
-            "message": "Authentication required",
-            "statusCode": 401
-          })
-    }
+
     let {title, description, imageUrl} = req.body;
     let id = req.user.id
     const getArtist = await Artist.findOne({
@@ -80,8 +67,8 @@ router.post('/',validateAlbums,requireAuth,async (req,res)=>{
             userId : id
         }
     });
-    const newAlbum = await Album.create({
-        artistId :getArtist.id,
+    const newAlbum = await getArtist.createAlbum({
+        // artistId :getArtist.id,
         title,
         description,
         previewImage:imageUrl
@@ -90,25 +77,13 @@ router.post('/',validateAlbums,requireAuth,async (req,res)=>{
 });
 
 router.put('/:albumId',validateAlbums,requireAuth,isAuthorized, async(req,res)=>{
-    if(!requireAuth){
-        res.status(403);
-        res.json({
-            "message": "Authentication required",
-            "statusCode": 401
-          })
-    }
+
     let {albumId} = req.params;
 
     let {title, description, imageUrl} =req.body
 
     const album = await Album.findByPk(albumId)
-    if(!album){
-        res.status(404)
-        return res.json({
-            "message": "Album couldn't be found",
-            "statusCode": 404
-          })
-    }
+
 
     album.title =title,
     album.description = description,
@@ -119,25 +94,10 @@ router.put('/:albumId',validateAlbums,requireAuth,isAuthorized, async(req,res)=>
 })
 
 router.delete('/:albumId',requireAuth,isAuthorized,async(req,res)=>{
-    if(!requireAuth){
-        res.status(403);
-        res.json({
-            "message": "Authentication required",
-            "statusCode": 401
-          })
-    }
 
     let {albumId} = req.params;
 
     const album = await Album.findByPk(albumId);
-
-    if(!album){
-        res.status(404)
-        res.json({
-            message: "Album couldn't be found",
-            "statusCode": 404
-          })
-    }
 
     await album.destroy();
 

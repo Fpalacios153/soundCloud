@@ -3,34 +3,27 @@ const express = require('express')
 const {Song} = require('../../db/models');
 const {Artist} = require('../../db/models');
 const {Album} = require('../../db/models');
-const {Comment} = require('../../db/models');
-const {requireAuth, isAuthorizedComment} = require('../../utils/auth');
-const {check} = require('express-validator');
-const{handleValidationErrors} = require('../../utils/validation');
-
 
 const router = express.Router();
 
 router.get('/:artistId/albums', async(req, res)=>{
     let {artistId} = req.params;
 
-    const allAlbums = await Album.findAll({
-        where:{
-            artistId: artistId
-        }
-        })
-
-    if(!allAlbums.length){
+    const artist = await Artist.findByPk(artistId)
+    if(!artist){
         res.status(404);
         res.json({
             "message": "Artist couldn't be found",
             "statusCode": 404
           })
     }
+    const allAlbums = await artist.getAlbums({
+        where:{
+            artistId: artistId
+        }
+    })
+
     res.json({Albums:allAlbums})
-
-
-
 })
 
 router.get('/:artistId/songs', async(req, res)=>{
@@ -56,7 +49,7 @@ router.get('/:artistId', async(req,res)=>{
 
     const artist = await Artist.findByPk(artistId,{
         attributes:[
-            "name","totalSongs","totalAblums","previewImages"
+            "name","totalSongs","totalAblums","previewImage"
         ]
         });
     if(!artist){

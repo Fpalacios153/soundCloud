@@ -4,6 +4,8 @@ const {User} = require('../db/models')
 const {Artist} = require('../db/models');
 const {Album} = require('../db/models');
 const {Song} = require('../db/models');
+const {Comment} = require('../db/models');
+
 
 
 const {secret, expiresIn}= jwtConfig;
@@ -98,5 +100,17 @@ const restoreUser = (req, res, next) => {
           })
     }    else return next();
   }
+  const isAuthorizedComment = async function(req, res, next){
+    let {commentId} = req.params
+    const comment = await Comment.findByPk(commentId)
 
-  module.exports = { setTokenCookie, restoreUser, requireAuth,isAuthorized, isAuthorizedSong };
+  if(comment.userId !== req.user.id){
+    res.status(403)
+    res.json({
+      message: "Forbidden",
+      "statusCode": 403
+    })
+  }
+}
+
+  module.exports = { setTokenCookie, restoreUser, requireAuth,isAuthorized, isAuthorizedSong,isAuthorizedComment};

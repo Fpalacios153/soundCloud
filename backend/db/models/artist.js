@@ -46,6 +46,14 @@ module.exports = (sequelize, DataTypes) => {
       references:{
         model:'Users',
         key:'id'
+      },
+      createdAt: {
+        allowNull: false,
+        type: DataTypes.DATE
+      },
+      updatedAt: {
+        allowNull: false,
+        type: DataTypes.DATE
       }
     }
   }, {

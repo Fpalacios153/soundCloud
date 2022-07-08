@@ -61,8 +61,8 @@ if(!song){
       })
 }
 const addSongToPlaylist = await SongsPlaylist.create({
-    songId: songId,
-    playlistId: playlistId
+    SongId: songId,
+    PlaylistId: playlistId
 })
 console.log(addSongToPlaylist)
 return res.json(addSongToPlaylist)

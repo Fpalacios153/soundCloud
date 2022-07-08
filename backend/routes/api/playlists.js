@@ -31,10 +31,7 @@ router.get('/:playlistId', async(req,res)=>{
 
     const playlist = await Playlist.findByPk(playlistId,{
         include: {
-            model:Song,
-            through:{
-                attributes:[]
-            }
+            model:Song,through:{ attributes:[]}
         }
     })
     if(!playlist){

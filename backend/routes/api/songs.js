@@ -60,62 +60,100 @@ router.get('/:songId', async (req,res)=>{
         res.json(songById)
     })
 
-    router.get('/', async (req,res)=>{
+    router.post('/:albumId',validateSongs, requireAuth, isAuthorized,async(req, res)=>{
 
-        const songs = await Song.findAll();
+        let {albumId} = req.params
+        let {title, description, url, imageUrl}= req.body
 
-        res.json({Songs:songs})
+        const album = await Album.findByPk(albumId);
+        const artist = album.artistId
+        const songInAlbum =await album.createSong({
+            title,
+            description,
+            url,
+            previewImage: imageUrl, //added this to check later
+            artistId:artist
+        })
+
+        res.json(songInAlbum)
     })
 
-router.post('/:albumId',validateSongs, requireAuth, isAuthorized,async(req, res)=>{
+    router.put('/:songId', validateSongs,requireAuth, isAuthorizedSong, async(req,res)=>{
 
-let {albumId} = req.params
-let {title, description, url, imageUrl}= req.body
+        let {title, description,url,imageUrl} = req.body
+        let {songId} = req.params
 
- const album = await Album.findByPk(albumId);
- const artist = album.artistId
-    const songInAlbum =await album.createSong({
-        title,
-        description,
-        url,
-        previewImage: imageUrl, //added this to check later
-        artistId:artist
+        const song = await Song.findByPk(songId)
+
+        song.title = title,
+        song.description= description,
+        song.url =url,
+        song.previewImage = imageUrl
+
+        await song.save()
+
+        res.json(song)
+
+    })
+    router.delete('/:songId', requireAuth,isAuthorizedSong, async(req ,res)=>{
+
+        let {songId} = req.params
+        let songDelete = await Song.findOne({
+            where: {
+                id :songId
+            }
+        })
+
+        await songDelete.destroy()
+        return res.json({
+            message: "Successfully deleted",
+            "statusCode": 200
+        })
+
     })
 
-    res.json(songInAlbum)
-})
+    const validateParams =[
+        check('page')
+        .custom((value, { req, }) => {
+            if (value < 0) {
+                throw new Error('Page must be greater than or equal to 0')
+            } else return value
+        }),
+        check('size')
+            .custom((value, { req,res }) => {
+                if (value < 0) {
+                    throw new Error('Size must be greater than or equal to 0');
+                }else return value
+            }),
+            handleValidationErrors
+            ]
+router.get('/',validateParams ,async (req,res)=>{
+    let {page, size} = req.query;
 
-router.put('/:songId', validateSongs,requireAuth, isAuthorizedSong, async(req,res)=>{
 
-    let {title, description,url,imageUrl} = req.body
-    let {songId} = req.params
+    if(isNaN(page) ||page<=0 ){
+        page = 0
+    }
+    if(isNaN(size)||size <=0 ){
+      size =20
+    }
 
-    const song = await Song.findByPk(songId)
+    if(size>20){
+      size=20
+    }
+    const songs = await Song.findAll({
+    limit:size,
+    offset:(page-1) * size
 
-    song.title = title,
-    song.description= description,
-    song.url =url,
-    song.previewImage = imageUrl
 
-    await song.save()
-
-    res.json(song)
-
-})
-router.delete('/:songId', requireAuth,isAuthorizedSong, async(req ,res)=>{
-
-    let {songId} = req.params
-    let songDelete = await Song.findOne({
-        where: {
-            id :songId
-        }
-    })
-
-    await songDelete.destroy()
+    });
     return res.json({
-        message: "Successfully deleted",
-        "statusCode": 200
-      })
+        Songs:songs,
+        page,
+        size
+    })
 
 })
-module.exports= router;
+
+
+    module.exports= router;

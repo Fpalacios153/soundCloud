@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
         {foreignKey:'userId'}
       )
       Playlist.belongsToMany(
-        models.Song,{through: models.SongsPlaylist}
+        models.Song,{through: models.SongsPlaylist,foreignKey:'playlistId',otherKey:'songId'}
         )
     }
   }

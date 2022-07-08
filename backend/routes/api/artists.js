@@ -69,7 +69,7 @@ router.get('/:artistId', async(req,res)=>{
 
     const artist = await Artist.findByPk(artistId,{
         attributes:[
-            "name","totalSongs","totalAblums","previewImage"
+            "name","totalSongs","totalAlbums","previewImage"
         ]
      });
      const totalSongs = await Song.count({
@@ -81,7 +81,7 @@ router.get('/:artistId', async(req,res)=>{
         where:{ artistId: artistId}
      })
      artist.totalAlbums = totalAlbums
-     console.log(totalAlbums)
+    //  console.log(totalAlbums)
     if(!artist){
         res.status(404)
         res.json({

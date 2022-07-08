@@ -31,7 +31,7 @@ router.get('/:playlistId', async(req,res)=>{
 
     const playlist = await Playlist.findByPk(playlistId,{
         include: {
-            model:Song,through:{ attributes:[]}
+            model:Song
         }
     })
     if(!playlist){
@@ -41,9 +41,9 @@ router.get('/:playlistId', async(req,res)=>{
             "statusCode": 404
         })
     }
-    console.log(playlist)
     res.json(playlist)
 })
+
 router.post('/:playlistId', requireAuth,isAuthorizedPlaylist, async(req,res)=>{
     let {playlistId} = req.params;
 

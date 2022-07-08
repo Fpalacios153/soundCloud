@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
     totalSongs: {
       type: DataTypes.INTEGER
     },
-    totalAblums: {
+    totalAlbums: {
       type: DataTypes.INTEGER
 
     },

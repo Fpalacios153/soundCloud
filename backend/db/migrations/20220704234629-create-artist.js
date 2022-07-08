@@ -14,7 +14,7 @@ module.exports = {
       totalSongs: {
         type: Sequelize.INTEGER
       },
-      totalAblums: {
+      totalAlbums: {
         type: Sequelize.INTEGER
       },
       previewImage: {

@@ -1,8 +1,9 @@
-const express = require('express')
+const express = require('express');
 
 const {Song} = require('../../db/models');
 const {Artist} = require('../../db/models');
 const {Playlist} = require('../../db/models');
+const {Album} = require('../../db/models');
 
 const router = express.Router();
 
@@ -70,7 +71,17 @@ router.get('/:artistId', async(req,res)=>{
         attributes:[
             "name","totalSongs","totalAblums","previewImage"
         ]
-        });
+     });
+     const totalSongs = await Song.count({
+        where:{ artistId: artistId}
+     })
+     artist.totalSongs = totalSongs
+     console.log(totalSongs)
+     const totalAlbums = await Album.count({
+        where:{ artistId: artistId}
+     })
+     artist.totalAlbums = totalAlbums
+     console.log(totalAlbums)
     if(!artist){
         res.status(404)
         res.json({

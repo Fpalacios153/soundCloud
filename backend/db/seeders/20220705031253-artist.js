@@ -14,15 +14,15 @@ module.exports = {
      await queryInterface.bulkInsert('Artists', [
       {
         name:'DEMOMEN',
-        totalSongs: 10,
-        totalAblums: 1,
+        totalSongs: 3,
+        totalAlbums: 1,
         previewImage: 'some link herer',
         userId: 1
       },
       {
         name:'Alpha-Bet',
-        totalSongs: 10,
-        totalAblums: 1,
+        totalSongs: 2,
+        totalAlbums: 1,
         previewImage: 'some link herer',
         userId: 2
       }

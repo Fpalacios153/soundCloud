@@ -72,7 +72,8 @@ router.post('/',validateAlbums,requireAuth,async (req,res)=>{
         const newArtists = await Artist.create({
             name: req.user.username,
             userId: req.user.id,
-            previewImage: 'image url'
+            previewImage: 'image url',
+            isArtist: true
         })
         console.log(newArtists)
         const newAlbum = await newArtists.createAlbum({
@@ -80,7 +81,7 @@ router.post('/',validateAlbums,requireAuth,async (req,res)=>{
             description,
             previewImage:imageUrl
         })
-        res.json(newAlbum)
+        return res.json(newAlbum)
     }
     const newAlbum = await getArtist.createAlbum({
         // artistId :getArtist.id,

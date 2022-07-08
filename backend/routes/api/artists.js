@@ -69,7 +69,7 @@ router.get('/:artistId', async(req,res)=>{
 
     const artist = await Artist.findByPk(artistId,{
         attributes:[
-            "name","totalSongs","totalAlbums","previewImage"
+            'id',"name","totalSongs","totalAlbums","previewImage"
         ]
      });
      const totalSongs = await Song.count({

@@ -59,9 +59,7 @@ router.get('/:artistId/songs', async(req, res)=>{
           })
     }
 
-    const allSongs = await artist.getSongs({
-
-    })
+    const allSongs = await artist.getSongs()
     return res.json({Songs:allSongs})
 })
 

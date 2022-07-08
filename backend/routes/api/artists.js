@@ -2,9 +2,30 @@ const express = require('express')
 
 const {Song} = require('../../db/models');
 const {Artist} = require('../../db/models');
-const {Album} = require('../../db/models');
+const {Playlist} = require('../../db/models');
 
 const router = express.Router();
+
+
+router.get('/:artistId/playlists', async(req,res)=>{
+    let{artistId} = req.params;
+
+    const artist = await Artist.findByPk(artistId);
+    if(!artist){
+        res.status(404);
+        return res.json({
+            "message": "Artist couldn't be found",
+            "statusCode": 404
+          })
+    }
+    const playlist = await Playlist.findAll({
+        where:{
+            userId: artist.userId
+        }
+    })
+    res.json({Playlists:playlist})
+
+})
 
 router.get('/:artistId/albums', async(req, res)=>{
     let {artistId} = req.params;

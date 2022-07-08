@@ -28,6 +28,11 @@ module.exports = (sequelize, DataTypes) => {
           foreignKey:'songId'
         }
       )
+      Song.belongsToMany(
+        models.Playlist,{
+          through:models.SongsPlaylist
+        }
+      )
     }
   }
   Song.init({
@@ -35,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.STRING
     },
     description: {
-      type:DataTypes.STRING
+      type:DataTypes.STRING,
     },
     url: {
       type:DataTypes.STRING

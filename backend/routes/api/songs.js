@@ -1,7 +1,6 @@
 const express = require('express')
 
 const {Song} = require('../../db/models');
-const {User} = require('../../db/models');
 const {Album} = require('../../db/models');
 const {Artist} = require('../../db/models');
 const {requireAuth, isAuthorized, isAuthorizedSong} = require('../../utils/auth');

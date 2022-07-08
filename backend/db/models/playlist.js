@@ -15,12 +15,14 @@ module.exports = (sequelize, DataTypes) => {
         models.User,
         {foreignKey:'userId'}
       )
+      Playlist.belongsToMany(
+        models.Song,{
+          through:models.SongsPlaylist
+        }
+        )
     }
   }
   Playlist.init({
-    name: {
-      type:DataTypes.STRING
-    },
     userId: {
       type:DataTypes.INTEGER,
       references:{
@@ -28,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
         key:'id'
       }
     },
-    previewImage: {
+    name: {
       type:DataTypes.STRING
     },
     createdAt: {
@@ -38,7 +40,10 @@ module.exports = (sequelize, DataTypes) => {
     updatedAt: {
       allowNull: false,
       type: DataTypes.DATE
-    }
+    },
+    previewImage: {
+      type:DataTypes.STRING
+    },
   }, {
     sequelize,
     modelName: 'Playlist',

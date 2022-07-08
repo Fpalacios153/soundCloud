@@ -72,6 +72,13 @@ router.get('/:artistId', async(req,res)=>{
             'id',"name","totalSongs","totalAlbums","previewImage"
         ]
      });
+     if(!artist){
+         res.status(404)
+         return res.json({
+             message: "Artist couldn't be found",
+             "statusCode": 404
+           })
+     }
      const totalSongs = await Song.count({
         where:{ artistId: artistId}
      })
@@ -82,14 +89,7 @@ router.get('/:artistId', async(req,res)=>{
      })
      artist.totalAlbums = totalAlbums
     //  console.log(totalAlbums)
-    if(!artist){
-        res.status(404)
-        res.json({
-            message: "Artist couldn't be found",
-            "statusCode": 404
-          })
-    }
-    res.json(artist)
+    return res.json(artist)
 })
 
 

@@ -44,6 +44,7 @@ router.get('/:playlistId', async(req,res)=>{
             "statusCode": 404
         })
     }
+    console.log(playlist)
     res.json(playlist)
 })
 router.post('/:playlistId', requireAuth,isAuthorizedPlaylist, async(req,res)=>{
@@ -61,10 +62,10 @@ if(!song){
       })
 }
 const addSongToPlaylist = await SongsPlaylist.create({
-    SongId: songId,
-    PlaylistId: playlistId
+    songId: songId,
+    playlistId: playlistId
+
 })
-console.log(addSongToPlaylist)
 return res.json(addSongToPlaylist)
 })
 

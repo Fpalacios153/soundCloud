@@ -31,7 +31,7 @@ router.get('/:playlistId', async(req,res)=>{
 
     const playlist = await Playlist.findByPk(playlistId,{
         include: {
-            model:Song
+            model:Song,through:{ attributes:[]}
         }
     })
     if(!playlist){
@@ -43,7 +43,6 @@ router.get('/:playlistId', async(req,res)=>{
     }
     res.json(playlist)
 })
-
 router.post('/:playlistId', requireAuth,isAuthorizedPlaylist, async(req,res)=>{
     let {playlistId} = req.params;
 

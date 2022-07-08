@@ -88,7 +88,6 @@ router.get('/:artistId', async(req,res)=>{
         where:{ artistId: artistId}
      })
      artist.totalAlbums = totalAlbums
-    //  console.log(totalAlbums)
     return res.json(artist)
 })
 

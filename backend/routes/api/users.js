@@ -49,8 +49,6 @@ const validateSignUp =[
 ]
 router.get('/', async(req,res)=>{//delete this
     const users = await User.findAll()
-    console.log(users)
-
     res.json(users)
 })
 

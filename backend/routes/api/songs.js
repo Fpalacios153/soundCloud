@@ -114,13 +114,15 @@ router.get('/:songId', async (req,res)=>{
 
     const validateParams =[
         check('page')
+        .default(value =1)
         .custom((value, { req, }) => {
             if (value < 0) {
                 throw new Error('Page must be greater than or equal to 0')
             } else return value
         }),
         check('size')
-            .custom((value, { req,res }) => {
+        .default(value = 20)
+        .custom((value, { req,res }) => {
                 if (value < 0) {
                     throw new Error('Size must be greater than or equal to 0');
                 }else return value

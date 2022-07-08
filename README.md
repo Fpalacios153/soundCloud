@@ -1163,7 +1163,7 @@ Returns all the playlists created by the specified artist.
 * Require Authentication: false
 * Request
   * Method: GET
-  * URL: api/artists/:artistId/playlist
+  * URL: api/artists/:artistId/playlists
   * Body: none
 
 * Successful Response
@@ -1208,7 +1208,7 @@ Creates and returns a new playlist.
 * Request
 
   * Method: POST
-  * URL: /user/playlist
+  * URL: /api/playlists
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -1261,7 +1261,7 @@ Add a song to a playlist specified by the playlist's id.
 * Require proper authorization: Playlist must belong to the current user
 * Request
   * Method: POST
-  * URL: /playlist/:playlistId/:songId
+  * URL: api/playlists/:playlistId
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -1319,7 +1319,7 @@ Returns the details of a playlist specified by its id.
 * Require Authentication: false
 * Request
   * Method: GET
-  * URL: /playlist/:playlistId
+  * URL: api/playlists/:playlistId
   * Body: none
 
 * Successful Response
@@ -1373,7 +1373,7 @@ Updates and returns an existing playlist.
 * Require proper authorization: Playlist must belong to the current user
 * Request
   * Method: PUT
-  * URL: /user/playlist/:playlistId
+  * URL: /api/playlists/:playlistId
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -1439,7 +1439,7 @@ Deletes an existing playlist.
 * Require proper authorization: Playlist must belong to the current user
 * Request
   * Method: DELETE
-  * URL:  /user/playlist/:playlistId
+  * URL:  /api/playlists/:playlistId
   * Body: none
 
 * Successful Response
@@ -1475,7 +1475,7 @@ Returns all the playlists created by the current user.
 * Require Authentication: true
 * Request
   * Method: GET
-  * URL: /users/playlists
+  * URL: api/playlists/user
   * Body: none
 
 * Successful Response

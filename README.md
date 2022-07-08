@@ -82,10 +82,11 @@ information.
   * Body:
 
     ```json
-    {
-      "email": "john.smith@gmail.com",
-      "password": "secret password"
+      {
+    "credential": "FakeUser1",
+    "password": "password2"
     }
+
     ```
 
 * Successful Response

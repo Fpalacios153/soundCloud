@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      SongsPlaylist.belongsTo(models.Playlist, {foreignKey: 'playlistId', onDelete: 'CASCADE', hooks: true})
     }
   }
   SongsPlaylist.init({
@@ -21,10 +22,20 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER
     },
     songId: {
-      type:DataTypes.INTEGER
+      type:DataTypes.INTEGER,
+      references:{
+        model:'Songs',
+        key: 'id'
+      },
+      onDelete: "CASCADE"
     },
     playlistId: {
-      type:DataTypes.INTEGER
+      type:DataTypes.INTEGER,
+      references:{
+        model:'Playlists',
+        key: 'id'
+      },
+      onDelete: "CASCADE"
     }
   }, {
     sequelize,

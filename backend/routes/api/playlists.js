@@ -96,7 +96,23 @@ router.delete('/:playlistId',requireAuth,isAuthorizedPlaylist,async(req,res)=>{
     let {playlistId} = req.params;
 
 const playlist = await Playlist.findByPk(playlistId);
+// const songlist = await SongsPlaylist.findAll({
+//     where: {
+//         playlistId: playlist.id
+//     }
+// })
+// if(songlist.length){
+//     for (let index = 0; index < songlist.length; index++) {
+//         const element = songlist[index];
+//         await element.destroy()
+//     }
 
+// }
+await SongsPlaylist.destroy({
+    where: {
+        playlistId: playlist.id
+    }
+})
 await playlist.destroy();
 return res.json({
     "message": "Successfully deleted",

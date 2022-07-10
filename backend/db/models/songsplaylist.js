@@ -23,19 +23,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     songId: {
       type:DataTypes.INTEGER,
-      references:{
-        model:'Songs',
-        key: 'id'
-      },
-      onDelete: "CASCADE"
     },
     playlistId: {
       type:DataTypes.INTEGER,
-      references:{
-        model:'Playlists',
-        key: 'id'
-      },
-      onDelete: "CASCADE"
+
     }
   }, {
     sequelize,

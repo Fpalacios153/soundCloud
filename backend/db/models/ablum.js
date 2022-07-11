@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       Album.hasMany(
         models.Song,
         {foreignKey:'albumId'
-        // , onDelete:'cascade',hooks:true
+        , onDelete:'cascade',hooks:true
       }
 
 

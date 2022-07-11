@@ -36,6 +36,20 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Song.init({
+    artistId: {
+      type:DataTypes.INTEGER,
+      references:{
+        model:'Artists',
+        key:'id'
+      }
+    },
+    albumId: {
+      type:DataTypes.INTEGER,
+      references:{
+        model:'Albums',
+        key:'id'
+      }
+    },
     title: {
       type:DataTypes.STRING
     },
@@ -48,20 +62,7 @@ module.exports = (sequelize, DataTypes) => {
     previewImage: {
       type:DataTypes.STRING,
     },
-    albumId: {
-      type:DataTypes.INTEGER,
-      references:{
-        model:'Albums',
-        key:'id'
-      }
-    },
-    artistId: {
-      type:DataTypes.INTEGER,
-      references:{
-        model:'Artists',
-        key:'id'
-      }
-    }
+
   }, {
     sequelize,
     modelName: 'Song',

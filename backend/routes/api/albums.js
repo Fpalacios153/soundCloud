@@ -72,8 +72,7 @@ router.post('/',validateAlbums,requireAuth,async (req,res)=>{
         const newArtists = await Artist.create({
             name: req.user.username,
             userId: req.user.id,
-            previewImage: 'image url',
-            isArtist: true
+            previewImage: 'image url'
         })
         console.log(newArtists)
         const newAlbum = await newArtists.createAlbum({

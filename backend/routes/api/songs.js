@@ -25,16 +25,22 @@ const validateSongs =[
 router.get('/user', requireAuth, async(req,res)=>{
     const {user} = req;
 
-    if(user) {
         const artist = await Artist.findOne({
             where: {
                 userId : req.user.id
-            }}
-            )
-            const songs = await artist.getSongs();
-            return res.json({Songs: songs})
+            }
+        })
+        if(!artist){
+            res.status(404)
+            return res.json({
+                "message": "User does not have any songs",
+                "statusCode": 404
+              })
         }
-    })
+        const songs = await artist.getSongs();
+        return res.json({Songs: songs})
+
+})
 
 router.get('/:songId', async (req,res)=>{
         let {songId}= req.params

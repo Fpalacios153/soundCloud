@@ -24,7 +24,7 @@ router.get('/user',requireAuth, async(req,res)=>{
             userId: id
         }
     })
-    res.json(usersPlaylist)
+    res.json({Playlists: usersPlaylist})
 })
 router.get('/:playlistId', async(req,res)=>{
     let {playlistId} = req.params
@@ -41,7 +41,7 @@ router.get('/:playlistId', async(req,res)=>{
             "statusCode": 404
         })
     }
-    res.json(playlist)
+    return res.json({playlist})
 })
 router.post('/:playlistId', requireAuth,isAuthorizedPlaylist, async(req,res)=>{
     let {playlistId} = req.params;

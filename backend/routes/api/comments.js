@@ -34,7 +34,7 @@ router.get('/:songId',async(req, res)=>{
             attributes:['id','username']
         }
     })
-    res.json(commentsBySongId)
+    res.json({Comments:commentsBySongId})
 
 });
 router.get('/',async(req,res)=>{

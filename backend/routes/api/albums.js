@@ -21,15 +21,21 @@ const validateAlbums =[
 router.get('/user', requireAuth,async (req,res)=>{
     const {user} = req;
 
-    if(user) {
         const artist = await Artist.findOne({
          where: {
             userId : req.user.id
          }
         });
+        if(!artist){
+            res.status(404);
+            return res.json({
+                "message": "User does not have any albums",
+                "statusCode": 404
+              })
+        }
         const albums = await artist.getAlbums();
         return res.json({Albums: albums})
-    }
+
 })
 router.get('/:albumId',async(req,res)=>{
     let {albumId} = req.params

@@ -10,7 +10,7 @@ function SignupModal() {
       <button onClick={() => setShowModal(true)}>Sign Up</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <SignupForm />
+          <SignupForm path='/signup' />
         </Modal>
       )}
     </>

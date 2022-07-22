@@ -25,9 +25,9 @@ router.use('/artists',artistsRouter)
 router.use('/playlists',playlistsRouter)
 
 
-router.post('/test', function(req, res) {
-    res.json({ requestBody: req.body });
-  });
+// router.post('/test', function(req, res) {
+//     res.json({ requestBody: req.body });
+//   });
 
 
 

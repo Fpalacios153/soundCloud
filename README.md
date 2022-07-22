@@ -1,5 +1,7 @@
 # SoundCloud Clone
+## Database Schema
 
+<img width="1004" alt="Screen Shot 2022-07-22 at 1 58 13 PM" src="https://user-images.githubusercontent.com/101391912/180578801-d2fbfc52-1a1b-4f5a-8f65-862214a2d613.png">
 
 ## API Documentation
 

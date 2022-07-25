@@ -38,7 +38,7 @@ router.get('/user', requireAuth, async(req,res)=>{
               })
         }
         const songs = await artist.getSongs();
-        return res.json({Songs: songs})
+        return res.json(songs)
 
 })
 

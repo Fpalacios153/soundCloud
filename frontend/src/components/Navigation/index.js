@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 
-import SongBrowser from '../SongsFeature/index';
+import SongBrowser from '../GetSongs/index';
 import {HomePage }from '../HomePage';
 import './Navigation.css';
 

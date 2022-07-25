@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Route, Switch } from 'react-router-dom'
+import SongView from '../SongsView'
 
 
 import { getSongs } from '../../store/songs'
@@ -11,6 +12,7 @@ import { getSongs } from '../../store/songs'
 const SongBrowser = () => {
     const dispatch =useDispatch()
     const song = useSelector(state => Object.values(state.songs))
+
 
     useEffect(()=> {
      dispatch(getSongs())
@@ -26,7 +28,6 @@ const SongBrowser = () => {
             <NavLink to={`/api/songs/${song.id}`} key={song.id}>{song.title}</NavLink>
             </li>))}
         </ul>
-
     </div>)
 }
 

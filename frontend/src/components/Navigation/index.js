@@ -2,8 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
-import LoginFormModal from '../LoginFormModal';
-import SignupFormModal from '../SignupFormModal';
+
+import SongBrowser from '../SongsFeature/index';
+import {HomePage }from '../HomePage';
 import './Navigation.css';
 
 function Navigation({ isLoaded }){
@@ -13,21 +14,21 @@ function Navigation({ isLoaded }){
   if (sessionUser) {
     sessionLinks = (
       <>
+      {/* <nav className='signedInNav'>
+        <h1 className='logo'></h1>
+        <h1>CloudSounds</h1> */}
       <NavLink exact to="/">Home</NavLink>
       <ProfileButton user={sessionUser} />
+      {/* </nav> */}
+
+      <SongBrowser />
       </>
     );
   } else {
+
     sessionLinks = (
-      <div className='topPart'>
-      <div className='nav'>
-      <h1 className='logo'>CloudSound</h1>
-      <div className='leftNav'>
-        <LoginFormModal />
-        <SignupFormModal />
-      </div>
-      </div>
-      </div>
+      <HomePage />
+
     );
   }
   return (

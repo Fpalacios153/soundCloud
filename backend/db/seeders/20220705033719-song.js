@@ -14,21 +14,21 @@ module.exports = {
     title:'Its Demo Time',
     description:'This is a bad song',
     url: 'link to song',
-    previewImage:'link to image',
+    previewImage:'https://images.pexels.com/photos/1238864/pexels-photo-1238864.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     albumId: 1,
     artistId: 1
    },{
     title:'Risky Business',
     description:'This is a bad song too',
     url: 'link to song',
-    previewImage:'link to image',
+    previewImage:'https://images.pexels.com/photos/5352939/pexels-photo-5352939.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     albumId: 1,
     artistId: 1
    },{
     title:'Cant believe its not DEMO',
     description:'This is a bad song also',
     url: 'link to song',
-    previewImage:'link to image',
+    previewImage:'https://images.pexels.com/photos/2327065/pexels-photo-2327065.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     albumId: 1,
     artistId: 1
    },
@@ -36,14 +36,21 @@ module.exports = {
     title:'ABCDEFG',
     description:'This is a bad song too',
     url: 'link to song',
-    previewImage:'link to image',
+    previewImage:'https://images.pexels.com/photos/1337374/pexels-photo-1337374.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     albumId: 2,
     artistId: 2
    },{
     title:'Hooked on Phonixxx',
     description:'This is a bad song too',
     url: 'link to song',
-    previewImage:'link to image',
+    previewImage:'https://images.pexels.com/photos/1337374/pexels-photo-1337374.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    albumId: 2,
+    artistId: 2
+   },{
+    title:'Another One',
+    description:'This is a bad song too',
+    url: 'link to song',
+    previewImage:'https://images.pexels.com/photos/12896240/pexels-photo-12896240.jpeg',
     albumId: 2,
     artistId: 2
    },

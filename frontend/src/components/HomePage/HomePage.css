@@ -1,0 +1,82 @@
+
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    margin-right: 10px;
+}
+.leftNav {
+    justify-content: flex-end;
+    margin-top: 8px;
+    right: 30px;
+}
+
+.logo {
+    background-size: 115px 22px;
+    position: absolute;
+    top: 13px;
+    left: 19px;
+    background: transparent url(https://a-v2.sndcdn.com/assets/images/peace-cloud-28ad0963.svg) no-repeat 12px 11px;
+    background-size: 48px 22px;
+    display: block;
+    width: 184px;
+    height: 46px;
+    margin: 0;
+    text-indent: -999em;
+}
+h1 {
+position: absolute;
+  left: 1px;
+  top: 6px;
+  font-size: x-large;
+  padding-left: 80px;
+  padding-bottom: px;
+  content: 'CLoudSounds';
+  color: white;
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  /* background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHMAAAAWCAQAAABZc2uEAAADSUlEQVR4Ae3VbWiVZRgH8Gtrp6aZ017UiSMy06zQLyORYpCEiSl+yMSgIEpdGgjZgl5MLDItkSIbRZwEZfQCRSUppKhpINGw0vyS+Uk0tZSM4+pMt/2CeLihneOOFPRBzvX/sHNf983N9XueBxb/X1WrWtWqVrVc7XmbfeI5N4uU2dpts9701LlDXltarZN3gxAelfdQ1r1WXrsQJsv/nbUWu1FI0WSFzd5xv6tEumGW6JfxVtmiw+NyFSZ4S15euzbThJCSfhjtGIA/LBRCrQ0AeC07+TB2iizHMUUIm1B0qxDGoit7TACcs05kudspAF+rTzcs74ec5yyATqMGnKAIgN3GlGOuw2GtFtmh25x0XZ92j/gA3FuRSafLSpg/e9Jqe0CrEIY6iW8sttIZvVqVZ45UwB6LvKgLGysy11iuQze2l2N+ig4h1JiY9Q7jBZFG2Ksyk2dLmPuzs6/glBCewYnsHTYbL5RnrsZ+demmPk0VmBOEcLteTCtlLgedVhqXdYZAevVTUajI/BzdblOe2QAahY/TQ00py9yKZWl1FDMuihm+wNJSZn32qmG3ccIk9KjJ9keB6yowl9mEfcaVZYbTaBH2Y6HKzB9xX1p9hSUXyXwb6/sxs4zQZqdefCeMAQ3Z3gSclxPmZ/sh1ClgUhqyzXDH8GZZZk4Pxgo78arKzL1YkFYHMK/8BCXMj/B0OWZd9ncOGK5GF+Zm3cdwSAjN6DNCCC1giMQUZqK3LPNBnFGTPev0KRtyQeZGfJj+F3Rj8gATJKYRfsf0UuZ8x8w1SE4relwhvIsjpqjV4iRWCOFKv+F1l5tsBw6IfzDDBpCYDhrmFk8o4GUh3AmeMtj1djlqRrphjZFZrhHuQa8l6o22Dd+rHWCCIpo1me0gflDfn5nzJehRBO8LodEpcB78ZHB2einoBswsYTY4gsQEwPb0zbwHesBpN6UbAPhWCJ+Rzp1z14ATFAHwq4lCYiaotQ7pQ5c3DM26Y2zxJwo6DBMpCxwHh80SJcwwvYR53C4PqEmna61wAmdtNVVckFnnJb+gR6fmChMUQcE+qzSIEmbKcI3SKFnqNKkVJRmZ4P8+jXJC5Yw26L9MEC6lVJmXTqrMvwBTThqYRlj40wAAAABJRU5ErkJggg==) no-repeat 60px 11px; */
+  background-size: 115px 22px;
+}
+
+ .topPart {
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    border-top: 4px solid #f50;
+    background-color: black;
+    height: 450px;
+    -webkit-font-smoothing: antialiased;
+  }
+.upload {
+    background-color: #f50;
+    border-color: #f50;
+    color: #fff;
+    padding: 13px 23px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 18px;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    text-align: center;
+    cursor: pointer;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    padding: 45px;
+}
+
+.titleTrending{
+    font-size: 24px;
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom: 30px;
+    font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+
+
+}

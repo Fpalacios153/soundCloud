@@ -1,5 +1,16 @@
 
-.nav {
+/* .signedInNav {
+    display: flex;
+    flex-direction: row;
+justify-content: space-around;
+    background-color: darkslategray;
+    /* height: 55px; */
+/* } */
+
+
+
+
+/* .nav {
     display: flex;
     justify-content: flex-end;
     flex-direction: row;
@@ -43,4 +54,4 @@
     background-color: black;
     height: 450px;
     -webkit-font-smoothing: antialiased;
-  }
+  } */

@@ -12,25 +12,29 @@ function Navigation({ isLoaded }){
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
+      <>
+      <NavLink exact to="/">Home</NavLink>
       <ProfileButton user={sessionUser} />
+      </>
     );
   } else {
     sessionLinks = (
-      <>
+      <div className='topPart'>
+      <div className='nav'>
+      <h1 className='logo'>CloudSound</h1>
+      <div className='leftNav'>
         <LoginFormModal />
         <SignupFormModal />
-      </>
+      </div>
+      </div>
+      </div>
     );
   }
-
   return (
-    <ul>
-      <li className='homeLi'>
-        <NavLink exact to="/">Home</NavLink>
-        {isLoaded && sessionLinks}
-      </li>
-    </ul>
-  );
+    <>
+       {isLoaded && sessionLinks}
+    </>
+    );
 }
 
 export default Navigation;

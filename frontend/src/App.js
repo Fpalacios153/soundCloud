@@ -5,6 +5,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import SongView from "./components/GetOneSong";
 import SongBrowser from "./components/GetSongs";
+import UsersSongs from './components/CurrentUsersSongs'
 import { CreateSongg } from "./components/CreateSong";
 
 function App() {
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route path='/api/songs/:songId'>
             <SongView />
+          </Route>
+          <Route path='/you/libary'>
+            <UsersSongs />
           </Route>
         </Switch>
       )}

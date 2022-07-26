@@ -1,31 +1,30 @@
 import React, {useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-
-
-import { getSongs } from '../../store/songs'
-
+import { getSongByCurrentUser} from '../../store/songs'
 
 
 
-const SongBrowser = () => {
-    const dispatch =useDispatch()
-    const song = useSelector(state => Object.values(state.songs))
-    useEffect(()=> {
-     dispatch(getSongs())
+export default function   UsersSongs() {
+    const dispatch = useDispatch()
+    const songs = useSelector(state => Object.values(state.songs))
 
-    }, [dispatch])
+    useEffect(()=>{
+        dispatch(getSongByCurrentUser())
+    },[dispatch])
     return (
+    <>
     <div>
         <ul>
-            {song.map(song=> (
+            {songs.map(song=> (
             <li key={song.id}>
             <NavLink to={`/api/songs/${song.id}`} key={song.id}
             // style={{backgroundImage: `url(${song.previewImage})`}}
             >{song.title}</NavLink>
             </li>))}
         </ul>
-    </div>)
-}
+    </div>
+    </>
+    )
 
-export default SongBrowser
+}

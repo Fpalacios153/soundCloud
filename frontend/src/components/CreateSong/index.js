@@ -12,6 +12,10 @@ export const CreateSongg =() => {
     const [description, setDescription] = useState('')
     const [imageUrl, setPreviewImage]= useState('')
     const [url, setSelectedFile] = useState(null)
+    const {albumId} =useParams()
+
+    const user = useSelector(state => state.session.user)
+    // console.log('this is ', user)
 
 const handleSubmit = async (e) =>{
     e.preventDefault();
@@ -23,7 +27,7 @@ const handleSubmit = async (e) =>{
         url
     }
 
-    dispatch(createSong(song))
+    dispatch(createSong(song, albumId))
 }
 
 
@@ -58,9 +62,6 @@ const handleCancelClick = (e) => {
             type='text'
             value={imageUrl}
             onChange={(e)=> setPreviewImage(e.target.value)}
-            // type='file'
-            // value={image}
-            // onChange={(e)=> setImage(e.target.files[0])}
             />
         </label>
         <label>
@@ -70,9 +71,6 @@ const handleCancelClick = (e) => {
             type='text'
             value={url}
             onChange={(e)=> setSelectedFile(e.target.value)}
-            // type='file'
-            // value={selectedFile}
-            // onChange={(e)=> setSelectedFile(e.target.files[0])}
             />
         </label>
         <button type="submit">Save</button>

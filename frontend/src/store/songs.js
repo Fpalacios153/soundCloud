@@ -3,6 +3,7 @@ import { csrfFetch } from './csrf';
 
 const LOAD_SONGS = 'songs/loadSongs'
 const GET_ONE_SONG ='songs/getOne'
+const CURRENT_USER_SONG = 'songs/currentUserSong'
 const CREATE_SONGS ='songs/createSongs'
 
 
@@ -13,6 +14,10 @@ const loadS = songs => ({
 const oneSong = song => ({
     type: GET_ONE_SONG,
     song
+})
+const currUserSongs = songs => ({
+    type: CURRENT_USER_SONG,
+    songs
 })
 const create = songs => ({
     type: CREATE_SONGS,
@@ -38,17 +43,18 @@ export const getOneSong =  (song) => async dispatch =>{
         dispatch(oneSong(song))
     }
   };
-// export const getSongByCurrentUser =(songs) => async dispatch => {
-//     const response = await csrfFetch(`/api/songs/user`)
+export const getSongByCurrentUser =() => async dispatch => {
+    const response = await csrfFetch(`/api/songs/user`)
 
-//     if(response.ok){
-//         const songs = await(songs)
-//         dispatch()
-//     }
-// }
+    if(response.ok){
+        const songs = await(response.json())
+        dispatch(currUserSongs(songs))
+    }
+}
 
-export const createSong = (song) => async dispatch => {
-    const response = await csrfFetch(`/api/songs/${2}`, {
+export const createSong = (song, albumId) => async dispatch => {
+    console.log(albumId)
+    const response = await csrfFetch(`/api/songs/${2}`, { ////come back to this!!!
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(song)
@@ -73,6 +79,15 @@ const songReducer = (state = initialState, action) =>{
         return {...state,
             ...allSongs,
         }
+        case CURRENT_USER_SONG:
+            const UsersSongs = {};
+            action.songs.forEach(song => {
+                UsersSongs[song.id] = song
+            });
+            return {
+                ...UsersSongs,
+            }
+
         case GET_ONE_SONG:
             newState = {...state}
             newState[action.song.id] = action.song

@@ -57,10 +57,10 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.STRING,
     },
     url: {
-      type:DataTypes.STRING
+      type:DataTypes.BLOB("long")
     },
     previewImage: {
-      type:DataTypes.STRING,
+      type:DataTypes.BLOB("long"),
     },
 
   }, {

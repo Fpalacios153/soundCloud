@@ -6,6 +6,7 @@ import ProfileButton from './ProfileButton';
 import SongBrowser from '../GetSongs/index';
 import {HomePage }from '../HomePage';
 import './Navigation.css';
+import { CreateSongg } from '../CreateSong';
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
@@ -14,14 +15,14 @@ function Navigation({ isLoaded }){
   if (sessionUser) {
     sessionLinks = (
       <>
-      {/* <nav className='signedInNav'>
-        <h1 className='logo'></h1>
-        <h1>CloudSounds</h1> */}
-      <NavLink exact to="/">Home</NavLink>
+      <nav className='mainNav'>
+      <NavLink to='/'><h1 className='logo'></h1></NavLink>
+      <NavLink exact to="/discover">Home</NavLink>
+      <NavLink  to="/songs">Songs</NavLink>
+      <NavLink to='you/libary'>Library</NavLink>
+      <NavLink to='/upload'>Upload</NavLink>
       <ProfileButton user={sessionUser} />
-      {/* </nav> */}
-
-      <SongBrowser />
+      </nav>
       </>
     );
   } else {
@@ -29,10 +30,10 @@ function Navigation({ isLoaded }){
     sessionLinks = (
       <HomePage />
 
-    );
-  }
-  return (
-    <>
+      );
+    }
+    return (
+      <>
        {isLoaded && sessionLinks}
     </>
     );

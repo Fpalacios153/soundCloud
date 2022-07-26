@@ -3,7 +3,9 @@ import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import SongsView from "./components/SongsView";
+import SongView from "./components/GetOneSong";
+import SongBrowser from "./components/GetSongs";
+import { CreateSongg } from "./components/CreateSong";
 
 function App() {
   const dispatch = useDispatch();
@@ -17,8 +19,14 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          <Route path='/upload'>
+            <CreateSongg />
+          </Route>
+          <Route path='/songs'>
+            <SongBrowser/>
+          </Route>
           <Route path='/api/songs/:songId'>
-            <SongsView />
+            <SongView />
           </Route>
         </Switch>
       )}

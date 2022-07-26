@@ -69,7 +69,7 @@ router.get('/:songId', async (req,res)=>{
     router.post('/:albumId',validateSongs, requireAuth, isAuthorized,async(req, res)=>{
 
         let {albumId} = req.params
-        let {title, description, url, imageUrl}= req.body
+        let {title, description, imageUrl, url}= req.body
 
         const album = await Album.findByPk(albumId);
         const artist = album.artistId

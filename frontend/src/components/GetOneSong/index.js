@@ -17,7 +17,9 @@ function SongView() {
     return (
         <>
         {song && song.Artist && (<div>
-        <div className="song-nav" style={{backgroundImage: `url('${song.previewImage}')`}} alt='songPic'>
+        <div className="song-nav"
+        style={{backgroundImage: `url('${song.previewImage}')`}}
+        alt='songPic'>
         <h2>{song.title}</h2>
         <h3>{song.Artist.name}</h3>
         <h4>{song.Album.title}</h4>

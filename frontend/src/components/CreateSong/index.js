@@ -10,8 +10,8 @@ export const CreateSongg =() => {
     const history = useHistory()
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
-    const [image, setImage]= useState(null)
-    const [selectedFile, setSelectedFile] = useState(null)
+    const [imageUrl, setPreviewImage]= useState('')
+    const [url, setSelectedFile] = useState(null)
 
 const handleSubmit = async (e) =>{
     e.preventDefault();
@@ -19,8 +19,8 @@ const handleSubmit = async (e) =>{
     const song = {
         title,
         description,
-        image,
-        selectedFile
+        imageUrl,
+        url
     }
 
     dispatch(createSong(song))
@@ -51,22 +51,28 @@ const handleCancelClick = (e) => {
             onChange={(e)=> setDescription(e.target.value)}
             />
         </label>
-        <button>
+        <label>
             Upload Image
             <input
             className="image"
-            type='file'
-            value={image}
-            onChange={(e)=> setImage(e.target.files[0])}
+            type='text'
+            value={imageUrl}
+            onChange={(e)=> setPreviewImage(e.target.value)}
+            // type='file'
+            // value={image}
+            // onChange={(e)=> setImage(e.target.files[0])}
             />
-        </button>
+        </label>
         <label>
             Upload a file
             <input
             className="audio"
-            type='file'
-            value={selectedFile}
-            onChange={(e)=> setSelectedFile(e.target.files[0])}
+            type='text'
+            value={url}
+            onChange={(e)=> setSelectedFile(e.target.value)}
+            // type='file'
+            // value={selectedFile}
+            // onChange={(e)=> setSelectedFile(e.target.files[0])}
             />
         </label>
         <button type="submit">Save</button>

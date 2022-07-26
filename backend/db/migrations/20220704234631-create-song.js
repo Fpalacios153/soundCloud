@@ -15,10 +15,10 @@ module.exports = {
         type: Sequelize.STRING
       },
       url: {
-        type: Sequelize.BLOB("long")
+        type: Sequelize.STRING
       },
       previewImage: {
-        type: Sequelize.BLOB('long')
+        type: Sequelize.STRING
       },
       albumId: {
         type: Sequelize.INTEGER,

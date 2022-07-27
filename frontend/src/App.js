@@ -29,7 +29,7 @@ function App() {
           <Route path='/api/songs/:songId'>
             <SongView />
           </Route>
-          <Route path='/you/libary'>
+          <Route path='/you/library'>
             <UsersSongs />
           </Route>
         </Switch>

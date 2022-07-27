@@ -6,6 +6,8 @@ const GET_ONE_SONG ='songs/getOne'
 const CURRENT_USER_SONG = 'songs/currentUserSong'
 const CREATE_SONGS ='songs/createSongs'
 
+const REMOVE_SONG ='songs/removeSong'
+
 
 const loadS = songs => ({
     type: LOAD_SONGS,
@@ -23,9 +25,12 @@ const create = songs => ({
     type: CREATE_SONGS,
     songs
 })
+const remove = song => ({
+    type: REMOVE_SONG,
+    song
+})
 
-
-
+//get all songs
 export const getSongs = () => async dispatch => {
     const response = await csrfFetch(`/api/songs`);
 
@@ -34,7 +39,7 @@ export const getSongs = () => async dispatch => {
       dispatch(loadS(songs));
     }
   };
-
+//get one song
 export const getOneSong =  (song) => async dispatch =>{
     const response = await csrfFetch(`/api/songs/${song.id}`)
 
@@ -43,6 +48,7 @@ export const getOneSong =  (song) => async dispatch =>{
         dispatch(oneSong(song))
     }
   };
+  //get song by current user
 export const getSongByCurrentUser =() => async dispatch => {
     const response = await csrfFetch(`/api/songs/user`)
 
@@ -51,9 +57,8 @@ export const getSongByCurrentUser =() => async dispatch => {
         dispatch(currUserSongs(songs))
     }
 }
-
+//create songs
 export const createSong = (song, albumId) => async dispatch => {
-    console.log(albumId)
     const response = await csrfFetch(`/api/songs/${2}`, { ////come back to this!!!
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -64,7 +69,17 @@ export const createSong = (song, albumId) => async dispatch => {
         dispatch(create(song));
       }
 }
+export const deleteSong =(id) => async dispatch => {
+    const response = await csrfFetch(`/api/songs/${id}`,{
+        method:'DELETE'
+    })
 
+    if(response.ok){
+        const res = await response.json()
+        dispatch(remove(res))
+    }
+
+}
 
 
   const initialState = {}
@@ -87,7 +102,6 @@ const songReducer = (state = initialState, action) =>{
             return {
                 ...UsersSongs,
             }
-
         case GET_ONE_SONG:
             newState = {...state}
             newState[action.song.id] = action.song
@@ -96,6 +110,10 @@ const songReducer = (state = initialState, action) =>{
             newState = {...state}
                 newState[action.song.id] = action.song
             return newState
+        case REMOVE_SONG:
+            newState={...state}
+            delete newState[action.song.id]
+                return newState
         default:
             return state;
     }

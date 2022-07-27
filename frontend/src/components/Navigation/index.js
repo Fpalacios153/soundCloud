@@ -12,14 +12,17 @@ function Navigation({ isLoaded }){
   if (sessionUser) {
     sessionLinks = (
       <>
+      <header className='mainHeader'>
+
       <nav className='mainNav'>
-      <NavLink to='/'><h1 className='logo'></h1></NavLink>
+      <NavLink to='/'><h1 className='navLogo'></h1></NavLink>
       <NavLink exact to="/discover">Home</NavLink>
       <NavLink  to="/songs">Songs</NavLink>
-      <NavLink to='/you/libary'>Library</NavLink>
+      <NavLink to='/you/library'>Library</NavLink>
       <NavLink to='/upload'>Upload</NavLink>
       <ProfileButton user={sessionUser} />
       </nav>
+      </header>
       </>
     );
   } else {

@@ -11,12 +11,10 @@ export const CreateSongg =() => {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [imageUrl, setPreviewImage]= useState('')
-    const [url, setSelectedFile] = useState(null)
+    const [url, setSelectedFile] = useState('')
     const {albumId} =useParams()
 
-    const user = useSelector(state => state.session.user)
-    // console.log('this is ', user)
-
+    // const user = useSelector(state => state.session.user)
 const handleSubmit = async (e) =>{
     e.preventDefault();
 

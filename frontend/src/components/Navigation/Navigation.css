@@ -1,6 +1,6 @@
 
 nav {
-    width: 100%;
+    /* width: 100%; */
     height: 50px;
     display: flex;
     justify-content: space-around;
@@ -20,13 +20,33 @@ nav a {
     text-decoration: none;
     color: #999;
     margin: 20px;
-    padding: 10px;
+    padding: 0px 10px;
   }
-.mainNav:hover {
+  nav a:hover {
     color: white;
+
+  }
+.mainHeader {
+  color: #999;
+  /* margin-top: -8px;
+  margin-left: -8px;
+  margin-right: -8px; */
 }
 
+.navLogo {
+  background-size: 115px 22px;
+  /* position: absolute; */
+  top: 8px;
+  left: 19px;
+  background: transparent url(https://a-v2.sndcdn.com/assets/images/peace-cloud-28ad0963.svg) no-repeat 12px 11px;
+  background-size: 48px 22px;
+  /* display: block; */
+  width: 35px;
+  height: 50px;
+  margin: 0;
+  text-indent: -999em;
 
+}
 /* .nav {
     display: flex;
     justify-content: flex-end;

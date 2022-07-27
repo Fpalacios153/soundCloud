@@ -16,7 +16,7 @@ export default function   UsersSongs() {
     <>
     <div>
         <ul>
-            {songs.map(song=> (
+            {songs.length > 0 && songs.map(song=> (
             <li key={song.id}>
             <NavLink to={`/api/songs/${song.id}`} key={song.id}
             // style={{backgroundImage: `url(${song.previewImage})`}}

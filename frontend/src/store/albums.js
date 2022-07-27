@@ -110,12 +110,12 @@ const albumReducer = (state = initialState, action) => {
             ...allAlbums
         }
         case CURRENT_USER_ALBUM:
-            return {...state.albums,...action.albums}
-        // const usersAlbums = {};
-        // action.albums.forEach(album => {
-        // usersAlbums[album.id] = action.albums
-        // })
-        // return {...usersAlbums}
+            // return {...state.albums,...action.albums}
+        const usersAlbums = {};
+        action.albums.forEach(album => {
+        usersAlbums[album.id] = album
+        })
+        return {...usersAlbums}
         case GET_ONE_ALBUM:
             newState = {...state}
             newState[action.album.id] = action.album

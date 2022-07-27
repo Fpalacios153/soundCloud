@@ -1,41 +1,37 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { editSong } from "../../store/songs";
+import {editAlbum} from '../../store/albums'
 
 
 
-export const EditSong =() => {
+const EditAlbum =() => {
+    const {albumId} = useParams()
+    const album = useSelector(state => state.albums[Number(albumId)])
     const dispatch = useDispatch()
     const history = useHistory()
-    const {songId} = useParams()
-    const song = useSelector(state => state.songs[Number(songId)])
+    const [title, setTitle] = useState(album.title)
+    const [description, setDescription] = useState(album.description)
+    const [imageUrl, setPreviewImage]= useState(album.previewImage)
 
-
-    const [title, setTitle] = useState(song.title)
-    const [description, setDescription] = useState(song.description)
-    const [imageUrl, setPreviewImage]= useState(song.previewImage)
-    const [url, setSelectedFile] = useState(song.url)
-
-    // const user = useSelector(state => state.session.user)
 const handleSubmit = async (e) =>{
     e.preventDefault();
 
-    const song = {
+    const album = {
         title,
         description,
         imageUrl,
-        url
+
     }
 
-    dispatch(editSong(song, songId))
+    dispatch(editAlbum(album,albumId))
     history.push(`/you/library`)
+
 }
 
 
 const handleCancelClick = (e) => {
-    // e.preventDefault();
-    // history.push(`/api/song/${songId}`)
+    e.preventDefault();
   };
     return(
     <>
@@ -53,7 +49,7 @@ const handleCancelClick = (e) => {
             Description
             <input
             type='text'
-            placeholder="Describe your track"
+            placeholder="Describe your album"
             value={description}
             onChange={(e)=> setDescription(e.target.value)}
             />
@@ -61,24 +57,17 @@ const handleCancelClick = (e) => {
         <label>
             Upload Image
             <input
-            className="image"
+            className="Album Cover"
             type='text'
             value={imageUrl}
             onChange={(e)=> setPreviewImage(e.target.value)}
             />
         </label>
-        <label>
-            Upload a file
-            <input
-            className="audio"
-            type='text'
-            value={url}
-            onChange={(e)=> setSelectedFile(e.target.value)}
-            />
-        </label>
         <button type="submit">Save</button>
-        <button  type="button" onClick={handleCancelClick}>Cancel</button>
+        <button onClick={handleCancelClick} type="button">Cancel</button>
     </form>
     </>
     )
 }
+
+export default EditAlbum

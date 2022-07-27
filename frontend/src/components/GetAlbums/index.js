@@ -14,7 +14,9 @@ const AlbumBrowser =() =>{
         dispatch(getAlbums())
     }, [dispatch]);
 
+
     return (
+        <>
         <div>
             {albums.map(album => (
                 <ul>
@@ -24,6 +26,7 @@ const AlbumBrowser =() =>{
                 </ul>
             ))}
         </div>
+        </>
 
     )
 }

@@ -8,6 +8,7 @@ import SongBrowser from "./components/GetSongs";
 import UsersSongs from './components/CurrentUsersSongs'
 import { CreateSongg } from "./components/CreateSong";
 import AlbumBrowser from "./components/GetAlbums";
+import AlbumView from "./components/GetOneAlbum";
 
 function App() {
   const dispatch = useDispatch();
@@ -24,17 +25,20 @@ function App() {
           <Route path='/discover'>
             <AlbumBrowser />
           </Route>
-          <Route path='/upload'>
-            <CreateSongg />
+          <Route path='/api/albums/:albumId'>
+            <AlbumView/>
           </Route>
           <Route path='/songs'>
             <SongBrowser/>
           </Route>
+          <Route path='/you/library'>
+            <UsersSongs />
+          </Route>
           <Route path='/api/songs/:songId'>
             <SongView />
           </Route>
-          <Route path='/you/library'>
-            <UsersSongs />
+          <Route path='/upload'>
+            <CreateSongg />
           </Route>
         </Switch>
       )}

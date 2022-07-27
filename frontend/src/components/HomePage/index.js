@@ -9,7 +9,7 @@ export const  HomePage = () =>{
         <div className='topPart'>
             <div className='nav'>
                 <h1 className='logo'>m</h1>
-                <h1>CloudSounds</h1>
+                <h1 className='logoWords'>CloudSounds</h1>
                     <div className='leftNav'>
                         <LoginFormModal />
                         <SignupFormModal />

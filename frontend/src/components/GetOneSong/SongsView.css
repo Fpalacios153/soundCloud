@@ -4,4 +4,8 @@ img {
 }
 .song-nav {
     color: white;
+    width:auto;
+    height: 450px;
+    background-size:cover;
+
 }

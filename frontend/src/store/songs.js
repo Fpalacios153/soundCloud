@@ -5,7 +5,6 @@ const LOAD_SONGS = 'songs/loadSongs'
 const GET_ONE_SONG ='songs/getOne'
 const CURRENT_USER_SONG = 'songs/currentUserSong'
 const CREATE_SONGS ='songs/createSongs'
-
 const REMOVE_SONG ='songs/removeSong'
 
 
@@ -68,6 +67,21 @@ export const createSong = (song, albumId) => async dispatch => {
         const song = await response.json();
         dispatch(create(song));
       }
+}
+//Edit a song
+export const editSong = (song, songId) => async dispatch => {
+    const response = await csrfFetch(`/api/songs/${songId}`, {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(song)
+    })
+    if (response.ok) {
+        const song = await response.json();
+        dispatch(create(song));
+        return song
+      }
+      return response
+
 }
 export const deleteSong =(id) => async dispatch => {
     const response = await csrfFetch(`/api/songs/${id}`,{

@@ -4,6 +4,7 @@ import './SongsView.css'
 import { useEffect  } from "react";
 import { getOneSong } from "../../store/songs";
 import { deleteSong } from "../../store/songs";
+import EditModal from "../EditModel";
 
 
 
@@ -21,9 +22,7 @@ function SongView() {
         e.preventDefault();
         dispatch(deleteSong(song.id))
         history.push('/you/library')
-
          };
-
     return (
         <>
         {song && song.Artist && (<div>
@@ -39,7 +38,8 @@ function SongView() {
         </div>)
         }
         <button onClick={songDelete}>Delete</button>
-        </>
+        <EditModal />
+            </>
 
     )
 }

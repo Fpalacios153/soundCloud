@@ -8,7 +8,7 @@ export const  HomePage = () =>{
         <>
         <div className='topPart'>
             <div className='nav'>
-                <h1 className='logo'></h1>
+                <h1 className='logo'>m</h1>
                 <h1>CloudSounds</h1>
                     <div className='leftNav'>
                         <LoginFormModal />
@@ -23,9 +23,6 @@ export const  HomePage = () =>{
             <div className='titleTrending'>
             Hear what’s trending for free in the CloudSounds community
             </div>
-
-
-
         </div>
         </>
 

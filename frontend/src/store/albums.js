@@ -9,7 +9,7 @@ const load = albums =>({
 })
 
 export const getAlbums = () => async dispatch => {
-    const response = await csrfFetch('/api/album')
+    const response = await csrfFetch('/api/albums')
 
     if(response.ok){
         const albums = await response.json();
@@ -18,7 +18,6 @@ export const getAlbums = () => async dispatch => {
 }
 
 const initialState = {}
-
 const albumReducer = (state = initialState, action) => {
     let newState;
     switch(action.type){

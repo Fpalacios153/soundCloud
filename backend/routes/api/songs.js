@@ -155,11 +155,11 @@ router.get('/',validateParams ,async (req,res)=>{
 
 
     });
-    return res.json({
-        Songs:songs,
+    return res.json(
+        songs,
         page,
         size
-    })
+    )
 
 })
 

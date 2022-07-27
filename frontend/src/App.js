@@ -7,6 +7,7 @@ import SongView from "./components/GetOneSong";
 import SongBrowser from "./components/GetSongs";
 import UsersSongs from './components/CurrentUsersSongs'
 import { CreateSongg } from "./components/CreateSong";
+import AlbumBrowser from "./components/GetAlbums";
 
 function App() {
   const dispatch = useDispatch();
@@ -20,6 +21,9 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          <Route path='/discover'>
+            <AlbumBrowser />
+          </Route>
           <Route path='/upload'>
             <CreateSongg />
           </Route>

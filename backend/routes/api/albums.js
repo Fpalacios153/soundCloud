@@ -34,7 +34,7 @@ router.get('/user', requireAuth,async (req,res)=>{
               })
         }
         const albums = await artist.getAlbums();
-        return res.json({Albums: albums})
+        return res.json(albums)
 
 })
 router.get('/:albumId',async(req,res)=>{
@@ -61,7 +61,7 @@ router.get('/:albumId',async(req,res)=>{
 router.get('/', async(req, res)=>{
     const albums = await Album.findAll();
 
-    res.json({Albums:albums})
+    res.json(albums)
 })
 
 router.post('/',validateAlbums,requireAuth,async (req,res)=>{

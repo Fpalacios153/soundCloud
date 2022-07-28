@@ -43,6 +43,8 @@ function AlbumView() {
                 </div>
                 <button onClick={Delete}>Delete</button>
                 <EditModal/>
+                <CreateSongModel />
+
             </div>
             )}
 

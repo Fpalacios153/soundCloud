@@ -8,7 +8,7 @@ function CreateSongModel() {
 
   return (
     <>
-      <button className='signup' onClick={() => setShowModal(true)}>Upload Track</button>
+      <button className='createSong' onClick={() => setShowModal(true)}>Upload Track</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <CreateSongg />

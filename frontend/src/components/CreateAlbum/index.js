@@ -11,6 +11,16 @@ const CreateAlbum =() => {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [imageUrl, setPreviewImage]= useState('')
+    const [hasSubmitted, setHasSubmitted] =useState(false)
+    const [validationErrors, setValidationErrors] =useState('')
+
+
+
+    useEffect(()=>{
+        const errors =[]
+        if(title.length ===0) errors.push('Title required')
+        setValidationErrors(errors)
+    },[title])
 
     // const user = useSelector(state => state.session.user)
 const handleSubmit = async (e) =>{
@@ -22,8 +32,11 @@ const handleSubmit = async (e) =>{
         imageUrl,
 
     }
+    if(validationErrors.length) return alert ("You cannot submit")
 
     dispatch(createAlbum(album))
+    setHasSubmitted(false)
+
     history.push(`/you/library`)
 
 }
@@ -35,6 +48,15 @@ const handleCancelClick = (e) => {
     return(
     <>
     <h2>Create Album</h2>
+    {hasSubmitted && validationErrors.length > 0 &&(
+            <div>
+            <ul>
+                {validationErrors.map(error =>(
+                    <li key={error}>{error}</li>
+                ))}
+            </ul>
+        </div>
+    )}
     <form  onSubmit={handleSubmit}>
         <label className='required-field'>
             Title

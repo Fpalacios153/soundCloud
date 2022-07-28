@@ -11,20 +11,32 @@ export const CreateSongg =() => {
     const [description, setDescription] = useState('')
     const [imageUrl, setPreviewImage]= useState('')
     const [url, setSelectedFile] = useState('')
+    const [validationErrors, setValidationErrors] =useState('')
+    const [hasSubmitted, setHasSubmitted] = useState(false)
+
     const {albumId} =useParams()
 
     // const user = useSelector(state => state.session.user)
-const handleSubmit = async (e) =>{
-    e.preventDefault();
 
-    const song = {
-        title,
-        description,
-        imageUrl,
-        url
-    }
 
+    // setValidationErrors(errors)
+    const handleSubmit = async (e) =>{
+        e.preventDefault();
+        setHasSubmitted(true)
+
+        const song = {
+            title,
+            description,
+            imageUrl,
+            url
+        }
+//         if(title.length<0) errors.push('Title required')
+//         if(!url.length) errors.push('Audio file required')
+// if(title.length && url.length){
+//     setValidationErrors([])
+// }
     dispatch(createSong(song, albumId))
+    setHasSubmitted(false)
     history.push(`/you/library`)
 
 }
@@ -35,6 +47,16 @@ const handleCancelClick = (e) => {
   };
     return(
     <>
+    <h2>Upload Song</h2>
+    {/* {hasSubmitted && validationErrors.length > 0 &&(
+            <div>
+            <ul>
+                {validationErrors.map(error =>(
+                    <li key={error}>{error}</li>
+                ))}
+            </ul>
+        </div>
+    )} */}
     <form  onSubmit={handleSubmit}>
         <label className='required-field'>
             Title

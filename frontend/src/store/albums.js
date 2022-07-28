@@ -1,17 +1,17 @@
 import { csrfFetch } from './csrf';
 
-const LOAD_ALBUMS ='albums/loadAlbums'
-const GET_ONE_ALBUM ='albums/getOne'
+const LOAD_ALBUMS = 'albums/loadAlbums'
+const GET_ONE_ALBUM = 'albums/getOne'
 const CURRENT_USER_ALBUM = 'albums/currentUserAlbums'
 
-const CREATE_ALBUM ='albums/create'
+const CREATE_ALBUM = 'albums/create'
 
-const DELETE_ALBUM ='albums/delete'
-
-
+const DELETE_ALBUM = 'albums/delete'
 
 
-const load = albums =>({
+
+
+const load = albums => ({
     type: LOAD_ALBUMS,
     albums
 })
@@ -24,7 +24,7 @@ const currentUserAlbums = albums => ({
     albums
 })
 const create = album => ({
-    type:CREATE_ALBUM,
+    type: CREATE_ALBUM,
     album
 })
 const albumDelete = album => ({
@@ -36,24 +36,24 @@ const albumDelete = album => ({
 export const getAlbums = () => async dispatch => {
     const response = await csrfFetch('/api/albums')
 
-    if(response.ok){
+    if (response.ok) {
         const albums = await response.json();
         dispatch(load(albums))
     }
 }
-export const getOneAlbum = (album) => async dispatch =>{
+export const getOneAlbum = (album) => async dispatch => {
     const response = await csrfFetch(`/api/albums/${album.id}`)
 
-    if(response.ok){
+    if (response.ok) {
         const album = await response.json();
         dispatch(oneAlbum(album))
     }
     return response
 }
-export const getAlbumsByCurrentUser =() =>async dispatch => {
+export const getAlbumsByCurrentUser = () => async dispatch => {
     const response = await csrfFetch('/api/albums/user')
 
-    if(response.ok){
+    if (response.ok) {
         const albums = await response.json()
         dispatch(currentUserAlbums(albums))
     }
@@ -62,12 +62,12 @@ export const getAlbumsByCurrentUser =() =>async dispatch => {
 
 export const createAlbum = (album) => async dispatch => {
     const response = csrfFetch('/api/albums', {
-        method:'POST',
-        headers: {'Content-Type': 'application/json'},
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(album)
     })
 
-    if(response.ok){
+    if (response.ok) {
         const album = await response.json();
         dispatch(create(album))
     }
@@ -75,23 +75,23 @@ export const createAlbum = (album) => async dispatch => {
 export const editAlbum = (album, albumId) => async dispatch => {
     const response = await csrfFetch(`/api/albums/${albumId}`, {
         method: 'PUT',
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(album)
     })
     if (response.ok) {
         const album = await response.json();
         dispatch(create(album));
-      }
-      return response
+    }
+    return response
 
 }
-export const deleteAlbum = id => async dispatch =>{
-    const response = await csrfFetch(`/api/albums/${id}`,{
-        method:'DELETE'
+export const deleteAlbum = id => async dispatch => {
+    const response = await csrfFetch(`/api/albums/${id}`, {
+        method: 'DELETE'
     })
 
-    if(response.ok){
-        const res =await response.json()
+    if (response.ok) {
+        const res = await response.json()
         dispatch(albumDelete(res))
     }
 }
@@ -99,33 +99,34 @@ export const deleteAlbum = id => async dispatch =>{
 const initialState = {}
 const albumReducer = (state = initialState, action) => {
     let newState;
-    switch(action.type){
+    switch (action.type) {
         case LOAD_ALBUMS:
             const allAlbums = {};
             action.albums.forEach(album => {
                 allAlbums[album.id] = album
             })
-            return {...state,
-            ...allAlbums
-        }
+            return {
+                ...state,
+                ...allAlbums
+            }
         case CURRENT_USER_ALBUM:
             // return {...state.albums,...action.albums}
-        const usersAlbums = {};
-        action.albums.forEach(album => {
-        usersAlbums[album.id] = album
-        })
-        return {...usersAlbums}
+            const usersAlbums = {};
+            action.albums.forEach(album => {
+                usersAlbums[album.id] = album
+            })
+            return { ...usersAlbums }
         case GET_ONE_ALBUM:
-            newState = {...state}
+            newState = { ...state }
             newState[action.album.id] = action.album
             return newState
         case CREATE_ALBUM:
-            newState ={...state}
-            newState[action.album.id] =action.album
+            newState = { ...state }
+            newState[action.album.id] = action.album
             return newState
 
         case DELETE_ALBUM:
-            newState={...state}
+            newState = { ...state }
             delete newState[action.album.id]
             return newState
         default:

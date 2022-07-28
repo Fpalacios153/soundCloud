@@ -1,5 +1,5 @@
 .required-field::before {
-    content: "*";
-    color: red;
-    float: right;
-  }
+  content: "*";
+  color: red;
+  float: right;
+}

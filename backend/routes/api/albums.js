@@ -1,79 +1,80 @@
 const express = require('express')
 
-const {Song} = require('../../db/models');
-const {Album} = require('../../db/models');
-const {Artist} = require('../../db/models');
-const {requireAuth, isAuthorized} = require('../../utils/auth');
-const {check} = require('express-validator');
-const{handleValidationErrors} = require('../../utils/validation');
+const { Song } = require('../../db/models');
+const { Album } = require('../../db/models');
+const { Artist } = require('../../db/models');
+const { requireAuth, isAuthorized } = require('../../utils/auth');
+const { check } = require('express-validator');
+const { handleValidationErrors } = require('../../utils/validation');
 
 
 
 
 const router = express.Router();
-const validateAlbums =[
+const validateAlbums = [
     check('title')
-        .exists({checkFalsy:true})
+        .exists({ checkFalsy: true })
         .withMessage('Album title is required'),
     handleValidationErrors
 ]
 
-router.get('/user', requireAuth,async (req,res)=>{
-    const {user} = req;
+router.get('/user', requireAuth, async (req, res) => {
+    const { user } = req;
 
-        const artist = await Artist.findOne({
-         where: {
-            userId : req.user.id
-         }
-        });
-        if(!artist){
-            res.status(404);
-            return res.json({
-                "message": "User does not have any albums",
-                "statusCode": 404
-              })
+    const artist = await Artist.findOne({
+        where: {
+            userId: req.user.id
         }
-        const albums = await artist.getAlbums();
-        return res.json(albums)
+    });
+    if (!artist) {
+        res.status(404);
+        return res.json({
+            "message": "User does not have any albums",
+            "statusCode": 404
+        })
+    }
+    const albums = await artist.getAlbums();
+    return res.json(albums)
 
 })
-router.get('/:albumId',async(req,res)=>{
-    let {albumId} = req.params
+router.get('/:albumId', async (req, res) => {
+    let { albumId } = req.params
 
-    const albumsById = await Album.findByPk(albumId,{
+    const albumsById = await Album.findByPk(albumId, {
         include: [{
             model: Artist,
-            attributes:['id','name','previewImage','userId']
+            attributes: ['id', 'name', 'previewImage', 'userId']
         },
         {
             model: Song
         }]
     })
-    if(!albumsById){
+    if (!albumsById) {
         res.status(404);
         res.json({
             message: "Album couldn't be found",
-            "statusCode": 404})
+            "statusCode": 404
+        })
     }
 
     res.json(albumsById)
 })
-router.get('/', async(req, res)=>{
+router.get('/', async (req, res) => {
     const albums = await Album.findAll();
 
     res.json(albums)
 })
 
-router.post('/',validateAlbums,requireAuth,async (req,res)=>{
+router.post('/', validateAlbums, requireAuth, async (req, res) => {
 
-    let {title, description, imageUrl} = req.body;
+    let { title, description, imageUrl } = req.body;
     let id = req.user.id
     const getArtist = await Artist.findOne({
-        where:{
-            userId : id
+        where: {
+            userId: id
         }
     });
-    if(!getArtist){
+    if (!getArtist) {
 
         const newArtists = await Artist.create({
             name: req.user.username,
@@ -83,7 +84,7 @@ router.post('/',validateAlbums,requireAuth,async (req,res)=>{
         const newAlbum = await newArtists.createAlbum({
             title,
             description,
-            previewImage:imageUrl
+            previewImage: imageUrl
         })
         return res.json(newAlbum)
     }
@@ -91,31 +92,31 @@ router.post('/',validateAlbums,requireAuth,async (req,res)=>{
         // artistId :getArtist.id,
         title,
         description,
-        previewImage:imageUrl
+        previewImage: imageUrl
     })
     res.json(newAlbum)
 });
 
-router.put('/:albumId',validateAlbums,requireAuth,isAuthorized, async(req,res)=>{
+router.put('/:albumId', validateAlbums, requireAuth, isAuthorized, async (req, res) => {
 
-    let {albumId} = req.params;
+    let { albumId } = req.params;
 
-    let {title, description, imageUrl} =req.body
+    let { title, description, imageUrl } = req.body
 
     const album = await Album.findByPk(albumId)
 
 
-    album.title =title,
-    album.description = description,
-    album.previewImage = imageUrl
+    album.title = title,
+        album.description = description,
+        album.previewImage = imageUrl
 
     await album.save()
     return res.json(album)
 })
 
-router.delete('/:albumId',requireAuth,isAuthorized,async(req,res)=>{
+router.delete('/:albumId', requireAuth, isAuthorized, async (req, res) => {
 
-    let {albumId} = req.params;
+    let { albumId } = req.params;
 
     const album = await Album.findByPk(albumId);
 
@@ -124,10 +125,10 @@ router.delete('/:albumId',requireAuth,isAuthorized,async(req,res)=>{
     res.json({
         message: "Successfully deleted",
         "statusCode": 200
-      })
+    })
 
 })
 
 
 
-module.exports= router;
+module.exports = router;

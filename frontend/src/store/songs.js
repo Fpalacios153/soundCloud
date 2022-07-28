@@ -2,10 +2,10 @@
 import { csrfFetch } from './csrf';
 
 const LOAD_SONGS = 'songs/loadSongs'
-const GET_ONE_SONG ='songs/getOne'
+const GET_ONE_SONG = 'songs/getOne'
 const CURRENT_USER_SONG = 'songs/currentUserSong'
-const CREATE_SONGS ='songs/createSongs'
-const REMOVE_SONG ='songs/removeSong'
+const CREATE_SONGS = 'songs/createSongs'
+const REMOVE_SONG = 'songs/removeSong'
 
 
 const loadS = songs => ({
@@ -34,25 +34,25 @@ export const getSongs = () => async dispatch => {
     const response = await csrfFetch(`/api/songs`);
 
     if (response.ok) {
-      const songs = await response.json();
-      dispatch(loadS(songs));
+        const songs = await response.json();
+        dispatch(loadS(songs));
     }
-  };
+};
 //get one song
-export const getOneSong =  (song) => async dispatch =>{
+export const getOneSong = (song) => async dispatch => {
     const response = await csrfFetch(`/api/songs/${song.id}`)
 
-    if(response.ok) {
+    if (response.ok) {
         const song = await response.json();
         dispatch(oneSong(song))
     }
-  };
-  //get song by current user
-export const getSongByCurrentUser =() => async dispatch => {
+};
+//get song by current user
+export const getSongByCurrentUser = () => async dispatch => {
     const response = await csrfFetch(`/api/songs/user`)
 
-    if(response.ok){
-        const songs = await(response.json())
+    if (response.ok) {
+        const songs = await (response.json())
         dispatch(currUserSongs(songs))
     }
 }
@@ -60,35 +60,35 @@ export const getSongByCurrentUser =() => async dispatch => {
 export const createSong = (song, albumId) => async dispatch => {
     const response = await csrfFetch(`/api/songs/${albumId}`, { ////come back to this!!!
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(song)
     })
     if (response.ok) {
         const song = await response.json();
         dispatch(create(song));
-      }
+    }
 }
 //Edit a song
 export const editSong = (song, songId) => async dispatch => {
     const response = await csrfFetch(`/api/songs/${songId}`, {
         method: 'PUT',
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(song)
     })
     if (response.ok) {
         const song = await response.json();
         dispatch(create(song));
         return song
-      }
-      return response
+    }
+    return response
 
 }
-export const deleteSong =(id) => async dispatch => {
-    const response = await csrfFetch(`/api/songs/${id}`,{
-        method:'DELETE'
+export const deleteSong = (id) => async dispatch => {
+    const response = await csrfFetch(`/api/songs/${id}`, {
+        method: 'DELETE'
     })
 
-    if(response.ok){
+    if (response.ok) {
         const res = await response.json()
         dispatch(remove(res))
     }
@@ -96,18 +96,19 @@ export const deleteSong =(id) => async dispatch => {
 }
 
 
-  const initialState = {}
-const songReducer = (state = initialState, action) =>{
+const initialState = {}
+const songReducer = (state = initialState, action) => {
     let newState
-    switch(action.type){
+    switch (action.type) {
         case LOAD_SONGS:
-        const allSongs = {};
-        action.songs.forEach(song => {
-            allSongs[song.id] = song
-        });
-        return {...state,
-            ...allSongs,
-        }
+            const allSongs = {};
+            action.songs.forEach(song => {
+                allSongs[song.id] = song
+            });
+            return {
+                ...state,
+                ...allSongs,
+            }
         case CURRENT_USER_SONG:
             const UsersSongs = {};
             action.songs.forEach(song => {
@@ -117,17 +118,17 @@ const songReducer = (state = initialState, action) =>{
                 ...UsersSongs,
             }
         case GET_ONE_SONG:
-            newState = {...state}
+            newState = { ...state }
             newState[action.song.id] = action.song
             return newState
         case CREATE_SONGS:
-            newState = {...state}
-                newState[action.song.id] = action.song
+            newState = { ...state }
+            newState[action.song.id] = action.song
             return newState
         case REMOVE_SONG:
-            newState={...state}
+            newState = { ...state }
             delete newState[action.song.id]
-                return newState
+            return newState
         default:
             return state;
     }

@@ -1,6 +1,6 @@
 .signup {
-    padding: 2px 15px;
-    height: 30px;
+  padding: 2px 15px;
+  height: 30px;
   line-height: 24px;
   margin: 0 0 0 6px;
   background: transparent;
@@ -15,7 +15,7 @@
   cursor: pointer;
   font-size: 14px;
   white-space: nowrap;
-  font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+  font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
   font-weight: 100;
   text-align: center;
   vertical-align: initial;

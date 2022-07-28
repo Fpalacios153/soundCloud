@@ -11,6 +11,7 @@ import { getSongs } from '../../store/songs'
 const SongBrowser = () => {
     const dispatch = useDispatch()
     const song = useSelector(state => Object.values(state.songs))
+    console.log(song, 'GETALLSONG')
     useEffect(() => {
         dispatch(getSongs())
 

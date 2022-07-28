@@ -14,10 +14,10 @@ function SongView() {
     const { songId } = useParams()
     const song = useSelector(state => state.songs[Number(songId)]);
     const sessionUser = useSelector(state => state.session.user)
-
     useEffect(() => {
         dispatch(getOneSong(song))
     }, [dispatch, songId])
+    // console.log('GETONESONG', song)
 
     const songDelete = (e) => {
         e.preventDefault();

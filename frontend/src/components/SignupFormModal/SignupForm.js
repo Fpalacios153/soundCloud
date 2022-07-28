@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import { Redirect, useHistory } from 'react-router-dom'
 import * as sessionActions from "../../store/session"
 import './SignupForm.css';
 
@@ -17,15 +17,17 @@ export default function SignupFormPage() {
     const [confirmPassword, setConfirmPassword] = useState('')
     const [errors, setErrors] = useState([[]])
     const [hasSubmitted, setHasSubmitted] = useState(false)
+    const history = useHistory()
 
-    if (sessionUser) return <Redirect to="/" />;
 
+    if (sessionUser) return <Redirect to="/discover" />;
 
     const handleSubmit = (e) => {
         e.preventDefault();
         setHasSubmitted(true)
         if (password === confirmPassword) {
             setErrors([]);
+            history.push('/discover')
             return dispatch(sessionActions.signup({ firstName, lastName, email, username, password }))
                 .catch(async (res) => {
                     const data = await res.json();

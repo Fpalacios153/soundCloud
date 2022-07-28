@@ -27,6 +27,7 @@ function AlbumView() {
     const Delete = (e) => {
         e.preventDefault();
         dispatch(deleteAlbum(albumId))
+        history.push('/you/library')
     }
 
     return (

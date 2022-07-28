@@ -37,7 +37,13 @@ router.get('/user', requireAuth, async (req, res) => {
             "statusCode": 404
         })
     }
-    const songs = await artist.getSongs();
+    const songs = await artist.getSongs({
+        include:
+        {
+            model: Artist,
+            attributes: ['id', 'name', 'previewImage', 'userId']
+        }
+    });
     return res.json(songs)
 
 })
@@ -150,9 +156,13 @@ router.get('/', validateParams, async (req, res) => {
         size = 20
     }
     const songs = await Song.findAll({
+        // include:
+        // {
+        //     model: Artist,
+        //     attributes: ['id', 'name', 'previewImage', 'userId']
+        // },
         limit: size,
         offset: (page - 1) * size
-
 
     });
     return res.json(

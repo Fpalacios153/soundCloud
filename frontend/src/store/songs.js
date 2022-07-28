@@ -45,6 +45,7 @@ export const getOneSong = (song) => async dispatch => {
     if (response.ok) {
         const song = await response.json();
         dispatch(oneSong(song))
+        return response
     }
 };
 //get song by current user

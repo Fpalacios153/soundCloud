@@ -1,7 +1,7 @@
 import { useHistory, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import './SongsView.css'
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getOneSong } from "../../store/songs";
 import { deleteSong } from "../../store/songs";
 import EditModal from "../EditModel";
@@ -11,13 +11,19 @@ import EditModal from "../EditModel";
 function SongView() {
     const dispatch = useDispatch()
     const history = useHistory()
+
     const { songId } = useParams()
+
+    console.log(songId)
     const song = useSelector(state => state.songs[Number(songId)]);
+    console.log('____________', song)
+
     const sessionUser = useSelector(state => state.session.user)
+
+    console.log('THIS IS SONG', song)
     useEffect(() => {
         dispatch(getOneSong(song))
     }, [dispatch, songId])
-    // console.log('GETONESONG', song)
 
     const songDelete = (e) => {
         e.preventDefault();

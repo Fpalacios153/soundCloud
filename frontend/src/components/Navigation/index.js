@@ -35,6 +35,16 @@ function Navigation({ isLoaded }) {
   return (
     <>
       {isLoaded && sessionLinks}
+      <figure>
+        <figcaption>AUDIO PLAYER</figcaption>
+        <audio
+          controls
+          src="https://res.cloudinary.com/fpalacios153/video/upload/v1659048867/Symphony_No.6_1st_movement_y2via3.mp3">
+          Your browser does not support the
+          <code>audio</code> element.
+        </audio>
+      </figure>
+
     </>
   );
 }

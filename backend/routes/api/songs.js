@@ -30,6 +30,7 @@ router.get('/user', requireAuth, async (req, res) => {
             userId: req.user.id
         }
     })
+    console.log('THISSSS', artist)
     if (!artist) {
         res.status(404)
         return res.json({
@@ -38,11 +39,11 @@ router.get('/user', requireAuth, async (req, res) => {
         })
     }
     const songs = await artist.getSongs({
-        include:
-        {
-            model: Artist,
-            attributes: ['id', 'name', 'previewImage', 'userId']
-        }
+        // include:
+        // {
+        //     model: Artist,
+        //     attributes: ['id', 'name', 'previewImage', 'userId']
+        // }
     });
     return res.json(songs)
 

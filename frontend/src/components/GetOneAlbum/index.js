@@ -12,8 +12,11 @@ function AlbumView() {
     const dispatch = useDispatch();
     const history = useHistory();
     const {albumId} = useParams();
+    const sessionUser = useSelector(state =>state.session.user)
+    console.log('userID',sessionUser.id)
 
     const album = useSelector(state => state.albums[Number(albumId)])
+    console.log('Aritst id', album.Artist)
 
     useEffect(()=>{
         dispatch(getOneAlbum(album))
@@ -41,9 +44,13 @@ function AlbumView() {
                     ))}
                     </ul>
                 </div>
-                <button onClick={Delete}>Delete</button>
-                <EditModal/>
-                <CreateSongModel />
+
+               {album.Artist && sessionUser.id === album.Artist.userId && (<div>
+                   <button onClick={Delete}>Delete</button>
+                   <EditModal/>
+                   <CreateSongModel />
+               </div>
+                )}
 
             </div>
             )}

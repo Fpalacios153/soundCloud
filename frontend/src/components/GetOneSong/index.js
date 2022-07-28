@@ -13,6 +13,7 @@ function SongView() {
     const history = useHistory()
     const {songId} = useParams()
     const song = useSelector(state => state.songs[Number(songId)]);
+    const sessionUser = useSelector(state =>state.session.user)
 
     useEffect(()=>{
         dispatch(getOneSong(song))
@@ -37,8 +38,12 @@ function SongView() {
         <h5>{song.description}</h5>
         </div>)
         }
+      {song.Artist && sessionUser.id === song.Artist.userId && (
+      <div>
         <button onClick={songDelete}>Delete</button>
         <EditModal />
+
+        </div> )}
             </>
 
     )

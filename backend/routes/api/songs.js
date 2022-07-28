@@ -49,7 +49,7 @@ router.get('/:songId', async (req,res)=>{
             include:
             [{
                 model: Artist,
-                attributes:['id','name','previewImage']
+                attributes:['id','name','previewImage', 'userId']
             },
             {
                 model: Album,

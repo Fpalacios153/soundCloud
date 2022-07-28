@@ -6,11 +6,11 @@ import Navigation from "./components/Navigation";
 import SongView from "./components/GetOneSong";
 import SongBrowser from "./components/GetSongs";
 import UsersSongs from './components/CurrentUsersSongs'
-import { CreateSongg } from "./components/CreateSong";
 import AlbumBrowser from "./components/GetAlbums";
 import AlbumView from "./components/GetOneAlbum";
 import UsersAlbums from "./components/CurrentUsersAlbums";
 import CreateAlbum from "./components/CreateAlbum";
+import SelectUserAlbum from "./components/SelectAlbum/SelectAlbum";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -25,12 +25,12 @@ function App() {
         <Switch>
           <Route path='/discover'>
             <AlbumBrowser />
+            <SongBrowser/>
           </Route>
           <Route path='/api/albums/:albumId'>
             <AlbumView/>
           </Route>
           <Route path='/songs'>
-            <SongBrowser/>
           </Route>
           <Route path='/you/library'>
             <UsersSongs />
@@ -40,7 +40,8 @@ function App() {
             <SongView />
           </Route>
           <Route path='/upload'>
-            <CreateSongg />
+            {/* <CreateSongg /> */}
+            <SelectUserAlbum />
             <CreateAlbum />
           </Route>
         </Switch>

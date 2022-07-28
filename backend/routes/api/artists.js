@@ -83,7 +83,6 @@ router.get('/:artistId', async(req,res)=>{
         where:{ artistId: artistId}
      })
      artist.totalSongs = totalSongs
-     console.log(totalSongs)
      const totalAlbums = await Album.count({
         where:{ artistId: artistId}
      })

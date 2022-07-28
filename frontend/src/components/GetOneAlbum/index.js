@@ -5,21 +5,19 @@ import {deleteAlbum} from '../../store/albums'
 import { getOneAlbum } from "../../store/albums";
 import './GetOneAlbum.css'
 import EditModal from "../EditAlbumModel";
+import CreateSongModel from "../CreateSong";
 
 
 function AlbumView() {
     const dispatch = useDispatch();
     const history = useHistory();
     const {albumId} = useParams();
-    // console.log('apple', albumId)
 
     const album = useSelector(state => state.albums[Number(albumId)])
-    // console.log(album[0])
 
     useEffect(()=>{
         dispatch(getOneAlbum(album))
     },[dispatch, albumId])
-    // console.log(album.Songs)
 
 
     ///remember to move this to current

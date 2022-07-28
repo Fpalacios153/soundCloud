@@ -82,7 +82,6 @@ const isAuthorized = async function(req, res, next){
       }
     // const artist = album.artistId
     const validArtist = await album.getArtist()
-    // console.log(validArtist.userId)
     if(validArtist.userId !== req.user.id){
       res.status(403)
       res.json({

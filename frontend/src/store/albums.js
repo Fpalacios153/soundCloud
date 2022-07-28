@@ -55,7 +55,6 @@ export const getAlbumsByCurrentUser =() =>async dispatch => {
 
     if(response.ok){
         const albums = await response.json()
-        console.log('thunk ',albums)
         dispatch(currentUserAlbums(albums))
     }
     // return response

@@ -16,6 +16,8 @@ const SongBrowser = () => {
 
     }, [dispatch])
     return (
+        <>
+        <h2>All Songs</h2>
     <div>
         <ul>
             {song.map(song=> (
@@ -25,7 +27,9 @@ const SongBrowser = () => {
             >{song.title}</NavLink>
             </li>))}
         </ul>
-    </div>)
+    </div>
+        </>
+    )
 }
 
 export default SongBrowser

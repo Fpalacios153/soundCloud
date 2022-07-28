@@ -9,7 +9,6 @@ import{getAlbums} from '../../store/albums'
 const AlbumBrowser =() =>{
     const dispatch = useDispatch();
     const albums = useSelector(state => Object.values(state.albums))
-    console.log(albums)
     useEffect(()=>{
         dispatch(getAlbums())
     }, [dispatch]);
@@ -17,14 +16,15 @@ const AlbumBrowser =() =>{
 
     return (
         <>
+        <h2>All Albums</h2>
         <div>
+            <ul>
             {albums.map(album => (
-                <ul>
                 <li>
                     <NavLink to={`/api/albums/${album.id}`} key={album.id}>{album.title}</NavLink>
                 </li>
-                </ul>
             ))}
+            </ul>
         </div>
         </>
 

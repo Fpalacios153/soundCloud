@@ -30,10 +30,10 @@ function AlbumView() {
 
     return (
         <>
-        <div className="album-container"
-        style={{backgroundImage: `url('${album.previewImage}')`}}
-                >
-            {album  && album.Songs && (
+
+        {album  && album.Songs && (
+        <div className="album-container"style={{backgroundImage: `url('${album.previewImage}')`}}>
+
                 <div className="album-list">
                     <h1>{album.title}</h1>
                     <h2>{album.description}</h2>
@@ -43,10 +43,11 @@ function AlbumView() {
                     ))}
                     </ul>
                 </div>
+                <button onClick={Delete}>Delete</button>
+                <EditModal/>
+            </div>
             )}
-            <button onClick={Delete}>Delete</button>
-            <EditModal/>
-        </div>
+
 
         </>
     )

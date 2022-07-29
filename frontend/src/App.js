@@ -9,8 +9,9 @@ import UsersSongs from './components/CurrentUsersSongs'
 import AlbumBrowser from "./components/GetAlbums";
 import AlbumView from "./components/GetOneAlbum";
 import UsersAlbums from "./components/CurrentUsersAlbums";
-import CreateAlbum from "./components/CreateAlbum";
 import SelectUserAlbum from "./components/SelectAlbum/SelectAlbum";
+import CreateAlbumModal from './components/CreateAlbum/index'
+import AudioPlayer from "./components/AudioPlayer";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -30,8 +31,8 @@ function App() {
           <Route path='/api/albums/:albumId'>
             <AlbumView />
           </Route>
-          <Route path='/songs'>
-          </Route>
+          {/* <Route path='/songs'>
+          </Route> */}
           <Route path='/you/library'>
             <UsersSongs />
             <UsersAlbums />
@@ -41,10 +42,12 @@ function App() {
           </Route>
           <Route path='/upload'>
             <SelectUserAlbum />
-            <CreateAlbum />
+            <CreateAlbumModal />
           </Route>
         </Switch>
       )}
+      <AudioPlayer />
+
     </>
   );
 }

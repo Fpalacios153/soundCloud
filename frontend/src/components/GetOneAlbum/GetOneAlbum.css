@@ -1,5 +1,12 @@
 .album-container {
-    display:block;
+    display: block;
     position: absolute;
 
 }
+
+/*
+.square {
+    width: 400px;
+    height: 500px;
+    background-image: linear-gradient(135deg, #846170, #70929c);
+} */

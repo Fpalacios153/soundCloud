@@ -1,3 +1,4 @@
+import DemoUser from '../DemoUser';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import './HomePage.css'
@@ -13,6 +14,7 @@ export const HomePage = () => {
                     <div className='leftNav'>
                         <LoginFormModal />
                         <SignupFormModal />
+                        <DemoUser />
                     </div>
                 </div>
             </div>

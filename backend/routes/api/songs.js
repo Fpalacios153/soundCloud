@@ -30,7 +30,6 @@ router.get('/user', requireAuth, async (req, res) => {
             userId: req.user.id
         }
     })
-    console.log('THISSSS', artist)
     if (!artist) {
         res.status(404)
         return res.json({

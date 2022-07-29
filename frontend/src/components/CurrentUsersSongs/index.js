@@ -8,10 +8,8 @@ import { getSongByCurrentUser } from '../../store/songs'
 export default function UsersSongs() {
     const dispatch = useDispatch()
     const songs = useSelector(state => Object.values(state.songs))
-    // console.log(songs)
-    // console.log(songs.Artist)
+
     const sessionUser = useSelector(state => state.session.user)
-    console.log(sessionUser)
 
     useEffect(() => {
         dispatch(getSongByCurrentUser())

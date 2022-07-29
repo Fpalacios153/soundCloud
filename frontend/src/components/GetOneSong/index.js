@@ -8,19 +8,17 @@ import EditModal from "../EditModel";
 
 
 
+
 function SongView() {
     const dispatch = useDispatch()
     const history = useHistory()
 
-    const { songId } = useParams()
 
-    console.log(songId)
+    const { songId } = useParams()
     const song = useSelector(state => state.songs[Number(songId)]);
-    console.log('____________', song)
 
     const sessionUser = useSelector(state => state.session.user)
 
-    console.log('THIS IS SONG', song)
     useEffect(() => {
         dispatch(getOneSong(song))
     }, [dispatch, songId])

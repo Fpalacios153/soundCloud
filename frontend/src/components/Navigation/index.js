@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import { HomePage } from '../HomePage';
 import './Navigation.css';
-// import ReactAudioPlayer from 'react-audio-player';
 import AudioPlayer from '../AudioPlayer';
 
 
@@ -20,7 +19,7 @@ function Navigation({ isLoaded }) {
           <nav className='mainNav'>
             <NavLink to='/discover'><h1 className='navLogo'></h1></NavLink>
             <NavLink exact to="/discover">Home</NavLink>
-            <NavLink to="/songs">Songs</NavLink>
+            {/* <NavLink to="/songs">Songs</NavLink> */}
             <NavLink to='/you/library'>Library</NavLink>
             <NavLink to='/upload'>Upload</NavLink>
             <ProfileButton user={sessionUser} />
@@ -38,8 +37,6 @@ function Navigation({ isLoaded }) {
   return (
     <>
       {isLoaded && sessionLinks}
-      <AudioPlayer />
-
     </>
   );
 }

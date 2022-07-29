@@ -14,7 +14,7 @@ function Navigation({ isLoaded }) {
   if (sessionUser) {
     sessionLinks = (
       <>
-        <header className='mainHeader'>
+        <div className='mainHeader'>
 
           <nav className='mainNav'>
             <NavLink to='/discover'><h1 className='navLogo'></h1></NavLink>
@@ -24,7 +24,7 @@ function Navigation({ isLoaded }) {
             <NavLink to='/upload'>Upload</NavLink>
             <ProfileButton user={sessionUser} />
           </nav>
-        </header>
+        </div>
       </>
     );
   } else {

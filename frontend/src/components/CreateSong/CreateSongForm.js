@@ -11,7 +11,7 @@ export const CreateSongg = () => {
     const [description, setDescription] = useState('')
     const [imageUrl, setPreviewImage] = useState('')
     const [url, setSelectedFile] = useState('')
-    const [validationErrors, setValidationErrors] = useState([])
+    const [validationErrors, setValidationErrors] = useState([[]])
     const [hasSubmitted, setHasSubmitted] = useState(false)
 
     const { albumId } = useParams()
@@ -31,26 +31,26 @@ export const CreateSongg = () => {
             url
         }
 
-        if (title.length && url.length) {
+        if (!title.length || !url.length) {
             setValidationErrors([]);
-            history.push(`/you/library`)
             return dispatch(createSong(song, albumId))
                 .catch(async (res) => {
                     const data = await res.json();
                     console.log('THIS', data)
                     if (data && data.errors) setValidationErrors(data.errors)
                 })
-
         }
-        console.log('--------', validationErrors)
-        return setValidationErrors(['Title required'])
-
+        if (title.length && url.length) {
+            setValidationErrors([]);
+            history.push(`/you/library`)
+            return dispatch(createSong(song, albumId))
+        }
     }
 
 
     const handleCancelClick = (e) => {
         e.preventDefault();
-        history.push('/')
+        // history.push('/')
     };
     return (
         <>

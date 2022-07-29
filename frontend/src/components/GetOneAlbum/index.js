@@ -30,30 +30,32 @@ function AlbumView() {
 
     return (
         <>
+            <div>
+                {album && album.Songs && (
+                    <div className="album-container" style={{ backgroundImage: `url('${album.previewImage}')` }}>
 
-            {album && album.Songs && (
-                <div className="album-container" style={{ backgroundImage: `url('${album.previewImage}')` }}>
+                        <div className="album-list">
+                            <h1>{album.title}</h1>
+                            <h2>{album.description}</h2>
+                            <ul>
+                                {album.Songs.map(song => (
+                                    <li key={song.id}>{song.title}</li>
+                                ))}
+                            </ul>
+                        </div>
 
-                    <div className="album-list">
-                        <h1>{album.title}</h1>
-                        <h2>{album.description}</h2>
-                        <ul>
-                            {album.Songs.map(song => (
-                                <li key={song.id}>{song.title}</li>
-                            ))}
-                        </ul>
+                        {album.Artist && sessionUser.id === album.Artist.userId && (<div>
+                            <button onClick={Delete}>Delete</button>
+                            <EditModal />
+                            <CreateSongModel />
+                            {/* <div className="square"></div> */}
+                        </div>
+                        )}
+
                     </div>
+                )}
 
-                    {album.Artist && sessionUser.id === album.Artist.userId && (<div>
-                        <button onClick={Delete}>Delete</button>
-                        <EditModal />
-                        <CreateSongModel />
-                        {/* <div className="square"></div> */}
-                    </div>
-                    )}
-
-                </div>
-            )}
+            </div>
 
 
         </>

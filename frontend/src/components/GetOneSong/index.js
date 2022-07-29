@@ -42,7 +42,7 @@ function SongView() {
                 <h5>{song.description}</h5>
             </div>)
             }
-            {song.Artist && sessionUser.id === song.Artist.userId && (
+            {song && song.Artist && sessionUser.id === song.Artist.userId && (
                 <div>
                     <button onClick={songDelete}>Delete</button>
                     <EditModal />

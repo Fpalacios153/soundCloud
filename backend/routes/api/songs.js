@@ -16,9 +16,8 @@ const validateSongs = [
         .withMessage('Song title is required'),
     check('url')
         .exists({ checkFalsy: true })
-        .isLength({ min: 4 })
+        // .isLength({ min: 4 })
         .withMessage('Audio is required'),
-
     handleValidationErrors
 ]
 

@@ -21,33 +21,34 @@ function App() {
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
-        <Switch>
-          <Route path='/discover'>
-            <AlbumBrowser />
-            <SongBrowser />
-          </Route>
-          <Route path='/api/albums/:albumId'>
-            <AlbumView />
-          </Route>
-          {/* <Route path='/songs'>
+      <div>
+        <Navigation isLoaded={isLoaded} />
+        {isLoaded && (
+          <Switch>
+            <Route path='/discover'>
+              <AlbumBrowser />
+              <SongBrowser />
+            </Route>
+            <Route path='/api/albums/:albumId'>
+              <AlbumView />
+            </Route>
+            {/* <Route path='/songs'>
           </Route> */}
-          <Route path='/you/library'>
-            <UsersSongs />
-            <UsersAlbums />
-          </Route>
-          <Route path='/api/songs/:songId'>
-            <SongView />
-          </Route>
-          <Route path='/upload'>
-            <SelectUserAlbum />
-            <CreateAlbumModal />
-          </Route>
-        </Switch>
-      )}
-      <AudioPlayer />
-
+            <Route path='/you/library'>
+              <UsersSongs />
+              <UsersAlbums />
+            </Route>
+            <Route path='/api/songs/:songId'>
+              <SongView />
+            </Route>
+            <Route path='/upload'>
+              <SelectUserAlbum />
+              <CreateAlbumModal />
+            </Route>
+          </Switch>
+        )}
+        <AudioPlayer />
+      </div>
     </>
   );
 }

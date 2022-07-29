@@ -12,7 +12,7 @@ const CreateAlbum = () => {
     const [description, setDescription] = useState('')
     const [imageUrl, setPreviewImage] = useState('')
     const [hasSubmitted, setHasSubmitted] = useState(false)
-    const [validationErrors, setValidationErrors] = useState('')
+    const [validationErrors, setValidationErrors] = useState([[]])
 
 
 
@@ -34,20 +34,22 @@ const CreateAlbum = () => {
 
         }
         // if(validationErrors.length) return alert ("You cannot submit")
-        if (title.length) {
-            history.push(`/you/library`)
+        if (!title.length) {
+            setValidationErrors([]);
+            // history.push(`/you/library`)
             return dispatch(createAlbum(album))
                 .catch(async (res) => {
                     const data = await res.json();
-                    console.log('this is ', data)
+                    console.log('this is DATD FROM ALBUM', data)
                     if (data && data.errors) setValidationErrors(data.errors)
                 })
         }
-        console.log('--------', validationErrors)
-        // return setValidationErrors(['Title is required'])
+        if (title.length) {
+            setValidationErrors([]);
+            history.push(`/you/library`)
+            return dispatch(createAlbum(album))
+        }
     }
-
-
     const handleCancelClick = (e) => {
         e.preventDefault();
         history.push('/upload')
@@ -93,7 +95,7 @@ const CreateAlbum = () => {
                     />
                 </label>
                 <button type="submit">Save</button>
-                <button onClick={handleCancelClick} type="button">Cancel</button>
+                {/* <button onClick={handleCancelClick} type="button">Cancel</button> */}
             </form>
 
         </>

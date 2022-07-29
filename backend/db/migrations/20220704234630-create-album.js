@@ -11,20 +11,22 @@ module.exports = {
       artistId: {
         type: Sequelize.INTEGER,
         references: {
-          model:'Artists',
-          key:'id'
+          model: 'Artists',
+          key: 'id'
         }
       },
       title: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
+
       },
       description: {
-        type:Sequelize.STRING,
-        allowNull:false
+        type: Sequelize.STRING,
+        allowNull: false
       },
       previewImage: {
         type: Sequelize.STRING,
-        allowNull:false
+        allowNull: false
       },
       createdAt: {
         allowNull: false,

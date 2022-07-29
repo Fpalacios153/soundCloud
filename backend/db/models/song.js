@@ -13,54 +13,60 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Song.belongsTo(
         models.Album,
-        {foreignKey:'albumId',
-        // onDelete:'cascade', hooks:true
-      }
+        {
+          foreignKey: 'albumId',
+          // onDelete:'cascade', hooks:true
+        }
       )
       Song.belongsTo(
         models.Artist,
-        {foreignKey:'artistId'
-        // ,onDelete:'cascade', hooks:true
-      }
-      )
-      Song.hasMany(
-        models.Comment,{
-          foreignKey:'songId'
+        {
+          foreignKey: 'artistId'
+          // ,onDelete:'cascade', hooks:true
         }
       )
+      Song.hasMany(
+        models.Comment, {
+        foreignKey: 'songId'
+      }
+      )
       Song.belongsToMany(
-        models.Playlist,{
-          through: models.SongsPlaylist,foreignKey:'songId',otherKey:'playlistId'}
+        models.Playlist, {
+        through: models.SongsPlaylist, foreignKey: 'songId', otherKey: 'playlistId'
+      }
 
       )
     }
   }
   Song.init({
     artistId: {
-      type:DataTypes.INTEGER,
-      references:{
-        model:'Artists',
-        key:'id'
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Artists',
+        key: 'id'
       }
     },
     albumId: {
-      type:DataTypes.INTEGER,
-      references:{
-        model:'Albums',
-        key:'id'
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Albums',
+        key: 'id'
       }
     },
     title: {
-      type:DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false
+
     },
     description: {
-      type:DataTypes.STRING,
+      type: DataTypes.STRING,
     },
     url: {
-      type:DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false
     },
     previewImage: {
-      type:DataTypes.STRING,
+      type: DataTypes.STRING,
     },
 
   }, {

@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/Fpalacios153/AuthentiateMe/issues"
   },
-  "homepage": "https://github.com/Fpalacios153/AuthentiateMe#readme"
+  "homepage": "https://github.com/Fpalacios153/AuthentiateMe#readme",
+  "dependencies": {
+    "react-audio-player": "^0.17.0"
+  }
 }

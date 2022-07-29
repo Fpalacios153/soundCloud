@@ -4,6 +4,9 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import { HomePage } from '../HomePage';
 import './Navigation.css';
+// import ReactAudioPlayer from 'react-audio-player';
+import AudioPlayer from '../AudioPlayer';
+
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
@@ -35,7 +38,14 @@ function Navigation({ isLoaded }) {
   return (
     <>
       {isLoaded && sessionLinks}
-      <figure>
+      <AudioPlayer />
+
+    </>
+  );
+}
+
+export default Navigation;
+{/* <figure>
         <figcaption>AUDIO PLAYER</figcaption>
         <audio
           controls
@@ -43,10 +53,4 @@ function Navigation({ isLoaded }) {
           Your browser does not support the
           <code>audio</code> element.
         </audio>
-      </figure>
-
-    </>
-  );
-}
-
-export default Navigation;
+      </figure> */}

@@ -15,12 +15,13 @@ function SongView() {
 
 
     const { songId } = useParams()
-    const song = useSelector(state => state.songs[Number(songId)]);
+    const song = useSelector(state => state.songs[songId]);
 
     const sessionUser = useSelector(state => state.session.user)
-
+    // console.log("THIS IS SONG", song)
     useEffect(() => {
         dispatch(getOneSong(song))
+
     }, [dispatch, songId])
 
     const songDelete = (e) => {

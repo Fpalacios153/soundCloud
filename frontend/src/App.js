@@ -12,11 +12,18 @@ import UsersAlbums from "./components/CurrentUsersAlbums";
 import SelectUserAlbum from "./components/SelectAlbum/SelectAlbum";
 import CreateAlbumModal from './components/CreateAlbum/index'
 import AudioPlayer from "./components/AudioPlayer";
+import { getSongs } from "./store/songs"
+import { getAlbums } from "./store/albums";
+import { getSongByCurrentUser } from './store/songs'
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
-    dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    dispatch(sessionActions.restoreUser())
+      .then(() => dispatch(getSongByCurrentUser))
+      .then(() => dispatch(getSongs()))
+      .then(() => dispatch(getAlbums()))
+      .then(() => setIsLoaded(true));
   }, [dispatch]);
 
   return (

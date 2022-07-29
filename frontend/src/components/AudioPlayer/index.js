@@ -1,14 +1,19 @@
 import ReactAudioPlayer from 'react-audio-player';
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 
 function AudioPlayer() {
-    const [song, setSong] = useState()
+    // const [song, setSong] = useState()
+    const { songId } = useParams()
+    const song = useSelector(state => state.songs)
+    console.log(song)
 
     return (
         <div>
             <ReactAudioPlayer
-                src="https://res.cloudinary.com/fpalacios153/video/upload/v1659048867/Symphony_No.6_1st_movement_y2via3.mp3"
+                src="so"
                 controls
             />
         </div>

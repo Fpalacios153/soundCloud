@@ -20,7 +20,7 @@ const AlbumBrowser = () => {
             <div>
                 <ul>
                     {albums.map(album => (
-                        <li>
+                        <li key={album.id}>
                             <NavLink to={`/api/albums/${album.id}`} key={album.id}>{album.title}</NavLink>
                         </li>
                     ))}

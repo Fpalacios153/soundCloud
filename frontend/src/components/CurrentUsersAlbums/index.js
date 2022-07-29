@@ -1,28 +1,39 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { getAlbumsByCurrentUser } from '../../store/albums'
 
 export default function UsersAlbums() {
     const dispatch = useDispatch()
-    const albums = useSelector(state => Object.values((state.albums)))
+    const [albums, setAlbums] = useState('')
 
-
-    const album1 = albums[0]
-
+    // setAlbums(useSelector(state => Object.values((state.albums))))
     useEffect(() => {
         dispatch(getAlbumsByCurrentUser())
+            .catch(async (res) => {
+                const data = await res.json();
+                console.log('THIS IS DATA', data)
+                if (data) {
+                    setAlbums('')
+                }
+            })
     }, [dispatch])
+    const Useralbums = useSelector(state => Object.values((state.albums)))
+
+    console.log('This is USERALBUM',)
+
+
+
 
     return (
         <>
             <div>
                 <h2>My Albums</h2>
-                {!albums.length && (
+                {!Useralbums.length && (
                     <div>User has no Albums</div>
                 )}
                 <ul>
-                    {albums.length > 0 && albums.map(album => (
+                    {Useralbums.length > 0 && Useralbums.map(album => (
                         <li key={album.id}>
                             <NavLink to={`/api/albums/${album.id}`} key={album.id}>{album.title}</NavLink>
                         </li>

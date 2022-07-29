@@ -28,18 +28,21 @@ const EditAlbum = () => {
             imageUrl,
 
         }
-        if (title.length) {
-            history.push(`/you/library`)
+        if (!title.length) {
+            setValidationErrors([]);
+            // history.push(`/you/library`)
             return dispatch(editAlbum(album, albumId))
                 .catch(async (res) => {
                     const data = await res.json();
-                    console.log('this is ', data)
+                    console.log('this is DATD FROM ALBUM', data)
                     if (data && data.errors) setValidationErrors(data.errors)
-
                 })
         }
-        console.log('--------', validationErrors)
-        return setValidationErrors(['Title is required'])
+        if (title.length) {
+            setValidationErrors([]);
+            history.push(`/you/library`)
+            return dispatch(editAlbum(album, albumId))
+        }
     }
 
 

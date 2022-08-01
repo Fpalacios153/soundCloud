@@ -1,13 +1,23 @@
 import ReactAudioPlayer from 'react-audio-player';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import './AudioPlayer.css'
+import { getOneSong } from '../../store/songs';
 
-
-function AudioPlayer() {
-
+function AudioPlayer({ song }) {
+    // const [song, setSong] = useState()
+    const { songId } = useParams()
+    console.log(song?.url)
+    // const song = useSelector(state => state.songs)
+    // console.log(song)
+    // useEffect(() => {
+    //     dispatchEvent(getOneSong(song))
+    // })
     return (
-        <div>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
             <ReactAudioPlayer
-                src="https://res.cloudinary.com/fpalacios153/video/upload/v1659048867/Symphony_No.6_1st_movement_y2via3.mp3"
+                src={song?.url}
                 controls
             />
         </div>

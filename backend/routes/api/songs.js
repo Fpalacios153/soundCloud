@@ -16,9 +16,8 @@ const validateSongs = [
         .withMessage('Song title is required'),
     check('url')
         .exists({ checkFalsy: true })
-        .isLength({ min: 4 })
+        // .isLength({ min: 4 })
         .withMessage('Audio is required'),
-
     handleValidationErrors
 ]
 
@@ -30,7 +29,6 @@ router.get('/user', requireAuth, async (req, res) => {
             userId: req.user.id
         }
     })
-    console.log('THISSSS', artist)
     if (!artist) {
         res.status(404)
         return res.json({

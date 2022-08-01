@@ -3,7 +3,7 @@
 const artist = require("../models/artist");
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     /**
      * Add seed commands here.
      *
@@ -13,24 +13,24 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-   await queryInterface.bulkInsert('Albums', [
-    {
-      title: 'Men At Work',
-      artistId:1,
-      previewImage: 'link to image here',
-      description: "An album about working.",
-   },
-   {
-    title: 'Words in Soup',
-    artistId:2,
-    previewImage: 'link to image here',
-    description: "An album about words.",
- }
-  ] )
+    await queryInterface.bulkInsert('Albums', [
+      {
+        title: 'Men At Work',
+        artistId: 1,
+        previewImage: 'https://images.pexels.com/photos/2327065/pexels-photo-2327065.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+        description: "An album about working.",
+      },
+      {
+        title: 'Words in Soup',
+        artistId: 2,
+        previewImage: 'https://images.pexels.com/photos/12896240/pexels-photo-12896240.jpeg',
+        description: "An album about words.",
+      }
+    ])
 
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     /**
      * Add commands to revert seed here.
      *
@@ -38,7 +38,7 @@ module.exports = {
      * await queryInterface.bulkDelete('People', null, {});
      */
     await queryInterface.bulkDelete('Albums', {
-      title:['Men At Work', 'Words in Soup']
+      title: ['Men At Work', 'Words in Soup']
     });
 
   }

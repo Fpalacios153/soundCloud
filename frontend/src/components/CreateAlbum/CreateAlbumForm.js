@@ -1,26 +1,31 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { editAlbum } from '../../store/albums'
+import { createAlbum } from "../../store/albums"
 
 
 
-const EditAlbum = () => {
-    const { albumId } = useParams()
-    const album = useSelector(state => state.albums[Number(albumId)])
+const CreateAlbum = () => {
     const dispatch = useDispatch()
     const history = useHistory()
-    const [title, setTitle] = useState(album.title)
-    const [description, setDescription] = useState(album.description)
-    const [imageUrl, setPreviewImage] = useState(album.previewImage)
-    const [validationErrors, setValidationErrors] = useState('')
+    const [title, setTitle] = useState('')
+    const [description, setDescription] = useState('')
+    const [imageUrl, setPreviewImage] = useState('')
     const [hasSubmitted, setHasSubmitted] = useState(false)
+    const [validationErrors, setValidationErrors] = useState([[]])
 
 
 
+    // useEffect(()=>{
+    //     const errors =[]
+    //     if(title.length ===0) errors.push('Title required')
+    //     setValidationErrors(errors)
+    // },[title])
+
+    // const user = useSelector(state => state.session.user)
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setHasSubmitted(true)
+        setHasSubmitted(true);
 
         const album = {
             title,
@@ -28,10 +33,11 @@ const EditAlbum = () => {
             imageUrl,
 
         }
+        // if(validationErrors.length) return alert ("You cannot submit")
         if (!title.length) {
             setValidationErrors([]);
             // history.push(`/you/library`)
-            return dispatch(editAlbum(album, albumId))
+            return dispatch(createAlbum(album))
                 .catch(async (res) => {
                     const data = await res.json();
                     console.log('this is DATD FROM ALBUM', data)
@@ -41,17 +47,16 @@ const EditAlbum = () => {
         if (title.length) {
             setValidationErrors([]);
             history.push(`/you/library`)
-            return dispatch(editAlbum(album, albumId))
+            return dispatch(createAlbum(album))
         }
     }
-
-
-
-    const handleCancelClick = (e) => {
-        e.preventDefault();
-    };
+    // const handleCancelClick = (e) => {
+    //     e.preventDefault();
+    //     history.push('/upload')
+    // };
     return (
         <>
+            <h2>Create Album</h2>
             {hasSubmitted && validationErrors.length > 0 && (
                 <div>
                     <ul>
@@ -90,10 +95,11 @@ const EditAlbum = () => {
                     />
                 </label>
                 <button type="submit">Save</button>
-                <button onClick={handleCancelClick} type="button">Cancel</button>
+                {/* <button onClick={handleCancelClick} type="button">Cancel</button> */}
             </form>
+
         </>
     )
 }
 
-export default EditAlbum
+export default CreateAlbum

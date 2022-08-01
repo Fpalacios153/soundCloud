@@ -40,6 +40,7 @@ export const getAlbums = () => async dispatch => {
         const albums = await response.json();
         dispatch(load(albums))
     }
+    return response
 }
 export const getOneAlbum = (album) => async dispatch => {
     const response = await csrfFetch(`/api/albums/${album.id}`)
@@ -57,7 +58,7 @@ export const getAlbumsByCurrentUser = () => async dispatch => {
         const albums = await response.json()
         dispatch(currentUserAlbums(albums))
     }
-    // return response
+    return response
 }
 
 export const createAlbum = (album) => async dispatch => {
@@ -67,10 +68,13 @@ export const createAlbum = (album) => async dispatch => {
         body: JSON.stringify(album)
     })
 
+    console.log('THUNK', response)
     if (response.ok) {
         const album = await response.json();
         dispatch(create(album))
     }
+    return response
+
 }
 export const editAlbum = (album, albumId) => async dispatch => {
     const response = await csrfFetch(`/api/albums/${albumId}`, {
@@ -94,6 +98,8 @@ export const deleteAlbum = id => async dispatch => {
         const res = await response.json()
         dispatch(albumDelete(res))
     }
+    return response
+
 }
 
 const initialState = {}

@@ -1,5 +1,5 @@
 
-import { createSong } from "../../store/songs";
+import { createSong, getSongs } from "../../store/songs";
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
@@ -11,7 +11,7 @@ export const CreateSongg = () => {
     const [description, setDescription] = useState('')
     const [imageUrl, setPreviewImage] = useState('')
     const [url, setSelectedFile] = useState('')
-    const [validationErrors, setValidationErrors] = useState('')
+    const [validationErrors, setValidationErrors] = useState([[]])
     const [hasSubmitted, setHasSubmitted] = useState(false)
 
     const { albumId } = useParams()
@@ -30,33 +30,40 @@ export const CreateSongg = () => {
             imageUrl,
             url
         }
-        //         if(title.length<0) errors.push('Title required')
-        //         if(!url.length) errors.push('Audio file required')
-        // if(title.length && url.length){
-        //     setValidationErrors([])
-        // }
-        dispatch(createSong(song, albumId))
-        setHasSubmitted(false)
-        history.push(`/you/library`)
 
+        if (!title.length || !url.length) {
+            setValidationErrors([]);
+            return dispatch(createSong(song, albumId))
+                .catch(async (res) => {
+                    const data = await res.json();
+                    console.log('THIS', data)
+                    if (data && data.errors) setValidationErrors(data.errors)
+                })
+        }
+        if (title.length && url.length) {
+            setValidationErrors([]);
+            history.push(`/you/library`)
+            return dispatch(createSong(song, albumId)).then(() => history.push(`/you/library`))
+        }
     }
 
 
     const handleCancelClick = (e) => {
         e.preventDefault();
+        // history.push('/')
     };
     return (
         <>
             <h2>Upload Song</h2>
-            {/* {hasSubmitted && validationErrors.length > 0 &&(
-            <div>
-            <ul>
-                {validationErrors.map(error =>(
-                    <li key={error}>{error}</li>
-                ))}
-            </ul>
-        </div>
-    )} */}
+            {hasSubmitted && validationErrors.length > 0 && (
+                <div>
+                    <ul>
+                        {validationErrors.map(error => (
+                            <li key={error}>{error}</li>
+                        ))}
+                    </ul>
+                </div>
+            )}
             <form onSubmit={handleSubmit}>
                 <label className='required-field'>
                     Title

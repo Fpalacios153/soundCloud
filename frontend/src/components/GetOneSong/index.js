@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { getOneSong } from "../../store/songs";
 import { deleteSong } from "../../store/songs";
 import EditModal from "../EditModel";
+import AudioPlayer from "../AudioPlayer";
+
 
 
 
@@ -12,17 +14,14 @@ function SongView() {
     const dispatch = useDispatch()
     const history = useHistory()
 
-    const { songId } = useParams()
 
-    console.log(songId)
-    const song = useSelector(state => state.songs[Number(songId)]);
-    console.log('____________', song)
+    const { songId } = useParams()
+    const song = useSelector(state => state.songs[songId]);
 
     const sessionUser = useSelector(state => state.session.user)
-
-    console.log('THIS IS SONG', song)
     useEffect(() => {
         dispatch(getOneSong(song))
+
     }, [dispatch, songId])
 
     const songDelete = (e) => {
@@ -39,17 +38,17 @@ function SongView() {
                     <h2>{song.title}</h2>
                     <h3>{song.Artist.name}</h3>
                     <h4>{song.Album.title}</h4>
-                    <h4>{song.url}</h4>
                 </div>
                 <h5>{song.description}</h5>
             </div>)
             }
-            {song.Artist && sessionUser.id === song.Artist.userId && (
+            {song && song.Artist && sessionUser.id === song.Artist.userId && (
                 <div>
                     <button onClick={songDelete}>Delete</button>
                     <EditModal />
 
                 </div>)}
+            <AudioPlayer song={song} />
         </>
 
     )

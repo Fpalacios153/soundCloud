@@ -34,8 +34,9 @@ export const EditSong = () => {
 
 
     const handleCancelClick = (e) => {
-        // e.preventDefault();
-        // history.push(`/api/song/${songId}`)
+        e.preventDefault();
+        console.log(songId)
+        history.push(`/api/song/${songId}`)
     };
     return (
         <>

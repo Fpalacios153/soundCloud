@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { getSongByCurrentUser } from '../../store/songs'
@@ -7,15 +7,15 @@ import { getSongByCurrentUser } from '../../store/songs'
 
 export default function UsersSongs() {
     const dispatch = useDispatch()
-    const songs = useSelector(state => Object.values(state.songs))
-    // console.log(songs)
-    // console.log(songs.Artist)
-    const sessionUser = useSelector(state => state.session.user)
-    console.log(sessionUser)
+    const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        dispatch(getSongByCurrentUser())
+        dispatch(getSongByCurrentUser()).then(() => setIsLoaded(true))
+
     }, [dispatch])
+
+    const songs = useSelector(state => Object.values(state.songs))
+
     return (
         <>
             <div>
@@ -25,7 +25,7 @@ export default function UsersSongs() {
                 )}
                 <ul>
 
-                    {songs.length > 0 && songs.map(song => (
+                    {isLoaded && songs.length > 0 && songs.map(song => (
                         <li key={song.id}>
                             <NavLink to={`/api/songs/${song.id}`} key={song.id}
                             // style={{backgroundImage: `url(${song.previewImage})`}}

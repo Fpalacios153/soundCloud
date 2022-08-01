@@ -20,9 +20,9 @@ const currUserSongs = songs => ({
     type: CURRENT_USER_SONG,
     songs
 })
-const create = songs => ({
+const create = song => ({
     type: CREATE_SONGS,
-    songs
+    song
 })
 const remove = song => ({
     type: REMOVE_SONG,
@@ -37,16 +37,20 @@ export const getSongs = () => async dispatch => {
         const songs = await response.json();
         dispatch(loadS(songs));
     }
+    return response
 };
 //get one song
 export const getOneSong = (song) => async dispatch => {
+    if (!song) return
+
     const response = await csrfFetch(`/api/songs/${song.id}`)
 
     if (response.ok) {
         const song = await response.json();
         dispatch(oneSong(song))
-        return response
     }
+    return response
+
 };
 //get song by current user
 export const getSongByCurrentUser = () => async dispatch => {
@@ -56,6 +60,8 @@ export const getSongByCurrentUser = () => async dispatch => {
         const songs = await (response.json())
         dispatch(currUserSongs(songs))
     }
+    return response
+
 }
 //create songs
 export const createSong = (song, albumId) => async dispatch => {
@@ -68,6 +74,9 @@ export const createSong = (song, albumId) => async dispatch => {
         const song = await response.json();
         dispatch(create(song));
     }
+    console.log('thunk', response)
+    return response
+
 }
 //Edit a song
 export const editSong = (song, songId) => async dispatch => {
@@ -93,7 +102,7 @@ export const deleteSong = (id) => async dispatch => {
         const res = await response.json()
         dispatch(remove(res))
     }
-
+    return response
 }
 
 

@@ -9,13 +9,16 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       title: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       description: {
         type: Sequelize.STRING
       },
       url: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
+
       },
       previewImage: {
         type: Sequelize.STRING
@@ -23,16 +26,16 @@ module.exports = {
       albumId: {
         type: Sequelize.INTEGER,
         references: {
-          model:'Albums',
-          key:'id'
+          model: 'Albums',
+          key: 'id'
         }
 
       },
       artistId: {
         type: Sequelize.INTEGER,
         references: {
-          model:'Artists',
-          key:'id'
+          model: 'Artists',
+          key: 'id'
         }
       },
       createdAt: {

@@ -8,6 +8,7 @@ import { getSongByCurrentUser } from '../../store/songs'
 export default function UsersSongs() {
     const dispatch = useDispatch()
     const [isLoaded, setIsLoaded] = useState(false);
+    const [song, setSong] = useState('')
 
     useEffect(() => {
         dispatch(getSongByCurrentUser()).then(() => setIsLoaded(true))
@@ -15,12 +16,13 @@ export default function UsersSongs() {
     }, [dispatch])
 
     const songs = useSelector(state => Object.values(state.songs))
+    console.log(songs)
 
     return (
         <>
             <div>
                 <h2>My Songs</h2>
-                {!songs.length && (
+                {isLoaded && !songs.length && (
                     <div>User has no songs</div>
                 )}
                 <ul>

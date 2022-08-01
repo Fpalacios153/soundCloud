@@ -13,39 +13,42 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Album.belongsTo(
         models.Artist,
-        {foreignKey:'artistId'
-        // , onDelete:'cascade',hooks:true
-      }
+        {
+          foreignKey: 'artistId'
+          // , onDelete:'cascade',hooks:true
+        }
       )
       Album.hasMany(
         models.Song,
-        {foreignKey:'albumId'
-        , onDelete:'cascade',hooks:true
-      }
+        {
+          foreignKey: 'albumId'
+          , onDelete: 'cascade', hooks: true
+        }
 
 
       )
     }
   }
   Album.init({
-    artistId:{
-      type:DataTypes.INTEGER,
-      references:{
+    artistId: {
+      type: DataTypes.INTEGER,
+      references: {
         model: 'Artists',
-        key:'id'
+        key: 'id'
       }
     },
-    title:{
-      type:DataTypes.STRING,
-      allowNull:false
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
     description: {
-      type:DataTypes.STRING,
-      allowNull:false
+      type: DataTypes.STRING,
+      allowNull: false
     },
     previewImage: {
-      type:DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: 'https://res.cloudinary.com/fpalacios153/image/upload/v1659330814/Screen_Shot_2022-07-31_at_10.12.51_PM_npyums.png'
     }
   }, {
     sequelize,

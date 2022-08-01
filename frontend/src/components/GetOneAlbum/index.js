@@ -65,7 +65,6 @@ function AlbumView() {
                             <button onClick={Delete}>Delete</button>
                             <EditModal />
                             <CreateSongModel />
-                            {/* <div className="square"></div> */}
                         </div>)}
                 </div>
             </div>

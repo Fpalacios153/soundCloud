@@ -26,7 +26,9 @@ module.exports = {
       },
       previewImage: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        defaultValue: 'https://res.cloudinary.com/fpalacios153/image/upload/v1659330814/Screen_Shot_2022-07-31_at_10.12.51_PM_npyums.png'
+
       },
       createdAt: {
         allowNull: false,

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { getAlbumsByCurrentUser } from '../../store/albums'
+import './CurrentAlbums.css'
 
 export default function UsersAlbums() {
     const dispatch = useDispatch()

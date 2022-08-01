@@ -29,7 +29,7 @@ const SongBrowser = () => {
                                         <img style={{ height: '10em', width: '10em' }} src={song.previewImage} alt={song.title} />
 
                                     </NavLink>
-                                    <div style={{ fontWeight: 550, fontSize: '14px' }}>
+                                    <div style={{ fontWeight: 150, fontSize: '14px' }}>
                                         {song.title}
                                     </div>
                                     <div style={{ display: 'border-box', height: '30px', width: '160px', fontSize: '12px', margin: 0 }}>

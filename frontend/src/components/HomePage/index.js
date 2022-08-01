@@ -20,7 +20,7 @@ export const HomePage = () => {
                     </div>
                 </div>
                 <div className='center'>
-                    <button className='upload'>Upload your own</button>
+                    {/* <button className='upload'>Upload your own</button> */}
                 </div>
                 <div className='trendingTracks'>
                     <div className='titleTrending'>

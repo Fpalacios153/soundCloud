@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { getSongByCurrentUser } from '../../store/songs'
+import './CurrentSongs.css'
 
 
 
@@ -20,20 +21,27 @@ export default function UsersSongs() {
 
     return (
         <>
-            <div>
-                <h2>My Songs</h2>
+            <div className='currSong-container'>
+                <h2 className='allSAtitles'>My Songs</h2>
                 {isLoaded && !songs.length && (
                     <div>User has no songs</div>
                 )}
-                <ul>
+                <div className='song-container'>
+                    <ul>
+                        <div className='song-list .wrap'>
 
-                    {isLoaded && songs.length > 0 && songs.map(song => (
-                        <li key={song.id}>
-                            <NavLink to={`/api/songs/${song.id}`} key={song.id}
-                            // style={{backgroundImage: `url(${song.previewImage})`}}
-                            >{song.title}</NavLink>
-                        </li>))}
-                </ul>
+                            {isLoaded && songs.length > 0 && songs.map(song => (
+                                <li key={song.id}>
+                                    <NavLink className='song-tiles' to={`/api/songs/${song.id}`} key={song.id}>
+                                        <img style={{ height: '10em', width: '10em' }} src={song.previewImage} alt={song.title} />
+                                    </NavLink>
+                                    <div style={{ fontWeight: 100, fontSize: '14px' }}>
+                                        {song.title}
+                                    </div>
+                                </li>))}
+                        </div>
+                    </ul>
+                </div>
             </div>
         </>
     )

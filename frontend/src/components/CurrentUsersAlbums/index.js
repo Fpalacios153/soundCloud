@@ -11,24 +11,32 @@ export default function UsersAlbums() {
     useEffect(() => {
         dispatch(getAlbumsByCurrentUser()).then(() => setIsLoaded(true))
     }, [dispatch])
+    console.log('TTTTTT', albums)
 
     return (
         <>
 
-            <div>
-                <h2>My Albums</h2>
+            <div className='currAlbums-container'>
+                <h2 className='allSAtitles'>My Albums</h2>
                 {!albums.length && (
                     <div>User has no Albums</div>
                 )}
-                <ul>
-                    {isLoaded && albums.length > 0 && albums.map(album => (
-                        <li key={album.id}>
-                            <NavLink to={`/api/albums/${album.id}`} key={album.id}>
-                                {album.title}
-                            </NavLink>
-                        </li>
-                    ))}
-                </ul>
+                <div className='album-container'>
+                    <ul>
+                        <div className='album-list'>
+                            {isLoaded && albums.length > 0 && albums.map(album => (
+                                <li key={album.id} className='curralbum-tiles' >
+                                    <NavLink to={`/api/albums/${album.id}`} key={album.id}>
+                                        <img style={{ height: '10em', width: '10em' }} src={album.previewImage} alt={album.title} />
+                                    </NavLink>
+                                    <div style={{ fontWeight: 100, fontSize: '14px' }}>
+                                        {album.title}
+                                    </div>
+                                </li>
+                            ))}
+                        </div>
+                    </ul>
+                </div>
             </div>
         </>
     )

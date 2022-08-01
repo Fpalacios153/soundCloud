@@ -90,7 +90,7 @@ const EditAlbum = () => {
                     />
                 </label>
                 <button type="submit">Save</button>
-                <button onClick={handleCancelClick} type="button">Cancel</button>
+                {/* <button onClick={handleCancelClick} type="button">Cancel</button> */}
             </form>
         </>
     )

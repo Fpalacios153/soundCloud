@@ -1,0 +1,13 @@
+.curralbum-tiles {
+    width: 150px;
+    height: 150px;
+    border-radius: 3px;
+    background-size: contain;
+    list-style-type: none;
+    padding: 0px 10px 10px;
+
+}
+
+.currAlbums-container {
+    height: 60%;
+}

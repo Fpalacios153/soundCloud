@@ -28,7 +28,7 @@ const AlbumBrowser = () => {
                                     <NavLink to={`/api/albums/${album.id}`} key={album.id}>
                                         <img style={{ height: '10em', width: '10em' }} src={album.previewImage} alt={album.title} />
                                     </NavLink>
-                                    <div style={{ fontWeight: 550, fontSize: '14px' }}>
+                                    <div style={{ fontWeight: 150, fontSize: '14px' }}>
                                         {album.title}
                                     </div>
                                     <br />

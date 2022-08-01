@@ -15,7 +15,6 @@ function Navigation({ isLoaded }) {
     sessionLinks = (
       <>
         <div className='mainHeader'>
-
           <nav className='mainNav'>
             <NavLink to='/discover'><h1 className='navLogo'></h1></NavLink>
             <NavLink exact to="/discover">Home</NavLink>
@@ -30,7 +29,7 @@ function Navigation({ isLoaded }) {
   } else {
 
     sessionLinks = (
-      <HomePage />
+      <HomePage path='/' />
 
     );
   }

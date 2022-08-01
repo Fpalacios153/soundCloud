@@ -17,7 +17,6 @@ export default function UsersAlbums() {
 
             <div>
                 <h2>My Albums</h2>
-
                 {!albums.length && (
                     <div>User has no Albums</div>
                 )}

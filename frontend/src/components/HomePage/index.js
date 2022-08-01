@@ -29,7 +29,6 @@ export const HomePage = () => {
                 </div>
                 <div>
                     <div>
-                        bottom part
                     </div>
                 </div>
             </div>

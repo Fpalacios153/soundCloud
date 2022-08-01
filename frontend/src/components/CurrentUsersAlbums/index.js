@@ -5,37 +5,27 @@ import { getAlbumsByCurrentUser } from '../../store/albums'
 
 export default function UsersAlbums() {
     const dispatch = useDispatch()
-    const [albums, setAlbums] = useState('')
-
-    // setAlbums(useSelector(state => Object.values((state.albums))))
+    const [isLoaded, setIsLoaded] = useState(false);
+    const albums = useSelector(state => Object.values((state.albums)))
     useEffect(() => {
-        dispatch(getAlbumsByCurrentUser())
-            .catch(async (res) => {
-                const data = await res.json();
-                console.log('THIS IS DATA', data)
-                if (data) {
-                    setAlbums('')
-                }
-            })
+        dispatch(getAlbumsByCurrentUser()).then(() => setIsLoaded(true))
     }, [dispatch])
-    const Useralbums = useSelector(state => Object.values((state.albums)))
-
-    console.log('This is USERALBUM',)
-
-
-
 
     return (
         <>
+
             <div>
                 <h2>My Albums</h2>
-                {!Useralbums.length && (
+
+                {!albums.length && (
                     <div>User has no Albums</div>
                 )}
                 <ul>
-                    {Useralbums.length > 0 && Useralbums.map(album => (
+                    {isLoaded && albums.length > 0 && albums.map(album => (
                         <li key={album.id}>
-                            <NavLink to={`/api/albums/${album.id}`} key={album.id}>{album.title}</NavLink>
+                            <NavLink to={`/api/albums/${album.id}`} key={album.id}>
+                                {album.title}
+                            </NavLink>
                         </li>
                     ))}
                 </ul>

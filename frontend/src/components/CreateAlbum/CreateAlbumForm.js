@@ -50,10 +50,10 @@ const CreateAlbum = () => {
             return dispatch(createAlbum(album))
         }
     }
-    const handleCancelClick = (e) => {
-        e.preventDefault();
-        history.push('/upload')
-    };
+    // const handleCancelClick = (e) => {
+    //     e.preventDefault();
+    //     history.push('/upload')
+    // };
     return (
         <>
             <h2>Create Album</h2>

@@ -3,6 +3,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
+import './DemoUser.css'
 
 function DemoUser() {
     const dispatch = useDispatch()
@@ -19,7 +20,7 @@ function DemoUser() {
 
     return (
         <form onSubmit={handleSubmit}>
-            <button type='submit'>Demo</button>
+            <button className='demo' type='submit'>Demo</button>
         </form>
     );
 };

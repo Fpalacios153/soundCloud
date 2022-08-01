@@ -20,7 +20,6 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser())
-      .then(() => dispatch(getSongByCurrentUser))
       .then(() => dispatch(getSongs()))
       .then(() => dispatch(getAlbums()))
       .then(() => setIsLoaded(true));
@@ -42,8 +41,8 @@ function App() {
             {/* <Route path='/songs'>
           </Route> */}
             <Route path='/you/library'>
-              <UsersSongs />
               <UsersAlbums />
+              <UsersSongs />
             </Route>
             <Route path='/api/songs/:songId'>
               <SongView />
@@ -54,7 +53,7 @@ function App() {
             </Route>
           </Switch>
         )}
-        <AudioPlayer />
+        {/* <AudioPlayer /> */}
       </div>
     </>
   );

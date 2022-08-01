@@ -1,0 +1,30 @@
+.song-tiles {
+    width: 150px;
+    height: 150px;
+    border-radius: 3px;
+    background-size: contain;
+    list-style-type: none;
+    padding: 0px 10px;
+
+}
+
+.allSongs-container {
+    display: flex;
+    height: 300px;
+    width: 100%;
+    flex-direction: column;
+
+
+}
+
+.song-list {
+    display: flex;
+    justify-content: 'center';
+    align-items: center;
+}
+
+.song-container {
+    overflow-x: auto;
+    height: 280px;
+    overflow-y: hidden;
+}

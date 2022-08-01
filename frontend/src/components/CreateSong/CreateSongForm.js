@@ -1,5 +1,5 @@
 
-import { createSong } from "../../store/songs";
+import { createSong, getSongs } from "../../store/songs";
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
@@ -43,7 +43,7 @@ export const CreateSongg = () => {
         if (title.length && url.length) {
             setValidationErrors([]);
             history.push(`/you/library`)
-            return dispatch(createSong(song, albumId))
+            return dispatch(createSong(song, albumId)).then(() => history.push(`/you/library`))
         }
     }
 

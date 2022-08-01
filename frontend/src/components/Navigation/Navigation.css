@@ -1,31 +1,42 @@
+.mainNav {
+  width: 100%;
+  height: 46px;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  background: #333;
+  font-family: Interstate, Lucida Grande, Arial, sans-serif;
+  font-weight: 100;
+  font-size: 14px;
+  line-height: 1.5;
+  cursor: pointer;
 
-nav {
-    /* width: 100%; */
-    height: 46px;
-    display: flex;
-    justify-content: space-around;
-    align-content: center;
-    background: #333;
-    font-family: Interstate,Lucida Grande,Arial,sans-serif;
-    font-weight: 100;
-    font-size: 14px;
-    line-height: 1.5;
-    cursor: pointer;
+}
 
-  }
+.profile-dropdown {
+  position: relative;
+  height: inherit;
+  color: #333;
+  background-color: white;
+  list-style-type: none;
+  border: 2px, solid, #999;
+}
+
 nav a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    color: #999;
-    margin: 20px;
-    padding: 0px 10px;
-  }
-  nav a:hover {
-    color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #999;
+  margin: 20px;
+  padding: 0px 10px;
+}
 
-  }
+nav a:hover {
+  color: white;
+
+}
+
 .mainHeader {
   color: #999;
   margin-top: -8px;
@@ -49,6 +60,7 @@ nav a {
   background-size: 115px 22px;
 
 }
+
 /* .nav {
     display: flex;
     justify-content: flex-end;

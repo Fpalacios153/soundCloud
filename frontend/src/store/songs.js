@@ -20,9 +20,9 @@ const currUserSongs = songs => ({
     type: CURRENT_USER_SONG,
     songs
 })
-const create = songs => ({
+const create = song => ({
     type: CREATE_SONGS,
-    songs
+    song
 })
 const remove = song => ({
     type: REMOVE_SONG,

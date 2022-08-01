@@ -1,3 +1,10 @@
+.app-Container {
+    height: 100%;
+    width: 100%;
+}
+
+
+
 .nav {
     display: flex;
     justify-content: flex-end;
@@ -6,6 +13,9 @@
 }
 
 .leftNav {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
     justify-content: flex-end;
     margin-top: 8px;
     right: 30px;
@@ -42,16 +52,19 @@
 }
 
 .topPart {
+    top: -8px;
+    left: -8px;
+    right: -8px;
     color: #fff;
     position: relative;
     overflow: hidden;
     border-top: 4px solid #f50;
     background-color: black;
     height: 450px;
-    -webkit-font-smoothing: antialiased;
 }
 
 .upload {
+    align-items: center;
     background-color: #f50;
     border-color: #f50;
     color: #fff;

@@ -4,13 +4,13 @@ import './SongsView.css'
 import { useEffect, useState } from "react";
 import { getOneSong } from "../../store/songs";
 import { deleteSong } from "../../store/songs";
-import EditModal from "../EditModel";
+import EditModal from "../SongEditModal";
 import AudioPlayer from "../AudioPlayer";
 
 
 
 
-function SongView() {
+function SongDetails() {
     const dispatch = useDispatch()
     const history = useHistory()
 
@@ -54,4 +54,4 @@ function SongView() {
     )
 }
 
-export default SongView
+export default SongDetails

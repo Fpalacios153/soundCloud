@@ -3,9 +3,9 @@ import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import SongView from "./components/GetOneSong";
-import SongBrowser from "./components/GetSongs";
-import UsersSongs from './components/CurrentUsersSongs'
+import GetAllSongs from "./components/SongAll";
+import SongDetails from "./components/SongDetails";
+import UsersSongs from './components/SongsCurrentUsers'
 import AlbumBrowser from "./components/GetAlbums";
 import AlbumView from "./components/GetOneAlbum";
 import UsersAlbums from "./components/CurrentUsersAlbums";
@@ -33,7 +33,7 @@ function App() {
           <Switch>
             <Route path='/discover'>
               <AlbumBrowser />
-              <SongBrowser />
+              <GetAllSongs />
             </Route>
             <Route path='/api/albums/:albumId'>
               <AlbumView />
@@ -45,7 +45,7 @@ function App() {
               <UsersSongs />
             </Route>
             <Route path='/api/songs/:songId'>
-              <SongView />
+              <SongDetails />
             </Route>
             <Route path='/upload'>
               <SelectUserAlbum />

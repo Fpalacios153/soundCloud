@@ -5,7 +5,7 @@ import { deleteAlbum } from '../../store/albums'
 import { getOneAlbum } from "../../store/albums";
 import './GetOneAlbum.css'
 import EditModal from "../EditAlbumModel";
-import CreateSongModel from "../CreateSong";
+import CreateSongModel from "../SongCreate";
 
 
 function AlbumView() {

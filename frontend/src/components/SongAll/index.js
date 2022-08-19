@@ -5,10 +5,7 @@ import { NavLink } from 'react-router-dom'
 import './GetSongs.css'
 import { getOneSong, getSongs } from '../../store/songs'
 
-
-
-
-const SongBrowser = () => {
+const GetAllSongs = () => {
     const dispatch = useDispatch()
     const song = useSelector(state => Object.values(state.songs))
     console.log("GET ALL", song)
@@ -45,4 +42,4 @@ const SongBrowser = () => {
     )
 }
 
-export default SongBrowser
+export default GetAllSongs

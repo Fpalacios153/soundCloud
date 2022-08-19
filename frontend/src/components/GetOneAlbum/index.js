@@ -60,14 +60,14 @@ function AlbumView() {
                                 <br />
                             </li>))}
                     </div>
-                    {album.Artist && sessionUser.id === album.Artist.userId && (
-                        <div>
-                            <button onClick={Delete}>Delete</button>
-                            <EditModal />
-                            <CreateSongModel />
-                        </div>)}
                 </div>
             </div>
+            {album.Artist && sessionUser.id === album.Artist.userId && (
+                <div>
+                    <button onClick={Delete}>Delete</button>
+                    <EditModal />
+                    <CreateSongModel />
+                </div>)}
         </>
     )
 }

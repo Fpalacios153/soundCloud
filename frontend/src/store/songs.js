@@ -3,10 +3,10 @@ import { csrfFetch } from './csrf';
 
 const LOAD_SONGS = 'songs/loadSongs'
 const GET_ONE_SONG = 'songs/getOne'
-const CURRENT_USER_SONG = 'songs/currentUserSong'
 const CREATE_SONGS = 'songs/createSongs'
 const REMOVE_SONG = 'songs/removeSong'
 
+const CURRENT_USER_SONG = 'songs/currentUserSong'
 
 const loadS = songs => ({
     type: LOAD_SONGS,

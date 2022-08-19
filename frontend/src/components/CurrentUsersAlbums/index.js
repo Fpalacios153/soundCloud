@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 import { getAlbumsByCurrentUser } from '../../store/albums'
 import './CurrentAlbums.css'
 
 export default function UsersAlbums() {
+    const history = useHistory()
     const dispatch = useDispatch()
     const [isLoaded, setIsLoaded] = useState(false);
     const albums = useSelector(state => Object.values((state.albums)))
+
+
     useEffect(() => {
         dispatch(getAlbumsByCurrentUser()).then(() => setIsLoaded(true))
+        history.push('/you/library')
     }, [dispatch])
+
     console.log('TTTTTT', albums)
 
     return (

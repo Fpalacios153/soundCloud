@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { editAlbum } from '../../store/albums'
@@ -47,9 +47,9 @@ const EditAlbum = () => {
 
 
 
-    const handleCancelClick = (e) => {
-        e.preventDefault();
-    };
+    // const handleCancelClick = (e) => {
+    //     e.preventDefault();
+    // };
     return (
         <>
             {hasSubmitted && validationErrors.length > 0 && (

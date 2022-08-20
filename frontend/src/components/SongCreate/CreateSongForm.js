@@ -1,7 +1,7 @@
 
-import { createSong, getSongs } from "../../store/songs";
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { createSong } from "../../store/songs";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 
 export const CreateSongg = () => {
@@ -48,10 +48,10 @@ export const CreateSongg = () => {
     }
 
 
-    const handleCancelClick = (e) => {
-        e.preventDefault();
-        // history.push('/')
-    };
+    // const handleCancelClick = (e) => {
+    //     e.preventDefault();
+    //     // history.push('/')
+    // };
     return (
         <>
             <h2>Upload Song</h2>

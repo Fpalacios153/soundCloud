@@ -11,7 +11,7 @@ export default function SelectUserAlbum() {
 
 
 
-    const album1 = albums[0]
+    // const album1 = albums[0]
 
     useEffect(() => {
         dispatch(getAlbumsByCurrentUser()).then(() => setIsLoaded(true))

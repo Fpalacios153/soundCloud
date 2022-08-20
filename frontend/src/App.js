@@ -14,7 +14,7 @@ import CreateAlbumModal from './components/CreateAlbum/index'
 import AudioPlayer from "./components/AudioPlayer";
 import { getSongs } from "./store/songs"
 import { getAlbums } from "./store/albums";
-import { getSongByCurrentUser } from './store/songs'
+// import { getSongByCurrentUser } from './store/songs'
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -53,7 +53,7 @@ function App() {
             </Route>
           </Switch>
         )}
-        {/* <AudioPlayer /> */}
+        <AudioPlayer />
       </div>
     </>
   );

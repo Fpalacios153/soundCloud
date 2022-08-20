@@ -1,13 +1,15 @@
 import ReactAudioPlayer from 'react-audio-player';
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import React
+    // { useEffect, useState }
+    from 'react';
+// import { useSelector } from 'react-redux';
+// import { useParams } from 'react-router-dom';
 import './AudioPlayer.css'
-import { getOneSong } from '../../store/songs';
+// import { getOneSong } from '../../store/songs';
 
 function AudioPlayer({ song }) {
     // const [song, setSong] = useState()
-    const { songId } = useParams()
+    // const { songId } = useParams()
     console.log(song?.url)
     // const song = useSelector(state => state.songs)
     // console.log(song)

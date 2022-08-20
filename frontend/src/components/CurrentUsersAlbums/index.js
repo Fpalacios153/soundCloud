@@ -14,7 +14,7 @@ export default function UsersAlbums() {
     useEffect(() => {
         dispatch(getAlbumsByCurrentUser()).then(() => setIsLoaded(true))
         history.push('/you/library')
-    }, [dispatch])
+    }, [dispatch, history])
 
     // console.log('TTTTTT', albums)
 

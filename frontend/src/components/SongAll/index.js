@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 
 import './GetSongs.css'
-import { getOneSong, getSongs } from '../../store/songs'
+import { getSongs } from '../../store/songs'
 
 const GetAllSongs = () => {
     const dispatch = useDispatch()

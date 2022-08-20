@@ -1,7 +1,7 @@
 import { useHistory, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import './SongsView.css'
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { getOneSong } from "../../store/songs";
 import { deleteSong } from "../../store/songs";
 import EditModal from "../SongEditModal";
@@ -24,7 +24,7 @@ function SongDetails() {
     useEffect(() => {
         dispatch(getOneSong(song))
 
-    }, [dispatch, songId])
+    }, [dispatch, songId, song])
 
 
     const songDelete = (e) => {

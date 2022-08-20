@@ -6,11 +6,11 @@ import Navigation from "./components/Navigation";
 import GetAllSongs from "./components/SongAll";
 import SongDetails from "./components/SongDetails";
 import UsersSongs from './components/SongsCurrentUsers'
-import AlbumBrowser from "./components/GetAlbums";
-import AlbumView from "./components/GetOneAlbum";
-import UsersAlbums from "./components/CurrentUsersAlbums";
+import AlbumBrowser from "./components/AlbumsAll";
+import AlbumView from "./components/AlbumDetails";
+import UsersAlbums from "./components/AlbumsCurrentUsers";
 import SelectUserAlbum from "./components/SelectAlbum/SelectAlbum";
-import CreateAlbumModal from './components/CreateAlbum/index'
+import CreateAlbumModal from './components/AlbumCreate/index'
 import AudioPlayer from "./components/AudioPlayer";
 import { getSongs } from "./store/songs"
 import { getAlbums } from "./store/albums";

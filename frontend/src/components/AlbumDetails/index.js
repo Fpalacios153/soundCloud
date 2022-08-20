@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { deleteAlbum } from '../../store/albums'
 import { getOneAlbum } from "../../store/albums";
 import './GetOneAlbum.css'
-import EditModal from "../EditAlbumModel";
+import EditModal from "../AlbumEditModel";
 import CreateSongModel from "../SongCreate";
 
 

@@ -28,15 +28,17 @@ router.get('/user', requireAuth, async (req, res) => {
     });
     if (!artist) {
         res.status(404);
-        return res.json({
+        return res.json([{
             "message": "User does not have any albums",
             "statusCode": 404
-        })
+        }])
     }
     const albums = await artist.getAlbums();
     return res.json(albums)
 
 })
+
+
 router.get('/:albumId', async (req, res) => {
     let { albumId } = req.params
 

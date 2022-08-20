@@ -19,19 +19,23 @@ function SongDetails() {
     const song = useSelector(state => state.songs[songId]);
 
     const sessionUser = useSelector(state => state.session.user)
+    // console.log(song)
+
     useEffect(() => {
         dispatch(getOneSong(song))
 
     }, [dispatch, songId])
+
 
     const songDelete = (e) => {
         e.preventDefault();
         dispatch(deleteSong(song.id))
         history.push('/you/library')
     };
+
     return (
         <>
-            {song && song.Artist && (<div>
+            {song && song.Album && (<div>
                 <div className="song-nav"
                     style={{ backgroundImage: `url('${song.previewImage}')` }}
                     alt='songPic'>

@@ -31,17 +31,17 @@ router.get('/user', requireAuth, async (req, res) => {
     })
     if (!artist) {
         res.status(404)
-        return res.json({
+        return res.json([{
             "message": "User does not have any songs",
             "statusCode": 404
-        })
+        }])
     }
     const songs = await artist.getSongs({
-        // include:
-        // {
-        //     model: Artist,
-        //     attributes: ['id', 'name', 'previewImage', 'userId']
-        // }
+        include:
+        {
+            model: Artist,
+            attributes: ['id', 'name', 'previewImage', 'userId']
+        }
     });
     return res.json(songs)
 
@@ -155,11 +155,11 @@ router.get('/', validateParams, async (req, res) => {
         size = 20
     }
     const songs = await Song.findAll({
-        // include:
-        // {
-        //     model: Artist,
-        //     attributes: ['id', 'name', 'previewImage', 'userId']
-        // },
+        include:
+        {
+            model: Artist,
+            attributes: ['id', 'name', 'previewImage', 'userId']
+        },
         limit: size,
         offset: (page - 1) * size
 

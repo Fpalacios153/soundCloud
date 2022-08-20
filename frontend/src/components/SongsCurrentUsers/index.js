@@ -9,15 +9,17 @@ import './CurrentSongs.css'
 export default function UsersSongs() {
     const dispatch = useDispatch()
     const [isLoaded, setIsLoaded] = useState(false);
-    const [song, setSong] = useState('')
+    const song = useSelector(state => (state.songs))
+    const songs = Object.values(song)
+
+
+
+    // const [song, setSong] = useState('')
 
     useEffect(() => {
         dispatch(getSongByCurrentUser()).then(() => setIsLoaded(true))
 
     }, [dispatch])
-
-    const songs = useSelector(state => Object.values(state.songs))
-    console.log(songs)
 
     return (
         <>

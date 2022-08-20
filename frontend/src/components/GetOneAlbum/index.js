@@ -20,7 +20,7 @@ function AlbumView() {
         dispatch(getOneAlbum(album))
     }, [dispatch, albumId])
 
-    console.log(album)
+    // console.log(album)
     ///remember to move this to current
     const Delete = (e) => {
         e.preventDefault();

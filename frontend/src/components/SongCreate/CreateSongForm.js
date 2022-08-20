@@ -36,7 +36,7 @@ export const CreateSongg = () => {
             return dispatch(createSong(song, albumId))
                 .catch(async (res) => {
                     const data = await res.json();
-                    console.log('THIS', data)
+                    // console.log('THIS', data)
                     if (data && data.errors) setValidationErrors(data.errors)
                 })
         }

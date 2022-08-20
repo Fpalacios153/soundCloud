@@ -10,7 +10,7 @@ import './GetAlbum.css'
 const AlbumBrowser = () => {
     const dispatch = useDispatch();
     const albums = useSelector(state => Object.values(state.albums))
-    console.log("THIS IS", albums)
+    // console.log("THIS IS", albums)
     useEffect(() => {
         dispatch(getAlbums())
     }, [dispatch]);

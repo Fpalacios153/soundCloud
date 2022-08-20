@@ -7,12 +7,15 @@ import { getOneSong, getSongs } from '../../store/songs'
 
 const GetAllSongs = () => {
     const dispatch = useDispatch()
-    const song = useSelector(state => Object.values(state.songs))
-    console.log("GET ALL", song)
+
+    const songs = useSelector(state => state.songs)
+    const song = Object.values(songs)
+
     useEffect(() => {
         dispatch(getSongs())
 
     }, [dispatch])
+    console.log(song)
     return (
         <>
             <div className='allSongs-container'>
@@ -20,19 +23,17 @@ const GetAllSongs = () => {
                 <div className='song-container'>
                     <ul >
                         <div className='song-list'>
-                            {song.map(song => (
+                            {song.map((song) => (
                                 <li className='song-tiles' key={song.id} >
                                     <NavLink to={`/api/songs/${song.id}`} >
                                         <img style={{ height: '10em', width: '10em' }} src={song.previewImage} alt={song.title} />
-
+                                        <div style={{ fontWeight: 150, fontSize: '14px' }}>
+                                            {song.title}
+                                        </div>
                                     </NavLink>
-                                    <div style={{ fontWeight: 150, fontSize: '14px' }}>
-                                        {song.title}
-                                    </div>
                                     <div style={{ display: 'border-box', height: '30px', width: '160px', fontSize: '12px', margin: 0 }}>
-                                        {song.description}
+                                        {song.Artist.name}
                                     </div>
-                                    <br />
                                 </li>))}
                         </div>
                     </ul>

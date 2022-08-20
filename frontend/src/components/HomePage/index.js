@@ -1,6 +1,6 @@
 import DemoUser from '../DemoUser';
-import LoginFormModal from '../LoginFormModal';
-import SignupFormModal from '../SignupFormModal';
+import LoginFormModal from '../ModalLoginForm';
+import SignupFormModal from '../ModalSignupForm';
 import './HomePage.css'
 
 export const HomePage = () => {

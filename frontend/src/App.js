@@ -9,7 +9,7 @@ import UsersSongs from './components/SongsCurrentUsers'
 import AlbumBrowser from "./components/AlbumsAll";
 import AlbumView from "./components/AlbumDetails";
 import UsersAlbums from "./components/AlbumsCurrentUsers";
-import SelectUserAlbum from "./components/SelectAlbum/SelectAlbum";
+import SelectUserAlbum from "./components/AlbumSelect/SelectAlbum";
 import CreateAlbumModal from './components/AlbumCreate/index'
 import AudioPlayer from "./components/AudioPlayer";
 import { getSongs } from "./store/songs"

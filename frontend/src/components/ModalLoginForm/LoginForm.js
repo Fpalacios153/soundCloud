@@ -14,16 +14,19 @@ function LoginForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-    history.push('/discover')
+    // history.push('/discover')
     return dispatch(sessionActions.login({ credential, password })).catch(
       async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
+        if (!errors) history.push('/discover')
       }
     )
   };
-
-
+  // const redirect = (e) => {
+  //   e.preventDefault();
+  //   if (!errors.length) history.push('/discover')
+  // }
   return (
     <form onSubmit={handleSubmit}>
       <ul>
@@ -49,7 +52,9 @@ function LoginForm() {
           required
         />
       </label>
-      <button type="submit">Log in</button>
+      <button type="submit"
+      >Log in
+      </button>
     </form>
   );
 }

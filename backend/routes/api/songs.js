@@ -30,11 +30,7 @@ router.get('/user', requireAuth, async (req, res) => {
         }
     })
     if (!artist) {
-        res.status(404)
-        return res.json([{
-            "message": "User does not have any songs",
-            "statusCode": 404
-        }])
+        return res.json([])
     }
     const songs = await artist.getSongs({
         include:

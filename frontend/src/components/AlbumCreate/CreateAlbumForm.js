@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createAlbum } from "../../store/albums"
@@ -17,11 +17,11 @@ const CreateAlbum = () => {
 
 
 
-    // useEffect(()=>{
-    //     const errors =[]
-    //     if(title.length ===0) errors.push('Title required')
-    //     setValidationErrors(errors)
-    // },[title])
+    useEffect(() => {
+        const errors = []
+        if (!title.length) errors.push('Title required')
+        setValidationErrors(errors)
+    }, [title])
 
     // const user = useSelector(state => state.session.user)
     const handleSubmit = async (e) => {
@@ -34,22 +34,21 @@ const CreateAlbum = () => {
             imageUrl,
 
         }
+        await dispatch(createAlbum(album)).then(() => history.push(`/you/library`))
         // if(validationErrors.length) return alert ("You cannot submit")
-        if (!title.length) {
-            setValidationErrors([]);
-            // history.push(`/you/library`)
-            return dispatch(createAlbum(album))
-                .catch(async (res) => {
-                    const data = await res.json();
-                    console.log('this is DATD FROM ALBUM', data)
-                    if (data && data.errors) setValidationErrors(data.errors)
-                })
-        }
-        if (title.length) {
-            setValidationErrors([]);
-            history.push(`/you/library`)
-            return dispatch(createAlbum(album))
-        }
+        // if (!title.length) {
+        //     setValidationErrors([]);
+        //     // history.push(`/you/library`)
+        //     return dispatch(createAlbum(album))
+        //         .catch(async (res) => {
+        //             const data = await res.json();
+        //             console.log('this is DATD FROM ALBUM', data)
+        //             if (data && data.errors) setValidationErrors(data.errors)
+        //         })
+        // }
+        // if (title.length) {
+        //     setValidationErrors([]);
+
     }
     // const handleCancelClick = (e) => {
     //     e.preventDefault();

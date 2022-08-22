@@ -27,11 +27,8 @@ router.get('/user', requireAuth, async (req, res) => {
         }
     });
     if (!artist) {
-        res.status(404);
-        return res.json([{
-            "message": "User does not have any albums",
-            "statusCode": 404
-        }])
+        // res.status(404);
+        return res.json([])
     }
     const albums = await artist.getAlbums();
     return res.json(albums)

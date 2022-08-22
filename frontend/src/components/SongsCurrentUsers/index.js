@@ -11,9 +11,13 @@ export default function UsersSongs() {
     const [isLoaded, setIsLoaded] = useState(false);
     const song = useSelector(state => (state.songs))
     const songs = Object.values(song)
+    const sessionUser = useSelector(state => state.session.user)
+
+    // sessionUser.id === song.Artist.userId &&
+    console.log(songs)
 
 
-
+    // √song && song.Artist && sessionUser.id === song.Artist.userId &&
     // const [song, setSong] = useState('')
 
     useEffect(() => {

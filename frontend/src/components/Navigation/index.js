@@ -1,8 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Route, Switch } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import { HomePage } from '../HomePage';
+import SongDetails from '../SongDetails';
 import './Navigation.css';
 // import AudioPlayer from '../AudioPlayer';
 
@@ -31,7 +32,14 @@ function Navigation({ isLoaded }) {
   } else {
 
     sessionLinks = (
-      <HomePage path='/' />
+      <>
+        <Switch>
+          <Route exact path='/'>
+            <HomePage />
+          </Route>
+        </Switch>
+      </>
+
 
     );
   }

@@ -3,7 +3,7 @@ import ReactAudioPlayer from 'react-audio-player';
 import './AudioPlayer.css'
 
 function AudioPlayer({ song }) {
-    console.log('SONGINAUDO', song)
+    // console.log('SONGINAUDO', song)
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', width: '100%' }}>

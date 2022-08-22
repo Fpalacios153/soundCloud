@@ -40,10 +40,10 @@ export const getSongs = () => async dispatch => {
     return response
 };
 //get one song
-export const getOneSong = (song) => async dispatch => {
-    if (!song) return
+export const getOneSong = (songId) => async dispatch => {
+    // if (!song) return
 
-    const response = await csrfFetch(`/api/songs/${song.id}`)
+    const response = await csrfFetch(`/api/songs/${songId}`)
 
     if (response.ok) {
         const song = await response.json();

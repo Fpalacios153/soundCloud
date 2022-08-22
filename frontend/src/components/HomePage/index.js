@@ -1,9 +1,13 @@
+import { Route, Switch } from 'react-router-dom';
 import DemoUser from '../DemoUser';
 import LoginFormModal from '../ModalLoginForm';
 import SignupFormModal from '../ModalSignupForm';
+import GetAllSongs from '../SongAll';
+import SongDetails from '../SongDetails';
 import './HomePage.css'
 
 export const HomePage = () => {
+
 
     return (
         <>
@@ -26,6 +30,8 @@ export const HomePage = () => {
                     <div className='titleTrending'>
                         Hear what’s trending for free in the CloudSounds community
                     </div>
+                    <GetAllSongs />
+
                 </div>
                 <div>
                     <div>

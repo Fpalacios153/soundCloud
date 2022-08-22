@@ -1,6 +1,6 @@
 
 import { createSong } from "../../store/songs";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 
@@ -11,15 +11,19 @@ export const CreateSongg = () => {
     const [description, setDescription] = useState('')
     const [imageUrl, setPreviewImage] = useState('')
     const [url, setSelectedFile] = useState('')
-    const [validationErrors, setValidationErrors] = useState([[]])
+    const [validationErrors, setValidationErrors] = useState([])
     const [hasSubmitted, setHasSubmitted] = useState(false)
 
     const { albumId } = useParams()
 
     // const user = useSelector(state => state.session.user)
+    useEffect(() => {
+        const error = []
+        if (!title.length) error.push('Song title is required')
+        if (!url.length) error.push('Audio is required')
+        setValidationErrors(error)
+    }, [title, url])
 
-
-    // setValidationErrors(errors)
     const handleSubmit = async (e) => {
         e.preventDefault();
         setHasSubmitted(true)
@@ -30,21 +34,22 @@ export const CreateSongg = () => {
             imageUrl,
             url
         }
+        await dispatch(createSong(song, albumId)).then(() => history.push(`/you/library`))
 
-        if (!title.length || !url.length) {
-            setValidationErrors([]);
-            return dispatch(createSong(song, albumId))
-                .catch(async (res) => {
-                    const data = await res.json();
-                    // console.log('THIS', data)
-                    if (data && data.errors) setValidationErrors(data.errors)
-                })
-        }
-        if (title.length && url.length) {
-            setValidationErrors([]);
-            history.push(`/you/library`)
-            return dispatch(createSong(song, albumId)).then(() => history.push(`/you/library`))
-        }
+        // if (!title.length || !url.length) {
+        //     setValidationErrors([]);
+        //     return dispatch(createSong(song, albumId))
+        //         .catch(async (res) => {
+        //             const data = await res.json();
+        //             // console.log('THIS', data)
+        //             if (data && data.errors) setValidationErrors(data.errors)
+        //         })
+        // }
+        // if (title.length && url.length) {
+        //     setValidationErrors([]);
+        //     return dispatch(createSong(song, albumId)).then(() => history.push(`/you/library`))
+        //     history.push(`/you/library`)
+        // }
     }
 
 

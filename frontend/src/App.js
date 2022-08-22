@@ -14,6 +14,7 @@ import CreateAlbumModal from './components/AlbumCreate/index'
 import AudioPlayer from "./components/AudioPlayer";
 import { getSongs } from "./store/songs"
 import { getAlbums } from "./store/albums";
+import { HomePage } from "./components/HomePage";
 // import { getSongByCurrentUser } from './store/songs'
 function App() {
   const dispatch = useDispatch();
@@ -32,12 +33,18 @@ function App() {
         <Navigation isLoaded={isLoaded} />
         {isLoaded && (
           <Switch>
+            {/* <Route exact path='/'>
+              <HomePage />
+            </Route> */}
             <Route path='/discover'>
               <AlbumBrowser />
-              <GetAllSongs setSong={setSong} />
+              <h2 className="allSAtitles">All Songs</h2>
+              <GetAllSongs
+              // setSong={setSong}
+              />
             </Route>
             <Route path='/api/albums/:albumId'>
-              <AlbumView />
+              <AlbumView setSong={setSong} />
             </Route>
             {/* <Route path='/songs'>
           </Route> */}

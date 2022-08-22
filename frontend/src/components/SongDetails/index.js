@@ -24,7 +24,7 @@ function SongDetails() {
     useEffect(() => {
         dispatch(getOneSong(song))
 
-    }, [dispatch, songId, song])
+    }, [dispatch, songId])
 
 
     const songDelete = (e) => {
@@ -52,7 +52,7 @@ function SongDetails() {
                     <EditModal />
 
                 </div>)}
-            <AudioPlayer song={song} />
+            {/* <AudioPlayer song={song} /> */}
         </>
 
     )

@@ -18,7 +18,7 @@ function AlbumView() {
 
     useEffect(() => {
         dispatch(getOneAlbum(album))
-    }, [dispatch, albumId, album])
+    }, [dispatch, albumId])
 
     // console.log(album)
     ///remember to move this to current

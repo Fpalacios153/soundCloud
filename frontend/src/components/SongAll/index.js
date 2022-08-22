@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 import './GetSongs.css'
 import { getSongs } from '../../store/songs'
 
-const GetAllSongs = () => {
+const GetAllSongs = ({ setSong }) => {
     const dispatch = useDispatch()
 
     const songs = useSelector(state => state.songs)
@@ -15,7 +15,7 @@ const GetAllSongs = () => {
         dispatch(getSongs())
 
     }, [dispatch])
-    console.log(song)
+    // console.log(song)
     return (
         <>
             <div className='allSongs-container'>
@@ -25,8 +25,10 @@ const GetAllSongs = () => {
                         <div className='song-list'>
                             {song.map((song) => (
                                 <li className='song-tiles' key={song.id} >
-                                    <NavLink to={`/api/songs/${song.id}`} >
+                                    <button onClick={() => setSong(song.url)}>
                                         <img style={{ height: '10em', width: '10em' }} src={song.previewImage} alt={song.title} />
+                                    </button>
+                                    <NavLink to={`/api/songs/${song.id}`} >
                                         <div style={{ fontWeight: 150, fontSize: '14px' }}>
                                             {song.title}
                                         </div>

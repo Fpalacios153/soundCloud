@@ -24,6 +24,7 @@ function App() {
       .then(() => dispatch(getAlbums()))
       .then(() => setIsLoaded(true));
   }, [dispatch]);
+  const [song, setSong] = useState('')
 
   return (
     <>
@@ -33,7 +34,7 @@ function App() {
           <Switch>
             <Route path='/discover'>
               <AlbumBrowser />
-              <GetAllSongs />
+              <GetAllSongs setSong={setSong} />
             </Route>
             <Route path='/api/albums/:albumId'>
               <AlbumView />
@@ -53,7 +54,7 @@ function App() {
             </Route>
           </Switch>
         )}
-        <AudioPlayer />
+        <AudioPlayer song={song} />
       </div>
     </>
   );

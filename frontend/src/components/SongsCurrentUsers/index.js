@@ -49,24 +49,22 @@ export default function UsersSongs() {
         <>
             <div className='currSong-container'>
                 <h2 className='allSAtitles'>My Songs</h2>
-                {isLoaded && !song.length > 0 && (
-                    <div>{ }User does not have any songs</div>
+                {isLoaded && !songs.length && (
+                    <div>User has no songs</div>
                 )}
                 <div className='song-container'>
                     <ul>
                         <div className='song-list .wrap'>
 
                             {isLoaded && songs.length > 0 && songs.map(song => (
-                                (
-                                    <li key={song.id}>
-                                        <NavLink className='song-tiles' to={`/api/songs/${song.id}`} key={song.id}>
-                                            <img style={{ height: '10em', width: '10em' }} src={song.previewImage} alt={song.title} />
-                                        </NavLink>
-                                        <div style={{ fontWeight: 100, fontSize: '14px' }}>
-                                            {song.title}
-                                        </div>
-                                    </li>)
-                            ))}
+                                <li key={song.id}>
+                                    <NavLink className='song-tiles' to={`/api/songs/${song.id}`} key={song.id}>
+                                        <img style={{ height: '10em', width: '10em' }} src={song.previewImage} alt={song.title} />
+                                    </NavLink>
+                                    <div style={{ fontWeight: 100, fontSize: '14px' }}>
+                                        {song.title}
+                                    </div>
+                                </li>))}
                         </div>
                     </ul>
                 </div>

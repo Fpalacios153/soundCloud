@@ -1,4 +1,4 @@
-import { useHistory, useParams } from "react-router-dom";
+import { NavLink, useHistory, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import './SongsView.css'
 import { useEffect, useState } from "react";
@@ -47,12 +47,15 @@ function SongDetails() {
                 <h5>{song.description}</h5>
             </div>)
             }
-            {/* {song && song.Artist && sessionUser.id === song.Artist.userId && (
-                <div>
-                    <button onClick={songDelete}>Delete</button>
-                    <EditModal />
+            {!sessionUser ? (<NavLink to='/'>Back to home page</NavLink>) :
+                song && song.Artist && sessionUser.id === song.Artist.userId && (
+                    <div>
+                        <button onClick={songDelete}>Delete</button>
+                        <EditModal />
 
-                </div>)} */}
+                    </div>)
+            }
+
         </>
 
     )

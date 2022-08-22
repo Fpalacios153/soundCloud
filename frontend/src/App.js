@@ -40,7 +40,7 @@ function App() {
               <AlbumBrowser />
               <h2 className="allSAtitles">All Songs</h2>
               <GetAllSongs
-              // setSong={setSong}
+                setSong={setSong}
               />
             </Route>
             <Route path='/api/albums/:albumId'>

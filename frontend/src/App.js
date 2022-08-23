@@ -36,6 +36,9 @@ function App() {
             {/* <Route exact path='/'>
               <HomePage />
             </Route> */}
+            {/* <Route exact path='/'>
+              <HomePage />
+            </Route> */}
             <Route path='/discover'>
               <AlbumBrowser />
               <h2 className="allSAtitles">All Songs</h2>
@@ -59,6 +62,9 @@ function App() {
               <SelectUserAlbum />
               <CreateAlbumModal />
             </Route>
+            {/* <Route>
+              <h2>Page Not Found</h2>
+            </Route> */}
           </Switch>
         )}
         <AudioPlayer song={song} />

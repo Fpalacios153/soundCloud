@@ -13,9 +13,32 @@
 
 }
 
+.profile-button {
+  background-color: #333;
+  color: #999;
+  border: 0;
+  background: #333;
+  font-family: Interstate, Lucida Grande, Arial, sans-serif;
+  font-weight: 100;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.profile-button:hover {
+  color: white;
+
+  background-color: black;
+}
+
+.profile-button:visited {
+  background-color: black;
+}
+
 .profile-dropdown {
-  position: relative;
-  height: inherit;
+  position: absolute;
+  border-color: '#f2f2f2';
+  border-bottom: 1px solid #333;
+  right: 6em;
   color: #333;
   background-color: white;
   list-style-type: none;
@@ -28,13 +51,17 @@ nav a {
   align-items: center;
   text-decoration: none;
   color: #999;
-  margin: 20px;
+  /* margin: 20px; */
   padding: 0px 10px;
 }
 
 nav a:hover {
   color: white;
+  background-color: black;
+}
 
+nav a:visited {
+  background-color: black;
 }
 
 .mainHeader {

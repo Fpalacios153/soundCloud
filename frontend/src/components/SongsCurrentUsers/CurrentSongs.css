@@ -1,3 +1,7 @@
 .currSong-container {
     height: 60%;
 }
+
+.currLi {
+    list-style: none;
+}

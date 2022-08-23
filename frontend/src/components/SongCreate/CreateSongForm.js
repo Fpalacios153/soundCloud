@@ -34,6 +34,7 @@ export const CreateSongg = () => {
             imageUrl,
             url
         }
+        if (!song.imageUrl.length) { return setPreviewImage('https://res.cloudinary.com/fpalacios153/image/upload/v1659330814/Screen_Shot_2022-07-31_at_10.12.51_PM_npyums.png') }
         await dispatch(createSong(song, albumId)).then(() => history.push(`/you/library`))
 
         // if (!title.length || !url.length) {

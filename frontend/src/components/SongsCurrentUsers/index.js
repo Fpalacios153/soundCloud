@@ -57,13 +57,18 @@ export default function UsersSongs() {
                         <div className='song-list .wrap'>
 
                             {isLoaded && songs.length > 0 && songs.map(song => (
-                                <li key={song.id}>
-                                    <NavLink className='song-tiles' to={`/api/songs/${song.id}`} key={song.id}>
-                                        <img style={{ height: '10em', width: '10em' }} src={song.previewImage} alt={song.title} />
+                                <li className='song-tiles' key={song.id} >
+                                    <button
+                                    // onClick={() => setSong(song.url)}
+                                    >
+                                        <img style={{ height: '11em', width: '11em' }} src={song.previewImage} alt={song.title} />
+                                    </button>
+                                    <NavLink to={`/api/songs/${song.id}`} >
+                                        <div style={{ fontWeight: 150, fontSize: '14px' }}>
+                                            {song.title}
+                                        </div>
                                     </NavLink>
-                                    <div style={{ fontWeight: 100, fontSize: '14px' }}>
-                                        {song.title}
-                                    </div>
+
                                 </li>))}
                         </div>
                     </ul>

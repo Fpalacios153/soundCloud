@@ -25,7 +25,7 @@ function SongDetails() {
         dispatch(getOneSong(songId))
         setIsLoaded(true)
 
-    }, [dispatch, songId])
+    }, [dispatch,])
     console.log(song)
     // console.log(song.Artist)
     const songDelete = (e) => {

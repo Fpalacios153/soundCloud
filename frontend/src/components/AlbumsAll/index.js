@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
@@ -9,11 +9,14 @@ import './GetAlbum.css'
 
 const AlbumBrowser = () => {
     const dispatch = useDispatch();
-    const albums = useSelector(state => Object.values(state.albums))
-    // console.log("THIS IS", albums)
+    const albums1 = useSelector(state => state.albums)
+    const albums = Object.values(albums1)
+    const [isLoaded, setIsLoaded] = useState(false)
+
     useEffect(() => {
-        dispatch(getAlbums())
+        dispatch(getAlbums()).then(() => setIsLoaded(true))
     }, [dispatch]);
+    console.log(albums)
 
 
     return (
@@ -23,13 +26,16 @@ const AlbumBrowser = () => {
                 <div className="album-container">
                     <ul>
                         <div className="album-list">
-                            {albums.map(album => (
+                            {isLoaded && albums.map(album => (
                                 <li className='album-tiles' key={album.id}>
                                     <NavLink to={`/api/albums/${album.id}`} key={album.id}>
-                                        <img style={{ height: '11em', width: '11em' }} src={album.previewImage} alt={album.title} />
+                                        <img className='' style={{ height: '11em', width: '11em' }} src={album.previewImage} alt={album.title} />
+                                        <div style={{ fontWeight: 150, fontSie: '14px' }}>
+                                            {album.title}
+                                        </div>
                                     </NavLink>
-                                    <div style={{ fontWeight: 150, fontSize: '14px' }}>
-                                        {album.title}
+                                    <div style={{ fontWeight: 150, fontSize: '12px' }}>
+                                        {album.Artist.name}
                                     </div>
                                     <br />
                                 </li>))}

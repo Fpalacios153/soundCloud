@@ -4,13 +4,14 @@ import { NavLink } from 'react-router-dom'
 
 import './GetSongs.css'
 import { getSongs } from '../../store/songs'
+import { useSongContext } from '../../context/setSongContext'
 
-const GetAllSongs = ({ setSong, title }) => {
+const GetAllSongs = () => {
     const dispatch = useDispatch()
 
     const songs = useSelector(state => state.songs)
     const song = Object.values(songs)
-    // const [title, setTitle] = useState('All Songs')
+    const { setSong } = useSongContext()
 
     useEffect(() => {
         dispatch(getSongs())

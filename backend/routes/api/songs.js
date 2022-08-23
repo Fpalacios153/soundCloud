@@ -34,10 +34,14 @@ router.get('/user', requireAuth, async (req, res) => {
     }
     const songs = await artist.getSongs({
         include:
-        {
-            model: Artist,
-            attributes: ['id', 'name', 'previewImage', 'userId']
-        }
+            [{
+                model: Artist,
+                attributes: ['id', 'name', 'previewImage', 'userId']
+            },
+            {
+                model: Album,
+                attributes: ['id', 'title', 'previewImage']
+            }]
     });
     return res.json(songs)
 

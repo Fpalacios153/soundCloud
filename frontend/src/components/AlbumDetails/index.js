@@ -6,15 +6,16 @@ import { getOneAlbum } from "../../store/albums";
 import './GetOneAlbum.css'
 import EditModal from "../AlbumEditModel";
 import CreateSongModel from "../SongCreate";
+import { useSongContext } from "../../context/setSongContext";
 
 
-function AlbumView({ setSong }) {
+function AlbumView() {
     const dispatch = useDispatch();
     const history = useHistory();
     const { albumId } = useParams();
     const sessionUser = useSelector(state => state.session.user)
-
     const album = useSelector(state => state.albums[Number(albumId)])
+    const { setSong } = useSongContext()
 
     useEffect(() => {
         dispatch(getOneAlbum(album))

@@ -9,6 +9,7 @@ import { ModalProvider } from "./context/Modal";
 import configureStore from "./store";
 import { restoreCSRF, csrfFetch } from "./store/csrf";
 import * as sessionActions from "./store/session";
+import SongProvider from "./context/setSongContext";
 
 const store = configureStore();
 
@@ -22,13 +23,15 @@ if (process.env.NODE_ENV !== "production") {
 
 function Root() {
   return (
-    <Provider store={store}>
-      <ModalProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </ModalProvider>
-    </Provider>
+    <SongProvider>
+      <Provider store={store}>
+        <ModalProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </ModalProvider>
+      </Provider>
+    </SongProvider>
   );
 }
 

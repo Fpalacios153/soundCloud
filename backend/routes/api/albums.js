@@ -59,7 +59,13 @@ router.get('/:albumId', async (req, res) => {
     res.json(albumsById)
 })
 router.get('/', async (req, res) => {
-    const albums = await Album.findAll();
+    const albums = await Album.findAll({
+        include:
+        {
+            model: Artist,
+            attributes: ['id', 'name', 'previewImage', 'userId']
+        }
+    });
 
     res.json(albums)
 })

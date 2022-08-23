@@ -25,7 +25,7 @@ function App() {
       .then(() => dispatch(getAlbums()))
       .then(() => setIsLoaded(true));
   }, [dispatch]);
-  const [song, setSong] = useState('')
+  // const [song, setSong] = useState('')
 
   return (
     <>
@@ -43,11 +43,13 @@ function App() {
               <AlbumBrowser />
               <h2 className="allSongs">All Songs</h2>
               <GetAllSongs
-                setSong={setSong}
+              // setSong={setSong}
               />
             </Route>
             <Route path='/api/albums/:albumId'>
-              <AlbumView setSong={setSong} />
+              <AlbumView
+              // setSong={setSong}
+              />
             </Route>
             {/* <Route path='/songs'>
           </Route> */}
@@ -67,7 +69,9 @@ function App() {
             </Route> */}
           </Switch>
         )}
-        <AudioPlayer song={song} />
+        <AudioPlayer
+        // song={song}
+        />
       </div>
     </>
   );

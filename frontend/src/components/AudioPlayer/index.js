@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactAudioPlayer from 'react-audio-player';
+import { useSongContext } from '../../context/setSongContext';
 import './AudioPlayer.css'
 
-function AudioPlayer({ song }) {
-    // console.log('SONGINAUDO', song)
+function AudioPlayer() {
+    const { song } = useSongContext()
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', width: '100%' }}>

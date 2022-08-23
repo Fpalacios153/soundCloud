@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { getSongByCurrentUser } from '../../store/songs'
+import { useSongContext } from '../../context/setSongContext'
 import './CurrentSongs.css'
 
 
@@ -11,21 +12,18 @@ export default function UsersSongs() {
     const [isLoaded, setIsLoaded] = useState(false);
     const song = useSelector(state => (state.songs))
     const songs = Object.values(song)
-    const sessionUser = useSelector(state => state.session.user)
-    const [validationErrors, setValidationErrors] = useState([])
+    const { setSong } = useSongContext()
 
 
-    // sessionUser.id === song.Artist.userId &&
-    // console.log(songs)
-
-
-    // √song && song.Artist && sessionUser.id === song.Artist.userId &&
-    // const [song, setSong] = useState('')
 
     useEffect(() => {
         dispatch(getSongByCurrentUser()).then(() => setIsLoaded(true))
 
     }, [dispatch])
+    // const sessionUser = useSelector(state => state.session.user)
+    // const [validationErrors, setValidationErrors] = useState([])
+    // sessionUser.id === song.Artist.userId &&
+    // console.log(songs)
     // useEffect(() => {
     //     if (!isLoaded) {
     //         dispatch(getSongByCurrentUser())
@@ -41,10 +39,7 @@ export default function UsersSongs() {
     //         setIsLoaded(true)
     //     }
     // }, [validationErrors])
-
-    // console.log("apples", validationErrors)
-
-    // console.log('ARITSIID', song.Artist.userId)
+    console.log('SONGS', songs)
     return (
         <>
             <div className='currSong-container'>
@@ -59,7 +54,7 @@ export default function UsersSongs() {
                             {isLoaded && songs.length > 0 && songs.map(song => (
                                 <li className='song-tiles' key={song.id} >
                                     <button
-                                    // onClick={() => setSong(song.url)}
+                                        onClick={() => setSong(song.url)}
                                     >
                                         <img style={{ height: '11em', width: '11em' }} src={song.previewImage} alt={song.title} />
                                     </button>
@@ -69,6 +64,9 @@ export default function UsersSongs() {
                                         </div>
                                     </NavLink>
 
+                                    <div style={{ fontWeight: 150, fontSize: '14px' }}>
+                                        {song.Album.title}
+                                    </div>
                                 </li>))}
                         </div>
                     </ul>

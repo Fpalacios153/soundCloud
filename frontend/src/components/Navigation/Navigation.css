@@ -18,15 +18,11 @@ nav a {
   align-items: center;
   text-decoration: none;
   color: #999;
-  padding: 0px 2.5em;
+  padding: 0px 1em;
 }
 
 nav a:hover {
   color: white;
-  background-color: black;
-}
-
-nav a.active .navLogo {
   background-color: black;
 }
 

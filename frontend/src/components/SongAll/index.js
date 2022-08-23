@@ -20,7 +20,7 @@ const GetAllSongs = ({ setSong, title }) => {
     return (
         <>
             <div className='allSongs-container'>
-                <h2 className='allSAtitles'>{title}</h2>
+                {/* <h2 className='allSAtitles'>{title}</h2> */}
                 <div className='song-container'>
                     <ul >
                         <div className='song-list'>

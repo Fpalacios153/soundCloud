@@ -1,30 +1,40 @@
-.song-tiles {
-    width: 150px;
-    height: 150px;
-    border-radius: 3px;
-    background-size: contain;
-    list-style-type: none;
-    padding: 0px 10px;
-
-}
-
 .allSongs-container {
     display: flex;
     height: 300px;
     width: 100%;
     flex-direction: column;
+    /* padding-left: 6em; */
+}
 
-
+.song-container {
+    overflow-x: auto;
+    height: 250px;
+    overflow-y: hidden;
 }
 
 .song-list {
     display: flex;
     justify-content: 'center';
     align-items: center;
+    /* flex-wrap: wrap; */
+
 }
 
-.song-container {
-    overflow-x: auto;
-    height: 280px;
-    overflow-y: hidden;
+.song-tiles {
+    width: 150px;
+    height: 150px;
+    border-radius: 3px;
+    background-size: contain;
+    list-style-type: none;
+    padding-right: 25px;
+
+}
+
+.allSongs {
+    /* padding-left: 4em; */
+    font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
+    font-size: 24px;
+    font-weight: 100;
+    text-align: -webkit-match-parent;
+    color: #333;
 }

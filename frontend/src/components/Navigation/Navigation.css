@@ -2,7 +2,7 @@
   width: 100%;
   height: 46px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-content: center;
   background: #333;
   font-family: Interstate, Lucida Grande, Arial, sans-serif;
@@ -18,7 +18,7 @@ nav a {
   align-items: center;
   text-decoration: none;
   color: #999;
-  padding: 0px 1em;
+  padding: 0px 2.5em;
 }
 
 nav a:hover {

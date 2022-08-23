@@ -17,8 +17,8 @@ function Navigation({ isLoaded }) {
       <>
         <div className='mainHeader'>
           <nav className='mainNav'>
-            <NavLink to='/discover'>
-              <h1 className='navLogo'> </h1>
+            <NavLink to='/discover'  >
+              <div className='navLogo'> </div>
             </NavLink>
             <NavLink exact to="/discover">Home</NavLink>
             {/* <NavLink to="/songs">Songs</NavLink> */}

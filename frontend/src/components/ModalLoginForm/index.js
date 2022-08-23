@@ -8,7 +8,7 @@ function LoginFormModal() {
 
   return (
     <>
-      <button className='signup' onClick={() => setShowModal(true)}>Sign in</button>
+      <button className='signup bottom' onClick={() => setShowModal(true)}>Sign in</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <LoginForm path='/discover' />

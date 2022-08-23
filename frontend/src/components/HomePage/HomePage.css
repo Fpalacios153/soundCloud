@@ -1,6 +1,9 @@
 .app-Container {
     height: 100%;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
 }
 
 
@@ -53,8 +56,6 @@
 
 .topPart {
     top: -8px;
-    left: -8px;
-    right: -8px;
     color: #fff;
     position: relative;
     overflow: hidden;
@@ -94,5 +95,26 @@
     font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
     font-weight: 100;
 
+}
 
+.github-containter {
+    display: flex;
+    justify-content: center;
+    padding: 45px;
+}
+
+.bottom-container {
+    display: flex;
+    justify-content: center;
+    padding: 45px;
+}
+
+.thanks {
+    display: flex;
+    justify-content: center;
+    width: auto;
+}
+
+.bottom-signup {
+    margin: auto;
 }

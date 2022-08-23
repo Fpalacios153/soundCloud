@@ -31,11 +31,27 @@ export const HomePage = () => {
                         Hear what’s trending for free in the CloudSounds community
                     </div>
                     <GetAllSongs />
-
                 </div>
-                <div>
+                <div className='github-containter'>
                     <div>
+                        <h2>
+                            Never Stop listening
+                        </h2>
                     </div>
+                </div>
+                <div className='bottom-container'>
+                    <div className='thanks'>
+                        <h2>
+                            Thanks for listening. Now join in
+                        </h2>
+                    </div>
+                </div>
+                <span className='bottom-signup'>
+                    <SignupFormModal />
+                </span>
+                <div>
+                    Already have an account?
+                    <LoginFormModal />
                 </div>
             </div>
         </>

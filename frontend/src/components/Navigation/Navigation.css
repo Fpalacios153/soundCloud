@@ -8,7 +8,7 @@
   font-family: Interstate, Lucida Grande, Arial, sans-serif;
   font-weight: 100;
   font-size: 14px;
-  /* line-height: 1.5; */
+  line-height: 1.5;
   cursor: pointer;
 
 }
@@ -26,6 +26,10 @@ nav a:hover {
   background-color: black;
 }
 
+nav a.active .navLogo {
+  background-color: black;
+}
+
 nav a:visited {
   background-color: black;
 }
@@ -37,17 +41,23 @@ nav a:visited {
   margin-right: -8px;
 }
 
-div.navLogo {
-  display: block;
-  position: fixed;
+.navLogo {
+  width: 70px;
+  height: 23px;
+  background-size: 115px 22px;
+  background-color: black;
+  padding: 10px;
+
+
+  /* display: block;
+  position: absolute;
   top: 0px;
   left: 4px;
   background: url(https://a-v2.sndcdn.com/assets/images/peace-cloud-28ad0963.svg) no-repeat 12px 11px;
   margin: 0;
   height: 6%;
   width: 13%;
-  background-size: 115px 22px;
-  background-color: black;
+  background-color: black; */
 
 }
 

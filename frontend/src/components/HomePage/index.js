@@ -49,7 +49,7 @@ export const HomePage = () => {
                 <span className='bottom-signup'>
                     <SignupFormModal />
                 </span>
-                <div>
+                <div className='bottom-login'>
                     Already have an account?
                     <LoginFormModal />
                 </div>

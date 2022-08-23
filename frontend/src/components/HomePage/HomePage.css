@@ -94,7 +94,6 @@
     margin-bottom: 30px;
     font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
     font-weight: 100;
-
 }
 
 .github-containter {
@@ -117,4 +116,10 @@
 
 .bottom-signup {
     margin: auto;
+}
+
+.bottom-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

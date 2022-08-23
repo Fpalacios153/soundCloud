@@ -26,7 +26,7 @@ const AlbumBrowser = () => {
                             {albums.map(album => (
                                 <li className='album-tiles' key={album.id}>
                                     <NavLink to={`/api/albums/${album.id}`} key={album.id}>
-                                        <img style={{ height: '10em', width: '10em' }} src={album.previewImage} alt={album.title} />
+                                        <img style={{ height: '11em', width: '11em' }} src={album.previewImage} alt={album.title} />
                                     </NavLink>
                                     <div style={{ fontWeight: 150, fontSize: '14px' }}>
                                         {album.title}

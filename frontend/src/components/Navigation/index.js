@@ -17,8 +17,8 @@ function Navigation({ isLoaded }) {
       <>
         <div className='mainHeader'>
           <nav className='mainNav'>
-            <NavLink to='/discover'  >
-              <div className='navLogo'> </div>
+            <NavLink to='/discover' >
+              <img src='https://a-v2.sndcdn.com/assets/images/peace-cloud-28ad0963.svg' alt='logo' className='navLogo' />
             </NavLink>
             <NavLink exact to="/discover">Home</NavLink>
             {/* <NavLink to="/songs">Songs</NavLink> */}

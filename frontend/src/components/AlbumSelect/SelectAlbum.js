@@ -19,17 +19,17 @@ export default function SelectUserAlbum() {
 
     return (
         <>
-            <div className='upload-container'>
-                {albums.length > 0 && (<h2>Select Album to Add Song</h2>)}
+            <div className='allAlbum-container'>
+                {albums.length > 0 && (<h2 className="allSAtitles">Select Album to Add Song</h2>)}
                 <div className='album-container'>
                     {!albums.length && (
-                        <h2>User does not have any Albums, Create one to add song!</h2>)}
+                        <h2 className="allSAtitles">User does not have any Albums, Create one to add song!</h2>)}
                     <ul>
                         <div className='album-list'>
                             {isLoaded && albums.length > 0 && albums.map(album => (
                                 <li key={album.id} className='curralbum-tiles' >
                                     <NavLink to={`/api/albums/${album.id}`} key={album.id}>
-                                        <img style={{ height: '10em', width: '10em' }} src={album.previewImage} alt={album.title} />
+                                        <img style={{ height: '12em', width: '12em' }} src={album.previewImage} alt={album.title} />
                                     </NavLink>
                                     <div style={{ fontWeight: 100, fontSize: '14px' }}>
                                         {album.title}

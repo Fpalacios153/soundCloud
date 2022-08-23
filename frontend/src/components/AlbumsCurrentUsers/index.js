@@ -21,7 +21,7 @@ export default function UsersAlbums() {
     return (
         <>
 
-            <div className='currAlbums-container'>
+            <div className='allAlbum-container'>
                 <h2 className='allSAtitles'>My Albums</h2>
                 {!albums.length && (
                     <div>User has no Albums</div>
@@ -30,9 +30,9 @@ export default function UsersAlbums() {
                     <ul>
                         <div className='album-list'>
                             {isLoaded && albums.length > 0 && albums.map(album => (
-                                <li key={album.id} className='curralbum-tiles' >
-                                    <NavLink to={`/api/albums/${album.id}`} key={album.id}>
-                                        <img style={{ height: '10em', width: '10em' }} src={album.previewImage} alt={album.title} />
+                                <li key={album.id} className='album-tiles'>
+                                    < NavLink to={`/api/albums/${album.id}`} key={album.id}>
+                                        <img style={{ height: '12em', width: '12em' }} src={album.previewImage} alt={album.title} />
                                     </NavLink>
                                     <div style={{ fontWeight: 100, fontSize: '14px' }}>
                                         {album.title}
@@ -42,7 +42,7 @@ export default function UsersAlbums() {
                         </div>
                     </ul>
                 </div>
-            </div>
+            </div >
         </>
     )
 

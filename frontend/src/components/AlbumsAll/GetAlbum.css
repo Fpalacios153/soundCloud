@@ -1,10 +1,10 @@
 .album-tiles {
-    width: 150px;
-    height: 150px;
+    /* width: 150px;
+    height: 150px; */
     border-radius: 3px;
     background-size: contain;
     list-style-type: none;
-    padding: 0px 10px;
+    padding: 0px 9px;
 
 }
 
@@ -32,7 +32,6 @@
     font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
     font-size: 24px;
     font-weight: 100;
-    text-align: -webkit-match-parent;
     color: #333;
 
 }

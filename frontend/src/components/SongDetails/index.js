@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { getOneSong } from "../../store/songs";
 import { deleteSong } from "../../store/songs";
 import EditModal from "../SongEditModal";
-import AudioPlayer from "../AudioPlayer";
+import { useSongContext } from "../../context/setSongContext";
 
 
 
@@ -16,10 +16,12 @@ function SongDetails() {
     const [isLoaded, setIsLoaded] = useState(false)
 
 
+
     const { songId } = useParams()
     const song = useSelector(state => state.songs[songId]);
 
     const sessionUser = useSelector(state => state.session.user)
+    const { setSong } = useSongContext()
 
     useEffect(() => {
         dispatch(getOneSong(songId))
@@ -36,25 +38,41 @@ function SongDetails() {
 
     return (
         <>
-            {isLoaded && song.Album && (<div>
-                <div className="song-nav"
-                    style={{ backgroundImage: `url('${song.previewImage}')` }}
-                    alt='songPic'>
-                    <h2>{song.title}</h2>
-                    <h3>{song.Artist.name}</h3>
-                    <h4>{song.Album.title}</h4>
-                </div>
-                <h5>{song.description}</h5>
-            </div>)
-            }
-            {!sessionUser ? (<NavLink to='/'>Back to home page</NavLink>) :
-                song && song.Artist && sessionUser.id === song.Artist.userId && (
-                    <div>
-                        <button onClick={songDelete}>Delete</button>
-                        <EditModal />
+            <div className="detail-container">
+                <div className="song-detail-container">
+                    {isLoaded && song.Album && (
+                        <div className="song-info-container">
+                            <div className="song-background" style={{ backgroundColor: 'grey' }} alt='songPic'>
+                                <div style={{ width: '60%', display: 'flex', paddingTop: '10px' }}>
+                                    <div>
+                                        <button className='playButton' onClick={() => setSong(song.url)} style={{ margin: '10px' }}>PLAY</button>
+                                    </div >
+                                    <div className="song-name-artists" s                                    >
+                                        <h2 className="song-detail-title">{song.title}</h2>
+                                        <h3 className="song-detail-name">{song.Artist.name}</h3>
+                                    </div>
+                                </div>
+                                <div>
+                                    <img src={song.previewImage} alt={song.title} style={{ width: '20em', height: '20em', }}></img>
 
-                    </div>)
-            }
+                                </div>
+                            </div>
+                            {!sessionUser ? (<NavLink to='/'>Back to home page</NavLink>) :
+                                song && song.Artist && sessionUser.id === song.Artist.userId && (
+                                    <div>
+                                        <button onClick={songDelete}>Delete</button>
+                                        <EditModal />
+
+                                    </div>)
+                            }
+                            <div style={{ display: 'flex' }}>
+                                <h4 style={{ padding: '0px 10px' }}>{song.Album.title}</h4>
+                                <h5>Description: {song.description}</h5>
+                            </div>
+                        </div>)
+                    }
+                </div>
+            </div>
 
         </>
 

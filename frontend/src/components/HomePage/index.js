@@ -33,17 +33,17 @@ export const HomePage = () => {
                     <GetAllSongs />
                 </div>
                 <div className='github-containter'>
-                    <div>
-                        <h2>
+                    <div >
+                        <div>
                             Never Stop listening
-                        </h2>
+                        </div>
                     </div>
                 </div>
                 <div className='bottom-container'>
                     <div className='thanks'>
-                        <h2>
+                        <h3 style={{ fontWeight: '100' }}>
                             Thanks for listening. Now join in
-                        </h2>
+                        </h3>
                     </div>
                 </div>
                 <span className='bottom-signup'>

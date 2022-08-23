@@ -29,8 +29,8 @@ function App() {
 
   return (
     <>
+      <Navigation isLoaded={isLoaded} />
       <div className="app">
-        <Navigation isLoaded={isLoaded} />
         {isLoaded && (
           <Switch>
             {/* <Route exact path='/'>
@@ -42,9 +42,7 @@ function App() {
             <Route path='/discover'>
               <AlbumBrowser />
               <h2 className="allSongs">All Songs</h2>
-              <GetAllSongs
-              // setSong={setSong}
-              />
+              <GetAllSongs />
             </Route>
             <Route path='/api/albums/:albumId'>
               <AlbumView

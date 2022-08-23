@@ -1,9 +1,17 @@
 /* TODO Add site wide styles */
-.app {
+html {
 
+    background-color: hsl(0, 0%, 94%);
+    /* background-color: hsl(0, 7%, 95%); */
+}
+
+.app {
     /* width: 95%; */
+    background-color: white;
+    width: 90%;
     margin: auto;
     font: 12px/1.4 Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
     color: #333;
-
+    font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
+    font-weight: 100;
 }

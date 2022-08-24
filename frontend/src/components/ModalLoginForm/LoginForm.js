@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -14,19 +14,12 @@ function LoginForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-    // history.push('/discover')
-    return dispatch(sessionActions.login({ credential, password })).catch(
+    return dispatch(sessionActions.login({ credential, password })).then(() => history.push('/discover')).catch(
       async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
-        if (!errors) history.push('/discover')
-      }
-    )
-  };
-  // const redirect = (e) => {
-  //   e.preventDefault();
-  //   if (!errors.length) history.push('/discover')
-  // }
+      })
+  }
   return (
     <form onSubmit={handleSubmit}>
       <ul>

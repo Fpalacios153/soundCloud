@@ -20,8 +20,9 @@ const CreateAlbum = () => {
     useEffect(() => {
         const errors = []
         if (!title.length) errors.push('Title required')
+        if (!imageUrl.endsWith('.png') && !imageUrl.endsWith('.jpeg')) errors.push('Image must be in jpeg or png format')
         setValidationErrors(errors)
-    }, [title])
+    }, [title, imageUrl])
 
     // const user = useSelector(state => state.session.user)
     const handleSubmit = async (e) => {
@@ -34,7 +35,9 @@ const CreateAlbum = () => {
             imageUrl,
 
         }
-        await dispatch(createAlbum(album)).then(() => history.push(`/you/library`))
+        if (!validationErrors.length) {
+            await dispatch(createAlbum(album)).then(() => history.push(`/you/library`))
+        }
         // if(validationErrors.length) return alert ("You cannot submit")
         // if (!title.length) {
         //     setValidationErrors([]);

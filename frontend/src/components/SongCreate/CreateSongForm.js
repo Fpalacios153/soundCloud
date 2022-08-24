@@ -21,8 +21,9 @@ export const CreateSongg = () => {
         const error = []
         if (!title.length) error.push('Song title is required')
         if (!url.length) error.push('Audio is required')
+        if (!imageUrl.endsWith('.png') && !imageUrl.endsWith('.jpeg')) error.push('Image must be in jpeg or png format')
         setValidationErrors(error)
-    }, [title, url])
+    }, [title, url, imageUrl])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -34,8 +35,11 @@ export const CreateSongg = () => {
             imageUrl,
             url
         }
-        if (!song.imageUrl.length) { return setPreviewImage('https://res.cloudinary.com/fpalacios153/image/upload/v1659330814/Screen_Shot_2022-07-31_at_10.12.51_PM_npyums.png') }
-        await dispatch(createSong(song, albumId)).then(() => history.push(`/you/library`))
+        // if (!song.imageUrl.length) { return setPreviewImage('https://res.cloudinary.com/fpalacios153/image/upload/v1659330814/Screen_Shot_2022-07-31_at_10.12.51_PM_npyums.png') }
+        if (!validationErrors.length) {
+
+            await dispatch(createSong(song, albumId)).then(() => history.push(`/you/library`))
+        }
 
         // if (!title.length || !url.length) {
         //     setValidationErrors([]);
@@ -107,7 +111,8 @@ export const CreateSongg = () => {
                         onChange={(e) => setSelectedFile(e.target.value)}
                     />
                 </label>
-                <button type="submit">Save</button>
+                <button type="submit"
+                >Save</button>
                 {/* <button onClick={handleCancelClick} type="button">Cancel</button> */}
             </form>
         </>

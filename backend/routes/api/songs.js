@@ -18,6 +18,9 @@ const validateSongs = [
         .exists({ checkFalsy: true })
         // .isLength({ min: 4 })
         .withMessage('Audio is required'),
+    // check('imageUrl')
+    //     .endsWith('.jpeg' || '.png')
+    //     .withMessage('Must be a jpeg or png file'),
     handleValidationErrors
 ]
 

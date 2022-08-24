@@ -34,10 +34,7 @@ function App() {
         {isLoaded && (
           <Switch>
             {/* <Route exact path='/'>
-              <HomePage />
-            </Route> */}
-            {/* <Route exact path='/'>
-              <HomePage />
+              <h1>Welcome to CloudSounds</h1>
             </Route> */}
             <Route path='/discover'>
               <AlbumBrowser />
@@ -45,12 +42,8 @@ function App() {
               <GetAllSongs />
             </Route>
             <Route path='/api/albums/:albumId'>
-              <AlbumView
-              // setSong={setSong}
-              />
+              <AlbumView />
             </Route>
-            {/* <Route path='/songs'>
-          </Route> */}
             <Route path='/you/library'>
               <UsersAlbums />
               <UsersSongs />

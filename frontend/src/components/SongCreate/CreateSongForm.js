@@ -22,7 +22,7 @@ export const CreateSongg = () => {
         if (!title.length) error.push('Song title is required')
         if (!url.length) error.push('Audio is required')
         if (!url.endsWith('.mp3')) error.push('Audio file must be in mp3 format')
-        if (!imageUrl.endsWith('.png') && !imageUrl.endsWith('.jpeg')) error.push('Image file must be in jpeg or png format')
+        if (!imageUrl.includes('.png') && !imageUrl.includes('.jpeg') && !imageUrl.includes('.jpg')) error.push('Image must be in jpeg, jpg or png format')
         setValidationErrors(error)
     }, [title, url, imageUrl, url])
 

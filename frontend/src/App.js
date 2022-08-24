@@ -15,6 +15,7 @@ import AudioPlayer from "./components/AudioPlayer";
 import { getSongs } from "./store/songs"
 import { getAlbums } from "./store/albums";
 import { HomePage } from "./components/HomePage";
+import UploadHolder from "./components/Upload/Upload";
 // import { getSongByCurrentUser } from './store/songs'
 function App() {
   const dispatch = useDispatch();
@@ -55,8 +56,9 @@ function App() {
               <SongDetails />
             </Route>
             <Route path='/upload'>
-              <SelectUserAlbum />
-              <CreateAlbumModal />
+              <UploadHolder />
+              {/* <SelectUserAlbum />
+              <CreateAlbumModal /> */}
             </Route>
             {/* <Route>
               <h2>Page Not Found</h2>

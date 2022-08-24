@@ -20,7 +20,7 @@ const CreateAlbum = () => {
     useEffect(() => {
         const errors = []
         if (!title.length) errors.push('Title required')
-        if (!imageUrl.endsWith('.png') && !imageUrl.endsWith('.jpeg')) errors.push('Image must be in jpeg or png format')
+        if (!imageUrl.includes('.png') && !imageUrl.includes('.jpeg') && !imageUrl.includes('.jpg')) errors.push('Image must be in jpeg, jpg or png format')
         setValidationErrors(errors)
     }, [title, imageUrl])
 

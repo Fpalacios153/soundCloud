@@ -1,0 +1,27 @@
+.upload-container {
+    background-image: url(https://va.sndcdn.com/up/UploadPage_A_V2.jpg);
+    background-size: cover;
+    height: 650px;
+}
+
+.upload-subcontainer {
+    position: relative;
+    top: 20px;
+    background-color: white;
+    margin: auto;
+    width: 75%;
+    height: 65%;
+    border-radius: 3px;
+}
+
+.upload-bottom-part {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    margin: auto;
+    background-color: #f2f2f2;
+    width: 75%;
+    height: 20%s;
+    border-radius: 3px;
+}

@@ -52,7 +52,7 @@ router.get('/', async (req, res) => {//delete this
     res.json(users)
 })
 
-router.post('/', validateSignUp, async (req, res) => {
+router.post('/', validateSignUp, async (req, res, next) => {
     const { firstName, lastName, email, password, username, isArtist } = req.body;
     const foundUserEmail = await User.findOne({
         where: {
@@ -60,13 +60,20 @@ router.post('/', validateSignUp, async (req, res) => {
         }
     })
     if (foundUserEmail) {
-        return res.json({
-            "message": "User already exists",
-            "statusCode": 403,
-            "errors": {
-                "email": "User with that email already exists"
-            }
-        })
+        // res.statusCode = 403
+        const err = new Error('User already exists')
+        err.status = 403
+        err.errors = []
+        err.errors.push('User with that email already exists')
+        return next(err)
+
+        // return res.json({
+        //     "message": "User already exists",
+        //     "statusCode": 403,
+        //     "errors": {
+        //         "email": "User with that email already exists"
+        //     }
+        // })
     }
     const foundUserUserName = await User.findOne({
         where: {
@@ -74,13 +81,20 @@ router.post('/', validateSignUp, async (req, res) => {
         }
     })
     if (foundUserUserName) {
-        return res.json({
-            "message": "User already exists",
-            "statusCode": 403,
-            "errors": {
-                "username": "User with that username already exists"
-            }
-        })
+        const err = new Error('User already exists')
+        err.status = 403
+        err.errors = []
+        err.errors.push("User with that username already exists")
+        return next(err)
+        // res.statusCode = 403
+        // return res.json({
+
+        //     "message": "User already exists",
+        //     "statusCode": 403,
+        //     "errors": {
+        //         "username": "User with that username already exists"
+        //     }
+        // })
     }
     const user = await User.signup({ firstName, lastName, email, username, password, isArtist });
 

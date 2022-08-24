@@ -15,22 +15,23 @@ export default function SignupFormPage() {
     const [lastName, setLastName] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
-    const [errors, setErrors] = useState([[]])
+    const [errors, setErrors] = useState([])
     const [hasSubmitted, setHasSubmitted] = useState(false)
     const history = useHistory()
 
 
-    if (sessionUser) return <Redirect to="/discover" />;
-
+    // if (sessionUser) return <Redirect to="/discover" />;
     const handleSubmit = (e) => {
         e.preventDefault();
         setHasSubmitted(true)
         if (password === confirmPassword) {
             setErrors([]);
-            history.push('/discover')
             return dispatch(sessionActions.signup({ firstName, lastName, email, username, password }))
+                .then(() => history.push('/discover'))
                 .catch(async (res) => {
                     const data = await res.json();
+                    console.log(data.errors)
+
                     if (data && data.errors) setErrors(data.errors)
                 })
         }

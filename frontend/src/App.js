@@ -36,6 +36,9 @@ function App() {
             {/* <Route exact path='/'>
               <h1>Welcome to CloudSounds</h1>
             </Route> */}
+            {/* <Route exact path='/'>
+            <HomePage />
+          </Route> */}
             <Route path='/discover'>
               <AlbumBrowser />
               <h2 className="allSongs">All Songs</h2>
@@ -60,9 +63,7 @@ function App() {
             </Route> */}
           </Switch>
         )}
-        <AudioPlayer
-        // song={song}
-        />
+        <AudioPlayer />
       </div>
     </>
   );

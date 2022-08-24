@@ -23,7 +23,7 @@ export default function SelectUserAlbum() {
                 {albums.length > 0 && (<h2 className="allSAtitles">Select Album to Add Song</h2>)}
                 <div className='album-container'>
                     {!albums.length && (
-                        <h2 className="allSAtitles">User does not have any Albums, Create one to add song!</h2>)}
+                        <h2 className="allSAtitles">User does not have any Albums, Create one to add songs!</h2>)}
                     <ul>
                         <div className='album-list'>
                             {isLoaded && albums.length > 0 && albums.map(album => (

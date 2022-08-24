@@ -3,12 +3,14 @@ html {
 
     background-color: hsl(0, 0%, 94%);
     /* background-color: hsl(0, 7%, 95%); */
+    /* height: max-content */
 }
 
 .app {
     /* width: 95%; */
     background-color: white;
     width: 90%;
+    /* height: 90%; */
     margin: auto;
     font: 12px/1.4 Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
     color: #333;

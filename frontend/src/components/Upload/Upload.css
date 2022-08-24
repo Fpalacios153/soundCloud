@@ -1,12 +1,12 @@
 .upload-container {
     background-image: url(https://va.sndcdn.com/up/UploadPage_A_V2.jpg);
     background-size: cover;
-    height: 660px
+    height: 655px
 }
 
 .upload-subcontainer {
     position: relative;
-    top: 20px;
+    top: 50px;
     background-color: white;
     margin: auto;
     width: 75%;

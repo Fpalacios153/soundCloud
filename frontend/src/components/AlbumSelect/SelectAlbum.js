@@ -27,7 +27,9 @@ export default function SelectUserAlbum() {
                     <ul>
                         <div className='album-list'>
                             {isLoaded && albums.length > 0 && albums.map(album => (
-                                <li key={album.id} className='curralbum-tiles' >
+                                <li key={album.id} className='album-tiles'
+                                // 'curralbum-tiles'
+                                >
                                     <NavLink to={`/api/albums/${album.id}`} key={album.id}>
                                         <img style={{ height: '12em', width: '12em' }} src={album.previewImage} alt={album.title} />
                                     </NavLink>

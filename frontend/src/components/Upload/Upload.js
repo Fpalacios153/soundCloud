@@ -11,7 +11,7 @@ function UploadHolder() {
                 <CreateAlbumModal />
             </div>
             <div className="upload-bottom-part">
-                <div>
+                <div style={{ textAlign: 'start' }}>
                     Supported file type: mp3 ⁃
                     {/* Upload troubleshooting tips ⁃ Copyright FAQs */}
                     <p>

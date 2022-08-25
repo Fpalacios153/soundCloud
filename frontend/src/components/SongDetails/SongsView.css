@@ -4,13 +4,25 @@
     background-color: white;
 }
 
-.album-background {
-    background-color: grey;
+.song-background {
     color: white;
+    width: auto;
     height: 360px;
+    background-size: cover;
 }
 
-.album-detail-title {
+.song-name-artists {
+    width: 60%;
+    justify-content: flex-start;
+}
+
+.song-detail-title {
+    font-weight: 100;
+    margin: 0;
+
+}
+
+.song-detail-title {
     border-radius: 1px;
     width: fit-content;
     font-weight: 100;
@@ -18,14 +30,10 @@
     margin: 5px;
     padding: 5px;
     background-color: black;
+    font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
 }
 
-.title-holder {
-    border: 0px;
-    width: 25%;
-}
-
-.album-detail-name {
+.song-detail-name {
     border-radius: 1px;
     width: fit-content;
     font: 16px;
@@ -33,10 +41,5 @@
     margin: 5px;
     padding: 5px;
     background-color: black;
-}
-
-.album-image-container {
-    padding-top: 1.5em;
-    padding-right: 1.5em;
-    height: 26em;
+    font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
 }

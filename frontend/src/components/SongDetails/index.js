@@ -43,17 +43,18 @@ function SongDetails() {
                     {isLoaded && song.Album && (
                         <div className="song-info-container">
                             <div className="song-background" style={{ backgroundColor: 'grey' }} alt='songPic'>
-                                <div style={{ width: '60%', display: 'flex', paddingTop: '10px' }}>
-                                    <div>
-                                        <button className='playButton' onClick={() => setSong(song.url)} style={{ margin: '10px' }}>PLAY</button>
-                                    </div >
-                                    <div className="song-name-artists"                               >
-                                        <h2 className="song-detail-title">{song.title}</h2>
-                                        <h3 className="song-detail-name">{song.Artist.name}</h3>
-                                    </div>
-                                    <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                                        <img src={song.previewImage} alt={song.title} style={{ width: '26em', height: '26em', paddingLeft: '21em', paddingTop: '2em' }}></img>
-
+                                <div>
+                                    <div style={{ width: '100%', display: 'flex', flexDirection: 'row', paddingTop: '10px', justifyContent: 'space-between' }}>
+                                        <div>
+                                            <button className='playButton' onClick={() => setSong(song.url)} style={{ margin: '10px' }}>PLAY</button>
+                                        </div >
+                                        <div className="song-name-artists"                               >
+                                            <h2 className="song-detail-title">{song.title}</h2>
+                                            <h3 className="song-detail-name">{song.Artist.name}</h3>
+                                        </div>
+                                        <div style={{ justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+                                            <img src={song.previewImage} alt={song.title} style={{ width: '26em', height: '26em', paddingRight: '2em', paddingTop: '1.5em' }}></img>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

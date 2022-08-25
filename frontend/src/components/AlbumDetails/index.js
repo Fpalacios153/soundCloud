@@ -37,7 +37,7 @@ function AlbumView() {
                         <div className="album-background">
                             <div>
                                 <div style={{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', paddingTop: '10px' }}>
-                                    <div>
+                                    <div style={{ paddingLeft: '1em' }}>
                                         <h1 className="album-detail-title">{album.title}</h1>
                                         {/* maybe add Navlink back to album */}
                                         <h2 className="album-detail-name">{album.Artist.name}</h2>

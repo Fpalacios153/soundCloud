@@ -52,7 +52,7 @@ function SongDetails() {
                                         <h3 className="song-detail-name">{song.Artist.name}</h3>
                                     </div>
                                     <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                                        <img src={song.previewImage} alt={song.title} style={{ width: '20em', height: '20em', }}></img>
+                                        <img src={song.previewImage} alt={song.title} style={{ width: '26em', height: '26em', paddingLeft: '21em', paddingTop: '2em' }}></img>
 
                                     </div>
                                 </div>

@@ -23,16 +23,15 @@ function LoginForm() {
   return (
     <>
       <form className="sign-in-form" onSubmit={handleSubmit}>
-        <h1 className="well">Welcome Back!</h1>
+        <h2 className="well">Welcome Back!</h2>
         <ul>
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
         </ul>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-
-          <label>
-            Username or Email
+          <label className="inputs">
+            Username or Email:
             <input
               type="text"
               value={credential}
@@ -40,8 +39,8 @@ function LoginForm() {
               required
             />
           </label>
-          <label>
-            Password
+          <label className="inputs">
+            Password:
             <input
               type="password"
               value={password}

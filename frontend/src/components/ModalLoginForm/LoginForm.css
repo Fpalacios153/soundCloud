@@ -24,30 +24,38 @@
 
 .sign-in-form {
   width: 400px;
-  height: 200px;
+  height: 250px;
   border-radius: 7px;
 }
 
 .well {
   font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
-  font-weight: 100;
+  font-weight: 400;
+  font-size: 32px;
+  text-align: center;
 
 }
 
 .sign-in-button {
+
   height: 30px;
   line-height: 24px;
-  margin: 0 0 0 6px;
+  margin-top: 10px;
   background-color: #f50;
   border-color: #f50;
   color: #fff;
-  padding: 2px 11px 2px 10px;
+  padding: 2px 10px 2px 10px;
   border-radius: 3px;
   cursor: pointer;
   font-size: 14px;
   font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
-  font-weight: 100;
+  font-weight: 100%;
   text-align: center;
   /* vertical-align: initial; */
   /* box-sizing: border-box; */
+}
+
+.inputs {
+  display: contents;
+  /* margin: 10px; */
 }

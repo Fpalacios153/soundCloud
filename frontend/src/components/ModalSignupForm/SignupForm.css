@@ -26,3 +26,53 @@ form {
   vertical-align: initial;
   box-sizing: border-box;
 }
+
+.sign-up-form {
+  width: 450px;
+  height: auto;
+  border-radius: 7px;
+}
+
+.create-title {
+  font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
+  font-weight: 400;
+  font-size: 32px;
+  text-align: center;
+  margin: 5px;
+
+}
+
+.sign-up-button {
+  height: 30px;
+  width: 40%;
+  line-height: 24px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #f50;
+  border-color: #f50;
+  color: #fff;
+  padding: 2px 10px 2px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
+  font-weight: 100%;
+  text-align: center;
+}
+
+.sign-up-label {
+  /* display: contents; */
+  padding: 10px;
+  text-align: center;
+}
+
+.sign-up-div {
+  width: 60%;
+}
+
+.sign-up-input {
+  width: 90%;
+  margin: 7px;
+  justify-content: center;
+  align-items: center;
+}

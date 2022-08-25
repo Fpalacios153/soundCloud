@@ -14,8 +14,10 @@ export const HomePage = () => {
             <div className='app-Container'>
                 <div className='topPart'>
                     <div className='nav'>
-                        <h1 className='logo'>m</h1>
-                        <h1 className='logoWords'>CloudSounds</h1>
+                        <div>
+                            <h1 className='logo'>m</h1>
+                            <h1 className='logoWords'>CloudSounds</h1>
+                        </div>
                         <div className='leftNav'>
                             <DemoUser />
                             <LoginFormModal />

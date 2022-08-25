@@ -51,10 +51,10 @@ function SongDetails() {
                                         <h2 className="song-detail-title">{song.title}</h2>
                                         <h3 className="song-detail-name">{song.Artist.name}</h3>
                                     </div>
-                                </div>
-                                <div>
-                                    <img src={song.previewImage} alt={song.title} style={{ width: '20em', height: '20em', }}></img>
+                                    <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                                        <img src={song.previewImage} alt={song.title} style={{ width: '20em', height: '20em', }}></img>
 
+                                    </div>
                                 </div>
                             </div>
                             {!sessionUser ? (<NavLink to='/'>Back to home page</NavLink>) :
@@ -63,11 +63,10 @@ function SongDetails() {
                                         <button onClick={songDelete}>Delete</button>
                                         <EditModal />
 
-                                    </div>)
-                            }
-                            <div style={{ display: 'flex' }}>
-                                <h4 style={{ padding: '0px 10px' }}>{song.Album.title}</h4>
-                                <h5>Description: {song.description}</h5>
+                                    </div>)}
+                            <div style={{ display: 'flex', justifyContent: "start", width: '75%' }}>
+                                <h2 style={{ padding: '0px 10px' }}>{song.Artist.name}</h2>
+                                <p style={{ paddingLeft: '3em', flexWrap: 'wrap' }}>{song.description}</p>
                             </div>
                         </div>)
                     }

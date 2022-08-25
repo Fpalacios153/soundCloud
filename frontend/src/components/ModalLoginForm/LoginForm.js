@@ -21,34 +21,41 @@ function LoginForm() {
       })
   }
   return (
-    <form onSubmit={handleSubmit}>
-      <ul>
-        {errors.map((error, idx) => (
-          <li key={idx}>{error}</li>
-        ))}
-      </ul>
-      <label>
-        Username or Email
-        <input
-          type="text"
-          value={credential}
-          onChange={(e) => setCredential(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </label>
-      <button type="submit"
-      >Log in
-      </button>
-    </form>
+    <>
+      <form className="sign-in-form" onSubmit={handleSubmit}>
+        <h1 className="well">Welcome Back!</h1>
+        <ul>
+          {errors.map((error, idx) => (
+            <li key={idx}>{error}</li>
+          ))}
+        </ul>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+
+          <label>
+            Username or Email
+            <input
+              type="text"
+              value={credential}
+              onChange={(e) => setCredential(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            Password
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </label>
+          <button type="submit"
+            className="sign-in-button"
+          >Sign in
+          </button>
+        </div>
+      </form>
+    </>
   );
 }
 

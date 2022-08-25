@@ -47,7 +47,7 @@ function SongDetails() {
                                     <div>
                                         <button className='playButton' onClick={() => setSong(song.url)} style={{ margin: '10px' }}>PLAY</button>
                                     </div >
-                                    <div className="song-name-artists" s                                    >
+                                    <div className="song-name-artists"                               >
                                         <h2 className="song-detail-title">{song.title}</h2>
                                         <h3 className="song-detail-name">{song.Artist.name}</h3>
                                     </div>

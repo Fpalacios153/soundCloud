@@ -1,3 +1,74 @@
 .songInAlbums {
     padding-bottom: 5em;
 }
+
+.detail-container {
+    width: 100%;
+    margin: auto;
+    background-color: white;
+}
+
+.song-background {
+    color: white;
+    width: auto;
+    height: 360px;
+    background-size: cover;
+}
+
+
+.song-detail-title {
+    font-weight: 100;
+    margin: 0;
+
+}
+
+.song-detail-title {
+    border-radius: 1px;
+    /* width: fit-content; */
+    font-weight: 100;
+    font: 24px;
+    margin: 5px;
+    padding: 5px;
+    background-color: black;
+    font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
+}
+
+.song-detail-name {
+    border-radius: 1px;
+    width: fit-content;
+    font: 16px;
+    font-weight: 100;
+    margin: 5px;
+    padding: 5px;
+    background-color: black;
+    font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
+}
+
+.centered {
+    justify-content: center;
+}
+
+td.centered {
+    text-align: center;
+}
+
+.song-list-table {
+    width: 65%;
+    padding-left: 6em;
+}
+
+td {
+    color: #999;
+
+    border-bottom: 1px solid gray;
+}
+
+tr:hover {
+    background-color: #f2f2f2;
+    color: white;
+}
+
+.link-to-song {
+    display: flex;
+    align-items: flex-end;
+}

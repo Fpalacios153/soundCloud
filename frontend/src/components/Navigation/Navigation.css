@@ -1,6 +1,6 @@
 .mainNav {
   width: 100%;
-  height: 46px;
+  height: 50px;
   display: flex;
   justify-content: space-around;
   align-content: center;
@@ -33,9 +33,9 @@ nav a:visited {
 
 .mainHeader {
   color: #999;
-  margin-top: -8px;
-  margin-left: -8px;
-  margin-right: -8px;
+  margin-top: -4px;
+  margin-left: -4px;
+  margin-right: -4px;
 }
 
 .navLogo {

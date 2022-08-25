@@ -7,7 +7,15 @@ function AudioPlayer() {
     const { song } = useSongContext()
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', width: '100%' }}>
+        <div className='audio-container'
+        // style={{
+        // display: 'flex',
+        // flexDirection: 'column',
+        // justifyContent: 'flex-end',
+        // width: '100%',
+        // position: 'sticky'
+        // }}
+        >
             <ReactAudioPlayer
                 style={{ width: '100%', borderRadius: '0px' }}
                 src={song}

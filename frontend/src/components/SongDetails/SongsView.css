@@ -4,32 +4,28 @@
     background-color: white;
 }
 
-.song-background {
+.album-background {
+    background-color: grey;
     color: white;
-    width: auto;
     height: 360px;
-    background-size: cover;
 }
 
-
-.song-detail-title {
-    font-weight: 100;
-    margin: 0;
-
-}
-
-.song-detail-title {
+.album-detail-title {
     border-radius: 1px;
-    /* width: fit-content; */
+    width: fit-content;
     font-weight: 100;
     font: 24px;
     margin: 5px;
     padding: 5px;
     background-color: black;
-    font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
 }
 
-.song-detail-name {
+.title-holder {
+    border: 0px;
+    width: 25%;
+}
+
+.album-detail-name {
     border-radius: 1px;
     width: fit-content;
     font: 16px;
@@ -37,8 +33,10 @@
     margin: 5px;
     padding: 5px;
     background-color: black;
-    font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
+}
 
-
-
+.album-image-container {
+    padding-top: 1.5em;
+    padding-right: 1.5em;
+    height: 26em;
 }

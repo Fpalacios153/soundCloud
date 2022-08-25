@@ -1,4 +1,4 @@
-import { useHistory, useParams, NavLink } from "react-router-dom";
+import { useHistory, useParams, Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from "react";
 import { deleteAlbum } from '../../store/albums'
@@ -28,18 +28,24 @@ function AlbumView() {
         dispatch(deleteAlbum(albumId))
         history.push('/you/library')
     }
-
+    if (!album && album.Songs) return null
     return (
         <>
-            <div>
+            <div className="detail-container">
                 <div>
                     {album && album.Songs && (
-                        <div className="album-container" style={{ backgroundImage: `url('${album.previewImage}')` }}>
-
-                            <div className="">
-                                <h1>{album.title}</h1>
-                                <h2>{album.Artist.name}</h2>
-                                <h2>{album.description}</h2>
+                        <div className="album-background">
+                            <div>
+                                <div style={{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', paddingTop: '10px' }}>
+                                    <div>
+                                        <h1 className="album-detail-title">{album.title}</h1>
+                                        {/* maybe add Navlink back to album */}
+                                        <h2 className="album-detail-name">{album.Artist.name}</h2>
+                                    </div>
+                                    <div className="album-image-container">
+                                        <img src={album.previewImage} alt={album.title} style={{ width: '26em', height: '26em', }} />
+                                    </div>
+                                </div>
                             </div>
                         </div>)}
                     {album.Artist && sessionUser.id === album.Artist.userId && (
@@ -48,18 +54,34 @@ function AlbumView() {
                             <EditModal />
                             <CreateSongModel />
                         </div>)}
-                    <div className='song-list'>
-                        {album && album.Songs && album.Songs.map((song, i) => (
-                            <li className='song-tiles songInAlbums' key={song.id} >
-                                <button onClick={() => setSong(song.url)}>
-                                    <img style={{ height: '10em', width: '10em' }} src={song.previewImage} alt={song.title} />
-                                </button>
-                                <NavLink to={`/api/songs/${song.id}`} >
-                                    <div style={{ fontWeight: 150, fontSize: '14px' }}>
-                                        <span>{`${i + 1}  `} </span> {song.title}
-                                    </div>
-                                </NavLink>
-                            </li>))}
+                    <div style={{ display: 'flex', justifyContent: "start", width: '75%' }}>
+                        {album && album.Songs && (<h2>{album.Artist.name}</h2>)}
+                        <p style={{ paddingLeft: '3em', flexWrap: 'wrap' }}>{album.description} </p>
+                    </div>
+                    <div >
+                        <table className='song-list-table'>
+                            <tbody>
+                                {album && album.Songs && album.Songs.map((song, i) => (
+                                    <tr key={song.id} >
+                                        <td>
+                                            <button onClick={() => setSong(song.url)}>
+                                                <img style={{ height: '3em', width: '3em' }} src={song.previewImage} alt={song.title} />
+                                            </button>
+                                        </td>
+                                        <Link className='link-to-song' to={`/api/songs/${song.id}`} >
+                                            <td className="centered">{`${i + 1}  `}</td>
+                                            <td className="centered">{song.title}</td>
+                                        </Link>
+                                    </tr>
+
+                                ))}
+                            </tbody>
+                        </table>
+
+
+                        <div style={{ fontWeight: 150, fontSize: '14px' }}>
+                        </div>
+
                     </div>
                 </div>
             </div>

@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import { useHistory } from "react-router-dom";
+import { useSongContext } from '../../context/setSongContext'
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const history = useHistory()
+  const { setSong } = useSongContext()
 
   const openMenu = () => {
     if (showMenu) return;
@@ -28,6 +30,7 @@ function ProfileButton({ user }) {
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
+    setSong('')
     history.push('/')
   };
 

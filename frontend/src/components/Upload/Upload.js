@@ -12,7 +12,7 @@ function UploadHolder() {
             </div>
             <div className="upload-bottom-part">
                 <div style={{ textAlign: 'start' }}>
-                    Supported file type: mp3 ⁃
+                    Supported  audio file type: mp3 ⁃ Supported  Image file types: jpeg, png, jpg
                     {/* Upload troubleshooting tips ⁃ Copyright FAQs */}
                     <p>
                         By uploading, you confirm that your sounds comply with our Terms of Use and you don't infringe anyone else's rights.

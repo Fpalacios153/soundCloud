@@ -14,7 +14,7 @@
     border-radius: 1px;
     width: fit-content;
     font-weight: 100;
-    font: 24px;
+    /* font: 24px; */
     margin: 5px;
     padding: 5px;
     background-color: black;
@@ -46,6 +46,7 @@
 .songInAlbums {
     padding-bottom: 5em;
 }
+
 
 
 .centered {

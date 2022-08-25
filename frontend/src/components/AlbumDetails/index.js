@@ -40,7 +40,7 @@ function AlbumView() {
                                     <div style={{ paddingLeft: '1em' }}>
                                         <h1 className="album-detail-title">{album.title}</h1>
                                         {/* maybe add Navlink back to album */}
-                                        <h2 className="album-detail-name">{album.Artist.name}</h2>
+                                        <h3 className="album-detail-name">{album.Artist.name}</h3>
                                     </div>
                                     <div className="album-image-container">
                                         <img src={album.previewImage} alt={album.title} style={{ width: '26em', height: '26em', }} />

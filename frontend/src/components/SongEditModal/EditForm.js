@@ -78,7 +78,7 @@ export const EditSong = () => {
                     />
                 </label>
                 <button type="submit">Save</button>
-                <button type="button" onClick={handleCancelClick}>Cancel</button>
+                {/* <button type="button" onClick={handleCancelClick}>Cancel</button> */}
             </form>
         </>
     )

@@ -51,10 +51,10 @@ export const HomePage = () => {
                 <span className='bottom-signup'>
                     <SignupFormModal />
                 </span>
-                <div className='bottom-login'>
+                {/* <div className='bottom-login'>
                     Already have an account?
                     <LoginFormModal />
-                </div>
+                </div> */}
             </div>
         </>
 

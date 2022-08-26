@@ -62,7 +62,7 @@ function SongDetails() {
                             {!sessionUser ? (<NavLink to='/'>Back to home page</NavLink>) :
                                 song && song.Artist && sessionUser.id === song.Artist.userId && (
                                     <div>
-                                        <button onClick={songDelete}>Delete</button>
+                                        <button className="delete-button" onClick={songDelete}>Delete</button>
                                         <EditModal setEdited={setEdited} edited={edited} />
 
                                     </div>)}

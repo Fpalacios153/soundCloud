@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
-import { CreateSongg } from './CreateSongForm.js';
+import CreateSong from './CreateSongForm.js';
 import './CreateSong.css'
 
 function CreateSongModel() {
@@ -11,7 +11,7 @@ function CreateSongModel() {
       <button className='createSong' onClick={() => setShowModal(true)}>Upload Track</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <CreateSongg />
+          <CreateSong />
         </Modal>
       )}
     </>

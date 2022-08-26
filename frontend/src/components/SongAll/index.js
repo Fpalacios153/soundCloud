@@ -8,16 +8,16 @@ import { useSongContext } from '../../context/setSongContext'
 
 const GetAllSongs = () => {
     const dispatch = useDispatch()
+    const [isLoaded, setIsLoaded] = useState(false)
 
     const songs = useSelector(state => state.songs)
     const song = Object.values(songs)
     const { setSong } = useSongContext()
 
     useEffect(() => {
-        dispatch(getSongs())
+        dispatch(getSongs()).then(() => setIsLoaded(true))
 
     }, [dispatch])
-    // console.log(song)
     return (
         <>
             <div className='allSongs-container'>
@@ -25,7 +25,8 @@ const GetAllSongs = () => {
                 <div className='song-container'>
                     <ul >
                         <div className='song-list'>
-                            {song.map((song) => (
+
+                            {isLoaded && song && song.map((song) => (
                                 <li className='song-tiles' key={song.id} >
                                     <button onClick={() => setSong(song.url)}>
                                         <img style={{ height: '11em', width: '11em' }} src={song.previewImage} alt={song.title} />

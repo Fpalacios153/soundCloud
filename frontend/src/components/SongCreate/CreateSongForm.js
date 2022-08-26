@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 
-export const CreateSongg = () => {
+const CreateSong = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const [title, setTitle] = useState('')
@@ -23,8 +23,10 @@ export const CreateSongg = () => {
         if (!url.length) error.push('Audio is required')
         if (!url.endsWith('.mp3')) error.push('Audio file must be in mp3 format')
         if (!imageUrl.includes('.png') && !imageUrl.includes('.jpeg') && !imageUrl.includes('.jpg')) error.push('Image must be in jpeg, jpg or png format')
+        if (description.length > 255) error.push('Description can only be 255 characters long')
+
         setValidationErrors(error)
-    }, [title, url, imageUrl, url])
+    }, [title, url, imageUrl, description])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -65,57 +67,76 @@ export const CreateSongg = () => {
     // };
     return (
         <>
-            <h2>Upload Song</h2>
-            {hasSubmitted && validationErrors.length > 0 && (
-                <div>
-                    <ul>
-                        {validationErrors.map(error => (
-                            <li key={error}>{error}</li>
-                        ))}
-                    </ul>
-                </div>
-            )}
-            <form onSubmit={handleSubmit}>
-                <label className='required-field'>
-                    Title
-                    <input
-                        type='text'
-                        placeholder="Title"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                    />
-                </label>
-                <label>
-                    Description
-                    <input
-                        type='text'
-                        placeholder="Describe your track"
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                    />
-                </label>
-                <label>
-                    Upload Image
-                    <input
-                        className="image"
-                        type='text'
-                        value={imageUrl}
-                        onChange={(e) => setPreviewImage(e.target.value)}
-                    />
-                </label>
-                <label>
-                    Upload a file
-                    <input
-                        className="audio"
-                        type='text'
-                        value={url}
-                        onChange={(e) => setSelectedFile(e.target.value)}
-                    />
-                </label>
-                <button type="submit"
-                >Save</button>
-                {/* <button onClick={handleCancelClick} type="button">Cancel</button> */}
-            </form>
+            <div className="create-album-container">
+                <h2 className="create-album-title">Upload Album</h2>
+                {hasSubmitted && validationErrors.length > 0 && (
+                    <div>
+                        <ul style={{ padding: '10px', color: 'red', listStyle: 'none', textAlign: 'center' }}>
+                            {validationErrors.map(error => (
+                                <li key={error}>{error}</li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+                <form onSubmit={handleSubmit}>
+                    <div className="create-div">
+
+                        <label className='required-field create-label'>
+                            Title:
+                            <input
+                                className="create-input"
+                                type='text'
+                                placeholder="Title"
+                                value={title}
+                                onChange={(e) => setTitle(e.target.value)}
+                            />
+                        </label>
+                        <label className='required-field create-label'>
+                            Upload a file:
+                            <input
+                                className="create-input"
+                                // className="audio"
+                                placeholder="Accepted file types: mp3"
+                                type='text'
+                                value={url}
+                                onChange={(e) => setSelectedFile(e.target.value)}
+                            />
+                        </label>
+                        <label className='required-field create-label'>
+                            Upload Image:
+                            <input
+                                placeholder="Accepted file types: png, jpeg, jpg"
+                                className="create-input"
+                                type='text'
+                                value={imageUrl}
+                                onChange={(e) => setPreviewImage(e.target.value)}
+                            />
+                        </label>
+                        <label className="create-label">
+                            Description:
+                            <textarea
+                                className="create-input text-area1"
+                                maxLength='256'
+                                wrap="hard"
+                                spellCheck={true}
+                                type='text'
+                                placeholder="Describe your album"
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
+                            />
+                        </label>
+
+                    </div>
+                    <div className="button-container">
+                        <p className='required-field-end bottom-words'> Required fields</p>
+                        <div style={{ paddingRight: '7.3em' }}>
+                            <button className="save-create-button" type="submit">Save</button>
+                            {/* <button onClick={handleCancelClick} type="button">Cancel</button> */}
+                        </div>
+                    </div>
+                </form>
+            </div>
         </>
     )
 }
+export default CreateSong

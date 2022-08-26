@@ -87,6 +87,7 @@ const CreateAlbum = () => {
                         <label className='required-field create-label'>
                             Upload Image:
                             <input
+                                placeholder="Accepted file types: png, jpeg, jpg"
                                 className="create-input"
                                 type='text'
                                 value={imageUrl}

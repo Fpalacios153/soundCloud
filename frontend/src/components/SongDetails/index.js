@@ -24,8 +24,7 @@ function SongDetails() {
     const { setSong } = useSongContext()
 
     useEffect(() => {
-        dispatch(getOneSong(songId))
-        setIsLoaded(true)
+        dispatch(getOneSong(songId)).then(() => setIsLoaded(true))
 
     }, [dispatch,])
     console.log(song)

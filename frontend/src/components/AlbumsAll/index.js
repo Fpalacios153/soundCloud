@@ -16,7 +16,6 @@ const AlbumBrowser = () => {
     useEffect(() => {
         dispatch(getAlbums()).then(() => setIsLoaded(true))
     }, [dispatch]);
-    console.log(albums)
 
 
     return (

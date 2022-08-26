@@ -5,7 +5,7 @@ import { editAlbum } from '../../store/albums'
 
 
 
-const EditAlbum = () => {
+const EditAlbum = ({ setEdited, edited }) => {
     const { albumId } = useParams()
     const album = useSelector(state => state.albums[Number(albumId)])
     const dispatch = useDispatch()
@@ -37,7 +37,7 @@ const EditAlbum = () => {
 
         }
         if (!validationErrors.length) {
-            await dispatch(editAlbum(album, albumId)).then(() => history.push(`/you/library`))
+            await dispatch(editAlbum(album, albumId)).then(() => setEdited(edited + 1)).then(() => history.push(`/api/albums/${albumId}`))
         }
     }
     // const handleSubmit = async (e) => {

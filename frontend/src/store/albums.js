@@ -62,7 +62,7 @@ export const getAlbumsByCurrentUser = () => async dispatch => {
 }
 
 export const createAlbum = (album) => async dispatch => {
-    const response = csrfFetch('/api/albums', {
+    const response = await csrfFetch('/api/albums', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(album)
@@ -70,8 +70,9 @@ export const createAlbum = (album) => async dispatch => {
 
     // console.log('THUNK', response)
     if (response.ok) {
-        const album = await response.json();
-        dispatch(create(album))
+        const newAlbum = await response.json();
+        dispatch(create(newAlbum))
+        return newAlbum
     }
     return response
 

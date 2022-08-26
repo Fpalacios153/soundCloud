@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import EditAlbum from './EditAlbumForm';
 
-function EditModal() {
+function EditModal({ setEdited, edited }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -10,7 +10,7 @@ function EditModal() {
       <button className='edit-model' onClick={() => setShowModal(true)}>Edit</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <EditAlbum path='/api/album/:albumId' store={showModal} />
+          <EditAlbum path='/api/album/:albumId' store={showModal} setEdited={setEdited} edited={edited} />
         </Modal>
       )}
     </>

@@ -37,7 +37,11 @@ const CreateAlbum = () => {
 
         }
         if (!validationErrors.length) {
-            await dispatch(createAlbum(album)).then(() => history.push(`/you/library`))
+            let newAlbum = await dispatch(createAlbum(album))
+
+            if (newAlbum) {
+                history.push(`/api/albums/${newAlbum.id}`)
+            }
         }
         // if(validationErrors.length) return alert ("You cannot submit")
         // if (!title.length) {

@@ -56,7 +56,7 @@ function AlbumView() {
                         </div>)}
                     <div style={{ display: 'flex', justifyContent: "start", width: '75%' }}>
                         {album && album.Songs && (<h2 style={{ padding: '0px 10px' }}>{album.Artist.name}</h2>)}
-                        <p style={{ paddingLeft: '3em', flexWrap: 'wrap' }}>{album.description} </p>
+                        <p style={{ paddingLeft: '3em', flexWrap: 'wrap', width: '70%', height: 'auto' }}>{album.description} </p>
                     </div>
                     <div >
                         <table className='song-list-table'>

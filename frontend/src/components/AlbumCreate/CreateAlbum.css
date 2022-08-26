@@ -12,3 +12,76 @@
     border: 1px solid #e5e5e5;
     border-radius: 3px;
 }
+
+.create-album-container {
+    width: 550px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.create-album-title {
+    font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    text-align: center;
+    margin: 5px;
+}
+
+.create-div {
+    width: 65%;
+
+}
+
+.create-input {
+    width: 90%;
+    margin: 7px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.create-label {
+    padding: 10px;
+    /* text-align: center; */
+}
+
+.required-field::before {
+    content: "*";
+    color: red;
+    float: right;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+}
+
+.save-create-button {
+    height: 30px;
+    background-color: #f50;
+    border-color: #f50;
+    color: #fff;
+    padding: 2px 11px 2px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    white-space: nowrap;
+    font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
+    font-weight: 100;
+    text-align: center;
+
+}
+
+.required-field-end::before {
+    content: "*";
+    color: red;
+    float: left;
+}
+
+.bottom-words {
+    padding-left: 1em;
+    align-items: center;
+}

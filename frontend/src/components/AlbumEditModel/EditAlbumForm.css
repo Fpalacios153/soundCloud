@@ -1,0 +1,14 @@
+.edit-model {
+    height: 25px;
+    margin-top: 6px;
+    margin-left: 6px;
+    padding: 2px 11px 2px 10px;
+    border: 1px solid #dbdada;
+    border-radius: 3px;
+    background-color: #fff;
+    cursor: pointer;
+    color: #333;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+}

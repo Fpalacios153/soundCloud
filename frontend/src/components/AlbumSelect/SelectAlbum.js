@@ -37,8 +37,7 @@ export default function SelectUserAlbum() {
                                     </NavLink>
                                     <div
                                         className="overflow-title-div"
-                                        style={{ fontWeight: 100, fontSize: '14px' }}
-                                    >
+                                        style={{ fontWeight: 100, fontSize: '14px' }}>
                                         {album.title}
                                     </div>
                                 </li>

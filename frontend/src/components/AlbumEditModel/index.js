@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import EditAlbum from './EditAlbumForm';
+import './EditAlbumForm.css'
 
-function EditModal({ setEdited, edited }) {
+function EditModal() {
   const [showModal, setShowModal] = useState(false);
 
   return (

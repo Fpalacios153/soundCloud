@@ -9,7 +9,7 @@ const EditAlbum = ({ setShowModal }) => {
     const { albumId } = useParams()
     const album = useSelector(state => state.albums[Number(albumId)])
     const dispatch = useDispatch()
-    const history = useHistory()
+    // const history = useHistory()
     const [title, setTitle] = useState(album.title)
     const [description, setDescription] = useState(album.description)
     const [imageUrl, setPreviewImage] = useState(album.previewImage)

@@ -66,7 +66,7 @@ function SongDetails() {
                                         <EditModal setEdited={setEdited} edited={edited} />
 
                                     </div>)}
-                            <div style={{ display: 'flex', justifyContent: "start", width: '75%' }}>
+                            <div style={{ display: 'flex', justifyContent: "start", width: '65%' }}>
                                 <h2 style={{ padding: '0px 10px' }}>{song.Artist.name}</h2>
                                 <p style={{ paddingLeft: '3em', flexWrap: 'wrap' }}>{song.description}</p>
                             </div>

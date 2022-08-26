@@ -31,7 +31,9 @@ const GetAllSongs = () => {
                                     <button onClick={() => setSong(song.url)}>
                                         <img style={{ height: '11em', width: '11em' }} src={song.previewImage} alt={song.title} />
                                     </button>
-                                    <NavLink to={`/api/songs/${song.id}`} >
+                                    <NavLink
+                                        className='remove-line'
+                                        to={`/api/songs/${song.id}`} >
                                         <div className="overflow-title-div"
                                             style={{ fontSize: '14px' }}>
                                             {song.title}

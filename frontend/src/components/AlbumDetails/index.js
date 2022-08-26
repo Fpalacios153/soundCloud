@@ -16,11 +16,10 @@ function AlbumView() {
     const sessionUser = useSelector(state => state.session.user)
     const album = useSelector(state => state.albums[Number(albumId)])
     const { setSong } = useSongContext()
-    const [edited, setEdited] = useState(0)
 
     useEffect(() => {
         dispatch(getOneAlbum(album))
-    }, [dispatch, albumId, edited])
+    }, [dispatch, albumId])
 
     // console.log(album)
     ///remember to move this to current
@@ -50,9 +49,11 @@ function AlbumView() {
                             </div>
                         </div>)}
                     {album.Artist && sessionUser.id === album.Artist.userId && (
-                        <div>
-                            <button onClick={Delete}>Delete</button>
-                            <EditModal setEdited={setEdited} edited={edited} />
+                        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+                            <div>
+                                <button className="delete-button" onClick={Delete}>Delete</button>
+                                <EditModal />
+                            </div>
                             <CreateSongModel />
                         </div>)}
                     <div style={{ display: 'flex', justifyContent: "start", width: '75%' }}>

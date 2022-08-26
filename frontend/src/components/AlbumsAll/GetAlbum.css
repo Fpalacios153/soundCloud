@@ -46,3 +46,12 @@ ul {
     text-overflow: ellipsis;
     word-break: normal;
 }
+
+.remove-line {
+    text-decoration: none;
+    color: #333;
+}
+
+.remove-line:hover {
+    color: black;
+}

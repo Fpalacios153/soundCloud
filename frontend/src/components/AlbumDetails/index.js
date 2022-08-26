@@ -60,24 +60,26 @@ function AlbumView() {
                         <p style={{ paddingLeft: '3em', flexWrap: 'wrap', width: '70%', height: 'auto' }}>{album.description} </p>
                     </div>
                     <div >
-                        <table className='song-list-table'>
-                            <tbody>
-                                {album && album.Songs && album.Songs.map((song, i) => (
-                                    <tr key={song.id} >
-                                        <td>
-                                            <button onClick={() => setSong(song.url)}>
-                                                <img style={{ height: '3em', width: '3em' }} src={song.previewImage} alt={song.title} />
-                                            </button>
-                                        </td>
-                                        <Link className='link-to-song' to={`/api/songs/${song.id}`} >
-                                            <td className="centered">{`${i + 1}  `}</td>
-                                            <td className="centered">{song.title}</td>
-                                        </Link>
-                                    </tr>
+                        <div className='song-list-table'>
+                            {album && album.Songs && album.Songs.map((song, i) => (
+                                <ul key={song.id}  >
+                                    <li className='song-list-points'>
+                                        <div style={{ display: 'flex', justifyContent: 'flex-start', width: '75%' }}>
+                                            <div>
+                                                <button className="small-button" onClick={() => setSong(song.url)}>
+                                                    <img style={{ height: '2.5em', width: '2.5em', padding: '1px' }} src={song.previewImage} alt={song.title} />
+                                                </button>
+                                            </div>
+                                            <Link className='link-to-song' to={`/api/songs/${song.id}`} >
+                                                <div className="centered">{`${i + 1}  `}</div>
+                                                <div className="centered">{song.title}</div>
+                                            </Link>
+                                        </div>
+                                    </li>
+                                </ul>
 
-                                ))}
-                            </tbody>
-                        </table>
+                            ))}
+                        </div>
 
 
                         <div style={{ fontWeight: 150, fontSize: '14px' }}>
@@ -85,7 +87,7 @@ function AlbumView() {
 
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     )
 }

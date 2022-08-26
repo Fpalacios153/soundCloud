@@ -17,6 +17,7 @@ function AudioPlayer() {
         // }}
         >
             <ReactAudioPlayer
+                className='footer'
                 style={{ width: '100%', borderRadius: '0px' }}
                 src={song}
                 controls

@@ -10,7 +10,7 @@ html {
     /* width: 95%; */
     background-color: white;
     width: 90%;
-    height: 60em;
+    height: auto;
     margin: auto;
     font: 12px/1.4 Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
     color: #333;

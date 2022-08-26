@@ -41,39 +41,52 @@
     height: 26em;
 }
 
-
-
 .songInAlbums {
     padding-bottom: 5em;
 }
 
-
-
 .centered {
-    justify-content: center;
+    color: #333;
+    padding-left: 6em;
+
 }
 
-td.centered {
-    text-align: center;
+.title-holder-lists {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
 }
 
 .song-list-table {
-    width: 65%;
+    width: 50%;
     padding-left: 10.5em;
-}
-
-td {
-    color: #999;
-
-    border-bottom: 1px solid gray;
-}
-
-tr:hover {
-    background-color: #f2f2f2;
-    color: white;
+    /* background-color: green; */
 }
 
 .link-to-song {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    /* justify-content: space-between; */
+    list-style: none;
 }
+
+.song-list-points {
+    /* border: 5px red solid; */
+    color: #999;
+    list-style: none;
+}
+
+.song-list-points:hover {
+    background-color: hsl(0, 0%, 94%);
+}
+
+/* .small-button {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease; */
+
+
+/* .small-button:hover {
+    display: flex;
+} */

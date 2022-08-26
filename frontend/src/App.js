@@ -9,12 +9,12 @@ import UsersSongs from './components/SongsCurrentUsers'
 import AlbumBrowser from "./components/AlbumsAll";
 import AlbumView from "./components/AlbumDetails";
 import UsersAlbums from "./components/AlbumsCurrentUsers";
-import SelectUserAlbum from "./components/AlbumSelect/SelectAlbum";
-import CreateAlbumModal from './components/AlbumCreate/index'
+// import SelectUserAlbum from "./components/AlbumSelect/SelectAlbum";
+// import CreateAlbumModal from './components/AlbumCreate/index'
 import AudioPlayer from "./components/AudioPlayer";
 import { getSongs } from "./store/songs"
 import { getAlbums } from "./store/albums";
-import { HomePage } from "./components/HomePage";
+// import { HomePage } from "./components/HomePage";
 import UploadHolder from "./components/Upload/Upload";
 // import { getSongByCurrentUser } from './store/songs'
 function App() {

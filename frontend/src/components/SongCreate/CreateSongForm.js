@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 
-const CreateSong = () => {
+const CreateSong = ({ createNew, setCreateNew }) => {
     const dispatch = useDispatch()
     const history = useHistory()
     const [title, setTitle] = useState('')
@@ -41,7 +41,9 @@ const CreateSong = () => {
         // if (!song.imageUrl.length) { return setPreviewImage('https://res.cloudinary.com/fpalacios153/image/upload/v1659330814/Screen_Shot_2022-07-31_at_10.12.51_PM_npyums.png') }
         if (!validationErrors.length) {
 
-            await dispatch(createSong(song, albumId)).then(() => history.push(`/you/library`))
+            let createdSong = await dispatch(createSong(song, albumId))
+
+            if (createdSong) { history.push(`/api/songs/${createdSong.id}`) }
         }
 
         // if (!title.length || !url.length) {
@@ -68,7 +70,7 @@ const CreateSong = () => {
     return (
         <>
             <div className="create-album-container">
-                <h2 className="create-album-title">Upload Song</h2>
+                <h2 className="create-album-title">Upload Songgi</h2>
                 {hasSubmitted && validationErrors.length > 0 && (
                     <div>
                         <ul style={{ padding: '10px', color: 'red', listStyle: 'none', textAlign: 'center' }}>

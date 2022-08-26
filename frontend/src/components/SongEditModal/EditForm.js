@@ -5,7 +5,7 @@ import { editSong } from "../../store/songs";
 
 
 
-export const EditSong = () => {
+export const EditSong = ({ setEdited, edited }) => {
     const dispatch = useDispatch()
     const history = useHistory()
     const { songId } = useParams()
@@ -17,7 +17,7 @@ export const EditSong = () => {
     const [imageUrl, setPreviewImage] = useState(song.previewImage)
     const [url, setSelectedFile] = useState(song.url)
     const [validationErrors, setValidationErrors] = useState([])
-    // const [hasSubmitted, setHasSubmitted] = useState(false)
+    const [hasSubmitted, setHasSubmitted] = useState(false)
 
     useEffect(() => {
         const error = []
@@ -39,9 +39,13 @@ export const EditSong = () => {
             imageUrl,
             url
         }
-        dispatch(editSong(song, songId)).then(() => history.push(`/you/library`))
+        await dispatch(editSong(song, songId))
+        // .then(() =>
+        await setEdited(edited + 1)
+        // .then(() => history.push(`/you/library`))
 
-        // .then(() => history.push(`/api/songs/${songId}`))
+        // .then(() =>
+        await history.push(`/api/songs/${songId}`)
     }
 
 

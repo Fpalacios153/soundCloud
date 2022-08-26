@@ -14,11 +14,13 @@ function SongDetails() {
     const dispatch = useDispatch()
     const history = useHistory()
     const [isLoaded, setIsLoaded] = useState(false)
+    const [edited, setEdited] = useState(0)
 
 
 
     const { songId } = useParams()
     const song = useSelector(state => state.songs[songId]);
+    console.log('SONG AFTER EDIT', song)
 
     const sessionUser = useSelector(state => state.session.user)
     const { setSong } = useSongContext()
@@ -26,8 +28,8 @@ function SongDetails() {
     useEffect(() => {
         dispatch(getOneSong(songId)).then(() => setIsLoaded(true))
 
-    }, [dispatch,])
-    console.log(song)
+    }, [dispatch, edited])
+    // console.log(song)
     // console.log(song.Artist)
     const songDelete = (e) => {
         e.preventDefault();
@@ -61,7 +63,7 @@ function SongDetails() {
                                 song && song.Artist && sessionUser.id === song.Artist.userId && (
                                     <div>
                                         <button onClick={songDelete}>Delete</button>
-                                        <EditModal />
+                                        <EditModal setEdited={setEdited} edited={edited} />
 
                                     </div>)}
                             <div style={{ display: 'flex', justifyContent: "start", width: '75%' }}>

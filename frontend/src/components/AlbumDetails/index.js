@@ -1,6 +1,6 @@
 import { useHistory, useParams, Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { deleteAlbum } from '../../store/albums'
 import { getOneAlbum } from "../../store/albums";
 import './GetOneAlbum.css'
@@ -16,7 +16,6 @@ function AlbumView() {
     const sessionUser = useSelector(state => state.session.user)
     const album = useSelector(state => state.albums[Number(albumId)])
     const { setSong } = useSongContext()
-
     useEffect(() => {
         dispatch(getOneAlbum(album))
     }, [dispatch, albumId])

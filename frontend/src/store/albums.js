@@ -5,6 +5,7 @@ const GET_ONE_ALBUM = 'albums/getOne'
 const CURRENT_USER_ALBUM = 'albums/currentUserAlbums'
 
 const CREATE_ALBUM = 'albums/create'
+const EDIT_ALBUM = 'albums/edit'
 
 const DELETE_ALBUM = 'albums/delete'
 
@@ -25,6 +26,10 @@ const currentUserAlbums = albums => ({
 })
 const create = album => ({
     type: CREATE_ALBUM,
+    album
+})
+const edit = album => ({
+    type: EDIT_ALBUM,
     album
 })
 const albumDelete = album => ({
@@ -75,7 +80,6 @@ export const createAlbum = (album) => async dispatch => {
         return newAlbum
     }
     return response
-
 }
 export const editAlbum = (album, albumId) => async dispatch => {
     const response = await csrfFetch(`/api/albums/${albumId}`, {
@@ -85,7 +89,8 @@ export const editAlbum = (album, albumId) => async dispatch => {
     })
     if (response.ok) {
         const album = await response.json();
-        dispatch(create(album));
+        dispatch(edit(album));
+        return album
     }
     return response
 
@@ -125,13 +130,12 @@ const albumReducer = (state = initialState, action) => {
             return { ...usersAlbums }
         case GET_ONE_ALBUM:
             newState = { ...state }
-            newState[action.album.id] = action.album
+            newState[action.album.id] = { ...newState[action.album.id], ...action.album }
             return newState
-        case CREATE_ALBUM:
+        case EDIT_ALBUM:
             newState = { ...state }
-            newState[action.album.id] = action.album
+            newState[action.album.id] = { ...newState[action.album.id], ...action.album }
             return newState
-
         case DELETE_ALBUM:
             newState = { ...state }
             delete newState[action.album.id]

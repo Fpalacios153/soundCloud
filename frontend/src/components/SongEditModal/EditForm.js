@@ -5,7 +5,7 @@ import { editSong } from "../../store/songs";
 
 
 
-export const EditSong = ({ setEdited, edited }) => {
+export const EditSong = ({ setEdited, edited, setShowModal }) => {
     const dispatch = useDispatch()
     const history = useHistory()
     const { songId } = useParams()
@@ -40,12 +40,13 @@ export const EditSong = ({ setEdited, edited }) => {
             url
         }
         await dispatch(editSong(song, songId))
+        await setShowModal(false)
         // .then(() =>
-        await setEdited(edited + 1)
+        // await setEdited(edited + 1)
         // .then(() => history.push(`/you/library`))
 
         // .then(() =>
-        await history.push(`/api/songs/${songId}`)
+        // await history.push(`/api/songs/${songId}`)
     }
 
 

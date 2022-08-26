@@ -137,7 +137,7 @@ const songReducer = (state = initialState, action) => {
             }
         case GET_ONE_SONG:
             newState = { ...state }
-            newState[action.song.id] = action.song
+            newState[action.song.id] = { ...newState[action.song.id], ...action.song }
             return newState
         case CREATE_SONGS:
             newState = { ...state }
@@ -146,7 +146,7 @@ const songReducer = (state = initialState, action) => {
         case EDIT_SONG:
             console.log('REDUCER', action.song)
             newState = { ...state }
-            newState[action.song.id] = action.song
+            newState[action.song.id] = { ...newState[action.song.id], ...action.song }
             return newState
         case REMOVE_SONG:
             newState = { ...state }

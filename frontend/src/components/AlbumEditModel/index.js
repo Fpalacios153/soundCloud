@@ -10,7 +10,7 @@ function EditModal({ setEdited, edited }) {
       <button className='edit-model' onClick={() => setShowModal(true)}>Edit</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <EditAlbum path='/api/album/:albumId' store={showModal} setEdited={setEdited} edited={edited} />
+          <EditAlbum path='/api/album/:albumId' store={showModal} setShowModal={setShowModal} />
         </Modal>
       )}
     </>

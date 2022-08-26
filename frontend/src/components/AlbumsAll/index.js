@@ -28,12 +28,13 @@ const AlbumBrowser = () => {
                             {isLoaded && albums.map(album => (
                                 <li className='album-tiles' key={album.id}>
                                     <NavLink to={`/api/albums/${album.id}`} key={album.id}>
-                                        <img className='' style={{ height: '12em', width: '12em' }} src={album.previewImage} alt={album.title} />
-                                        <div style={{ fontSie: '14px' }}>
+                                        <img className='' style={{ height: '13em', width: '13em' }} src={album.previewImage} alt={album.title} />
+                                        <div
+                                            className="overflow-title-div"                                        >
                                             {album.title}
                                         </div>
                                     </NavLink>
-                                    <div style={{ fontSize: '12px' }}>
+                                    <div className="overflow-title-div" style={{ fontSize: '12px' }}>
                                         {album.Artist.name}
                                     </div>
                                     <br />

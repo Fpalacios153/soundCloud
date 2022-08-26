@@ -32,11 +32,13 @@ const GetAllSongs = () => {
                                         <img style={{ height: '11em', width: '11em' }} src={song.previewImage} alt={song.title} />
                                     </button>
                                     <NavLink to={`/api/songs/${song.id}`} >
-                                        <div style={{ fontSize: '14px' }}>
+                                        <div className="overflow-title-div"
+                                            style={{ fontSize: '14px' }}>
                                             {song.title}
                                         </div>
                                     </NavLink>
-                                    <div style={{ height: '30px', width: '160px', fontSize: '12px', margin: 0 }}>
+                                    <div style={{ height: '30px', width: '160px', fontSize: '12px', margin: 0 }}
+                                        className="overflow-title-div" >
                                         {song.Artist.name}
                                     </div>
                                 </li>))}

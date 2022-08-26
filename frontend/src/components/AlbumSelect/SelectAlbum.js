@@ -33,9 +33,12 @@ export default function SelectUserAlbum() {
                                 // 'curralbum-tiles'
                                 >
                                     <NavLink to={`/api/albums/${album.id}`} key={album.id}>
-                                        <img style={{ height: '12em', width: '12em' }} src={album.previewImage} alt={album.title} />
+                                        <img style={{ height: '13em', width: '13em' }} src={album.previewImage} alt={album.title} />
                                     </NavLink>
-                                    <div style={{ fontWeight: 100, fontSize: '14px' }}>
+                                    <div
+                                        className="overflow-title-div"
+                                        style={{ fontWeight: 100, fontSize: '14px' }}
+                                    >
                                         {album.title}
                                     </div>
                                 </li>

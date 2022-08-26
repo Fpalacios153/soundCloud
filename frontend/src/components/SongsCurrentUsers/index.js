@@ -59,12 +59,18 @@ export default function UsersSongs() {
                                         <img style={{ height: '11em', width: '11em' }} src={song.previewImage} alt={song.title} />
                                     </button>
                                     <NavLink to={`/api/songs/${song.id}`} >
-                                        <div style={{ fontWeight: 150, fontSize: '14px' }}>
+                                        <div
+                                            className="overflow-title-div"
+                                            style={{ fontWeight: 100, fontSize: '14px' }}
+                                        >
                                             {song.title}
                                         </div>
                                     </NavLink>
 
-                                    <div style={{ fontWeight: 150, fontSize: '14px' }}>
+                                    <div
+                                        className="overflow-title-div"
+                                        style={{ fontWeight: 150, fontSize: '12px' }}
+                                    >
                                         {song.Album.title}
                                     </div>
                                 </li>))}

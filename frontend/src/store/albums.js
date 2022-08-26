@@ -132,6 +132,10 @@ const albumReducer = (state = initialState, action) => {
             newState = { ...state }
             newState[action.album.id] = { ...newState[action.album.id], ...action.album }
             return newState
+        case CREATE_ALBUM:
+            newState = { ...state }
+            newState[action.album.id] = action.album
+            return newState
         case EDIT_ALBUM:
             newState = { ...state }
             newState[action.album.id] = { ...newState[action.album.id], ...action.album }

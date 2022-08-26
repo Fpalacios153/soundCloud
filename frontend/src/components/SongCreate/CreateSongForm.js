@@ -68,7 +68,7 @@ const CreateSong = () => {
     return (
         <>
             <div className="create-album-container">
-                <h2 className="create-album-title">Upload Album</h2>
+                <h2 className="create-album-title">Upload Song</h2>
                 {hasSubmitted && validationErrors.length > 0 && (
                     <div>
                         <ul style={{ padding: '10px', color: 'red', listStyle: 'none', textAlign: 'center' }}>

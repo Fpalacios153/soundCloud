@@ -14,7 +14,7 @@ import UsersAlbums from "./components/AlbumsCurrentUsers";
 import AudioPlayers from "./components/AudioPlayer";
 import { getSongs } from "./store/songs"
 import { getAlbums } from "./store/albums";
-// import { HomePage } from "./components/HomePage";
+import { HomePage } from "./components/HomePage";
 import UploadHolder from "./components/Upload/Upload";
 // import { getSongByCurrentUser } from './store/songs'
 function App() {
@@ -38,8 +38,8 @@ function App() {
               <h1>Welcome to CloudSounds</h1>
             </Route> */}
             {/* <Route exact path='/'>
-            <HomePage />
-          </Route> */}
+              <HomePage />
+            </Route> */}
             <Route path='/discover'>
               <AlbumBrowser />
               <h2 className="allSongs">All Songs</h2>
@@ -65,6 +65,8 @@ function App() {
             </Route> */}
           </Switch>
         )}
+      </div>
+      <div className="audio-holder">
         <AudioPlayers />
       </div>
     </>

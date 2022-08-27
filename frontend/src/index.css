@@ -10,7 +10,7 @@ html {
     /* width: 92%; */
     background-color: white;
     width: 90%;
-    height: auto;
+    height: 61vw;
     margin: auto;
     font: 12px/1.4 Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
     color: #333;
@@ -24,4 +24,10 @@ body {
 
 .allSongs {
     font-weight: 100;
+}
+
+.audio-holder {
+    position: sticky;
+    background-color: orange;
+    bottom: 0em;
 }

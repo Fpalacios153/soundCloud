@@ -49,9 +49,9 @@ function AlbumView() {
                             </div>
                         </div>)}
                     {album.Artist && sessionUser.id === album.Artist.userId && (
-                        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+                        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', paddingRight: '1em' }}>
                             <div>
-                                <button className="delete-button" onClick={Delete}>Delete</button>
+                                <button className="delete-button darker-border" onClick={Delete}>Delete</button>
                                 <EditModal />
                             </div>
                             <CreateSongModel />
@@ -67,9 +67,10 @@ function AlbumView() {
                                     <li className='song-list-points'>
                                         <div style={{ display: 'flex', justifyContent: 'flex-start', width: '75%' }}>
                                             <div>
-                                                <button className="small-button" onClick={() => setSong(song.url)}>
-                                                    <img style={{ height: '2.5em', width: '2.5em', padding: '1px' }} src={song.previewImage} alt={song.title} />
-                                                </button>
+                                                {/* <div style={{ display: 'flex', justifyContent: 'center', alignContent: 'center', paddingTop: '1px', position:'relative'}}> */}
+                                                <button className="small-button" onClick={() => setSong(song.url)}></button>
+                                                {/* </div> */}
+                                                <img style={{ height: '2.8em', width: '2.8em', padding: '1px' }} src={song.previewImage} alt={song.title} />
                                             </div>
                                             <Link className='link-to-song' to={`/api/songs/${song.id}`} >
                                                 <div className="centered">{`${i + 1}  `}</div>

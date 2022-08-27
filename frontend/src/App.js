@@ -11,7 +11,7 @@ import AlbumView from "./components/AlbumDetails";
 import UsersAlbums from "./components/AlbumsCurrentUsers";
 // import SelectUserAlbum from "./components/AlbumSelect/SelectAlbum";
 // import CreateAlbumModal from './components/AlbumCreate/index'
-import AudioPlayer from "./components/AudioPlayer";
+import AudioPlayers from "./components/AudioPlayer";
 import { getSongs } from "./store/songs"
 import { getAlbums } from "./store/albums";
 // import { HomePage } from "./components/HomePage";
@@ -65,7 +65,7 @@ function App() {
             </Route> */}
           </Switch>
         )}
-        <AudioPlayer />
+        <AudioPlayers />
       </div>
     </>
   );

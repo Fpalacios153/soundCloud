@@ -8,7 +8,7 @@ function EditModal() {
 
   return (
     <>
-      <button className='edit-model' onClick={() => setShowModal(true)}>Edit</button>
+      <button className='edit-model darker-border' onClick={() => setShowModal(true)}>Edit</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <EditAlbum path='/api/album/:albumId' store={showModal} setShowModal={setShowModal} />

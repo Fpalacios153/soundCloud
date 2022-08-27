@@ -70,7 +70,7 @@ const CreateSong = ({ createNew, setCreateNew }) => {
     return (
         <>
             <div className="create-album-container">
-                <h2 className="create-album-title">Upload Songgi</h2>
+                <h2 className="create-album-title">Upload Song</h2>
                 {hasSubmitted && validationErrors.length > 0 && (
                     <div>
                         <ul style={{ padding: '10px', color: 'red', listStyle: 'none', textAlign: 'center' }}>
@@ -122,7 +122,7 @@ const CreateSong = ({ createNew, setCreateNew }) => {
                                 wrap="hard"
                                 spellCheck={true}
                                 type='text'
-                                placeholder="Describe your album"
+                                placeholder="Describe your song"
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}
                             />

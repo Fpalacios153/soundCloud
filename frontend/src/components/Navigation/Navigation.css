@@ -91,3 +91,8 @@ nav a:visited {
   list-style-type: none;
   border: 2px, solid, #999;
 }
+
+.homepage-edit {
+  height: auto;
+  /* background-color: aqua; */
+}

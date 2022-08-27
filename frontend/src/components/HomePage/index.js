@@ -30,8 +30,11 @@ export const HomePage = () => {
                 <div className='trendingTracks'>
                     <div className='titleTrending'>
                         Hear what’s trending for free in the CloudSounds community
+                        {/* <div>
+                            NEW SONG Component WITH ONLY ABOUT TEN SONGS with ROWS, 5 columns here
+                        </div> */}
                     </div>
-                    <GetAllSongs />
+                    {/* <GetAllSongs /> */}
                 </div>
                 <div className='github-containter'>
                     <div >

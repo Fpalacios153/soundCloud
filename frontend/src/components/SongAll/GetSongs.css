@@ -1,19 +1,21 @@
 .allSongs-container {
     display: flex;
-    height: 39%;
+    height: 75%;
     width: 100%;
     flex-direction: column;
     /* padding-left: 6em; */
 }
 
 .song-container {
-    overflow-x: auto;
-    height: 22em;
-    overflow-y: hidden;
+    /* overflow-x: auto;
+    overflow-y: hidden; */
+    height: auto;
 }
 
 .song-list {
     display: flex;
+    flex-wrap: wrap;
+    padding-left: 10px;
     /* justify-content: flex-start; */
     /* align-items: center; */
     /* flex-wrap: wrap; */
@@ -25,8 +27,8 @@
     height: 12em;
     border-radius: 3px;
     list-style-type: none;
-    padding-left: .5em;
-    padding-right: 1.1em;
+    padding-right: 1.5em;
+    padding-bottom: 7em;
 }
 
 .allSongs {

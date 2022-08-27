@@ -33,14 +33,13 @@ function Navigation({ isLoaded }) {
 
     sessionLinks = (
       <>
-        {/* <div className='app'> */}
-
         <Switch>
           <Route exact path='/'>
-            <HomePage />
+            <div className='homepage-edit'>
+              <HomePage />
+            </div>
           </Route>
         </Switch>
-        {/* </div> */}
       </>
 
 

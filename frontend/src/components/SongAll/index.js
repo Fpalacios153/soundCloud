@@ -28,8 +28,8 @@ const GetAllSongs = () => {
                             {isLoaded && song && song.map((song) => (
                                 <li className='song-tiles' key={song.id} >
                                     <div className='song-button-div'>
-                                        <button className='song-button' onClick={() => setSong(song.url)}>  </button>
-                                        <img style={{ height: '13em', width: '13em' }} src={song.previewImage} alt={song.title} />
+                                        <button className='song-button' onClick={() => setSong(song.url)}></button>
+                                        <img style={{ height: '14em', width: '14em' }} src={song.previewImage} alt={song.title} />
                                     </div>
                                     <div style={{ paddingLeft: '.2em' }}>
                                         <NavLink

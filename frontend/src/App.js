@@ -9,14 +9,16 @@ import UsersSongs from './components/SongsCurrentUsers'
 import AlbumBrowser from "./components/AlbumsAll";
 import AlbumView from "./components/AlbumDetails";
 import UsersAlbums from "./components/AlbumsCurrentUsers";
-// import SelectUserAlbum from "./components/AlbumSelect/SelectAlbum";
-// import CreateAlbumModal from './components/AlbumCreate/index'
 import AudioPlayers from "./components/AudioPlayer";
 import { getSongs } from "./store/songs"
 import { getAlbums } from "./store/albums";
 import { HomePage } from "./components/HomePage";
 import UploadHolder from "./components/Upload/Upload";
+// import SelectUserAlbum from "./components/AlbumSelect/SelectAlbum";
+// import CreateAlbumModal from './components/AlbumCreate/index'
 // import { getSongByCurrentUser } from './store/songs'
+
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -26,7 +28,6 @@ function App() {
       .then(() => dispatch(getAlbums()))
       .then(() => setIsLoaded(true));
   }, [dispatch]);
-  // const [song, setSong] = useState('')
 
   return (
     <>
@@ -34,12 +35,9 @@ function App() {
       <div className="app">
         {isLoaded && (
           <Switch>
-            {/* <Route exact path='/'>
-              <h1>Welcome to CloudSounds</h1>
-            </Route> */}
-            {/* <Route exact path='/'>
+            <Route exact path='/'>
               <HomePage />
-            </Route> */}
+            </Route>
             <Route path='/discover'>
               <AlbumBrowser />
               <h2 className="allSongs">All Songs</h2>
@@ -57,12 +55,10 @@ function App() {
             </Route>
             <Route path='/upload'>
               <UploadHolder />
-              {/* <SelectUserAlbum />
-              <CreateAlbumModal /> */}
             </Route>
-            {/* <Route>
-              <h2>Page Not Found</h2>
-            </Route> */}
+            <Route>
+              <h1>Page Not Found</h1>
+            </Route>
           </Switch>
         )}
       </div>

@@ -25,7 +25,6 @@ nav a {
 nav a:hover {
   color: white;
   background-color: black;
-  /* height: 53px; */
 }
 
 nav a:visited {
@@ -43,20 +42,7 @@ nav a:visited {
   width: 50px;
   height: 23px;
   background-size: 115px 22px;
-  /* background-color: black; */
   padding: 10px;
-
-
-  /* display: block;
-  position: absolute;
-  top: 0px;
-  left: 4px;
-  background: url(https://a-v2.sndcdn.com/assets/images/peace-cloud-28ad0963.svg) no-repeat 12px 11px;
-  margin: 0;
-  height: 6%;
-  width: 13%;
-  background-color: black; */
-
 }
 
 
@@ -94,5 +80,64 @@ nav a:visited {
 
 .homepage-edit {
   height: auto;
-  /* background-color: aqua; */
+}
+
+.app-Container {
+  font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
+  font-weight: 100;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-right: 10px;
+}
+
+.leftNav {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: flex-end;
+  margin-top: 8px;
+  right: 30px;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding-left: 1em;
+}
+
+.logo {
+  background-size: 115px 22px;
+  background: url(https://a-v2.sndcdn.com/assets/images/peace-cloud-28ad0963.svg) no-repeat 12px 11px;
+  background-size: 48px 22px;
+  display: block;
+  width: 2em;
+  height: 46px;
+  margin: 0;
+  text-indent: -999em;
+}
+
+.logoWords {
+  color: white;
+  font-size: 17px;
+  content: 'CloudSounds';
+}
+
+.topPart {
+  color: #fff;
+  width: 90%;
+  border-top: 4px solid #f50;
+  background-image: url(https://a-v2.sndcdn.com/assets/images/sc_landing_header_web_c@2x-1265910e.jpg);
+  background-size: 80em;
+  height: 450px;
 }

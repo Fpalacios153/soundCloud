@@ -11,19 +11,6 @@ export const HomePage = () => {
     return (
         <>
             <div className='app-Container'>
-                <div className='topPart'>
-                    <div className='nav'>
-                        <div>
-                            <h1 className='logo'>m</h1>
-                            <h1 className='logoWords'>CloudSounds</h1>
-                        </div>
-                        <div className='leftNav'>
-                            <DemoUser />
-                            <LoginFormModal />
-                            <SignupFormModal />
-                        </div>
-                    </div>
-                </div>
                 <div className='center'>
                     {/* <button className='upload'>Upload your own</button> */}
                 </div>
@@ -34,7 +21,7 @@ export const HomePage = () => {
                             NEW SONG Component WITH ONLY ABOUT TEN SONGS with ROWS, 5 columns here
                         </div> */}
                     </div>
-                    {/* <GetAllSongs /> */}
+                    <GetAllSongs />
                 </div>
                 <div className='github-containter'>
                     <div >
@@ -53,10 +40,10 @@ export const HomePage = () => {
                 <span className='bottom-signup'>
                     <SignupFormModal />
                 </span>
-                {/* <div className='bottom-login'>
+                <div className='bottom-login'>
                     Already have an account?
                     <LoginFormModal />
-                </div> */}
+                </div>
             </div>
         </>
 

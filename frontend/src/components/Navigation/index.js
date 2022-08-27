@@ -2,6 +2,9 @@ import React from 'react';
 import { NavLink, Route, Switch } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import DemoUser from '../DemoUser';
+import LoginFormModal from '../ModalLoginForm';
+import SignupFormModal from '../ModalSignupForm';
 import { HomePage } from '../HomePage';
 import SongDetails from '../SongDetails';
 import './Navigation.css';
@@ -21,7 +24,6 @@ function Navigation({ isLoaded }) {
               <img src='https://a-v2.sndcdn.com/assets/images/peace-cloud-28ad0963.svg' alt='logo' className='navLogo' />
             </NavLink>
             <NavLink exact to="/discover">Home</NavLink>
-            {/* <NavLink to="/songs">Songs</NavLink> */}
             <NavLink to='/you/library'>Library</NavLink>
             <NavLink to='/upload'>Upload</NavLink>
             <ProfileButton user={sessionUser} />
@@ -33,16 +35,22 @@ function Navigation({ isLoaded }) {
 
     sessionLinks = (
       <>
-        <Switch>
-          <Route exact path='/'>
-            <div className='homepage-edit'>
-              <HomePage />
+        <div className='app-Container'>
+          <div className='topPart'>
+            <div className='nav'>
+              <div className='logo-container'>
+                <h1 className='logo'></h1>
+                <h1 className='logoWords'>CLOUDSOUNDS</h1>
+              </div>
+              <div className='leftNav'>
+                <DemoUser />
+                <LoginFormModal />
+                <SignupFormModal />
+              </div>
             </div>
-          </Route>
-        </Switch>
+          </div>
+        </div>
       </>
-
-
     );
   }
   return (

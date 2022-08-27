@@ -13,9 +13,8 @@ function DemoUser() {
         e.preventDefault();
         const credential = 'Demo-lition';
         const password = 'password';
-        history.push('/discover')
-
-        return dispatch(sessionActions.login({ credential, password }));
+        return dispatch(sessionActions.login({ credential, password })).then(() => history.push('/discover')
+        );
     };
 
     return (

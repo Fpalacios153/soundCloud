@@ -7,7 +7,6 @@ form {
 
 
 .create {
-  padding: 2px 16px;
   height: 30px;
   line-height: 24px;
   margin: 0 0 0 6px;
@@ -19,12 +18,12 @@ form {
   border-radius: 3px;
   cursor: pointer;
   font-size: 14px;
-  white-space: nowrap;
   font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
   font-weight: 100;
   text-align: center;
-  vertical-align: initial;
-  box-sizing: border-box;
+  white-space: nowrap;
+
+
 }
 
 .sign-up-form {

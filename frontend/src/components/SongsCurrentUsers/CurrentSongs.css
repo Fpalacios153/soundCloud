@@ -1,7 +1,16 @@
 .currSong-container {
-    height: 46%;
+    height: auto;
 }
 
 .currLi {
     list-style: none;
+}
+
+.current-titles {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    color: #f50;
+    font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
+    font-weight: 100;
 }

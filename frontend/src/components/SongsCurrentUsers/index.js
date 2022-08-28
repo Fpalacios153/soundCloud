@@ -45,7 +45,7 @@ export default function UsersSongs() {
             <div className='currSong-container'>
                 <h2 className='allSAtitles'>My Songs</h2>
                 {isLoaded && !songs.length && (
-                    <div>User has no songs</div>
+                    <div className='current-titles'>User has no songs</div>
                 )}
                 <div className='song-container'>
                     <ul>

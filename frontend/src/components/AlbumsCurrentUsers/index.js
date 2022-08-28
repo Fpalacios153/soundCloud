@@ -24,7 +24,7 @@ export default function UsersAlbums() {
             <div className='allAlbum-container'>
                 <h2 className='allSAtitles'>My Albums</h2>
                 {!albums.length && (
-                    <div>User has no Albums</div>
+                    <div className='current-titles'>User has no Albums</div>
                 )}
                 <div className='album-container'>
                     <ul>

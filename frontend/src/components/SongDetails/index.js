@@ -19,27 +19,27 @@ function SongDetails() {
 
     const { songId } = useParams()
     const song = useSelector(state => state.songs[songId]);
-    console.log('SONG AFTER EDIT', song)
-    console.log(song)
+    console.log('SONG AFTER CREATED', song)
 
     const sessionUser = useSelector(state => state.session.user)
     const { setSong } = useSongContext()
 
-    // useEffect(() => {
-    //     dispatch(getOneSong(songId)).then(() => setIsLoaded(true))
+    useEffect(() => {
+        dispatch(getOneSong(songId)).then(() => setIsLoaded(true))
 
-    // }, [dispatch])
+    }, [dispatch, songId])
     const songDelete = (e) => {
         e.preventDefault();
         dispatch(deleteSong(song.id))
         history.push('/you/library')
     };
+    // if (!song && song.Artist) return null
 
     return (
         <>
             <div className="detail-container">
                 <div className="song-detail-container">
-                    {(
+                    {(song.Artist &&
                         <div className="song-info-container">
                             <div className="song-background" style={{ backgroundColor: 'grey' }} alt='songPic'>
                                 <div>
@@ -76,8 +76,8 @@ function SongDetails() {
                                     <p style={{ paddingLeft: '3em', flexWrap: 'wrap' }}>{song.description}</p>
                                 </div>
                             </div>
-                        </div>)
-                    }
+                        </div>
+                    )}
                 </div>
             </div>
 

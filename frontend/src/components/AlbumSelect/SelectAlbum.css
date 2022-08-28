@@ -4,3 +4,18 @@
     align-content: center;
     justify-items: center;
 }
+
+.no-albums-title {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.select-words {
+    font-size: 30px;
+    color: #333;
+    font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
+    font-weight: 100;
+}

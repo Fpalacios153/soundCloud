@@ -26,7 +26,13 @@ export default function SelectUserAlbum() {
                     style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingBottom: '10px' }}
                 >
                     {!albums.length && (
-                        <h2 className="allSAtitles">User does not have any Albums, Create one to add songs!</h2>)}
+                        <>
+                            <div className='no-albums-title'>
+                                <div className="allSAtitles select-words">User does not have any Albums, Create one to add songs!</div>
+                                {/* <h2 className="allSAtitles select-words"> Create one to add songs!</h2> */}
+                            </div>
+                        </>
+                    )}
                     <ul>
                         <div className='album-list' >
                             {isLoaded && albums.map(album => (

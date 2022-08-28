@@ -1,4 +1,4 @@
-import { NavLink, useHistory, useParams } from "react-router-dom";
+import { Link, NavLink, useHistory, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import './SongsView.css'
 import { useEffect, useState } from "react";
@@ -21,16 +21,15 @@ function SongDetails() {
     const { songId } = useParams()
     const song = useSelector(state => state.songs[songId]);
     console.log('SONG AFTER EDIT', song)
+    console.log(song)
 
     const sessionUser = useSelector(state => state.session.user)
     const { setSong } = useSongContext()
 
-    useEffect(() => {
-        dispatch(getOneSong(songId)).then(() => setIsLoaded(true))
+    // useEffect(() => {
+    //     dispatch(getOneSong(songId)).then(() => setIsLoaded(true))
 
-    }, [dispatch, edited])
-    // console.log(song)
-    // console.log(song.Artist)
+    // }, [dispatch])
     const songDelete = (e) => {
         e.preventDefault();
         dispatch(deleteSong(song.id))
@@ -41,7 +40,7 @@ function SongDetails() {
         <>
             <div className="detail-container">
                 <div className="song-detail-container">
-                    {isLoaded && song.Album && (
+                    {(
                         <div className="song-info-container">
                             <div className="song-background" style={{ backgroundColor: 'grey' }} alt='songPic'>
                                 <div>
@@ -52,6 +51,9 @@ function SongDetails() {
                                         <div className="song-name-artists"                               >
                                             <h2 className="song-detail-title">{song.title}</h2>
                                             <h3 className="song-detail-name">{song.Artist.name}</h3>
+                                            <Link style={{ textDecoration: 'none', color: 'white' }} to={`/api/albums/${song.Album.id}`}>
+                                                <h4 className="song-detail-name">{song.Album.title}</h4>
+                                            </Link>
                                         </div>
                                         <div style={{ justifyContent: 'flex-end', alignItems: 'flex-end' }}>
                                             <img src={song.previewImage} alt={song.title} style={{ width: '26em', height: '26em', paddingRight: '2em', paddingTop: '1.5em' }}></img>
@@ -68,7 +70,12 @@ function SongDetails() {
                                     </div>)}
                             <div style={{ display: 'flex', justifyContent: "start", width: '65%' }}>
                                 <h2 style={{ padding: '0px 10px' }}>{song.Artist.name}</h2>
-                                <p style={{ paddingLeft: '3em', flexWrap: 'wrap' }}>{song.description}</p>
+                                <div>
+                                    <Link className='remove-line' to={`/api/albums/${song.Album.id}`}>
+                                        <h3 style={{ paddingLeft: '2.5em' }}>{song.Album.title}</h3>
+                                    </Link>
+                                    <p style={{ paddingLeft: '3em', flexWrap: 'wrap' }}>{song.description}</p>
+                                </div>
                             </div>
                         </div>)
                     }

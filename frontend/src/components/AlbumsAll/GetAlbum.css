@@ -24,8 +24,10 @@
 
 .album-container {
     overflow-x: auto;
-    height: 280px;
     overflow-y: hidden;
+    height: 280px;
+    width: 100%;
+    flex-wrap: wrap;
 }
 
 .allSAtitles {

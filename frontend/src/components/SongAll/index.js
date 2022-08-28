@@ -25,27 +25,22 @@ const GetAllSongs = () => {
                 <div className='song-container'>
                     <ul >
                         <div className='song-list'>
-                            {isLoaded && song && song.map((song) => (
-                                <li className='song-tiles' key={song.id} >
+                            {isLoaded && song.map((song) => (
+                                <div className='song-tiles' key={song.id} >
                                     <div className='song-button-div'>
                                         <button className='song-button' onClick={() => setSong(song.url)}></button>
-                                        <img style={{ height: '14em', width: '14em' }} src={song.previewImage} alt={song.title} />
-                                    </div>
-                                    <div style={{ paddingLeft: '.2em' }}>
-                                        <NavLink
-                                            className='remove-line'
-                                            to={`/api/songs/${song.id}`} >
-                                            <div className="overflow-title-div"
-                                                style={{ fontSize: '14px' }}>
+                                        <img className='song-image' style={{ height: '13em', width: '13em' }} src={song.previewImage} alt={song.title} />
+                                        <NavLink className='remove-line' to={`/api/songs/${song.id}`} >
+                                            <div className="overflow-title-div" style={{ fontSize: '14px' }}>
                                                 {song.title}
                                             </div>
                                         </NavLink>
-                                        <div style={{ height: '30px', width: '160px', fontSize: '12px', margin: 0 }}
-                                            className="overflow-title-div" >
+                                        <div style={{ height: '30px', width: '160px', fontSize: '12px', margin: 0 }} className="overflow-title-div" >
                                             {song.Artist.name}
                                         </div>
                                     </div>
-                                </li>))}
+                                </div>
+                            ))}
                         </div>
                     </ul>
                 </div>

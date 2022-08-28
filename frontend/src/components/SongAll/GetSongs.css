@@ -20,18 +20,17 @@
     /* flex-wrap: wrap; */
 }
 
-
 .song-tiles {
+    /* padding-right: 1.5em; */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
-    width: 15.5em;
-    height: 25em;
+    width: 14.5em;
+    height: 21em;
     border-radius: 3px;
     list-style-type: none;
+    /* align-items: center; */
     /* padding: 1em; */
-    /* padding-right: 1.5em; */
 }
 
 .allSongs {
@@ -42,19 +41,52 @@
     color: #333;
 }
 
-/* .song-button-div { */
-/* width: 17em; */
-/* height: 100%; */
-/* } */
+
+.song-words {
+    width: 100%;
+    height: 50%;
+}
+
+.song-button-div {
+    position: relative;
+    bottom: 5em;
+
+}
+
+.song-image {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
 
 .song-button {
     position: relative;
     background-color: #f50;
     border: 0;
-    width: 5em;
-    height: 5em;
+    width: 4.5em;
+    height: 4.5em;
     top: 9em;
-    left: 4em;
+    left: 3.5em;
+    border-radius: 50%;
+    cursor: pointer;
+    content: "";
+    z-index: 1;
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjE4cHgiIGhlaWdodD0iMjlweCIgdmlld0JveD0iMCAwIDE4IDI5IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnNrZXRjaD0iaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoL25zIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggMy4yLjIgKDk5ODMpIC0gaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoIC0tPgogICAgPHRpdGxlPlBsYXkgNjA8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBza2V0Y2g6dHlwZT0iTVNQYWdlIj4KICAgICAgICA8ZyBpZD0iYnV0dG9ucyIgc2tldGNoOnR5cGU9Ik1TQXJ0Ym9hcmRHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE2NjUuMDAwMDAwLCAtODE4LjAwMDAwMCkiIGZpbGw9IiNGRkZGRkYiPgogICAgICAgICAgICA8cGF0aCBkPSJNMTY2NSw4NDcgTDE2NjkuMTUzODUsODMyLjUgTDE2NjUsODE4IEwxNjgzLDgzMi41IEwxNjY1LDg0NyBaIiBpZD0iUGxheS02MCIgc2tldGNoOnR5cGU9Ik1TU2hhcGVHcm91cCI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+);
+    background-size: 40% 60%;
+    background-position: 60%;
+    background-repeat: no-repeat;
+    transition: opacity .3s;
+    opacity: 0;
+}
+
+.song-button:hover {
+    position: relative;
+    background-color: #f50;
+    border: 0;
+    width: 4.5em;
+    height: 4.5em;
+    top: 9em;
+    left: 3.5em;
     border-radius: 50%;
     cursor: pointer;
     content: "";

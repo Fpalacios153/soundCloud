@@ -30,7 +30,16 @@ router.get('/user', requireAuth, async (req, res) => {
         // res.status(404);
         return res.json([])
     }
-    const albums = await artist.getAlbums();
+    const albums = await artist.getAlbums({
+        include: [{
+            model: Artist,
+            attributes: ['id', 'name', 'previewImage', 'userId']
+        },
+        {
+            model: Song
+        }]
+    }
+    );
     return res.json(albums)
 
 })
@@ -60,11 +69,13 @@ router.get('/:albumId', async (req, res) => {
 })
 router.get('/', async (req, res) => {
     const albums = await Album.findAll({
-        include:
-        {
+        include: [{
             model: Artist,
             attributes: ['id', 'name', 'previewImage', 'userId']
-        }
+        },
+        {
+            model: Song
+        }]
     });
 
     res.json(albums)

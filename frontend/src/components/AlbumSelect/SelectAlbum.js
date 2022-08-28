@@ -6,7 +6,8 @@ import './SelectAlbum.css'
 
 export default function SelectUserAlbum() {
     const dispatch = useDispatch()
-    const albums = useSelector(state => Object.values((state.albums)))
+    const album = useSelector(state => (state.albums))
+    const albums = Object.values(album)
     const [isLoaded, setIsLoaded] = useState(false);
 
 
@@ -22,13 +23,13 @@ export default function SelectUserAlbum() {
             <div className='allAlbum-container'>
                 {albums.length > 0 && (<h2 className="allSAtitles" style={{ margin: 'auto' }}>Select Album to Add Song</h2>)}
                 <div className='album-container'
-                    style={{ display: 'flex', justifyContent: 'center', alignContent: 'center', paddingTop: '10px' }}
+                    style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: '10px' }}
                 >
                     {!albums.length && (
                         <h2 className="allSAtitles">User does not have any Albums, Create one to add songs!</h2>)}
                     <ul>
                         <div className='album-list' >
-                            {isLoaded && albums.length > 0 && albums.map(album => (
+                            {isLoaded && albums.map(album => (
                                 <li key={album.id} className='album-tiles'
                                 // 'curralbum-tiles'
                                 >

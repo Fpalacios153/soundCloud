@@ -35,9 +35,6 @@ nav a:visited {
   margin-top: -4px;
   margin-left: -4px;
   margin-right: -4px;
-
-
-
 }
 
 .navLogo {
@@ -46,8 +43,6 @@ nav a:visited {
   background-size: 115px 22px;
   padding: 10px;
 }
-
-
 
 .homepage-edit {
   height: auto;
@@ -62,7 +57,6 @@ nav a:visited {
   align-items: center;
 }
 
-
 .nav {
   display: flex;
   justify-content: space-between;
@@ -75,14 +69,14 @@ nav a:visited {
   display: flex;
   flex-direction: row;
   align-content: center;
-  justify-content: flex-end;
+  justify-content: center;
   margin-top: 8px;
   right: 30px;
 }
 
 .logo-container {
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   align-items: flex-end;
   padding-left: 1em;
 }
@@ -91,11 +85,9 @@ nav a:visited {
   background-size: 115px 22px;
   background: url(https://a-v2.sndcdn.com/assets/images/peace-cloud-28ad0963.svg) no-repeat 12px 11px;
   background-size: 48px 22px;
-  display: block;
   width: 2em;
   height: 46px;
   margin: 0;
-  text-indent: -999em;
 }
 
 .logoWords {
@@ -145,14 +137,10 @@ nav a:visited {
   top: 49px;
   z-index: 1;
   right: 6.6%
-    /* top: 0px;
-  right: 0px;
-  margin: 50px; */
 }
 
 .profile-dropdown {
-  /* top: 49px;
-  right: 96px; */
+
 
   border-color: '#f2f2f2';
   border-bottom: 1.5px solid #333;
@@ -164,7 +152,6 @@ nav a:visited {
   border-radius: 3px;
   list-style-type: none;
   padding: 2px;
-  /* border: 5px solid #999; */
 
 }
 

@@ -10,11 +10,10 @@ form {
   height: 30px;
   line-height: 24px;
   margin: 0 0 0 6px;
-  transition: opacity .2s linear;
   background-color: #f50;
   border-color: #f50;
   color: #fff;
-  padding: 2px 11px 2px 10px;
+  padding: 2px 10px 2px 10px;
   border-radius: 3px;
   cursor: pointer;
   font-size: 14px;

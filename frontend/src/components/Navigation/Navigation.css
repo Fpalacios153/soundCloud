@@ -11,7 +11,6 @@
   font-size: 14px;
   line-height: 1.5;
   cursor: pointer;
-
 }
 
 nav a {
@@ -36,6 +35,9 @@ nav a:visited {
   margin-top: -4px;
   margin-left: -4px;
   margin-right: -4px;
+
+
+
 }
 
 .navLogo {
@@ -141,19 +143,21 @@ nav a:visited {
 .profile-dropdown-container {
   position: absolute;
   top: 49px;
-  right: 96px;
+  z-index: 1;
+  right: 6.6%
+    /* top: 0px;
+  right: 0px;
+  margin: 50px; */
 }
 
 .profile-dropdown {
   /* top: 49px;
   right: 96px; */
 
-  position: sticky;
   border-color: '#f2f2f2';
   border-bottom: 1.5px solid #333;
   border-right: 1.5px solid #333;
   border-left: 1.5px solid #333;
-  z-index: 1;
 
   color: #333;
   background-color: white;

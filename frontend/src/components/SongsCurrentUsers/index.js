@@ -49,33 +49,23 @@ export default function UsersSongs() {
                 )}
                 <div className='song-container'>
                     <ul>
-                        <div className='song-list .wrap'>
-
+                        <div className='song-list'>
                             {isLoaded && songs.length > 0 && songs.map(song => (
-                                <li className='song-tiles' key={song.id} >
-                                    <button
-                                        onClick={() => setSong(song.url)}
-                                    >
-                                        <img style={{ height: '11em', width: '11em' }} src={song.previewImage} alt={song.title} />
-                                    </button>
-                                    <NavLink
-                                        className='remove-line'
-                                        to={`/api/songs/${song.id}`} >
-                                        <div
-                                            className="overflow-title-div"
-                                            style={{ fontWeight: 100, fontSize: '14px' }}
-                                        >
-                                            {song.title}
+                                <div className='song-tiles' key={song.id} >
+                                    <div className='song-button-div'>
+                                        <button className='song-button' onClick={() => setSong(song.url)}></button>
+                                        <img className='song-image' style={{ height: '13em', width: '13em' }} src={song.previewImage} alt={song.title} />
+                                        <NavLink className='remove-line' to={`/api/songs/${song.id}`} >
+                                            <div className="overflow-title-div" style={{ fontWeight: 100, fontSize: '14px' }}>
+                                                {song.title}
+                                            </div>
+                                        </NavLink>
+                                        <div className="overflow-title-div" style={{ fontWeight: 150, fontSize: '12px' }}>
+                                            {song.Album.title}
                                         </div>
-                                    </NavLink>
-
-                                    <div
-                                        className="overflow-title-div"
-                                        style={{ fontWeight: 150, fontSize: '12px' }}
-                                    >
-                                        {song.Album.title}
                                     </div>
-                                </li>))}
+                                </div>
+                            ))}
                         </div>
                     </ul>
                 </div>

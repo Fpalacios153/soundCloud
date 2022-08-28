@@ -17,9 +17,7 @@ function UploadHolder() {
                     <p>
                         By uploading, you confirm that your sounds comply with our Terms of Use and you don't infringe anyone else's rights.
                     </p>
-
                 </div>
-
             </div>
         </div>
     )

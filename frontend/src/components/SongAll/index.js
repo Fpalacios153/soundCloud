@@ -28,7 +28,7 @@ const GetAllSongs = () => {
                             {isLoaded && song.map((song) => (
                                 <div className='song-tiles' key={song.id} >
                                     <div className='song-button-div'>
-                                        <button className='song-button' onClick={() => setSong(song.url)}></button>
+                                        <button className='song-button' onClick={() => setSong(song)}></button>
                                         <img className='song-image' style={{ height: '13em', width: '13em' }} src={song.previewImage} alt={song.title} />
                                         <NavLink className='remove-line' to={`/api/songs/${song.id}`} >
                                             <div className="overflow-title-div" style={{ fontSize: '14px' }}>

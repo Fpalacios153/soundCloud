@@ -21,9 +21,9 @@ export default function SelectUserAlbum() {
     return (
         <>
             <div className='allAlbum-container'>
-                {albums.length > 0 && (<h2 className="allSAtitles" style={{ margin: 'auto' }}>Select Album to Add Song</h2>)}
+                {albums.length > 0 && (<h2 className="allSAtitles" style={{ margin: 'auto', paddingTop: '1em' }}>Select Album to Add Song</h2>)}
                 <div className='album-container'
-                    style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: '10px' }}
+                    style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingBottom: '10px' }}
                 >
                     {!albums.length && (
                         <h2 className="allSAtitles">User does not have any Albums, Create one to add songs!</h2>)}

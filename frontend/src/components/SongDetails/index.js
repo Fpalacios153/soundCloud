@@ -14,7 +14,6 @@ function SongDetails() {
     const dispatch = useDispatch()
     const history = useHistory()
     const [isLoaded, setIsLoaded] = useState(false)
-    const [edited, setEdited] = useState(0)
 
 
 
@@ -65,7 +64,7 @@ function SongDetails() {
                                 song && song.Artist && sessionUser.id === song.Artist.userId && (
                                     <div>
                                         <button className="delete-button" onClick={songDelete}>Delete</button>
-                                        <EditModal setEdited={setEdited} edited={edited} />
+                                        <EditModal />
 
                                     </div>)}
                             <div style={{ display: 'flex', justifyContent: "start", width: '65%' }}>

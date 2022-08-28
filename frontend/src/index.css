@@ -26,9 +26,3 @@ body {
 .allSongs {
     font-weight: 100;
 }
-
-.audio-holder {
-    position: sticky;
-    background-color: orange;
-    bottom: 0em;
-}

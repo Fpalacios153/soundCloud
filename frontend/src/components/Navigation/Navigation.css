@@ -46,37 +46,6 @@ nav a:visited {
 }
 
 
-.profile-button {
-  background-color: #333;
-  color: #999;
-  border: 0;
-  background: #333;
-  font-family: Interstate, Lucida Grande, Arial, sans-serif;
-  font-weight: 100;
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.profile-button:hover {
-  color: white;
-
-  background-color: black;
-}
-
-.profile-button:visited {
-  background-color: black;
-}
-
-.profile-dropdown {
-  position: absolute;
-  border-color: '#f2f2f2';
-  border-bottom: 1px solid #333;
-  right: 6em;
-  color: #333;
-  background-color: white;
-  list-style-type: none;
-  border: 2px, solid, #999;
-}
 
 .homepage-edit {
   height: auto;
@@ -140,4 +109,74 @@ nav a:visited {
   background-image: url(https://a-v2.sndcdn.com/assets/images/sc_landing_header_web_c@2x-1265910e.jpg);
   background-size: 80em;
   height: 450px;
+}
+
+
+.profile-button {
+  position: relative;
+  background-color: #333;
+  color: #999;
+  border: 0;
+  background: #333;
+  font-family: Interstate, Lucida Grande, Arial, sans-serif;
+  font-weight: 100;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.profile-button:hover {
+  color: white;
+
+  background-color: black;
+}
+
+.profileLi {
+  color: #333;
+}
+
+.profileLi:hover {
+  background-color: rgb(214, 214, 214);
+}
+
+.profile-dropdown-container {
+  position: absolute;
+  top: 49px;
+  right: 96px;
+}
+
+.profile-dropdown {
+  /* top: 49px;
+  right: 96px; */
+
+  position: sticky;
+  border-color: '#f2f2f2';
+  border-bottom: 1.5px solid #333;
+  border-right: 1.5px solid #333;
+  border-left: 1.5px solid #333;
+  z-index: 1;
+
+  color: #333;
+  background-color: white;
+  border-radius: 3px;
+  list-style-type: none;
+  padding: 2px;
+  /* border: 5px solid #999; */
+
+}
+
+.logOutButton {
+  background-color: white;
+  color: #333;
+  border: 0;
+  width: 100%;
+  text-align: left;
+  padding: 0;
+  font-family: Interstate, Lucida Grande, Arial, sans-serif;
+  font-weight: 100;
+
+}
+
+.logOutButton:hover {
+  background-color: rgb(214, 214, 214);
+
 }

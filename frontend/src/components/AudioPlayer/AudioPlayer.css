@@ -5,3 +5,28 @@
      right: 0; */
  /* bottom: 0; */
  /* } */
+ .audio-tile {
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     /* background-color: aqua; */
+     position: fixed;
+     bottom: 0em;
+     left: 56em;
+     width: 20em;
+ }
+
+ .currently-playing {
+     display: flex;
+
+ }
+
+ .audio-holder {
+     position: sticky;
+     bottom: 0em;
+     z-index: 2;
+ }
+
+ .audio-word-holder {
+     padding-left: 10px;
+ }

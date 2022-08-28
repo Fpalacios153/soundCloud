@@ -14,14 +14,15 @@ import { getSongs } from "./store/songs"
 import { getAlbums } from "./store/albums";
 import { HomePage } from "./components/HomePage";
 import UploadHolder from "./components/Upload/Upload";
+import { useSongContext } from "./context/setSongContext";
 // import SelectUserAlbum from "./components/AlbumSelect/SelectAlbum";
 // import CreateAlbumModal from './components/AlbumCreate/index'
 // import { getSongByCurrentUser } from './store/songs'
 
-
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  const { song } = useSongContext()
   useEffect(() => {
     dispatch(sessionActions.restoreUser())
       .then(() => dispatch(getSongs()))
@@ -63,6 +64,16 @@ function App() {
         )}
       </div>
       <div className="audio-holder">
+        <div className='audio-tile'>
+          {song && (
+            <div className='currently-playing'>
+              <img style={{ width: '2em', height: '2em' }} src={song.previewImage} />
+              <div className='audio-word-holder'>
+                <p>{song.title}</p>
+              </div>
+            </div>
+          )}
+        </div>
         <AudioPlayers />
       </div>
     </>

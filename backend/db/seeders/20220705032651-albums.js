@@ -28,8 +28,8 @@ module.exports = {
       },
       {
         title: 'Sirens And Condolences',
-        artistId: 2,
-        previewImage: 'https://www.logolynx.com/images/logolynx/d2/d2c55fcde9ee6eba7b24ad6db4f540bb.jpeg',
+        artistId: 3,
+        previewImage: 'https://m.media-amazon.com/images/I/71Hfa9F95LL._SL1200_.jpg',
         description: "An album about words.",
       }
     ])

@@ -30,6 +30,7 @@ function SongDetails() {
     const songDelete = async (e) => {
         e.preventDefault();
         await dispatch(deleteSong(song.id))
+        await setSong(null)
         await history.push('/you/library')
     };
     // if (!song && song.Artist) return null

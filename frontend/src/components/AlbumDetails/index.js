@@ -21,7 +21,6 @@ function AlbumView() {
         dispatch(getOneAlbum(album))
     }, [dispatch, albumId])
 
-    // console.log(album)
     ///remember to move this to current
     const Delete = (e) => {
         e.preventDefault();
@@ -51,7 +50,10 @@ function AlbumView() {
                     {album.Artist && sessionUser.id === album.Artist.userId && (
                         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', paddingRight: '1em' }}>
                             <div>
-                                <button className="delete-button darker-border" onClick={Delete}>Delete</button>
+                                <button className="delete-button darker-border" onClick={Delete}>
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                    Delete
+                                </button>
                                 <EditModal />
                             </div>
                             <CreateSongModel />
@@ -68,7 +70,7 @@ function AlbumView() {
                                         <div style={{ display: 'flex', justifyContent: 'flex-start', width: '75%' }}>
                                             <div>
                                                 {/* <div style={{ display: 'flex', justifyContent: 'center', alignContent: 'center', paddingTop: '1px', position:'relative'}}> */}
-                                                <button className="small-button" onClick={() => setSong(song.url)}></button>
+                                                <button className="small-button" onClick={() => setSong(song)}></button>
                                                 {/* </div> */}
                                                 <img style={{ height: '2.8em', width: '2.8em', padding: '1px' }} src={song.previewImage} alt={song.title} />
                                             </div>

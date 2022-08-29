@@ -8,7 +8,7 @@ function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const history = useHistory()
-  const { song, setSong } = useSongContext()
+  const { setSong } = useSongContext()
 
   const openMenu = () => {
     if (showMenu) return;
@@ -30,8 +30,12 @@ function ProfileButton({ user }) {
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout())
-    setSong(song.url[null])
+    // .then(() =>
     history.push('/')
+    // )
+    // .then(() =>
+    setSong(null)
+    // )
   };
 
   return (

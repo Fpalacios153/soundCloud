@@ -19,7 +19,6 @@ function SongDetails() {
 
     const { songId } = useParams()
     const song = useSelector(state => state.songs[songId]);
-    console.log('SONG AFTER CREATED', song)
 
     const sessionUser = useSelector(state => state.session.user)
     const { setSong } = useSongContext()
@@ -45,7 +44,7 @@ function SongDetails() {
                                 <div>
                                     <div style={{ width: '100%', display: 'flex', flexDirection: 'row', paddingTop: '10px', justifyContent: 'space-between' }}>
                                         <div>
-                                            <button className='playButton' onClick={() => setSong(song.url)} style={{ margin: '10px' }}></button>
+                                            <button className='playButton' onClick={() => setSong(song)} style={{ margin: '10px' }}></button>
                                         </div >
                                         <div className="song-name-artists"                               >
                                             <h2 className="song-detail-title">{song.title}</h2>
@@ -63,7 +62,10 @@ function SongDetails() {
                             {!sessionUser ? (<NavLink to='/'>Back to home page</NavLink>) :
                                 song && song.Artist && sessionUser.id === song.Artist.userId && (
                                     <div>
-                                        <button className="delete-button" onClick={songDelete}>Delete</button>
+                                        <button className="delete-button" onClick={songDelete}>
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                            Delete
+                                        </button>
                                         <EditModal />
 
                                     </div>)}

@@ -16,7 +16,6 @@ export default function UsersAlbums() {
         history.push('/you/library')
     }, [dispatch, history])
 
-    // console.log('TTTTTT', albums)
 
     return (
         <>

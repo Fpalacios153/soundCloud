@@ -138,3 +138,7 @@
     background-repeat: no-repeat;
     opacity: 1;
 }
+
+.fa-trash {
+    padding-right: 7px;
+}

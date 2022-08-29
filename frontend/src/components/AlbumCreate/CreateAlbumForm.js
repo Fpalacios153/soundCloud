@@ -50,7 +50,6 @@ const CreateAlbum = () => {
         //     return dispatch(createAlbum(album))
         //         .catch(async (res) => {
         //             const data = await res.json();
-        //             console.log('this is DATD FROM ALBUM', data)
         //             if (data && data.errors) setValidationErrors(data.errors)
         //         })
         // }

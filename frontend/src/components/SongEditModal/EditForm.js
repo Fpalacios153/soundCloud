@@ -52,7 +52,6 @@ export const EditSong = ({ setEdited, edited, setShowModal }) => {
 
     // const handleCancelClick = (e) => {
     //     e.preventDefault();
-    //     // console.log(songId)
     //     history.push(`/api/song/${songId}`)
     // };
     return (

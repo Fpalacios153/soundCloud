@@ -120,7 +120,6 @@ nav a:visited {
 
 .profile-button:hover {
   color: white;
-
   background-color: black;
 }
 
@@ -133,10 +132,11 @@ nav a:visited {
 }
 
 .profile-dropdown-container {
+  width: 10em;
   position: absolute;
   top: 49px;
   z-index: 1;
-  right: 6.6%
+  right: 5%
 }
 
 .profile-dropdown {
@@ -146,7 +146,6 @@ nav a:visited {
   border-bottom: 1.5px solid #333;
   border-right: 1.5px solid #333;
   border-left: 1.5px solid #333;
-
   color: #333;
   background-color: white;
   border-radius: 3px;

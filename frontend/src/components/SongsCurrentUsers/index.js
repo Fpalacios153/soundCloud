@@ -23,13 +23,11 @@ export default function UsersSongs() {
     // const sessionUser = useSelector(state => state.session.user)
     // const [validationErrors, setValidationErrors] = useState([])
     // sessionUser.id === song.Artist.userId &&
-    // console.log(songs)
     // useEffect(() => {
     //     if (!isLoaded) {
     //         dispatch(getSongByCurrentUser())
     //             .catch(async (res) => {
     //                 const data = await res.json();
-    //                 console.log('THIS', data)
     //                 if (data && data[0].message) setValidationErrors(data[0].message)
     //             })
     //     }
@@ -39,7 +37,6 @@ export default function UsersSongs() {
     //         setIsLoaded(true)
     //     }
     // }, [validationErrors])
-    console.log('SONGS', songs)
     return (
         <>
             <div className='currSong-container'>

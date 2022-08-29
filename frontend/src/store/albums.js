@@ -73,7 +73,6 @@ export const createAlbum = (album) => async dispatch => {
         body: JSON.stringify(album)
     })
 
-    // console.log('THUNK', response)
     if (response.ok) {
         const newAlbum = await response.json();
         dispatch(create(newAlbum))

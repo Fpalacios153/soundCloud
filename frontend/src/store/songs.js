@@ -82,7 +82,6 @@ export const createSong = (song, albumId) => async dispatch => {
         dispatch(create(song));
         return song
     }
-    // console.log('thunk', response)
     return response
 
 }
@@ -144,7 +143,6 @@ const songReducer = (state = initialState, action) => {
             newState[action.song.id] = action.song
             return newState
         case EDIT_SONG:
-            console.log('REDUCER', action.song)
             newState = { ...state }
             newState[action.song.id] = { ...newState[action.song.id], ...action.song }
             return newState

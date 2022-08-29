@@ -20,7 +20,6 @@ const validateSignUp = [
     //             email: value
     //         }
     //     })
-    //      console.log(foundUser)
     //         if (foundUser) {
     //             throw new Error ("User with that email already exists")
 

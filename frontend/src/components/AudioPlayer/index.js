@@ -8,7 +8,6 @@ import './AudioPlayer.css'
 
 function AudioPlayers() {
     const { song } = useSongContext()
-    console.log(song)
 
     return (
         <>

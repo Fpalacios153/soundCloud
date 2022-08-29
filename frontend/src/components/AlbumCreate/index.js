@@ -7,7 +7,9 @@ function CreateAlbumModal() {
 
     return (
         <>
-            <button className='album-upload' onClick={() => setShowModal(true)}>Upload Album</button>
+            <button className='album-upload' onClick={() => setShowModal(true)}>
+                Upload Album
+            </button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <CreateAlbum />

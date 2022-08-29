@@ -26,13 +26,14 @@
 .bottom-container {
     display: flex;
     justify-content: center;
-    /* padding: 45px; */
+    flex-direction: column;
+    padding-top: 6em;
 }
 
 .thanks {
     display: flex;
     justify-content: center;
-    width: auto;
+    padding: .5em;
 }
 
 .bottom-signup {

@@ -52,7 +52,7 @@ export default function UsersSongs() {
                                     <div className='song-button-div'>
                                         <button className='song-button' onClick={() => setSong(song.url)}></button>
                                         <img className='song-image' style={{ height: '15em', width: '15em' }} src={song.previewImage} alt={song.title} />
-                                        <NavLink className='remove-line' to={`/api/songs/${song.id}`} >
+                                        <NavLink className='remove-line' to={`/songs/${song.id}`} >
                                             <div className="overflow-title-div" style={{ fontWeight: 100, fontSize: '14px' }}>
                                                 {song.title}
                                             </div>

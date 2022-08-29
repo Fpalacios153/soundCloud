@@ -30,7 +30,7 @@ export default function UsersAlbums() {
                         <div className='album-list'>
                             {isLoaded && albums.length > 0 && albums.map(album => (
                                 <li key={album.id} className='album-tiles'>
-                                    < NavLink className='remove-line' to={`/api/albums/${album.id}`} key={album.id}>
+                                    < NavLink className='remove-line' to={`/albums/${album.id}`} key={album.id}>
                                         <img style={{ height: '15em', width: '15em' }} src={album.previewImage} alt={album.title} />
                                         <div
                                             className="overflow-title-div"

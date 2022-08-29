@@ -44,14 +44,14 @@ function App() {
               <h2 className="allSongs">All Songs</h2>
               <GetAllSongs />
             </Route>
-            <Route path='/api/albums/:albumId'>
+            <Route path='/albums/:albumId'>
               <AlbumView />
             </Route>
             <Route path='/you/library'>
               <UsersAlbums />
               <UsersSongs />
             </Route>
-            <Route path='/api/songs/:songId'>
+            <Route path='/songs/:songId'>
               <SongDetails />
             </Route>
             <Route path='/upload'>

@@ -13,7 +13,7 @@ function EditModal({ }) {
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <EditSong path='/api/song/:songId' store={showModal} setShowModal={setShowModal} />
+          <EditSong path='/song/:songId' store={showModal} setShowModal={setShowModal} />
         </Modal>
       )}
     </>

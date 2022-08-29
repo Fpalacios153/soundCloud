@@ -9,6 +9,8 @@ import { useSongContext } from '../../context/setSongContext'
 const GetAllSongs = () => {
     const dispatch = useDispatch()
     const [isLoaded, setIsLoaded] = useState(false)
+    const sessionUser = useSelector(state => state.session.user)
+
 
     const songs = useSelector(state => state.songs)
     const song = Object.values(songs)
@@ -30,11 +32,19 @@ const GetAllSongs = () => {
                                     <div className='song-button-div'>
                                         <button className='song-button' onClick={() => setSong(song)}></button>
                                         <img className='song-image' style={{ height: '15em', width: '15em' }} src={song.previewImage} alt={song.title} />
-                                        <NavLink className='remove-line' to={`/api/songs/${song.id}`} >
+                                        {sessionUser ? (
+                                            <NavLink className='remove-line' to={`/songs/${song.id}`} >
+                                                <div className="overflow-title-div" style={{ fontSize: '14px' }}>
+                                                    {song.title}
+                                                </div>
+                                            </NavLink>) :
+                                            // <div onClick={() => setSong(song)} >
                                             <div className="overflow-title-div" style={{ fontSize: '14px' }}>
                                                 {song.title}
                                             </div>
-                                        </NavLink>
+                                            // </div>
+
+                                        }
                                         <div style={{ height: '30px', width: '160px', fontSize: '12px', margin: 0 }} className="overflow-title-div" >
                                             {song.Artist.name}
                                         </div>

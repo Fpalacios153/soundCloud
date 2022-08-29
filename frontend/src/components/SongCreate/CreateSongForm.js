@@ -44,7 +44,7 @@ const CreateSong = ({ createNew, setCreateNew }) => {
 
             let createdSong = await dispatch(createSong(song, albumId))
 
-            if (createdSong) { history.push(`/api/songs/${createdSong.id}`) }
+            if (createdSong) { history.push(`/songs/${createdSong.id}`) }
         }
 
         // if (!title.length || !url.length) {

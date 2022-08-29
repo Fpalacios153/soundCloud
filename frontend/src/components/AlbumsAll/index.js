@@ -27,7 +27,7 @@ const AlbumBrowser = () => {
                         <div className="album-list">
                             {isLoaded && albums.map(album => (
                                 <li className='album-tiles' key={album.id}>
-                                    <NavLink className='remove-line' to={`/api/albums/${album.id}`} key={album.id}>
+                                    <NavLink className='remove-line' to={`/albums/${album.id}`} key={album.id}>
                                         <img className='' style={{ height: '15em', width: '15em' }} src={album.previewImage} alt={album.title} />
                                         <div
                                             className="overflow-title-div"

@@ -13,29 +13,29 @@ export const HomePage = () => {
             <div className='app-Container'>
                 <div className='center'>
                 </div>
-                {/* <div className='trendingTracks'>
+                <div className='trendingTracks'>
                     <div className='titleTrending'>
                         Hear what’s trending for free in the CloudSounds community
 
                     </div>
-                    <div style={{ width: '100%', height: '42em', overflow: 'hidden' }}>
+                    <div style={{ width: '100%', height: '20em', overflow: 'hidden' }}>
                         <GetAllSongs />
                     </div>
-                </div> */}
+                </div>
 
-                <div className='github-containter'>
+                {/* <div className='github-containter'>
                     <div >
                         <div>
                             Never Stop listening
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <div className='bottom-container'>
                     <div className='thanks'>
-                        <h3 style={{ fontWeight: '100' }}>
-                            Thanks for listening. Now join in
-                        </h3>
+                        <div style={{ fontWeight: '100', fontSize: '36px' }}>
+                            Thanks for listening. Now join in</div>
                     </div>
+                    <div className='thanks' style={{ fontWeight: '100', fontSize: '24px' }}>Save tracks, follow artists and build playlists. All for free.</div>
                 </div>
                 <span className='bottom-signup'>
                     <SignupFormModal />
@@ -44,6 +44,7 @@ export const HomePage = () => {
                     Already have an account?
                     <LoginFormModal />
                 </div> */}
+                <div style={{ border: 'solid 1px black' }}></div>
             </div>
         </>
 

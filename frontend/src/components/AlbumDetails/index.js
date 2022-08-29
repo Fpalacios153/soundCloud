@@ -74,7 +74,7 @@ function AlbumView() {
                                                 {/* </div> */}
                                                 <img style={{ height: '2.8em', width: '2.8em', padding: '1px' }} src={song.previewImage} alt={song.title} />
                                             </div>
-                                            <Link className='link-to-song' to={`/api/songs/${song.id}`} >
+                                            <Link className='link-to-song' to={`/songs/${song.id}`} >
                                                 <div className="centered">{`${i + 1}  `}</div>
                                                 <div className="centered small-title">{song.title}</div>
                                             </Link>

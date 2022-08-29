@@ -49,7 +49,7 @@ function SongDetails() {
                                         <div className="song-name-artists"                               >
                                             <h2 className="song-detail-title">{song.title}</h2>
                                             <h3 className="song-detail-name">{song.Artist.name}</h3>
-                                            <Link style={{ textDecoration: 'none', color: 'white' }} to={`/api/albums/${song.Album.id}`}>
+                                            <Link style={{ textDecoration: 'none', color: 'white' }} to={`/albums/${song.Album.id}`}>
                                                 <h4 className="song-detail-name">{song.Album.title}</h4>
                                             </Link>
                                         </div>
@@ -72,7 +72,7 @@ function SongDetails() {
                             <div style={{ display: 'flex', justifyContent: "start", width: '65%' }}>
                                 <h2 style={{ padding: '0px 10px' }}>{song.Artist.name}</h2>
                                 <div>
-                                    <Link className='remove-line' to={`/api/albums/${song.Album.id}`}>
+                                    <Link className='remove-line' to={`/albums/${song.Album.id}`}>
                                         <h3 style={{ paddingLeft: '2.5em' }}>{song.Album.title}</h3>
                                     </Link>
                                     <p style={{ paddingLeft: '3em', flexWrap: 'wrap' }}>{song.description}</p>

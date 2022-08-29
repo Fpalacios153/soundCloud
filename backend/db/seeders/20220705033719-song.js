@@ -60,6 +60,20 @@ module.exports = {
       previewImage: 'https://images.pexels.com/photos/12896240/pexels-photo-12896240.jpeg',
       albumId: 2,
       artistId: 2
+    }, {
+      title: 'Just Enough to Love You',
+      description: 'Song about stuff. Song about stuff.Song about stuff.Song about stuff. Song about stuff.Song about stuff.',
+      url: 'https://res.cloudinary.com/fpalacios153/video/upload/v1661751397/goldn-116392_j9gioo.mp3',
+      previewImage: 'https://m.media-amazon.com/images/I/71Hfa9F95LL._SL1200_.jpg',
+      albumId: 3,
+      artistId: 3
+    }, {
+      title: 'Poison in my Veins',
+      description: 'Another song about stuff.Another song about stuff.Another song about stuff.Another song about stuff.',
+      url: 'https://res.cloudinary.com/fpalacios153/video/upload/v1661751398/whip-110235_o5xwmk.mp3',
+      previewImage: 'https://m.media-amazon.com/images/I/71Hfa9F95LL._SL1200_.jpg',
+      albumId: 3,
+      artistId: 3
     },
     ])
   },

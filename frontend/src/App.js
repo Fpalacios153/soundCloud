@@ -64,7 +64,7 @@ function App() {
         )}
       </div>
       <div className="audio-holder">
-        <div className='audio-tile'>
+        {/* <div className='audio-tile'>
           {song && (
             <div className='currently-playing'>
               <img style={{ width: '2em', height: '2em' }} src={song.previewImage} />
@@ -73,7 +73,7 @@ function App() {
               </div>
             </div>
           )}
-        </div>
+        </div> */}
         <AudioPlayers />
       </div>
     </>

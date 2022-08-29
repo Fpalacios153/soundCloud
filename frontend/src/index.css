@@ -10,7 +10,7 @@ html {
 .app {
     background-color: white;
     width: 90%;
-    height: auto;
+    height: 50vw;
     margin: auto;
     padding-bottom: 17.5em;
     font: 12px/1.4 Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;

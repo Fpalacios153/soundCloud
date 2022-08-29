@@ -50,7 +50,7 @@ export default function UsersSongs() {
                             {isLoaded && songs.length > 0 && songs.map(song => (
                                 <div className='song-tiles' key={song.id} >
                                     <div className='song-button-div'>
-                                        <button className='song-button' onClick={() => setSong(song.url)}></button>
+                                        <button className='song-button' onClick={() => setSong(song)}></button>
                                         <img className='song-image' style={{ height: '15em', width: '15em' }} src={song.previewImage} alt={song.title} />
                                         <NavLink className='remove-line' to={`/songs/${song.id}`} >
                                             <div className="overflow-title-div" style={{ fontWeight: 100, fontSize: '14px' }}>

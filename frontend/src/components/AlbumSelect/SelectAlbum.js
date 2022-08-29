@@ -28,6 +28,7 @@ export default function SelectUserAlbum() {
                     {!albums.length && (
                         <>
                             <div className='no-albums-title'>
+
                                 <div className="allSAtitles select-words">User does not have any Albums, Create one to add songs!</div>
                                 {/* <h2 className="allSAtitles select-words"> Create one to add songs!</h2> */}
                             </div>

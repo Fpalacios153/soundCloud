@@ -26,7 +26,7 @@ function LoginForm() {
         <h2 className="well">Welcome Back!</h2>
         <ul>
           {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
+            <li className="errors" key={idx}>{error}</li>
           ))}
         </ul>
         <div style={{ display: 'flex', flexDirection: 'column' }}>

@@ -18,11 +18,18 @@
     margin: 5px;
     padding: 5px;
     background-color: black;
+    word-break: break-all;
+    white-space: normal;
 }
 
 .title-holder {
     border: 0px;
     width: 25%;
+}
+
+.small-title {
+    word-break: break-all;
+    white-space: normal;
 }
 
 .album-detail-name {

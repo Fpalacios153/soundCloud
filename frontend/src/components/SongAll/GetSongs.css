@@ -15,7 +15,7 @@
 .song-list {
     display: flex;
     flex-wrap: wrap;
-    padding-left: 10px;
+    padding-left: 35px;
     /* align-items: flex-start; */
     /* flex-wrap: wrap; */
 }
@@ -30,7 +30,7 @@
     border-radius: 3px;
     list-style-type: none;
     /* align-items: center; */
-    /* padding: 1em; */
+    padding: 1em;
 }
 
 .allSongs {

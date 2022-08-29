@@ -20,6 +20,8 @@ const EditAlbum = ({ setShowModal }) => {
     useEffect(() => {
         const errors = []
         if (!title.length) errors.push('Title required')
+        if (title.length > 40) errors.push('Song title must be less than 40 characters')
+
         if (!imageUrl.includes('.png') && !imageUrl.includes('.jpeg') && !imageUrl.includes('.jpg')) errors.push('Image must be in jpeg, jpg or png format')
         if (description.length > 255) errors.push('Description can only be 255 characters long')
         setValidationErrors(errors)
@@ -77,7 +79,7 @@ const EditAlbum = ({ setShowModal }) => {
         <>
             <div className="create-album-container">
                 <h2 className="create-album-title">Edit Album</h2>
-                {hasSubmitted && validationErrors.length > 0 && (
+                {validationErrors.length > 0 && (
                     <div>
                         <ul style={{ padding: '10px', color: 'red', listStyle: 'none', textAlign: 'center' }}>
                             {validationErrors.map(error => (
@@ -92,6 +94,7 @@ const EditAlbum = ({ setShowModal }) => {
                         <label className='required-field create-label'>
                             Title:
                             <input
+                                maxLength={41}
                                 className="create-input"
                                 type='text'
                                 placeholder="Title"

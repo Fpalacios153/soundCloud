@@ -20,6 +20,7 @@ const CreateSong = ({ createNew, setCreateNew }) => {
     useEffect(() => {
         const error = []
         if (!title.length) error.push('Song title is required')
+        if (title.length > 40) error.push('Song title must be less than 40 characters')
         if (!url.length) error.push('Audio is required')
         if (!url.endsWith('.mp3')) error.push('Audio file must be in mp3 format')
         if (!imageUrl.includes('.png') && !imageUrl.includes('.jpeg') && !imageUrl.includes('.jpg')) error.push('Image must be in jpeg, jpg or png format')
@@ -85,6 +86,7 @@ const CreateSong = ({ createNew, setCreateNew }) => {
                         <label className='required-field create-label'>
                             Title:
                             <input
+                                maxLength={41}
                                 className="create-input"
                                 type='text'
                                 placeholder="Title"

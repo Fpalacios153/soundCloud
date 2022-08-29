@@ -23,6 +23,8 @@ export const EditSong = ({ setEdited, edited, setShowModal }) => {
         const error = []
         if (!title.length) error.push('Song title is required')
         if (!url.length) error.push('Audio is required')
+        if (title.length > 40) error.push('Song title must be less than 40 characters')
+
         if (!url.endsWith('.mp3')) error.push('Audio file must be in mp3 format')
         if (!imageUrl.includes('.png') && !imageUrl.includes('.jpeg') && !imageUrl.includes('.jpg')) error.push('Image must be in jpeg, jpg or png format')
         if (description.length > 255) error.push('Description can only be 255 characters long')
@@ -39,8 +41,11 @@ export const EditSong = ({ setEdited, edited, setShowModal }) => {
             imageUrl,
             url
         }
-        await dispatch(editSong(song, songId))
-        await setShowModal(false)
+        if (!validationErrors.length) {
+
+            await dispatch(editSong(song, songId))
+            await setShowModal(false)
+        }
         // .then(() =>
         // await setEdited(edited + 1)
         // .then(() => history.push(`/you/library`))
@@ -73,6 +78,7 @@ export const EditSong = ({ setEdited, edited, setShowModal }) => {
                         <label className='required-field create-label'>
                             Title:
                             <input
+                                maxLength={41}
                                 className="create-input"
                                 type='text'
                                 placeholder="Title"

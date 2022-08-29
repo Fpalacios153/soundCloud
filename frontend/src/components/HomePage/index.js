@@ -12,17 +12,17 @@ export const HomePage = () => {
         <>
             <div className='app-Container'>
                 <div className='center'>
-                    {/* <button className='upload'>Upload your own</button> */}
                 </div>
-                <div className='trendingTracks'>
+                {/* <div className='trendingTracks'>
                     <div className='titleTrending'>
                         Hear what’s trending for free in the CloudSounds community
-                        {/* <div>
-                            NEW SONG Component WITH ONLY ABOUT TEN SONGS with ROWS, 5 columns here
-                        </div> */}
+
                     </div>
-                    <GetAllSongs />
-                </div>
+                    <div style={{ width: '100%', height: '42em', overflow: 'hidden' }}>
+                        <GetAllSongs />
+                    </div>
+                </div> */}
+
                 <div className='github-containter'>
                     <div >
                         <div>
@@ -40,10 +40,10 @@ export const HomePage = () => {
                 <span className='bottom-signup'>
                     <SignupFormModal />
                 </span>
-                <div className='bottom-login'>
+                {/* <div className='bottom-login'>
                     Already have an account?
                     <LoginFormModal />
-                </div>
+                </div> */}
             </div>
         </>
 

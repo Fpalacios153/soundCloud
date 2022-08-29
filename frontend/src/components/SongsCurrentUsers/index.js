@@ -42,7 +42,7 @@ export default function UsersSongs() {
             <div className='currSong-container'>
                 <h2 className='allSAtitles'>My Songs</h2>
                 {isLoaded && !songs.length && (
-                    <div className='current-titles'>User has no songs</div>
+                    <div className='current-titles'>User has no Songs</div>
                 )}
                 <div className='song-container'>
                     <ul>
@@ -51,7 +51,7 @@ export default function UsersSongs() {
                                 <div className='song-tiles' key={song.id} >
                                     <div className='song-button-div'>
                                         <button className='song-button' onClick={() => setSong(song.url)}></button>
-                                        <img className='song-image' style={{ height: '13em', width: '13em' }} src={song.previewImage} alt={song.title} />
+                                        <img className='song-image' style={{ height: '15em', width: '15em' }} src={song.previewImage} alt={song.title} />
                                         <NavLink className='remove-line' to={`/api/songs/${song.id}`} >
                                             <div className="overflow-title-div" style={{ fontWeight: 100, fontSize: '14px' }}>
                                                 {song.title}

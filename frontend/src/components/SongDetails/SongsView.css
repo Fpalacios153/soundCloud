@@ -23,6 +23,8 @@
 }
 
 .song-detail-title {
+    word-break: break-all;
+    white-space: normal;
     border-radius: 1px;
     width: fit-content;
     font-weight: 100;

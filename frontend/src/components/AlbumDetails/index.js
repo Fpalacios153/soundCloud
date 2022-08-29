@@ -76,7 +76,7 @@ function AlbumView() {
                                             </div>
                                             <Link className='link-to-song' to={`/api/songs/${song.id}`} >
                                                 <div className="centered">{`${i + 1}  `}</div>
-                                                <div className="centered">{song.title}</div>
+                                                <div className="centered small-title">{song.title}</div>
                                             </Link>
                                         </div>
                                     </li>

@@ -4,13 +4,12 @@
     border-radius: 3px;
     background-size: contain;
     list-style-type: none;
-    padding: 0px 9px;
-
+    padding-left: 3.2em;
 }
 
 .allAlbum-container {
     display: flex;
-    height: 300px;
+    height: 350px;
     width: 100%;
     flex-direction: column;
 
@@ -20,6 +19,8 @@
     display: flex;
     justify-content: 'center';
     align-items: center;
+    padding-left: 9px;
+
 }
 
 .album-container {
@@ -35,6 +36,8 @@
     font-weight: 100;
     font-size: 24px;
     color: #333;
+    padding-left: 2em;
+
 }
 
 ul {

@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useHistory, useParams } from 'react-router-dom'
 import { getAlbumsByCurrentUser } from '../../store/albums'
+
 import './SelectAlbum.css'
 
 export default function SelectUserAlbum() {
     const dispatch = useDispatch()
+
     const album = useSelector(state => (state.albums))
+
     const albums = Object.values(album)
     const [isLoaded, setIsLoaded] = useState(false);
 
@@ -18,13 +21,18 @@ export default function SelectUserAlbum() {
         dispatch(getAlbumsByCurrentUser()).then(() => setIsLoaded(true))
     }, [dispatch])
 
+
     return (
         <>
             <div className='allAlbum-container'>
                 {albums.length > 0 && (<h2 className="allSAtitles" style={{ margin: 'auto', paddingTop: '1em' }}>Select Album to Add Song</h2>)}
-                <div className='album-container'
-                    style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingBottom: '10px' }}
-                >
+                <div className='curr-album-container'
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        // justifyContent: 'flex-start',
+                        alignItems: 'center', paddingBottom: '10px'
+                    }}>
                     {!albums.length && (
                         <>
                             <div className='no-albums-title'>
@@ -37,11 +45,10 @@ export default function SelectUserAlbum() {
                     <ul>
                         <div className='album-list' >
                             {isLoaded && albums.map(album => (
-                                <li key={album.id} className='album-tiles'
-                                // 'curralbum-tiles'
-                                >
+                                <li key={album.id} className='album-tiles current-tiles'
+                                    style={{ padding: '2em' }}                                >
                                     <NavLink to={`/api/albums/${album.id}`} key={album.id}>
-                                        <img style={{ height: '13em', width: '13em' }} src={album.previewImage} alt={album.title} />
+                                        <img style={{ height: '15em', width: '15em' }} src={album.previewImage} alt={album.title} />
                                     </NavLink>
                                     <div
                                         className="overflow-title-div"

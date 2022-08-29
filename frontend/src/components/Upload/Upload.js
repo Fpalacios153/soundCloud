@@ -8,7 +8,9 @@ function UploadHolder() {
         <div className="upload-container">
             <div className="upload-subcontainer">
                 <SelectUserAlbum />
-                <CreateAlbumModal />
+                <div style={{ paddingTop: '2em' }}>
+                    <CreateAlbumModal />
+                </div>
             </div>
             <div className="upload-bottom-part">
                 <div style={{ textAlign: 'start' }}>

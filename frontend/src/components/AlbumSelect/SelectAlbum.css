@@ -19,3 +19,12 @@
     font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
     font-weight: 100;
 }
+
+.curr-album-container {
+    overflow: auto;
+    overflow-x: visible;
+    overflow-y: hidden;
+    height: 280px;
+    width: 100%;
+
+}

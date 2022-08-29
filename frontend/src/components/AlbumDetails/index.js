@@ -13,9 +13,9 @@ function AlbumView() {
     const dispatch = useDispatch();
     const history = useHistory();
     const { albumId } = useParams();
+    const { setSong } = useSongContext()
     const sessionUser = useSelector(state => state.session.user)
     const album = useSelector(state => state.albums[Number(albumId)])
-    const { setSong } = useSongContext()
 
     useEffect(() => {
         dispatch(getOneAlbum(album))
@@ -78,6 +78,13 @@ function AlbumView() {
                                                 <div className="centered">{`${i + 1}  `}</div>
                                                 <div className="centered small-title">{song.title}</div>
                                             </Link>
+
+                                            {/* <div className="delete-button-div">
+                                                <button className="delete-button div">
+                                                    <i class="fa fa-trash" aria-hidden="true"></i>
+
+                                                </button>
+                                            </div> */}
                                         </div>
                                     </li>
                                 </ul>

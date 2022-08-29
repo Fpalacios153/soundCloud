@@ -149,3 +149,11 @@
 .fa-trash {
     padding-right: 7px;
 }
+
+.delete-button-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    margin: auto;
+}

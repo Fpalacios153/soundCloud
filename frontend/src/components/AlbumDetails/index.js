@@ -22,10 +22,10 @@ function AlbumView() {
     }, [dispatch, albumId])
 
     ///remember to move this to current
-    const Delete = (e) => {
+    const Delete = async (e) => {
         e.preventDefault();
-        dispatch(deleteAlbum(albumId))
-        history.push('/you/library')
+        await dispatch(deleteAlbum(albumId))
+        await history.push('/you/library')
     }
     if (!album && album.Songs) return null
     return (

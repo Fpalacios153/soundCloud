@@ -27,10 +27,10 @@ function SongDetails() {
         dispatch(getOneSong(songId)).then(() => setIsLoaded(true))
 
     }, [dispatch, songId])
-    const songDelete = (e) => {
+    const songDelete = async (e) => {
         e.preventDefault();
-        dispatch(deleteSong(song.id))
-        history.push('/you/library')
+        await dispatch(deleteSong(song.id))
+        await history.push('/you/library')
     };
     // if (!song && song.Artist) return null
 

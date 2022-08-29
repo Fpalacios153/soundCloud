@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     /**
      * Add seed commands here.
      *
@@ -11,34 +11,41 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-     await queryInterface.bulkInsert('Artists', [
+    await queryInterface.bulkInsert('Artists', [
       {
-        name:'DEMOMEN',
+        name: 'DEMOMEN',
         totalSongs: 3,
         totalAlbums: 1,
         previewImage: 'some link herer',
         userId: 1
       },
       {
-        name:'Alpha-Bet',
+        name: 'Alpha-Bet',
         totalSongs: 2,
         totalAlbums: 1,
         previewImage: 'some link herer',
         userId: 2
+      },
+      {
+        name: 'Bayside',
+        totalSongs: 3,
+        totalAlbums: 1,
+        previewImage: 'some link herer',
+        userId: 3
       }
 
     ])
 
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     /**
      * Add commands to revert seed here.
      *
      * Example:
      */
     await queryInterface.bulkDelete('Artists', {
-      name :['DEMOMEN','Alpha-Bet']
+      name: ['DEMOMEN', 'Alpha-Bet']
     })
   }
 };

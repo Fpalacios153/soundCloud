@@ -15,6 +15,8 @@ import { getAlbums } from "./store/albums";
 import { HomePage } from "./components/HomePage";
 import UploadHolder from "./components/Upload/Upload";
 import { useSongContext } from "./context/setSongContext";
+import PlaylistGet from "./components/Playlist/PlaylistGet/playlistGet";
+import LibraryPage from "./components/LibraryPage/Library";
 // import SelectUserAlbum from "./components/AlbumSelect/SelectAlbum";
 // import CreateAlbumModal from './components/AlbumCreate/index'
 // import { getSongByCurrentUser } from './store/songs'
@@ -48,8 +50,10 @@ function App() {
               <AlbumView />
             </Route>
             <Route path='/you/library'>
-              <UsersAlbums />
+              <LibraryPage />
+              {/* <UsersAlbums />
               <UsersSongs />
+              <PlaylistGet /> */}
             </Route>
             <Route path='/songs/:songId'>
               <SongDetails />
@@ -60,6 +64,7 @@ function App() {
             <Route>
               <h1>Page Not Found</h1>
             </Route>
+
           </Switch>
         )}
       </div>

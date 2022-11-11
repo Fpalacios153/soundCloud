@@ -22,9 +22,12 @@ router.get('/user', requireAuth, async (req, res) => {
     const usersPlaylist = await Playlist.findAll({
         where: {
             userId: id
+        },
+        include: {
+            model: Song, through: { attributes: [] }
         }
     })
-    res.json({ Playlists: usersPlaylist })
+    res.json(usersPlaylist)
 })
 // get playlist by id
 router.get('/:playlistId', async (req, res) => {

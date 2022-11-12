@@ -1,0 +1,22 @@
+.entire-playlist-container {
+    background-color: aqua;
+}
+
+.playlist-item-container {
+    background-color: bisque;
+    display: flex;
+    /* padding: 10px;s */
+    flex-wrap: wrap;
+    padding-left: 3em;
+    padding-right: 2.8em;
+}
+
+.playlist-container {
+    padding: 8px;
+
+}
+
+.playlist-image {
+    width: 15em;
+    height: 15em;
+}

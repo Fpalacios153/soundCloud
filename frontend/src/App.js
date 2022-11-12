@@ -49,22 +49,35 @@ function App() {
             <Route path='/albums/:albumId'>
               <AlbumView />
             </Route>
-            <Route path='/you/library'>
-              <LibraryPage />
-              {/* <UsersAlbums />
-              <UsersSongs />
-              <PlaylistGet /> */}
-            </Route>
             <Route path='/songs/:songId'>
               <SongDetails />
             </Route>
             <Route path='/upload'>
               <UploadHolder />
             </Route>
+
+            {/* library Routes */}
+            <Route path='/you/library'>
+              <LibraryPage />
+              {/* <UsersAlbums />
+              <UsersSongs />
+              <PlaylistGet /> */}
+            </Route>
+            <Route path='/user/overview'>
+              <LibraryPage />
+            </Route>
+            <Route path='/user/albums'>
+              <LibraryPage />
+            </Route>
+            <Route path='/user/songs'>
+              <LibraryPage />
+            </Route>
+            <Route path='/user/playlists'>
+              <LibraryPage />
+            </Route>
             <Route>
               <h1>Page Not Found</h1>
             </Route>
-
           </Switch>
         )}
       </div>

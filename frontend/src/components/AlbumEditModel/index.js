@@ -9,13 +9,15 @@ function EditModal() {
   return (
     <>
       <button className='edit-model darker-border' onClick={() => setShowModal(true)}>
-        <i class="fa fa-pencil" aria-hidden="true"></i> {''}
+        <i className="fa fa-pencil" aria-hidden="true"></i> {''}
         Edit</button>
-      {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-          <EditAlbum path='/album/:albumId' store={showModal} setShowModal={setShowModal} />
-        </Modal>
-      )}
+      {
+        showModal && (
+          <Modal onClose={() => setShowModal(false)}>
+            <EditAlbum path='/album/:albumId' store={showModal} setShowModal={setShowModal} />
+          </Modal>
+        )
+      }
     </>
   );
 }

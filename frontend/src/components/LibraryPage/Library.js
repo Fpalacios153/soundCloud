@@ -1,29 +1,36 @@
 import { NavLink, Route, Switch } from "react-router-dom";
+import UsersAlbums from "../AlbumsCurrentUsers";
+import PlaylistGet from "../Playlist/PlaylistGet/playlistGet";
+import UsersSongs from "../SongsCurrentUsers";
+import './LibraryPage.css'
 
 export default function LibraryPage() {
 
 
     return (
         <>
-            <div>
-                <NavLink to='/Overview'>Overview</NavLink>
-                <NavLink to='/Albums'>Albums</NavLink>
-                <NavLink to='/Songs'>Songs</NavLink>
-                <NavLink to='/Playlist'>Playlist</NavLink>
+            <div className="library-container">
+
+                <div className="library-navlink-container">
+                    <NavLink className='library-navlink-item' to='/user/overview'>Overview</NavLink>
+                    <NavLink className='library-navlink-item' to='/user/albums'>Albums</NavLink>
+                    <NavLink className='library-navlink-item' to='/user/songs'>Songs</NavLink>
+                    <NavLink className='library-navlink-item' to='/user/playlists'>Playlist</NavLink>
+                </div>
             </div>
             <div>
                 <Switch>
-                    <Route path='/Overview'>
+                    <Route path='/user/overview'>
                         <div>Overview</div>
                     </Route>
-                    <Route path='/Albums'>
-                        <div>Albums</div>
+                    <Route path='/user/albums'>
+                        <UsersAlbums />
                     </Route>
-                    <Route path='/Songs'>
-                        <div>Songs</div>
+                    <Route path='/user/songs'>
+                        <UsersSongs />
                     </Route>
-                    <Route path='/Playlist'>
-                        <div>Playlist</div>
+                    <Route path='/user/playlists'>
+                        <PlaylistGet />
                     </Route>
                 </Switch>
             </div>

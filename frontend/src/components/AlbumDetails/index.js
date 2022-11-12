@@ -51,7 +51,7 @@ function AlbumView() {
                         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', paddingRight: '1em' }}>
                             <div>
                                 <button className="delete-button darker-border" onClick={Delete}>
-                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                    <i className="fa fa-trash" aria-hidden="true"></i>
                                     Delete
                                 </button>
                                 <EditModal />
@@ -81,7 +81,7 @@ function AlbumView() {
 
                                             {/* <div className="delete-button-div">
                                                 <button className="delete-button div">
-                                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                                    <i className="fa fa-trash" aria-hidden="true"></i>
 
                                                 </button>
                                             </div> */}

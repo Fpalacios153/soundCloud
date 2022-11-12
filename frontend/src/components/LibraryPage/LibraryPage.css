@@ -1,0 +1,39 @@
+.library-container {
+    width: 100%;
+}
+
+.library-navlink-container {
+    background-color: yellowgreen;
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    /* width: 400px; */
+    min-width: 400px;
+    height: 6%;
+    align-items: center;
+    border-bottom: 3px solid red;
+
+}
+
+.library-navlink-item {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 550;
+    /* width: 30%; */
+    padding: 10px;
+    color: #333333;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+.library-navlink-item:hover {
+    background-color: aqua;
+    border-bottom: 3px black solid;
+    color: black;
+}
+
+.library-navlink-item:active {
+    background-color: aqua;
+    border-bottom: 3px orange solid;
+    color: orange;
+}

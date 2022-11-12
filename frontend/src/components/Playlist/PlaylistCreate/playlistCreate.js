@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { createPlaylist } from "../../../store/playlist";
 
 export default function CreatePlaylist() {
     const dispatch = useDispatch()
@@ -15,6 +16,23 @@ export default function CreatePlaylist() {
         setValidationErrors(errors)
     }, [name, previewImage])
 
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        setHasSubmitted(true)
+
+
+        const playlist = {
+            name,
+            previewImage
+        }
+        if (!validationErrors.length) {
+            let newPlaylist = await (dispatch(createPlaylist(playlist)))
+            if (newPlaylist) {
+                history.push(`/playlist/${newPlaylist.id}`)
+            }
+        }
+    }
+
 
     return (
         <div>
@@ -22,8 +40,17 @@ export default function CreatePlaylist() {
                 <h2>
                     Create Playlist
                 </h2>
+                {hasSubmitted && validationErrors.length > 0 && (
+                    <div>
+                        <ul style={{ padding: '10px', color: 'red', listStyle: 'none', textAlign: 'center' }}>
+                            {validationErrors.map(error => (
+                                <li key={error}>{error}</li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
                 <div>
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <label className='required-field create-label'>
                             Name:
                             <input
@@ -46,6 +73,9 @@ export default function CreatePlaylist() {
                                 onChange={(e) => setPreviewImage(e.target.value)}
                             />
                         </label>
+                        <div>
+                            <button type="submit">Save</button>
+                        </div>
                     </form>
                 </div>
             </div>

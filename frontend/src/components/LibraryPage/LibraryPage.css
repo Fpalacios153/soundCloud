@@ -1,9 +1,11 @@
 .library-container {
     width: 100%;
+    /* height: 100vh; */
+    border-bottom: 1px solid #f2f2f2;
 }
 
 .library-navlink-container {
-    background-color: yellowgreen;
+    /* background-color: yellowgreen; */
     display: flex;
     justify-content: space-around;
     width: 50%;
@@ -11,7 +13,8 @@
     min-width: 400px;
     height: 6%;
     align-items: center;
-    border-bottom: 3px solid red;
+    font-family: Interstate, Lucida Grande, Arial, sans-serif;
+    /* padding-bottom: 5px; */
 
 }
 
@@ -19,21 +22,20 @@
     text-decoration: none;
     font-size: 20px;
     font-weight: 550;
-    /* width: 30%; */
     padding: 10px;
     color: #333333;
     white-space: normal;
     overflow-wrap: break-word;
+    border-bottom: 3px solid transparent;
 }
 
 .library-navlink-item:hover {
-    background-color: aqua;
     border-bottom: 3px black solid;
     color: black;
+
 }
 
-.library-navlink-item:active {
-    background-color: aqua;
-    border-bottom: 3px orange solid;
-    color: orange;
+.library-navlink-item:focus {
+    border-bottom: 3px #f50 solid;
+    color: #f50;
 }

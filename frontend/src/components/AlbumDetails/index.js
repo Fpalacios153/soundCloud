@@ -81,7 +81,7 @@ function AlbumView() {
 
                                             {/* <div className="delete-button-div">
                                                 <button className="delete-button div">
-                                                    <i className="fa fa-trash" aria-hidden="true"></i>
+                                                    <i class="fa fa-trash" aria-hidden="true"></i>
 
                                                 </button>
                                             </div> */}

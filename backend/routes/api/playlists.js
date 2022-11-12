@@ -33,19 +33,20 @@ router.get('/user', requireAuth, async (req, res) => {
 router.get('/:playlistId', async (req, res) => {
     let { playlistId } = req.params
 
-    const playlist = await Playlist.findByPk(playlistId, {
+    const playlists = await Playlist.findByPk(playlistId, {
         include: {
             model: Song, through: { attributes: [] }
         }
     })
-    if (!playlist) {
+    console.log(playlists)
+    if (!playlists) {
         res.status(404);
         return res.json({
             "message": "Playlist couldn't be found",
             "statusCode": 404
         })
     }
-    return res.json({ playlist })
+    return res.json(playlists)
 })
 // to add song to playlist
 router.post('/:playlistId', requireAuth, isAuthorizedPlaylist, async (req, res) => {

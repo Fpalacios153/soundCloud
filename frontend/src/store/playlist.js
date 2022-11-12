@@ -2,7 +2,7 @@ import { csrfFetch } from "./csrf"
 
 // constants
 const GET_PLAYLIST = 'playlist/GET_PLAYLIST'
-// const GET_ONE_PLAYLIST = 'playlist/GET_ONE_PLAYLIST'
+const GET_ONE_PLAYLIST = 'playlist/GET_ONE_PLAYLIST'
 
 const CREATE_PLAYLIST = 'playlist/CREATE_PLAYLIST'
 const ADD_SONG_PLAYLIST = 'playlist/ADD_SONG_PLAYLIST'
@@ -12,6 +12,10 @@ const DELETE_PLAYLIST = 'playlist/DELETE_PLAYLIST'
 
 const getPlaylist = playists => ({
     type: GET_PLAYLIST,
+    playists
+})
+const getOne = playists => ({
+    type: GET_ONE_PLAYLIST,
     playists
 })
 const create = playist => ({
@@ -45,11 +49,11 @@ export const getUsersPlaylists = () => async dispatch => {
     return response
 }
 export const getOnePlaylists = (playlist) => async dispatch => {
-    const response = await csrfFetch(`/api/playlists/${playlist.id}`)
+    const response = await csrfFetch(`/api/playlists/${playlist}`)
 
     if (response.ok) {
         const data = await response.json()
-        dispatch(getPlaylist(data))
+        dispatch(getOne(data))
         return data
     }
     return response
@@ -118,6 +122,19 @@ const playlistReducer = (state = initialState, action) => {
                 allplayists[playist.id] = playist
             });
             return { ...allplayists }
+
+
+
+        case GET_ONE_PLAYLIST:
+
+            newState = { ...state }
+            newState[action.playists.id] = action.playists
+            return newState
+
+
+
+
+
         case CREATE_PLAYLIST:
             newState = { ...state }
             newState[action.playist.id] = action.playist

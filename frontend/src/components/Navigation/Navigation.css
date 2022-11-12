@@ -16,18 +16,22 @@
 nav a {
   display: flex;
   align-items: center;
+  /* justify-content: center; */
   text-decoration: none;
   color: #999;
   padding: 0px 2.5em;
+  /* border-right: white 1px solid; */
+  /* width: 50%; */
 }
 
 nav a:hover {
   color: white;
-  background-color: black;
+  background-color: #111111;
 }
 
-nav a:active {
-  background-color: black;
+nav a:focus {
+  background-color: #111111;
+
 }
 
 .mainHeader {

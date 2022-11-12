@@ -17,6 +17,7 @@ import UploadHolder from "./components/Upload/Upload";
 import { useSongContext } from "./context/setSongContext";
 import PlaylistGet from "./components/Playlist/PlaylistGet/playlistGet";
 import LibraryPage from "./components/LibraryPage/Library";
+import PlaylistDetails from "./components/Playlist/PlaylistDetails.js/playlistDetails";
 // import SelectUserAlbum from "./components/AlbumSelect/SelectAlbum";
 // import CreateAlbumModal from './components/AlbumCreate/index'
 // import { getSongByCurrentUser } from './store/songs'
@@ -51,6 +52,9 @@ function App() {
             </Route>
             <Route path='/songs/:songId'>
               <SongDetails />
+            </Route>
+            <Route path='/playlists/:playlistId'>
+              <PlaylistDetails />
             </Route>
             <Route path='/upload'>
               <UploadHolder />

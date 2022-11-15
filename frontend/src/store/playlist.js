@@ -72,11 +72,14 @@ export const createPlaylist = (playist) => async dispatch => {
     return response
 }
 // add song to playlist
-export const addSongToPlaylist = (playist, song) => async dispatch => {
-    const response = await csrfFetch(`/api/playlists${playist.id}`, {
+export const addSongToPlaylist = (songId, playlistId) => async dispatch => {
+    console.log('HELLO')
+    console.log(songId)
+    console.log(playlistId)
+    const response = await csrfFetch(`/api/playlists/addSong`, {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(song)
+        body: JSON.stringify(songId, playlistId)
     })
     if (response.ok) {
         const data = await response.json();
@@ -85,6 +88,8 @@ export const addSongToPlaylist = (playist, song) => async dispatch => {
     }
     return response
 }
+
+
 export const editPlaylist = (playist, id) => async dispatch => {
     const response = await csrfFetch(`/api/playlists/${id}`, {
         method: "PUT",
@@ -123,17 +128,15 @@ const playlistReducer = (state = initialState, action) => {
             });
             return { ...allplayists }
 
-
-
+        case ADD_SONG_PLAYLIST:
+            newState = { ...state }
+            newState[action.playist.id] = action.playist
+            return newState
         case GET_ONE_PLAYLIST:
 
             newState = { ...state }
             newState[action.playists.id] = action.playists
             return newState
-
-
-
-
 
         case CREATE_PLAYLIST:
             newState = { ...state }

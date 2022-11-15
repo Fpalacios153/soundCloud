@@ -67,16 +67,16 @@ function App() {
               <UsersSongs />
               <PlaylistGet /> */}
             </Route>
-            <Route path='/user/overview'>
+            {/* <Route path='/you/overview'>
+              <LibraryPage />
+            </Route> */}
+            <Route path='/you/albums'>
               <LibraryPage />
             </Route>
-            <Route path='/user/albums'>
+            <Route path='/you/songs'>
               <LibraryPage />
             </Route>
-            <Route path='/user/songs'>
-              <LibraryPage />
-            </Route>
-            <Route path='/user/playlists'>
+            <Route path='/you/playlists'>
               <LibraryPage />
             </Route>
             <Route>

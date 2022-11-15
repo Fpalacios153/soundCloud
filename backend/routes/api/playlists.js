@@ -49,10 +49,11 @@ router.get('/:playlistId', async (req, res) => {
     return res.json(playlists)
 })
 // to add song to playlist
-router.post('/:playlistId', requireAuth, isAuthorizedPlaylist, async (req, res) => {
-    let { playlistId } = req.params;
+router.post('/addSong', requireAuth, isAuthorizedPlaylist, async (req, res) => {
+    // let { playlistId } = req.params;
 
-    let { songId } = req.body;
+    let { songId, playlistId } = req.body;
+    console.log(songId, playlistId)
 
     // const playlist = await Playlist.findByPk(playlistId);
     const song = await Song.findByPk(songId)
@@ -88,10 +89,16 @@ router.put('/:playlistId', validatePlaylist, requireAuth, isAuthorizedPlaylist, 
 
     let { name, imageUrl } = req.body
 
-    const playlist = await Playlist.findByPk(playlistId);
+    const playlist = await Playlist.findByPk(playlistId, {
+        include: {
+            model: Song, through: { attributes: [] }
+        }
+    });
 
+    console.log(playlist)
     playlist.name = name
     playlist.previewImage = imageUrl
+    // playlist.Songs = playlist.Songs
 
     await playlist.save()
     return res.json(playlist)

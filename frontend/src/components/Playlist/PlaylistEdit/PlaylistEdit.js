@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { createPlaylist } from "../../../store/playlist";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory, useParams } from "react-router-dom";
+import { editPlaylist, getOnePlaylists } from "../../../store/playlist";
 
-export default function CreatePlaylist() {
+export default function EditPlaylist({ setShowModal }) {
     const dispatch = useDispatch()
     const history = useHistory()
-    const [name, setName] = useState('')
-    const [imageUrl, setPreviewImage] = useState('')
+    const { playlistId } = useParams()
+    const playlistToBeEdited = useSelector(state => state.playlist[playlistId])
+    const [name, setName] = useState(playlistToBeEdited.name)
+    const [imageUrl, setPreviewImage] = useState(playlistToBeEdited.previewImage)
     const [hasSubmitted, setHasSubmitted] = useState(false)
     const [validationErrors, setValidationErrors] = useState([[]])
+
 
     useEffect(() => {
         const errors = []
@@ -27,10 +30,12 @@ export default function CreatePlaylist() {
             name,
             imageUrl
         }
+        // console.log(playlist.id)
         if (!validationErrors.length) {
-            let newPlaylist = await (dispatch(createPlaylist(playlist)))
-            if (newPlaylist) {
-                history.push(`/playlists/${newPlaylist.id}`)
+            let editedPlaylist = await (dispatch(editPlaylist(playlist, playlistId)))
+            if (editedPlaylist) {
+                // setShowModal(false)
+                // dispatch(getOnePlaylists(editedPlaylist.id))
             }
         }
     }
@@ -40,7 +45,7 @@ export default function CreatePlaylist() {
         <div>
             <div>
                 <h2>
-                    Create Playlist
+                    Edit Playlist
                 </h2>
                 {hasSubmitted && validationErrors.length > 0 && (
                     <div>

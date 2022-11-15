@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom'
 import './GetSongs.css'
 import { getSongs } from '../../store/songs'
 import { useSongContext } from '../../context/setSongContext'
+import AddSongToPlaylistModal from '../Playlist/PlaylistAddSong'
 
 const GetAllSongs = () => {
     const dispatch = useDispatch()
@@ -16,10 +17,10 @@ const GetAllSongs = () => {
     const song = Object.values(songs)
     const { setSong } = useSongContext()
 
-    useEffect(() => {
-        dispatch(getSongs()).then(() => setIsLoaded(true))
+    // useEffect(() => {
+    //     dispatch(getSongs()).then(() => setIsLoaded(true))
 
-    }, [dispatch])
+    // }, [dispatch])
     return (
         <>
             <div className='allSongs-container'>
@@ -27,7 +28,7 @@ const GetAllSongs = () => {
                 <div className='song-container'>
                     <ul >
                         <div className='song-list'>
-                            {isLoaded && song.map((song) => (
+                            {song.map((song) => (
                                 <div className='song-tiles' key={song.id} >
                                     <div className='song-button-div'>
                                         <button className='song-button' onClick={() => setSong(song)}></button>
@@ -48,6 +49,7 @@ const GetAllSongs = () => {
                                         <div style={{ height: '30px', width: '160px', fontSize: '12px', margin: 0 }} className="overflow-title-div" >
                                             {song.Artist.name}
                                         </div>
+                                        <AddSongToPlaylistModal songId={song.id} />
                                     </div>
                                 </div>
                             ))}

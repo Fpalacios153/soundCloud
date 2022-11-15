@@ -22,14 +22,14 @@ export default function PlaylistGet() {
                 </h1>
                 <div className="playlist-item-container">
                     {playistArr.map(playlist => (
-                        <NavLink className='remove-line' to={`/playlists/${playlist.id}`}>
+                        <NavLink key={playlist.id} className='remove-line' to={`/playlists/${playlist.id}`}>
 
                             <div className='playlist-container' key={playlist.id}>
                                 <img
                                     className="playlist-image"
                                     src={playlist.previewImage}
-                                    alt={playlist.name}
                                     onError={e => { e.currentTarget.src = missingImage }}
+                                    alt={playlist.name}
                                 />
                                 <div className="overflow-title-div ">{playlist.name}</div>
                             </div>

@@ -17,10 +17,10 @@ const GetAllSongs = () => {
     const song = Object.values(songs)
     const { setSong } = useSongContext()
 
-    // useEffect(() => {
-    //     dispatch(getSongs()).then(() => setIsLoaded(true))
+    useEffect(() => {
+        dispatch(getSongs()).then(() => setIsLoaded(true))
 
-    // }, [dispatch])
+    }, [dispatch])
     return (
         <>
             <div className='allSongs-container'>

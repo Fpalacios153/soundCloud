@@ -13,9 +13,9 @@ const AlbumBrowser = () => {
     const albums = Object.values(albums1)
     const [isLoaded, setIsLoaded] = useState(false)
 
-    // useEffect(() => {
-    //     dispatch(getAlbums()).then(() => setIsLoaded(true))
-    // }, [dispatch]);
+    useEffect(() => {
+        dispatch(getAlbums()).then(() => setIsLoaded(true))
+    }, [dispatch]);
 
 
     return (

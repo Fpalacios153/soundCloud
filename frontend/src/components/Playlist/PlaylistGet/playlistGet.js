@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { getUsersPlaylists } from "../../../store/playlist"
 import missingImage from '../../images/missingImage.png'
 import './playlistGet.css'
+import CreatePlaylistModal from "../PlaylistCreate"
 
 export default function PlaylistGet() {
     const dispatch = useDispatch()
@@ -17,9 +18,14 @@ export default function PlaylistGet() {
     return (
         <>
             <div className="entire-playlist-container">
-                <h1>
-                    My Playlist
-                </h1>
+                <div className="playlist-top-part">
+                    <h2 className="allSAtitles">
+                        My Playlist
+                    </h2>
+                    <div className="create-playlist-button-container">
+                        <CreatePlaylistModal />
+                    </div>
+                </div>
                 <div className="playlist-item-container">
                     {playistArr.map(playlist => (
                         <NavLink key={playlist.id} className='remove-line' to={`/playlists/${playlist.id}`}>

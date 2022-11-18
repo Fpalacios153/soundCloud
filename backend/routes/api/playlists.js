@@ -49,11 +49,11 @@ router.get('/:playlistId', async (req, res) => {
     return res.json(playlists)
 })
 // to add song to playlist
-router.post('/addSong', requireAuth, isAuthorizedPlaylist, async (req, res) => {
-    // let { playlistId } = req.params;
+router.post('/:playlistId/add', requireAuth, isAuthorizedPlaylist, async (req, res) => {
+    let { playlistId } = req.params;
 
-    let { songId, playlistId } = req.body;
-    console.log(songId, playlistId)
+    let { songId } = req.body;
+    console.log(songId, playlistId, 'ddaswlkufghaweskjfhklawefghaliwerfaqewjklf')
 
     // const playlist = await Playlist.findByPk(playlistId);
     const song = await Song.findByPk(songId)

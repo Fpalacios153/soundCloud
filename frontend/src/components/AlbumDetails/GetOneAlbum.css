@@ -30,6 +30,8 @@
 .small-title {
     word-break: break-all;
     white-space: normal;
+    min-width: 250px;
+    width: 50%;
 }
 
 .album-detail-name {
@@ -62,13 +64,29 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-
 }
 
+
+
 .song-list-table {
-    width: 50%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    /* margin: auto; */
     padding-left: 10.5em;
     /* background-color: green; */
+}
+
+.song-list-points {
+    color: #999;
+    list-style: none;
+    width: 100%;
+}
+
+.song-list-container {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 2x;
 }
 
 .link-to-song {
@@ -79,11 +97,8 @@
     list-style: none;
 }
 
-.song-list-points {
-    /* border: 5px red solid; */
-    color: #999;
-    list-style: none;
-}
+
+
 
 .song-list-points:hover {
     background-color: hsl(0, 0%, 94%);

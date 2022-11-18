@@ -1,11 +1,22 @@
-.entire-playlist-container {
+/* .entire-playlist-container {
     background-color: aqua;
+} */
+
+.playlist-top-part {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.create-playlist-button-container {
+    display: flex;
+    justify-content: center;
+    padding-right: 25px;
+
 }
 
 .playlist-item-container {
-    background-color: bisque;
     display: flex;
-    /* padding: 10px;s */
     flex-wrap: wrap;
     padding-left: 3em;
     padding-right: 2.8em;

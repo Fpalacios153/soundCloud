@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink, Route, Switch } from "react-router-dom";
 import UsersAlbums from "../AlbumsCurrentUsers";
+import CreatePlaylistModal from "../Playlist/PlaylistCreate/index.js";
 import CreatePlaylist from "../Playlist/PlaylistCreate/playlistCreate";
 import PlaylistGet from "../Playlist/PlaylistGet/playlistGet";
 import UsersSongs from "../SongsCurrentUsers";
@@ -38,8 +39,8 @@ export default function LibraryPage() {
                         <UsersSongs />
                     </Route>
                     <Route path='/you/playlists'>
+                        {/* <CreatePlaylistModal /> */}
                         <PlaylistGet />
-                        <CreatePlaylist />
                     </Route>
                 </Switch>
             </div>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink, Route, Switch } from "react-router-dom";
-import UsersAlbums from "../AlbumsCurrentUsers";
+import UsersAlbums from "../Albums/AlbumsCurrentUsers";
 import CreatePlaylistModal from "../Playlist/PlaylistCreate/index.js";
 import CreatePlaylist from "../Playlist/PlaylistCreate/playlistCreate";
 import PlaylistGet from "../Playlist/PlaylistGet/playlistGet";

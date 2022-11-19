@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 
-import { getAlbums } from '../../store/albums'
+import { getAlbums } from '../../../store/albums'
 import './GetAlbum.css'
 
 

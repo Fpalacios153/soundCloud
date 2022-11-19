@@ -1,5 +1,5 @@
-import CreateAlbumModal from "../AlbumCreate";
-import SelectUserAlbum from "../AlbumSelect/SelectAlbum";
+import CreateAlbumModal from "../Albums/AlbumCreate";
+import SelectUserAlbum from "../Albums/AlbumSelect/SelectAlbum";
 import './Upload.css'
 
 function UploadHolder() {

@@ -6,9 +6,9 @@ import Navigation from "./components/Navigation";
 import GetAllSongs from "./components/SongAll";
 import SongDetails from "./components/SongDetails";
 import UsersSongs from './components/SongsCurrentUsers'
-import AlbumBrowser from "./components/AlbumsAll";
-import AlbumView from "./components/AlbumDetails";
-import UsersAlbums from "./components/AlbumsCurrentUsers";
+import AlbumBrowser from "./components/Albums/AlbumsAll";
+import AlbumView from "./components/Albums/AlbumDetails";
+import UsersAlbums from "./components/Albums/AlbumsCurrentUsers";
 import AudioPlayers from "./components/AudioPlayer";
 import { getSongs } from "./store/songs"
 import { getAlbums } from "./store/albums";

@@ -1,29 +1,29 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
-import { editAlbum } from '../../store/albums'
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { createAlbum } from "../../../store/albums"
+import './CreateAlbum.css'
 
 
 
-const EditAlbum = ({ setShowModal }) => {
-    const { albumId } = useParams()
-    const album = useSelector(state => state.albums[Number(albumId)])
+const CreateAlbum = () => {
     const dispatch = useDispatch()
-    // const history = useHistory()
-    const [title, setTitle] = useState(album.title)
-    const [description, setDescription] = useState(album.description)
-    const [imageUrl, setPreviewImage] = useState(album.previewImage)
-    const [validationErrors, setValidationErrors] = useState('')
+    const history = useHistory()
+    const [title, setTitle] = useState('')
+    const [description, setDescription] = useState('')
+    const [imageUrl, setPreviewImage] = useState('')
     const [hasSubmitted, setHasSubmitted] = useState(false)
+    const [validationErrors, setValidationErrors] = useState([[]])
+
 
 
     useEffect(() => {
         const errors = []
         if (!title.length) errors.push('Title required')
-        if (title.length > 40) errors.push('Song title must be less than 40 characters')
-
         if (!imageUrl.includes('.png') && !imageUrl.includes('.jpeg') && !imageUrl.includes('.jpg')) errors.push('Image must be in jpeg, jpg or png format')
         if (description.length > 255) errors.push('Description can only be 255 characters long')
+        if (title.length > 40) errors.push('Song title must be less than 40 characters')
+
         setValidationErrors(errors)
     }, [title, imageUrl, description])
 
@@ -39,47 +39,35 @@ const EditAlbum = ({ setShowModal }) => {
 
         }
         if (!validationErrors.length) {
-            await dispatch(editAlbum(album, albumId))
-            await setShowModal(false)
+            let newAlbum = await dispatch(createAlbum(album))
 
+            if (newAlbum) {
+                history.push(`/albums/${newAlbum.id}`)
+            }
         }
+        // if(validationErrors.length) return alert ("You cannot submit")
+        // if (!title.length) {
+        //     setValidationErrors([]);
+        //     // history.push(`/you/library`)
+        //     return dispatch(createAlbum(album))
+        //         .catch(async (res) => {
+        //             const data = await res.json();
+        //             if (data && data.errors) setValidationErrors(data.errors)
+        //         })
+        // }
+        // if (title.length) {
+        //     setValidationErrors([]);
+
     }
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     setHasSubmitted(true)
-
-    //     const album = {
-    //         title,
-    //         description,
-    //         imageUrl,
-
-    //     }
-    //     if (!title.length) {
-    //         setValidationErrors([]);
-    //         // history.push(`/you/library`)
-    //         return dispatch(editAlbum(album, albumId))
-    //             .catch(async (res) => {
-    //                 const data = await res.json();
-    //                 if (data && data.errors) setValidationErrors(data.errors)
-    //             })
-    //     }
-    //     if (title.length) {
-    //         setValidationErrors([]);
-    //         history.push(`/you/library`)
-    //         return dispatch(editAlbum(album, albumId))
-    //     }
-    // }
-
-
-
     // const handleCancelClick = (e) => {
     //     e.preventDefault();
+    //     history.push('/upload')
     // };
     return (
         <>
             <div className="create-album-container">
-                <h2 className="create-album-title">Edit Album</h2>
-                {validationErrors.length > 0 && (
+                <h2 className="create-album-title">Upload Album</h2>
+                {hasSubmitted && validationErrors.length > 0 && (
                     <div>
                         <ul style={{ padding: '10px', color: 'red', listStyle: 'none', textAlign: 'center' }}>
                             {validationErrors.map(error => (
@@ -105,6 +93,7 @@ const EditAlbum = ({ setShowModal }) => {
                         <label className='required-field create-label'>
                             Upload Image:
                             <input
+                                placeholder="Accepted file types: png, jpeg, jpg"
                                 className="create-input"
                                 type='text'
                                 value={imageUrl}
@@ -138,4 +127,4 @@ const EditAlbum = ({ setShowModal }) => {
     )
 }
 
-export default EditAlbum
+export default CreateAlbum

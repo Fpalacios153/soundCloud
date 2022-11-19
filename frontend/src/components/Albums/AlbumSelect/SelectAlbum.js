@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, useHistory, useParams } from 'react-router-dom'
-import { getAlbumsByCurrentUser } from '../../store/albums'
+import { getAlbumsByCurrentUser } from '../../../store/albums'
 
 import './SelectAlbum.css'
 

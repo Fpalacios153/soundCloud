@@ -13,7 +13,7 @@
   cursor: pointer;
 }
 
-nav a {
+.mainNav a {
   display: flex;
   align-items: center;
   /* justify-content: center; */
@@ -24,12 +24,23 @@ nav a {
   /* width: 50%; */
 }
 
-nav a:hover {
+.mainNav a:hover {
   color: white;
   background-color: #111111;
 }
 
-nav a:focus {
+/* .mainNav a:focus {
+  background-color: #111111;
+
+} */
+
+.logo-after-login {
+  background-color: #111111;
+}
+
+.mainNav .active {
+  color: white;
+
   background-color: #111111;
 
 }

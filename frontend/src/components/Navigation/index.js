@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Route, Switch } from 'react-router-dom';
+import { Link, NavLink, Route, Switch } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import DemoUser from '../DemoUser';
@@ -20,7 +20,7 @@ function Navigation({ isLoaded }) {
       <>
         <div className='mainHeader'>
           <nav className='mainNav'>
-            <NavLink to='/discover' >
+            <NavLink className='logo-after-login' to='/discover' >
               <img src='https://a-v2.sndcdn.com/assets/images/peace-cloud-28ad0963.svg' alt='logo' className='navLogo' />
             </NavLink>
             <NavLink exact to="/discover">Home</NavLink>

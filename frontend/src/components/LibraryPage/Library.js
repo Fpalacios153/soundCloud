@@ -18,14 +18,13 @@ export default function LibraryPage() {
         <>
             <div className="library-container">
 
-                <div className="library-navlink-container">
-                    {/* comback to this  */}
+                <nav className="library-navlink-container">
                     <NavLink className='library-navlink-item' to='/you/library'>Overview</NavLink>
 
                     <NavLink className='library-navlink-item' to='/you/albums'>Albums</NavLink>
                     <NavLink className='library-navlink-item' to='/you/songs'>Songs</NavLink>
                     <NavLink className='library-navlink-item' to='/you/playlists'>Playlist</NavLink>
-                </div>
+                </nav>
             </div>
             <div>
                 <Switch>

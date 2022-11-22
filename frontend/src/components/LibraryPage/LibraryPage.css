@@ -35,7 +35,13 @@
 
 }
 
-.library-navlink-item:focus {
+/* .library-navlink-item:focus {
     border-bottom: 3px #f50 solid;
     color: #f50;
+} */
+
+.library-navlink-container .active {
+    border-bottom: 3px #f50 solid;
+    color: #f50;
+
 }

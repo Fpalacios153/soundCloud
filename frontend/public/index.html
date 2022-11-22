@@ -9,6 +9,16 @@
   <script src="https://kit.fontawesome.com/fe2f760e5f.js" crossorigin="anonymous"></script>
   <link rel="shortcut icon" type="image/png" href="./images/icon.png" />
   <title>CloudSounds</title>
+  <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script>
+    $(function () {
+      $('a').each(function () {
+        if ($(this).prop('href') == window.location.href) {
+          $(this).addClass('active'); $(this).parents('nav').addClass('active');
+        }
+      });
+    });
+  </script>
 </head>
 
 <body>

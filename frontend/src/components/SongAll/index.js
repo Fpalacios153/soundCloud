@@ -6,6 +6,8 @@ import './GetSongs.css'
 import { getSongs } from '../../store/songs'
 import { useSongContext } from '../../context/setSongContext'
 import AddSongToPlaylistModal from '../Playlist/PlaylistAddSong'
+import missingImage from '../images/missingImage.png'
+
 
 const GetAllSongs = () => {
     const dispatch = useDispatch()
@@ -32,7 +34,8 @@ const GetAllSongs = () => {
                                 <div className='song-tiles' key={song.id} >
                                     <div className='song-button-div'>
                                         <button className='song-button' onClick={() => setSong(song)}></button>
-                                        <img className='song-image' style={{ height: '15em', width: '15em' }} src={song.previewImage} alt={song.title} />
+                                        <img className='song-image' style={{ height: '15em', width: '15em' }} src={song.previewImage} alt={song.title} onError={e => { e.currentTarget.src = missingImage }}
+                                        />
                                         {sessionUser ? (
                                             <NavLink className='remove-line' to={`/songs/${song.id}`} >
                                                 <div className="overflow-title-div" style={{ fontSize: '14px' }}>

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, useHistory, useParams } from 'react-router-dom'
 import { getAlbumsByCurrentUser } from '../../../store/albums'
+import missingImage from '../../images/missingImage.png'
+
 
 import './SelectAlbum.css'
 
@@ -48,7 +50,9 @@ export default function SelectUserAlbum() {
                                 <li key={album.id} className='album-tiles current-tiles'
                                     style={{ padding: '2em' }}                                >
                                     <NavLink to={`/albums/${album.id}`} key={album.id}>
-                                        <img style={{ height: '15em', width: '15em' }} src={album.previewImage} alt={album.title} />
+                                        <img style={{ height: '15em', width: '15em' }}
+                                            onError={e => { e.currentTarget.src = missingImage }}
+                                            src={album.previewImage} alt={album.title} />
                                     </NavLink>
                                     <div
                                         className="overflow-title-div"

@@ -14,14 +14,14 @@ module.exports = (sequelize, DataTypes) => {
       Comment.belongsTo(
         models.User,
         {
-          foreignKey:'userId'
+          foreignKey: 'userId'
           // ,onDelete: 'CASCADE'
         }
       )
       Comment.belongsTo(
         models.Song,
         {
-          foreignKey:'songId'
+          foreignKey: 'songId'
           // ,onDelete: 'CASCADE'
         }
       )
@@ -29,22 +29,34 @@ module.exports = (sequelize, DataTypes) => {
   }
   Comment.init({
     userId: {
-      type:DataTypes.INTEGER,
-      references:{
-        model:'Users',
-        key:'id'
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Users',
+        key: 'id'
       }
     },
     songId: {
-      type:DataTypes.INTEGER,
-      references:{
-        model:'Songs',
-        key:'id'
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Songs',
+        key: 'id'
       }
     },
     body: {
-      type:DataTypes.STRING
+      type: DataTypes.STRING
+    },
+    // userInfo: {
+    //   type: DataTypes.User
+    // },
+    createdAt: {
+      allowNull: false,
+      type: DataTypes.DATE
+    },
+    updatedAt: {
+      allowNull: false,
+      type: DataTypes.DATE
     }
+
   }, {
     sequelize,
     modelName: 'Comment',

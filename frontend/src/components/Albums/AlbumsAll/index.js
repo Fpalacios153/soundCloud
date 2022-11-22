@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import missingImage from '../../images/missingImage.png'
+
 
 
 import { getAlbums } from '../../../store/albums'
@@ -28,7 +30,10 @@ const AlbumBrowser = () => {
                             {albums.map(album => (
                                 <li className='album-tiles' key={album.id}>
                                     <NavLink className='remove-line' to={`/albums/${album.id}`} key={album.id}>
-                                        <img className='' style={{ height: '15em', width: '15em' }} src={album.previewImage} alt={album.title} />
+                                        <img className='' style={{ height: '15em', width: '15em' }}
+                                            onError={e => { e.currentTarget.src = missingImage }}
+
+                                            src={album.previewImage} alt={album.title} />
                                         <div
                                             className="overflow-title-div"
                                             style={{ fontSize: '14px' }}                                      >

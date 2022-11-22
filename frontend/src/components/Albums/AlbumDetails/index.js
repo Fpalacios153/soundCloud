@@ -7,6 +7,8 @@ import './GetOneAlbum.css'
 import EditModal from "../AlbumEditModel";
 import CreateSongModel from "../../SongCreate";
 import { useSongContext } from "../../../context/setSongContext";
+import missingImage from '../../images/missingImage.png'
+
 
 
 function AlbumView() {
@@ -42,7 +44,9 @@ function AlbumView() {
                                         <h3 className="album-detail-name">{album.Artist.name}</h3>
                                     </div>
                                     <div className="album-image-container">
-                                        <img src={album.previewImage} alt={album.title} style={{ width: '26em', height: '26em', }} />
+                                        <img src={album.previewImage} alt={album.title}
+                                            onError={e => { e.currentTarget.src = missingImage }}
+                                            style={{ width: '26em', height: '26em', }} />
                                     </div>
                                 </div>
                             </div>

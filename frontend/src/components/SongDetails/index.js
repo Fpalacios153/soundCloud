@@ -6,6 +6,10 @@ import { getOneSong } from "../../store/songs";
 import { deleteSong } from "../../store/songs";
 import EditModal from "../SongEditModal";
 import { useSongContext } from "../../context/setSongContext";
+import CommentsGet from "../Comments/CommentsGet/CommentsGet";
+import CommentCreate from "../Comments/CommentsCreate/CommentsCreate";
+import missingImage from '../images/missingImage.png'
+
 
 
 
@@ -55,16 +59,20 @@ function SongDetails() {
                                             </Link>
                                         </div>
                                         <div style={{ justifyContent: 'flex-end', alignItems: 'flex-end' }}>
-                                            <img src={song.previewImage} alt={song.title} style={{ width: '26em', height: '26em', paddingRight: '2em', paddingTop: '1.5em' }}></img>
+                                            <img src={song.previewImage} alt={song.title}
+                                                onError={e => { e.currentTarget.src = missingImage }}
+
+                                                style={{ width: '26em', height: '26em', paddingRight: '2em', paddingTop: '1.5em' }}></img>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <CommentCreate songId={songId} />
                             {!sessionUser ? (<NavLink to='/'>Back to home page</NavLink>) :
                                 song && song.Artist && sessionUser.id === song.Artist.userId && (
                                     <div>
                                         <button className="delete-button" onClick={songDelete}>
-                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                            <i className="fa fa-trash" aria-hidden="true"></i>
                                             Delete
                                         </button>
                                         <EditModal />
@@ -79,6 +87,7 @@ function SongDetails() {
                                     <p style={{ paddingLeft: '3em', flexWrap: 'wrap' }}>{song.description}</p>
                                 </div>
                             </div>
+                            <CommentsGet song={song} />
                         </div>
                     )}
                 </div>

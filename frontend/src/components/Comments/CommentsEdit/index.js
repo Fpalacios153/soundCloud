@@ -7,7 +7,7 @@ function UpdateCommentModal({ commentId }) {
 
     return (
         <>
-            <button onClick={() => setShowModal(true)}>
+            <button className='delete-update-comment-button' onClick={() => setShowModal(true)}>
                 <i className="fa fa-pencil" aria-hidden="true"></i>
             </button>
             {showModal && (

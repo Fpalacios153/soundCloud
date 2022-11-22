@@ -1,0 +1,56 @@
+.entire-comments-container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 3em;
+}
+
+.comments-title-container {
+    color: #999999;
+    font-weight: 100;
+    border-bottom: 1px solid #f2f2f2;
+    padding-bottom: 5px;
+    width: 94%;
+
+}
+
+.comments-container-item {
+    display: flex;
+    padding-bottom: 17px;
+}
+
+.test-circle {
+    background-color: olive;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.username-body-container {
+    width: 70%;
+    padding-left: 10px;
+}
+
+.comments-time-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.delete-update-comment-button {
+    text-align: center;
+
+    align-items: center;
+    border: 1px solid #dbdada;
+    border-radius: 3px;
+    background-color: #fff;
+    cursor: pointer;
+    color: #333;
+    margin-left: 5px;
+    /* visibility: hidden; */
+
+}
+
+.delete-update-comment-button:hover {
+    border: 1px solid rgb(101, 101, 101);
+    /* visibility: visible; */
+}

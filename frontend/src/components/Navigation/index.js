@@ -24,7 +24,7 @@ function Navigation({ isLoaded }) {
               <img src='https://a-v2.sndcdn.com/assets/images/peace-cloud-28ad0963.svg' alt='logo' className='navLogo' />
             </NavLink>
             <NavLink exact to="/discover">Home</NavLink>
-            <NavLink to='/you/library'>Library</NavLink>
+            <NavLink to='/you/albums'>Library</NavLink>
             <NavLink to='/upload'>Upload</NavLink>
             <ProfileButton user={sessionUser} />
           </nav>

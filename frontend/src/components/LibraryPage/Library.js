@@ -19,7 +19,7 @@ export default function LibraryPage() {
             <div className="library-container">
 
                 <nav className="library-navlink-container">
-                    <NavLink className='library-navlink-item' to='/you/library'>Overview</NavLink>
+                    {/* <NavLink className='library-navlink-item' to='/you/library'>Overview</NavLink> */}
 
                     <NavLink className='library-navlink-item' to='/you/albums'>Albums</NavLink>
                     <NavLink className='library-navlink-item' to='/you/songs'>Songs</NavLink>
@@ -28,9 +28,9 @@ export default function LibraryPage() {
             </div>
             <div>
                 <Switch>
-                    <Route path='/you/library'>
+                    {/* <Route path='/you/library'>
                         <div>Overview</div>
-                    </Route>
+                    </Route> */}
                     <Route path='/you/albums'>
                         <UsersAlbums />
                     </Route>

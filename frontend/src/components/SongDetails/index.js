@@ -78,16 +78,16 @@ function SongDetails() {
                                         <EditModal />
 
                                     </div>)}
-                            <div style={{ display: 'flex', justifyContent: "start", width: '65%' }}>
+                            <div className="album-title-description-container">
                                 <h2 style={{ padding: '0px 10px' }}>{song.Artist.name}</h2>
-                                <div>
+                                <div className="description-comments-container">
                                     <Link className='remove-line' to={`/albums/${song.Album.id}`}>
                                         <h3 style={{ paddingLeft: '2.5em' }}>{song.Album.title}</h3>
                                     </Link>
-                                    <p style={{ paddingLeft: '3em', flexWrap: 'wrap' }}>{song.description}</p>
+                                    <p className="description-container">{song.description}</p>
+                                    <CommentsGet song={song} />
                                 </div>
                             </div>
-                            <CommentsGet song={song} />
                         </div>
                     )}
                 </div>

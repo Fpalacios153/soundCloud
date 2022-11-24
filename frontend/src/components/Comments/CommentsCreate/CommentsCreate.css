@@ -1,0 +1,19 @@
+.comment-form-wrapper {
+    background-color: darkcyan;
+    width: 100%;
+}
+
+
+.comment-input-container {
+    background-color: #f2f2f2;
+    width: 65%;
+    height: 50px;
+    display: flex;
+    align-items: flex-start;
+    padding-left: 20px;
+    border: 1px solid #e5e5e5;
+
+
+}
+
+.comment-input {}

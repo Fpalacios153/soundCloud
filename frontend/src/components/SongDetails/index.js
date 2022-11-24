@@ -79,12 +79,14 @@ function SongDetails() {
 
                                     </div>)}
                             <div className="album-title-description-container">
-                                <h2 style={{ padding: '0px 10px' }}>{song.Artist.name}</h2>
+                                <h2 >{song.Artist.name}</h2>
                                 <div className="description-comments-container">
                                     <Link className='remove-line' to={`/albums/${song.Album.id}`}>
-                                        <h3 style={{ paddingLeft: '2.5em' }}>{song.Album.title}</h3>
+                                        <h3>{song.Album.title}</h3>
                                     </Link>
-                                    <p className="description-container">{song.description}</p>
+                                    <div>
+                                        <p className="description-container">{song.description}</p>
+                                    </div>
                                     <CommentsGet song={song} />
                                 </div>
                             </div>

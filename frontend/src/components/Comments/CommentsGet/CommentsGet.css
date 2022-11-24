@@ -1,7 +1,7 @@
 .entire-comments-container {
     display: flex;
     flex-direction: column;
-    padding-left: 3em;
+    /* padding-left: 3em; */
 }
 
 .comments-title-container {
@@ -9,7 +9,7 @@
     font-weight: 100;
     border-bottom: 1px solid #f2f2f2;
     padding-bottom: 5px;
-    width: 94%;
+    width: 90%;
 
 }
 
@@ -26,7 +26,7 @@
 }
 
 .username-body-container {
-    width: 70%;
+    width: 68%;
     padding-left: 10px;
 }
 
@@ -34,6 +34,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    width: 15%;
 }
 
 .delete-update-comment-button {

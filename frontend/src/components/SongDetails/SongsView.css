@@ -67,17 +67,19 @@
     justify-content: start;
     /* flex-direction: column; */
 
+
     width: 100%;
     word-break: break-all;
     white-space: normal;
 }
 
 .description-comments-container {
-    width: 75%;
+    width: 80%;
+    padding-left: 3em;
 }
 
 .description-container {
-    padding-left: 3em;
+    /* padding-left: 3em; */
     flex-wrap: wrap;
     width: 90%;
     border-bottom: 1px solid #f2f2f2;

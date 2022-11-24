@@ -1,7 +1,8 @@
 import { useEffect } from "react"
 import { useState } from "react"
 import { useDispatch } from "react-redux"
-import { createComment, getSongComments } from "../../../store/comments"
+import { createComment } from "../../../store/comments"
+import './CommentsCreate.css'
 
 export default function CommentCreate({ songId }) {
     const dispatch = useDispatch()
@@ -39,10 +40,11 @@ export default function CommentCreate({ songId }) {
                     </ul>
                 </div>
             )}
-            <form onSubmit={onSubmit}>
-                <div>
+            <div className="comment-form-wrapper" >
+                <form className="comment-input-container" onSubmit={onSubmit}>
                     <label>
                         <input
+                            className="comment-input"
                             maxLength={501}
                             type='text'
                             placeholder="Write a comment"
@@ -50,8 +52,8 @@ export default function CommentCreate({ songId }) {
                             onChange={(e) => setComment(e.target.value)}
                         />
                     </label>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     )
 }

@@ -11,7 +11,7 @@ function AudioPlayers() {
 
     return (
         <>
-            {song &&
+            {song ?
                 (<div className='audio-container'>
                     <AudioPlayer
                         autoPlay
@@ -19,7 +19,9 @@ function AudioPlayers() {
                         onPlay={e => console.log("onPlay")}
                     // other props here
                     />
-                </div>)}
+                </div>
+                )
+                : (null)}
 
         </>
     )

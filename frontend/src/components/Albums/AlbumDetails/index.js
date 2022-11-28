@@ -1,12 +1,14 @@
 import { useHistory, useParams, Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect, useState } from "react";
-import { deleteAlbum } from '../../store/albums'
-import { getOneAlbum } from "../../store/albums";
+import { deleteAlbum } from '../../../store/albums'
+import { getOneAlbum } from "../../../store/albums";
 import './GetOneAlbum.css'
 import EditModal from "../AlbumEditModel";
-import CreateSongModel from "../SongCreate";
-import { useSongContext } from "../../context/setSongContext";
+import CreateSongModel from "../../SongCreate";
+import { useSongContext } from "../../../context/setSongContext";
+import missingImage from '../../images/missingImage.png'
+
 
 
 function AlbumView() {
@@ -22,10 +24,10 @@ function AlbumView() {
     }, [dispatch, albumId])
 
     ///remember to move this to current
-    const Delete = (e) => {
+    const Delete = async (e) => {
         e.preventDefault();
-        dispatch(deleteAlbum(albumId))
-        history.push('/you/library')
+        await dispatch(deleteAlbum(albumId))
+        await history.push('/you/library')
     }
     if (!album && album.Songs) return null
     return (
@@ -42,7 +44,9 @@ function AlbumView() {
                                         <h3 className="album-detail-name">{album.Artist.name}</h3>
                                     </div>
                                     <div className="album-image-container">
-                                        <img src={album.previewImage} alt={album.title} style={{ width: '26em', height: '26em', }} />
+                                        <img src={album.previewImage} alt={album.title}
+                                            onError={e => { e.currentTarget.src = missingImage }}
+                                            style={{ width: '26em', height: '26em', }} />
                                     </div>
                                 </div>
                             </div>
@@ -51,7 +55,7 @@ function AlbumView() {
                         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', paddingRight: '1em' }}>
                             <div>
                                 <button className="delete-button darker-border" onClick={Delete}>
-                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                    <i className="fa fa-trash" aria-hidden="true"></i>
                                     Delete
                                 </button>
                                 <EditModal />
@@ -67,24 +71,15 @@ function AlbumView() {
                             {album && album.Songs && album.Songs.map((song, i) => (
                                 <ul key={song.id}  >
                                     <li className='song-list-points'>
-                                        <div style={{ display: 'flex', justifyContent: 'flex-start', width: '75%' }}>
+                                        <div className="song-list-container">
                                             <div>
-                                                {/* <div style={{ display: 'flex', justifyContent: 'center', alignContent: 'center', paddingTop: '1px', position:'relative'}}> */}
                                                 <button className="small-button" onClick={() => setSong(song)}></button>
-                                                {/* </div> */}
                                                 <img style={{ height: '2.8em', width: '2.8em', padding: '1px' }} src={song.previewImage} alt={song.title} />
                                             </div>
-                                            <Link className='link-to-song' to={`/api/songs/${song.id}`} >
+                                            <Link className='link-to-song' to={`/songs/${song.id}`} >
                                                 <div className="centered">{`${i + 1}  `}</div>
                                                 <div className="centered small-title">{song.title}</div>
                                             </Link>
-
-                                            {/* <div className="delete-button-div">
-                                                <button className="delete-button div">
-                                                    <i class="fa fa-trash" aria-hidden="true"></i>
-
-                                                </button>
-                                            </div> */}
                                         </div>
                                     </li>
                                 </ul>

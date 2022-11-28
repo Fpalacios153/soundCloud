@@ -46,19 +46,11 @@ export const EditSong = ({ setEdited, edited, setShowModal }) => {
             await dispatch(editSong(song, songId))
             await setShowModal(false)
         }
-        // .then(() =>
-        // await setEdited(edited + 1)
-        // .then(() => history.push(`/you/library`))
 
-        // .then(() =>
-        // await history.push(`/api/songs/${songId}`)
     }
 
 
-    // const handleCancelClick = (e) => {
-    //     e.preventDefault();
-    //     history.push(`/api/song/${songId}`)
-    // };
+
     return (
         <>
             <div className="create-album-container">

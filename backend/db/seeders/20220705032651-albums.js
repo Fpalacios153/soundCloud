@@ -23,7 +23,13 @@ module.exports = {
       {
         title: 'Words in Soup',
         artistId: 2,
-        previewImage: 'https://images.pexels.com/photos/12896240/pexels-photo-12896240.jpeg',
+        previewImage: 'https://images.pexels.com/photos/1337374/pexels-photo-1337374.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+        description: "An album about words.",
+      },
+      {
+        title: 'Sirens And Condolences',
+        artistId: 3,
+        previewImage: 'https://m.media-amazon.com/images/I/71Hfa9F95LL._SL1200_.jpg',
         description: "An album about words.",
       }
     ])

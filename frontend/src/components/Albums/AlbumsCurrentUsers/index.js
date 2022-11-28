@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, useHistory } from 'react-router-dom'
-import { getAlbumsByCurrentUser } from '../../store/albums'
+import { getAlbumsByCurrentUser } from '../../../store/albums'
+import missingImage from '../../images/missingImage.png'
+
 import './CurrentAlbums.css'
 
 export default function UsersAlbums() {
@@ -13,7 +15,7 @@ export default function UsersAlbums() {
 
     useEffect(() => {
         dispatch(getAlbumsByCurrentUser()).then(() => setIsLoaded(true))
-        history.push('/you/library')
+        // history.push('/you/library')
     }, [dispatch, history])
 
 
@@ -30,8 +32,9 @@ export default function UsersAlbums() {
                         <div className='album-list'>
                             {isLoaded && albums.length > 0 && albums.map(album => (
                                 <li key={album.id} className='album-tiles'>
-                                    < NavLink className='remove-line' to={`/api/albums/${album.id}`} key={album.id}>
-                                        <img style={{ height: '15em', width: '15em' }} src={album.previewImage} alt={album.title} />
+                                    < NavLink className='remove-line' to={`/albums/${album.id}`} key={album.id}>
+                                        <img style={{ height: '15em', width: '15em' }} src={album.previewImage} alt={album.title} onError={e => { e.currentTarget.src = missingImage }}
+                                        />
                                         <div
                                             className="overflow-title-div"
                                             style={{ fontWeight: 100, fontSize: '14px' }}>

@@ -5,10 +5,15 @@ import { NavLink } from 'react-router-dom'
 import './GetSongs.css'
 import { getSongs } from '../../store/songs'
 import { useSongContext } from '../../context/setSongContext'
+import AddSongToPlaylistModal from '../Playlist/PlaylistAddSong'
+import missingImage from '../images/missingImage.png'
+
 
 const GetAllSongs = () => {
     const dispatch = useDispatch()
     const [isLoaded, setIsLoaded] = useState(false)
+    const sessionUser = useSelector(state => state.session.user)
+
 
     const songs = useSelector(state => state.songs)
     const song = Object.values(songs)
@@ -25,19 +30,29 @@ const GetAllSongs = () => {
                 <div className='song-container'>
                     <ul >
                         <div className='song-list'>
-                            {isLoaded && song.map((song) => (
+                            {song.map((song) => (
                                 <div className='song-tiles' key={song.id} >
                                     <div className='song-button-div'>
                                         <button className='song-button' onClick={() => setSong(song)}></button>
-                                        <img className='song-image' style={{ height: '15em', width: '15em' }} src={song.previewImage} alt={song.title} />
-                                        <NavLink className='remove-line' to={`/api/songs/${song.id}`} >
+                                        <img className='song-image' style={{ height: '15em', width: '15em' }} src={song.previewImage} alt={song.title} onError={e => { e.currentTarget.src = missingImage }}
+                                        />
+                                        {sessionUser ? (
+                                            <NavLink className='remove-line' to={`/songs/${song.id}`} >
+                                                <div className="overflow-title-div" style={{ fontSize: '14px' }}>
+                                                    {song.title}
+                                                </div>
+                                            </NavLink>) :
+                                            // <div onClick={() => setSong(song)} >
                                             <div className="overflow-title-div" style={{ fontSize: '14px' }}>
                                                 {song.title}
                                             </div>
-                                        </NavLink>
+                                            // </div>
+
+                                        }
                                         <div style={{ height: '30px', width: '160px', fontSize: '12px', margin: 0 }} className="overflow-title-div" >
                                             {song.Artist.name}
                                         </div>
+                                        <AddSongToPlaylistModal songId={song.id} />
                                     </div>
                                 </div>
                             ))}

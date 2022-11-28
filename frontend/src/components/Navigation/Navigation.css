@@ -5,7 +5,7 @@
   justify-content: space-around;
   align-content: center;
   background: #333;
-  padding-right: 10px;
+  /* padding-right: 10px; */
   font-family: Interstate, Lucida Grande, Arial, sans-serif;
   font-weight: 100;
   font-size: 14px;
@@ -13,21 +13,36 @@
   cursor: pointer;
 }
 
-nav a {
+.mainNav a {
   display: flex;
   align-items: center;
+  /* justify-content: center; */
   text-decoration: none;
   color: #999;
   padding: 0px 2.5em;
+  /* border-right: white 1px solid; */
+  /* width: 50%; */
 }
 
-nav a:hover {
+.mainNav a:hover {
   color: white;
-  background-color: black;
+  background-color: #111111;
 }
 
-nav a:visited {
-  background-color: black;
+/* .mainNav a:focus {
+  background-color: #111111;
+
+} */
+
+.logo-after-login {
+  background-color: #111111;
+}
+
+.mainNav .active {
+  color: white;
+
+  background-color: #111111;
+
 }
 
 .mainHeader {

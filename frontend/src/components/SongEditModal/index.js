@@ -8,12 +8,12 @@ function EditModal({ }) {
   return (
     <>
       <button className='edit-model' onClick={() => setShowModal(true)}>
-        <i class="fa fa-pencil" aria-hidden="true"></i>{'  '}
+        <i className="fa fa-pencil" aria-hidden="true"></i>{'  '}
         Edit
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <EditSong path='/api/song/:songId' store={showModal} setShowModal={setShowModal} />
+          <EditSong path='/song/:songId' store={showModal} setShowModal={setShowModal} />
         </Modal>
       )}
     </>

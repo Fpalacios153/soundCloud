@@ -1,0 +1,50 @@
+.comment-form-wrapper {
+    /* background-color: darkcyan; */
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+
+.comment-input-container {
+    background-color: #f2f2f2;
+    border-radius: 2px;
+    width: 65%;
+    height: 45px;
+    display: flex;
+    align-items: flex-start;
+    padding-left: 15px;
+    border: 1px solid #e5e5e5;
+
+
+}
+
+.comment-input {
+    min-width: 200px;
+    width: 97%;
+    height: 25px;
+    border: #cfcfcf 1px solid;
+    border-radius: 2px;
+    /* border: 1px; */
+}
+
+.comment-input:focus {
+    outline: none;
+    border: 1px solid #999;
+
+}
+
+
+/* .comment-input:focus {
+    min-width: 200px;
+    width: 97%;
+    height: 25px;
+    border: black;
+    border-radius: 2px;
+} */
+
+/* .comment-input:focus {
+
+} */

@@ -1,0 +1,33 @@
+/* .entire-playlist-container {
+    background-color: aqua;
+} */
+
+.playlist-top-part {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.create-playlist-button-container {
+    display: flex;
+    justify-content: center;
+    padding-right: 25px;
+
+}
+
+.playlist-item-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 3em;
+    padding-right: 2.8em;
+}
+
+.playlist-container {
+    padding: 8px;
+
+}
+
+.playlist-image {
+    width: 15em;
+    height: 15em;
+}

@@ -1,7 +1,8 @@
 import { useEffect } from "react"
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { createComment, getSongComments, updateComment } from "../../../store/comments"
+import { updateComment } from "../../../store/comments"
+import './CommentsEdit.css'
 
 export default function CommentUpdate({ commentId, setShowModal }) {
     const dispatch = useDispatch()
@@ -13,7 +14,7 @@ export default function CommentUpdate({ commentId, setShowModal }) {
         const errors = []
         if (!comment.length) errors.push('Comment required')
         if (comment.length > 500) errors.push('Comment must not exceed 500 characters long')
-        if (comment.length < 25) errors.push('Comment must be at least 25 characters')
+        // if (comment.length < 25) errors.push('Comment must be at least 25 characters')
         setValidationErrors(errors)
 
     }, [comment])
@@ -24,15 +25,13 @@ export default function CommentUpdate({ commentId, setShowModal }) {
 
         if (!validationErrors.length) {
             await dispatch(updateComment(comment, commentId))
-            // await setComment('')
             await setShowModal(false)
-            // await setHasSubmitted(false)
         }
     }
 
     return (
-        <div>
-            <h2>Update Comment</h2>
+        <div className="entire-comment-container">
+            <h3 className="update-comment-title">Update Comment</h3>
             {hasSubmitted && validationErrors.length > 0 && (
                 <div>
                     <ul style={{ padding: '10px', color: 'red', listStyle: 'none', textAlign: 'center' }}>
@@ -42,10 +41,11 @@ export default function CommentUpdate({ commentId, setShowModal }) {
                     </ul>
                 </div>
             )}
-            <form onSubmit={onSubmit}>
+            <form className="edit-comment-form" onSubmit={onSubmit}>
                 <div>
                     <label>
-                        <input
+                        <textarea
+                            className="text-area2"
                             maxLength={501}
                             type='text'
                             placeholder="Write a comment"
@@ -54,8 +54,8 @@ export default function CommentUpdate({ commentId, setShowModal }) {
                         />
                     </label>
                 </div>
-                <div>
-                    <button type="submit"> Save</button>
+                <div className="edit-comment-button-container">
+                    <button className="save-create-button" type="submit"> Save</button>
                 </div>
             </form>
         </div>

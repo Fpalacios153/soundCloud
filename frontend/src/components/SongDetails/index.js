@@ -79,11 +79,13 @@ function SongDetails() {
 
                                     </div>)}
                             <div className="album-title-description-container">
-                                <h2 >{song.Artist.name}</h2>
+                                <h2 className="bottom-artist-title">{song.Artist.name}</h2>
                                 <div className="description-comments-container">
-                                    <Link className='remove-line' to={`/albums/${song.Album.id}`}>
-                                        <h3>{song.Album.title}</h3>
-                                    </Link>
+                                    <div className="song-album-title-container">
+                                        <Link className='remove-line' to={`/albums/${song.Album.id}`}>
+                                            <h3>{song.Album.title}</h3>
+                                        </Link>
+                                    </div>
                                     <div>
                                         <p className="description-container">{song.description}</p>
                                     </div>

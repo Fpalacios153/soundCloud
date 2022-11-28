@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { deleteComment, getSongComments } from "../../../store/comments"
 import UpdateCommentModal from "../CommentsEdit"
 import './CommentsGet.css'
+import user from '../../images/user.png'
 
 export default function CommentsGet({ song }) {
     const dispatch = useDispatch()
@@ -52,7 +53,9 @@ export default function CommentsGet({ song }) {
             {commentsArr.map(comment => (
 
                 <div key={comment.id} className='comments-container-item'>
-                    <div className="test-circle"></div>
+                    <div className="test-circle">
+                        <img src={user} alt='userPic' className="test-circle"></img>
+                    </div>
                     <div className="username-body-container">
                         <div>{comment.User.username}</div>
                         <div>{comment.body}</div>

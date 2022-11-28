@@ -13,7 +13,7 @@ export default function CommentCreate({ songId }) {
         const errors = []
         if (!comment.length) errors.push('Comment required')
         if (comment.length > 500) errors.push('Comment must not exceed 500 characters long')
-        if (comment.length < 25) errors.push('Comment must be at least 25 characters')
+        // if (comment.length < 25) errors.push('Comment must be at least 25 characters')
         setValidationErrors(errors)
 
     }, [comment])
@@ -42,16 +42,14 @@ export default function CommentCreate({ songId }) {
             )}
             <div className="comment-form-wrapper" >
                 <form className="comment-input-container" onSubmit={onSubmit}>
-                    <label>
-                        <input
-                            className="comment-input"
-                            maxLength={501}
-                            type='text'
-                            placeholder="Write a comment"
-                            value={comment}
-                            onChange={(e) => setComment(e.target.value)}
-                        />
-                    </label>
+                    <input
+                        className="comment-input"
+                        maxLength={501}
+                        type='text'
+                        placeholder="Write a comment"
+                        value={comment}
+                        onChange={(e) => setComment(e.target.value)}
+                    />
                 </form>
             </div>
         </div>

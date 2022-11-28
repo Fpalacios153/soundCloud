@@ -1,0 +1,26 @@
+.entire-comment-container {
+    width: 250px;
+    padding: 20px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.update-comment-title {
+    font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
+
+}
+
+
+
+.text-area2 {
+    height: 110px;
+    width: 250px;
+    resize: none;
+    padding: 5px;
+}
+
+.edit-comment-button-container {
+    padding: 10px;
+}

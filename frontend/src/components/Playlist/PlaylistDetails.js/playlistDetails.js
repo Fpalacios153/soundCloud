@@ -5,7 +5,8 @@ import { useSongContext } from "../../../context/setSongContext"
 import { deletePlaylist, getOnePlaylists } from "../../../store/playlist"
 import missingImage from '../../images/missingImage.png'
 import UpdatePlaylistModal from "../PlaylistEdit"
-import EditPlaylist from "../PlaylistEdit/PlaylistEdit"
+import './playlistDetail.css'
+
 
 
 export default function PlaylistDetails() {
@@ -16,6 +17,7 @@ export default function PlaylistDetails() {
     const [isLoaded, setIsLoaded] = useState(false)
 
     const details = useSelector(state => state.playlist[playlistId])
+    console.log(details)
 
     useEffect(() => {
         dispatch(getOnePlaylists(playlistId)).then(() => setIsLoaded(true))
@@ -28,46 +30,58 @@ export default function PlaylistDetails() {
     }
     return details && isLoaded ? (
         <>
-            <div>
-                <ul>
-                    <ol>{details.name}</ol>
-                    <ol>
-                        <img
-                            className="playlist-image"
-                            src={details.previewImage}
-                            alt={details.name}
-                            onError={e => { e.currentTarget.src = missingImage }}
-                        />
-                    </ol>
+            <div className="detail-container">
+                <div className="album-background">
+                    <div className="top-part-playist-container">
+                        <div className="left-side-playlist">
+                            <h1 className="album-detail-title">{details.name}</h1>
+                            <h2 className="song-count-circle"> {details.Songs.length} songs</h2>
+                        </div>
+                        <div className="right-side-playlist">
+                            <img
+                                className="playlist-image-details"
+                                src={details.previewImage}
+                                alt={details.name}
+                                onError={e => { e.currentTarget.src = missingImage }}
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div>
                     <div>
-                        <button onClick={() => toDelete(details.id)}>Delete</button>
+                        <button className="delete-button darker-border" onClick={() => toDelete(details.id)}>Delete</button>
                         <UpdatePlaylistModal />
                     </div>
-                    {details.Songs.length > 0 ?
-                        (details.Songs?.map((song, i) => (
-                            <ul key={song.id}  >
-                                <li className='song-list-points'>
-                                    <div className="song-list-container">
-                                        <div>
-                                            <button className="small-button" onClick={() => setSong(song)}></button>
-                                            <img style={{ height: '2.8em', width: '2.8em', padding: '1px' }} src={song.previewImage} alt={song.title} />
+                    <div className="playlist-details-song-container">
+
+                        {details.Songs.length > 0 ?
+                            (details.Songs?.map((song, i) => (
+                                <ul key={song.id}  >
+                                    <li className='song-list-points'>
+                                        <div className="song-list-container">
+                                            <div>
+                                                <button className="small-button" onClick={() => setSong(song)}></button>
+                                                <img style={{ height: '2.8em', width: '2.8em', padding: '1px' }} src={song.previewImage} alt={song.title} />
+                                            </div>
+                                            <Link className='link-to-song' to={`/songs/${song.id}`} >
+                                                <div className="centered">{`${i + 1}  `}</div>
+                                                <div className="centered small-title">{song.title}</div>
+                                            </Link>
                                         </div>
-                                        <Link className='link-to-song' to={`/songs/${song.id}`} >
-                                            <div className="centered">{`${i + 1}  `}</div>
-                                            <div className="centered small-title">{song.title}</div>
-                                        </Link>
-                                    </div>
-                                </li>
-                            </ul>
-                        )))
-                        :
-                        (
-                            <>
-                                <div>Playlist has no songs yet</div>
-                            </>
-                        )
-                    }
-                </ul>
+                                    </li>
+                                </ul>
+                            )))
+
+                            :
+                            (
+                                <>
+                                    <div>Playlist has no songs yet</div>
+                                </>
+                            )
+                        }
+                    </div>
+
+                </div>
             </div>
         </>
     ) : null

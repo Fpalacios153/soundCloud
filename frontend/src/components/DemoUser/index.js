@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 import './DemoUser.css'
 
-function DemoUser() {
+function DemoUser({ signupLogin }) {
     const dispatch = useDispatch()
     const history = useHistory()
 
@@ -17,10 +17,13 @@ function DemoUser() {
         );
     };
 
-    return (
+    return !signupLogin ? (
         <form onSubmit={handleSubmit}>
             <button className='demo' type='submit'>Demo</button>
         </form>
-    );
+    ) :
+        <form onSubmit={handleSubmit}>
+            <button className='sign-up-button-demo' type='submit'>Demo User</button>
+        </form>
 };
 export default DemoUser

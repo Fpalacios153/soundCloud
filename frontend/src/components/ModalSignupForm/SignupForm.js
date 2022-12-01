@@ -3,12 +3,14 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Redirect, useHistory } from 'react-router-dom'
 import * as sessionActions from "../../store/session"
+import DemoUser from '../DemoUser';
 import './SignupForm.css';
 
 
 export default function SignupFormPage() {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
+    const [signupLogin, setSignupLogin] = useState(true)
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [firstName, setFirstName] = useState('')
@@ -36,6 +38,13 @@ export default function SignupFormPage() {
         }
         return setErrors(['Confirm Password field must be the same as the Password field'])
     }
+    const demo = e => {
+        e.preventDefault();
+        const credential = 'Demo-lition';
+        const password = 'password';
+        return dispatch(sessionActions.login({ credential, password })).then(() => history.push('/discover')
+        );
+    };
     return (
         <form onSubmit={handleSubmit}
             className='sign-up-form'>
@@ -115,7 +124,12 @@ export default function SignupFormPage() {
                     />
                 </label>
             </div>
-            <button className='sign-up-button' type='submit'>Sign Up</button>
+            <div className='sign-up-button-container'>
+                <button className='sign-up-button' type='submit'>Sign Up</button>
+                or
+                <button className='sign-up-button-demo' onClick={demo}>Demo User</button>
+
+            </div>
         </form>
     )
 }

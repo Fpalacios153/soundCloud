@@ -26,7 +26,8 @@ const GetAllSongs = () => {
     return (
         <>
             <div className='currSong-container'>
-                <h2 className="allSongs">All Songs</h2>
+                {sessionUser ? (
+                    <h2 className="allSongs">All Songs</h2>) : null}
                 <div className='song-container'>
                     <div className='song-list'>
                         {song.map((song) => (
@@ -55,7 +56,9 @@ const GetAllSongs = () => {
                                     <div className="overflow-title-div" >
                                         {song.Artist.name}
                                     </div>
-                                    <AddSongToPlaylistModal songId={song.id} />
+                                    {sessionUser ? (
+                                        <AddSongToPlaylistModal songId={song.id} />
+                                    ) : null}
                                 </div>
                             </div>
                         ))}

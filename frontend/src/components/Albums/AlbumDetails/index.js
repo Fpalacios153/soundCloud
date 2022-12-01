@@ -74,7 +74,9 @@ function AlbumView() {
                                         <div className="song-list-container">
                                             <div>
                                                 <button className="small-button" onClick={() => setSong(song)}></button>
-                                                <img style={{ height: '2.8em', width: '2.8em', padding: '1px' }} src={song.previewImage} alt={song.title} />
+                                                <img style={{ height: '2.8em', width: '2.8em', padding: '1px' }} src={song.previewImage} alt={song.title}
+                                                    onError={e => { e.currentTarget.src = missingImage }}
+                                                />
                                             </div>
                                             <Link className='link-to-song' to={`/songs/${song.id}`} >
                                                 <div className="centered">{`${i + 1}  `}</div>

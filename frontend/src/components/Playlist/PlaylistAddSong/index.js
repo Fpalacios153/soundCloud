@@ -9,11 +9,11 @@ function AddSongToPlaylistModal({ songId }) {
 
     return (
         <>
-            <div style={{ display: 'flex', alignItems: 'flex-end', paddingRight: '.6em' }}>
-                <button className='createSong' onClick={() => setShowModal(true)}>Add Song To a playlist</button>
+            <div className='song-button-add' style={{ display: 'flex', alignItems: 'flex-end', paddingRight: '.6em' }}>
+                <button className='createSong' onClick={() => setShowModal(true)}>+</button>
                 {showModal && (
                     <Modal onClose={() => setShowModal(false)}>
-                        <PlaylistAddSongs songId={songId} />
+                        <PlaylistAddSongs songId={songId} setShowModal={setShowModal} />
                     </Modal>
                 )}
             </div>

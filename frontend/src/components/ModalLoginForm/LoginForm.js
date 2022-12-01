@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import DemoUser from "../DemoUser";
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -20,6 +21,13 @@ function LoginForm() {
         if (data && data.errors) setErrors(data.errors);
       })
   }
+  const demo = e => {
+    e.preventDefault();
+    const credential = 'Demo-lition';
+    const password = 'password';
+    return dispatch(sessionActions.login({ credential, password })).then(() => history.push('/discover')
+    );
+  };
   return (
     <>
       <form className="sign-in-form" onSubmit={handleSubmit}>
@@ -48,10 +56,12 @@ function LoginForm() {
               required
             />
           </label>
-          <button type="submit"
-            className="sign-in-button"
-          >Sign in
-          </button>
+          <div style={{ textAlign: "center" }}>
+            <button type="submit" className="sign-in-button">Sign in</button>
+            or
+            <button className='sign-up-button-demo' onClick={demo}>Demo User</button>
+
+          </div>
         </div>
       </form>
     </>

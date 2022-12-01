@@ -38,48 +38,53 @@ export default function CreatePlaylist() {
 
     return (
         <div>
-            <div>
-                <h2>
-                    Create Playlist
-                </h2>
-                {hasSubmitted && validationErrors.length > 0 && (
-                    <div>
-                        <ul style={{ padding: '10px', color: 'red', listStyle: 'none', textAlign: 'center' }}>
-                            {validationErrors.map(error => (
-                                <li key={error}>{error}</li>
-                            ))}
-                        </ul>
-                    </div>
-                )}
+            <h2 className="create-album-title">
+                Create Playlist
+            </h2>
+            {hasSubmitted && validationErrors.length > 0 && (
                 <div>
-                    <form onSubmit={handleSubmit}>
+                    <ul style={{ padding: '10px', color: 'red', listStyle: 'none', textAlign: 'center' }}>
+                        {validationErrors.map(error => (
+                            <li key={error}>{error}</li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+            <div>
+                <form onSubmit={handleSubmit}>
+                    <div className="create-div">
+
                         <label className='required-field create-label'>
                             Name:
                             <input
                                 // maxLength={41}
-                                className=""
+                                className="create-input"
                                 type='text'
                                 // placeholder="Name"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                             />
                         </label>
-                        <label className='required-field create-label'>
+                        <label className='create-label'>
                             Image:
                             <input
                                 // maxLength={41}
-                                className=""
+                                className="create-input"
                                 type='text'
                                 // placeholder="Name"
                                 value={imageUrl}
                                 onChange={(e) => setPreviewImage(e.target.value)}
                             />
                         </label>
-                        <div>
-                            <button type="submit">Save</button>
+                    </div>
+                    <div className="button-container">
+                        <p className='required-field-end bottom-words'> Required fields</p>
+                        <div style={{ paddingRight: '5.9em' }}>
+                            <button className="save-create-button" type="submit">Save</button>
+                            {/* <button onClick={handleCancelClick} type="button">Cancel</button> */}
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
     )

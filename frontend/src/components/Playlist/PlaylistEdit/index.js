@@ -7,7 +7,7 @@ function UpdatePlaylistModal() {
 
     return (
         <>
-            <button onClick={() => setShowModal(true)}>
+            <button className='edit-model darker-border' onClick={() => setShowModal(true)}>
                 Edit Playlist
             </button>
             {showModal && (

@@ -24,7 +24,7 @@
     /* padding-right: 1.5em; */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     width: 14.5em;
     height: 21em;
     border-radius: 3px;
@@ -56,7 +56,7 @@
 .song-image {
     width: 100%;
     height: 100%;
-    position: relative;
+    /* position: relative; */
 }
 
 .song-button {
@@ -79,7 +79,7 @@
     opacity: 0;
 }
 
-.song-button:hover {
+.song-button-div:hover .song-button {
     position: relative;
     background-color: #f50;
     border: 0;
@@ -95,6 +95,36 @@
     background-size: 40% 60%;
     background-position: 60%;
     background-repeat: no-repeat;
+    transition: opacity .3s;
+    opacity: 1;
+}
+
+.song-button-div .song-button-add {
+    position: relative;
+    width: 4.5em;
+    height: 4.5em;
+    /* top: 15em; */
+    left: 11.2em;
+    bottom: 9em;
+    /* right: px; */
+    cursor: pointer;
+    content: "";
+    z-index: 1;
+    transition: opacity .3s;
+    opacity: 0;
+}
+
+.song-button-div:hover .song-button-add {
+    position: relative;
+    width: 4.5em;
+    height: 4.5em;
+    /* top: 15em; */
+    left: 11.2em;
+    bottom: 9em;
+    /* right: px; */
+    cursor: pointer;
+    content: "";
+    z-index: 1;
     transition: opacity .3s;
     opacity: 1;
 }

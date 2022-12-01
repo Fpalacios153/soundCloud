@@ -44,7 +44,7 @@ function App() {
             </Route>
             <Route path='/discover'>
               <AlbumBrowser />
-              <h2 className="allSongs">All Songs</h2>
+              {/* <h2 className="allSongs">All Songs</h2> */}
               <GetAllSongs />
             </Route>
             <Route path='/albums/:albumId'>

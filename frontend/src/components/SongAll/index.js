@@ -25,39 +25,41 @@ const GetAllSongs = () => {
     }, [dispatch])
     return (
         <>
-            <div className='allSongs-container'>
-                {/* <h2 className='allSAtitles'>{title}</h2> */}
+            <div className='currSong-container'>
+                <h2 className="allSongs">All Songs</h2>
                 <div className='song-container'>
-                    <ul >
-                        <div className='song-list'>
-                            {song.map((song) => (
-                                <div className='song-tiles' key={song.id} >
-                                    <div className='song-button-div'>
-                                        <button className='song-button' onClick={() => setSong(song)}></button>
-                                        <img className='song-image' style={{ height: '15em', width: '15em' }} src={song.previewImage} alt={song.title} onError={e => { e.currentTarget.src = missingImage }}
-                                        />
-                                        {sessionUser ? (
-                                            <NavLink className='remove-line' to={`/songs/${song.id}`} >
-                                                <div className="overflow-title-div" style={{ fontSize: '14px' }}>
-                                                    {song.title}
-                                                </div>
-                                            </NavLink>) :
-                                            // <div onClick={() => setSong(song)} >
+                    <div className='song-list'>
+                        {song.map((song) => (
+                            <div className='song-tiles' key={song.id} >
+                                <div className='song-button-div'>
+                                    <button className='song-button' onClick={() => setSong(song)}></button>
+                                    <img className='song-image'
+                                        style={{ height: '15em', width: '15em' }}
+                                        src={song.previewImage}
+                                        alt={song.title}
+                                        onError={e => { e.currentTarget.src = missingImage }}
+                                    />
+                                    {sessionUser ? (
+                                        <NavLink className='remove-line' to={`/songs/${song.id}`} >
                                             <div className="overflow-title-div" style={{ fontSize: '14px' }}>
                                                 {song.title}
                                             </div>
-                                            // </div>
-
-                                        }
-                                        <div style={{ height: '30px', width: '160px', fontSize: '12px', margin: 0 }} className="overflow-title-div" >
-                                            {song.Artist.name}
+                                        </NavLink>) :
+                                        // <div onClick={() => setSong(song)} >
+                                        <div className="overflow-title-div" style={{ fontSize: '14px' }}>
+                                            {song.title}
                                         </div>
-                                        <AddSongToPlaylistModal songId={song.id} />
+                                        // </div>
+
+                                    }
+                                    <div className="overflow-title-div" >
+                                        {song.Artist.name}
                                     </div>
+                                    <AddSongToPlaylistModal songId={song.id} />
                                 </div>
-                            ))}
-                        </div>
-                    </ul>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </>

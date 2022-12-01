@@ -1,6 +1,6 @@
 .upload-container {
     background: linear-gradient(0.25turn, #ff9626, #e58a02, #f50);
-    height: 58em;
+    height: 100vh;
 }
 
 .upload-subcontainer {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
@@ -18,6 +18,7 @@ import { useSongContext } from "./context/setSongContext";
 import PlaylistGet from "./components/Playlist/PlaylistGet/playlistGet";
 import LibraryPage from "./components/LibraryPage/Library";
 import PlaylistDetails from "./components/Playlist/PlaylistDetails.js/playlistDetails";
+import LandingPage from "./components/LandingPage/LandingPage";
 // import SelectUserAlbum from "./components/AlbumSelect/SelectAlbum";
 // import CreateAlbumModal from './components/AlbumCreate/index'
 // import { getSongByCurrentUser } from './store/songs'
@@ -25,6 +26,8 @@ import PlaylistDetails from "./components/Playlist/PlaylistDetails.js/playlistDe
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  const currentUser = useSelector(state => state.session.user);
+
   const { song } = useSongContext()
   useEffect(() => {
     dispatch(sessionActions.restoreUser())
@@ -33,55 +36,38 @@ function App() {
       .then(() => setIsLoaded(true));
   }, [dispatch]);
 
+  const Home = () => {
+    if (currentUser) {
+      return (
+        <>
+          {/* <Redirect to='/businesses' /> */}
+          <LandingPage sessionUser={currentUser} />
+        </>
+      )
+    } else {
+      return (
+        <>
+          <HomePage />
+        </>
+      )
+    }
+  }
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
-      <div className="app">
+      {/* <Navigation isLoaded={isLoaded} /> */}
+      <div>
         {isLoaded && (
           <Switch>
             <Route exact path='/'>
-              <HomePage />
+              <Home />
             </Route>
-            <Route path='/discover'>
-              <AlbumBrowser />
-              {/* <h2 className="allSongs">All Songs</h2> */}
-              <GetAllSongs />
-            </Route>
-            <Route path='/albums/:albumId'>
-              <AlbumView />
-            </Route>
-            <Route path='/songs/:songId'>
-              <SongDetails />
-            </Route>
-            <Route path='/playlists/:playlistId'>
-              <PlaylistDetails />
-            </Route>
-            <Route path='/upload'>
-              <UploadHolder />
+            {/* <Route path='/discover'>
+              <LandingPage />
+            </Route> */}
+            <Route>
+              <Home />
             </Route>
 
-            {/* library Routes */}
-            <Route path='/you/library'>
-              <LibraryPage />
-              {/* <UsersAlbums />
-              <UsersSongs />
-              <PlaylistGet /> */}
-            </Route>
-            {/* <Route path='/you/overview'>
-              <LibraryPage />
-            </Route> */}
-            <Route path='/you/albums'>
-              <LibraryPage />
-            </Route>
-            <Route path='/you/songs'>
-              <LibraryPage />
-            </Route>
-            <Route path='/you/playlists'>
-              <LibraryPage />
-            </Route>
-            <Route>
-              <h1>Page Not Found</h1>
-            </Route>
           </Switch>
         )}
       </div>

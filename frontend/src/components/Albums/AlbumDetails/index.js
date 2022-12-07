@@ -72,7 +72,7 @@ function AlbumView() {
                                 <ul key={song.id}  >
                                     <li className='song-list-points'>
                                         <div className="song-list-container">
-                                            <div>
+                                            <div className="song-button-img-container">
                                                 <button className="small-button" onClick={() => setSong(song)}></button>
                                                 <img style={{ height: '2.8em', width: '2.8em', padding: '1px' }} src={song.previewImage} alt={song.title}
                                                     onError={e => { e.currentTarget.src = missingImage }}
@@ -90,8 +90,8 @@ function AlbumView() {
                         </div>
 
 
-                        <div style={{ fontWeight: 150, fontSize: '14px' }}>
-                        </div>
+                        {/* <div style={{ fontWeight: 150, fontSize: '14px' }}>
+                        </div> */}
 
                     </div>
                 </div>

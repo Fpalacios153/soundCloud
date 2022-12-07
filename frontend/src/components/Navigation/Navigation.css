@@ -5,23 +5,21 @@
   justify-content: space-around;
   align-content: center;
   background: #333;
-  /* padding-right: 10px; */
   font-family: Interstate, Lucida Grande, Arial, sans-serif;
   font-weight: 100;
   font-size: 14px;
   line-height: 1.5;
   cursor: pointer;
+  margin: 0;
 }
 
 .mainNav a {
   display: flex;
   align-items: center;
-  /* justify-content: center; */
   text-decoration: none;
   color: #999;
   padding: 0px 2.5em;
-  /* border-right: white 1px solid; */
-  /* width: 50%; */
+
 }
 
 .mainNav a:hover {
@@ -31,7 +29,6 @@
 
 /* .mainNav a:focus {
   background-color: #111111;
-
 } */
 
 .logo-after-login {
@@ -47,9 +44,9 @@
 
 .mainHeader {
   color: #999;
-  margin-top: -4px;
+  /* margin-top: -4px;
   margin-left: -4px;
-  margin-right: -4px;
+  margin-right: -4px; */
 }
 
 .navLogo {

@@ -2,24 +2,19 @@
 html {
 
     background-color: hsl(0, 0%, 94%);
-    /* background-color: hsl(0, 7%, 95%); */
-    /* height: max-content */
-    /* overflow-x: hidden; */
-    /* overflow-y: scroll; */
-    /* width: 100%; */
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    /* margin: 0; */
 }
 
 .app {
-    /* overflow-x: hidden;
-    overflow-y: scroll; */
+
     background-color: white;
     width: 90%;
     height: 100%;
-    /* min-height: 500px; */
     min-height: 90vh;
     margin: auto;
-    /* padding-bottom: 17.5em; */
+    /* padding-bottom: 1em; */
     font: 12px/1.4 Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
     color: #333;
     font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
@@ -27,9 +22,9 @@ html {
 }
 
 body {
-    margin: 0;
+    margin: 0px;
     width: 100%;
-    height: 100%;
+    height: 90%;
 
 
 }

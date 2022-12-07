@@ -55,24 +55,29 @@ function App() {
   return (
     <>
       {/* <Navigation isLoaded={isLoaded} /> */}
-      <div>
-        {isLoaded && (
-          <Switch>
-            <Route exact path='/'>
-              <Home />
-            </Route>
-            {/* <Route path='/discover'>
+      {isLoaded && (
+        <Switch>
+          <Route exact path='/'>
+            <Home />
+          </Route>
+          {/* <Route path='/discover'>
               <LandingPage />
             </Route> */}
-            <Route>
-              <Home />
-            </Route>
+          <Route>
+            <Home />
+          </Route>
 
-          </Switch>
-        )}
-      </div>
+        </Switch>
+      )}
       <div className="audio-holder">
-        {/* <div className='audio-tile'>
+        <AudioPlayers />
+      </div>
+    </>
+  );
+}
+
+export default App;
+{/* <div className='audio-tile'>
           {song && (
             <div className='currently-playing'>
               <img style={{ width: '2em', height: '2em' }} src={song.previewImage} />
@@ -82,10 +87,3 @@ function App() {
             </div>
           )}
         </div> */}
-        <AudioPlayers />
-      </div>
-    </>
-  );
-}
-
-export default App;

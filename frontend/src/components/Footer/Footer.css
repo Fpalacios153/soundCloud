@@ -2,12 +2,32 @@
     background-color: aqua;
     display: flex;
     justify-content: space-around;
+    padding: 10px;
 }
 
 .splash-about-container {
     background-color: red;
+    width: 50%;
+    text-align: center;
 }
 
 .splash-discover-container {
     background-color: orange;
+    text-align: center;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.splash-github-link {
+    display: flex;
+    flex-direction: column;
+}
+
+.splashProfileIcons {
+    background-color: aliceblue;
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
 }

@@ -1,0 +1,13 @@
+.bottom-container-footer {
+    background-color: aqua;
+    display: flex;
+    justify-content: space-around;
+}
+
+.splash-about-container {
+    background-color: red;
+}
+
+.splash-discover-container {
+    background-color: orange;
+}

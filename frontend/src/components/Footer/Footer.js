@@ -3,7 +3,7 @@ export default function Footer() {
 
     return (
         <>
-            <div className="bottom-container">
+            <div className="bottom-container-footer">
                 <div className="splash-about-container">
                     <h2>About Help!</h2>
                     <div className='splash-github-link'>
@@ -23,7 +23,6 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
-
         </>
     )
 }

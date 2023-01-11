@@ -1,5 +1,6 @@
 import { Route, Switch } from 'react-router-dom';
 import DemoUser from '../DemoUser';
+import Footer from '../Footer/Footer';
 import LoginFormModal from '../ModalLoginForm';
 import SignupFormModal from '../ModalSignupForm';
 import GetAllSongs from '../SongAll';
@@ -58,11 +59,12 @@ export const HomePage = () => {
                         <SignupFormModal />
                     </span>
                     {/* <div className='bottom-login'>
-                    Already have an account?
-                    <LoginFormModal />
-                </div> */}
-                    <div style={{ border: 'solid 1px black' }}></div>
+                        Already have an account?
+                        <LoginFormModal />
+                    </div> */}
+                    {/* <div style={{ border: 'solid 1px black' }}></div> */}
                 </div>
+                <Footer />
             </div>
         </>
 

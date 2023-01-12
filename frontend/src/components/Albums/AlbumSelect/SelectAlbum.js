@@ -26,7 +26,7 @@ export default function SelectUserAlbum() {
 
     return (
         <>
-            <div className='allAlbum-container'>
+            <div className='select-album-container'>
                 {albums.length > 0 && (<h2 className="allSAtitles" style={{ margin: 'auto', paddingTop: '1em' }}>Select Album to Add Song</h2>)}
                 <div className='curr-album-container'
                     style={{

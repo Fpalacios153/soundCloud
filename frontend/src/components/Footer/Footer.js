@@ -3,27 +3,42 @@ export default function Footer() {
 
     return (
         <>
-            <div className="bottom-container">
-                <div className="splash-about-container">
-                    <h2>About Help!</h2>
-                    <div className='splash-github-link'>
-                        <a className='github-links' href='https://github.com/Fpalacios153/Yelp-clone-capstone' rel="noreferrer" target='_blank'>CodeBase</a>
-                        <a className='github-links' href='https://github.com/Fpalacios153/Yelp-clone-capstone/blob/main/README.md' rel="noreferrer" target='_blank'>README</a>
+            <div className='center-footer'>
+                <div className="bottom-container-footer">
+
+                    <div className="splash-about-container">
+                        <h1 className='footer-titles'>About CloudSounds</h1>
+                        <div className='splash-github-link'>
+                            <span>
+                                <a className='github-links' href="https://github.com/Fpalacios153/soundCloud" rel="noreferrer" target='_blank'>
+                                    CodeBase
+                                </a>
+                                &nbsp;⁃ &nbsp;
+                            </span>
+                            <a className='github-links' href='https://github.com/Fpalacios153/soundCloud/blob/main/README.md' rel="noreferrer" target='_blank'>
+                                README</a>
+                        </div>
                     </div>
-                </div>
-                <div className="splash-discover-container">
-                    <h2>Discover</h2>
-                    <div className='splashProfileIcons'>
-                        <a href='https://github.com/Fpalacios153' rel="noreferrer" target="_blank">
-                            <i className="fa-brands fa-square-github devLinks fa-4x"></i>
-                        </a>
-                        <a href="www.linkedin.com/in/francisco-palacios-783619253" rel="noreferrer" target="_blank">
-                            <i className="fa-brands fa-linkedin devLinks fa-4x"></i>
-                        </a>
+                    <div className='splash-about-container'>
+                        <h1 className='footer-titles'>About Developer</h1>
+                        <div className='splash-github-link'>
+                            <span>
+                                <a className='github-links' href='https://github.com/Fpalacios153' rel="noreferrer" target="_blank">
+                                    {/* <i className="fa-brands fa-square-github devLinks fa-4x"></i> */}
+                                    Github
+
+                                </a>
+                                &nbsp;⁃&nbsp;
+                            </span>
+                            <a className='github-links' href="https://www.linkedin.com/in/francisco-palacios-783619253/" rel="noreferrer" target="_blank">
+                                {/* <i className="fa-brands fa-linkedin devLinks fa-4x"></i> */}
+                                Linkedin
+                            </a>
+
+                        </div>
                     </div>
                 </div>
             </div>
-
         </>
     )
 }

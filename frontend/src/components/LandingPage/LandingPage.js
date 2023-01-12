@@ -1,6 +1,7 @@
 import { NavLink, Route, Switch } from "react-router-dom";
 import AlbumView from "../Albums/AlbumDetails";
 import AlbumBrowser from "../Albums/AlbumsAll";
+import Footer from "../Footer/Footer";
 import LibraryPage from "../LibraryPage/Library";
 import ProfileButton from "../Navigation/ProfileButton";
 import PlaylistDetails from "../Playlist/PlaylistDetails.js/playlistDetails";
@@ -71,6 +72,8 @@ export default function LandingPage({ sessionUser }) {
                     </Route>
 
                 </Switch>
+
+                <Footer />
             </div>
         </>
     )

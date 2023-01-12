@@ -27,7 +27,6 @@ export const HomePage = () => {
                 </div>
             </div>
             <div className='app'>
-
                 <div className='app-Container'>
                     <div className='center'>
                     </div>

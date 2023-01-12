@@ -22,7 +22,7 @@ const AlbumBrowser = () => {
 
     return (
         <>
-            <div className="allAlbum-container">
+            <div className="album-container">
                 <h2 className="allSAtitles">All Albums</h2>
                 <div className="album-container">
                     <ul>

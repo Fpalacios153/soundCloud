@@ -20,6 +20,7 @@
     flex-wrap: wrap;
     padding-left: 3em;
     padding-right: 2.8em;
+    min-height: 82vh;
 }
 
 .playlist-container {

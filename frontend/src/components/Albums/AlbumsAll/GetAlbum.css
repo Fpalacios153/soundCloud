@@ -7,11 +7,22 @@
     padding-left: 3.2em;
 }
 
+.album-container {
+    display: flex;
+    height: 350px;
+    width: 100%;
+    flex-direction: column;
+    /* min-height: 82vh; */
+
+}
+
 .allAlbum-container {
     display: flex;
     height: 350px;
     width: 100%;
     flex-direction: column;
+    min-height: 82vh;
+
 }
 
 .album-list {

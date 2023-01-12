@@ -28,3 +28,11 @@
     width: 100%;
 
 }
+
+.select-album-container {
+    display: flex;
+    height: 350px;
+    width: 100%;
+    flex-direction: column;
+
+}

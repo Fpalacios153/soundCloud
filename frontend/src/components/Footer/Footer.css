@@ -1,76 +1,44 @@
 .center-footer {
     padding: 10px;
+    position: relative;
+    top: 90%
 }
+
+
 
 .bottom-container-footer {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
     border-top: 1px solid #f2f2f2;
     padding-top: 10px;
     width: 95%;
     margin: auto;
 }
 
-.footer-title-holder {
-    display: flex;
-    justify-content: space-between;
-}
-
 .splash-about-container {
-    width: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     text-align: center;
     font: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
+    padding-right: 20px;
+}
+
+.footer-titles {
+    font-weight: 100;
 }
 
 .splash-github-link {
     display: flex;
-    /* flex-direction: column; */
-}
-
-.splash-discover-container {
-    /* width: 100%; */
-    display: flex;
-    align-items: baseline;
-    text-align: center;
-    font: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
+    color: rgb(190, 189, 189);
+    padding: 5px 0 5px;
 }
 
 .github-links {
     text-decoration: none;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 100;
     color: rgb(190, 189, 189);
 }
 
 .github-links:hover {
-
     color: #999;
 }
-
-.add-after::after {
-    content: ' · ';
-}
-
-/* .splash-discover-container {
-    background-color: orange;
-    text-align: center;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} */
-
-/* .splash-github-link {
-    display: flex;
-    flex-direction: column;
-} */
-/*
-.splashProfileIcons {
-    background-color: aliceblue;
-    display: flex;
-    justify-content: space-evenly;
-    width: 50%;
-} */

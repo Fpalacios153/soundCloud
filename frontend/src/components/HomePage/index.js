@@ -46,7 +46,7 @@ export const HomePage = () => {
                             <div style={{ fontWeight: '100', fontSize: '36px' }}>
                                 Thanks for listening. Now join in</div>
                         </div>
-                        <div className='thanks' style={{ fontWeight: '100', fontSize: '24px' }}>Save tracks, follow artists and build playlists. All for free.</div>
+                        <div className='thanks' style={{ fontWeight: '100', fontSize: '24px' }}>Upload tracks, comment on tracks and build playlists. All for free.</div>
                     </div>
                     <span className='bottom-signup'>
                         <SignupFormModal top={false} />

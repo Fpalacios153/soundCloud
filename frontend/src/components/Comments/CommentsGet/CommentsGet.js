@@ -16,8 +16,10 @@ export default function CommentsGet({ song }) {
     useEffect(() => {
         dispatch(getSongComments(song.id)).then(() => setIsLoaded(true))
     }, [])
-
-    const numberOfComments = commentsArr.length + 1
+    let numberOfComments;
+    if (commentsArr.length > 0) {
+        numberOfComments = commentsArr.length + 1
+    } else numberOfComments = 0
 
     const changeDate = (data) => {
         const date = new Date(data)

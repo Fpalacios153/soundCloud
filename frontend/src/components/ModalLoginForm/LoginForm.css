@@ -1,5 +1,4 @@
 .signup {
-  padding: 2px 16px;
   height: 30px;
   line-height: 24px;
   margin: 8px 0 0 6px;
@@ -56,4 +55,24 @@
   color: red;
   list-style: none;
   /* padding-bottom: 10px; */
+}
+
+.signup-bottom {
+  height: 38px;
+  line-height: 24px;
+  margin: 8px 0 0 6px;
+  background: transparent;
+  color: #333;
+  padding: 4px 20px 4px 20px;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  white-space: nowrap;
+  font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
+  font-weight: 100;
+}
+
+.signup-bottom:hover {
+  border-color: #999;
 }

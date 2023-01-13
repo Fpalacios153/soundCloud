@@ -44,4 +44,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 18px;
+}
+
+.bottom-login-text {
+    padding-top: 9px;
 }

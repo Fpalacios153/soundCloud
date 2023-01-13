@@ -10,7 +10,7 @@ const CreateSong = ({ createNew, setCreateNew }) => {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [imageUrl, setPreviewImage] = useState('')
-    const [url, setSelectedFile] = useState('')
+    const [url, setSelectedFile] = useState(null)
     const [validationErrors, setValidationErrors] = useState([])
     const [hasSubmitted, setHasSubmitted] = useState(false)
 
@@ -21,8 +21,8 @@ const CreateSong = ({ createNew, setCreateNew }) => {
         const error = []
         if (!title.length) error.push('Song title is required')
         if (title.length > 40) error.push('Song title must be less than 40 characters')
-        if (!url.length) error.push('Audio is required')
-        if (!url.endsWith('.mp3')) error.push('Audio file must be in mp3 format')
+        // if (!url.length) error.push('Audio is required')
+        // if (!url.endsWith('.mp3')) error.push('Audio file must be in mp3 format')
         if (!imageUrl.includes('.png') && !imageUrl.includes('.jpeg') && !imageUrl.includes('.jpg')) error.push('Image must be in jpeg, jpg or png format')
         if (description.length > 255) error.push('Description can only be 255 characters long')
 
@@ -39,34 +39,17 @@ const CreateSong = ({ createNew, setCreateNew }) => {
             imageUrl,
             url
         }
-        // if (!song.imageUrl.length) { return setPreviewImage('https://res.cloudinary.com/fpalacios153/image/upload/v1659330814/Screen_Shot_2022-07-31_at_10.12.51_PM_npyums.png') }
         if (!validationErrors.length) {
 
             let createdSong = await dispatch(createSong(song, albumId))
 
             if (createdSong) { history.push(`/songs/${createdSong.id}`) }
         }
-
-        // if (!title.length || !url.length) {
-        //     setValidationErrors([]);
-        //     return dispatch(createSong(song, albumId))
-        //         .catch(async (res) => {
-        //             const data = await res.json();
-        //             if (data && data.errors) setValidationErrors(data.errors)
-        //         })
-        // }
-        // if (title.length && url.length) {
-        //     setValidationErrors([]);
-        //     return dispatch(createSong(song, albumId)).then(() => history.push(`/you/library`))
-        //     history.push(`/you/library`)
-        // }
     }
-
-
-    // const handleCancelClick = (e) => {
-    //     e.preventDefault();
-    //     // history.push('/')
-    // };
+    const updateFile = (e) => {
+        const file = e.target.files[0];
+        if (file) setSelectedFile(file);
+    };
     return (
         <>
             <div className="create-album-container">
@@ -99,10 +82,13 @@ const CreateSong = ({ createNew, setCreateNew }) => {
                             <input
                                 className="create-input"
                                 // className="audio"
-                                placeholder="Accepted file types: mp3"
-                                type='text'
-                                value={url}
-                                onChange={(e) => setSelectedFile(e.target.value)}
+                                // placeholder="Accepted file types: mp3"
+                                type='file'
+                                // value={url}
+                                onChange={
+                                    updateFile
+                                    // (e) => setSelectedFile(e.target.value)
+                                }
                             />
                         </label>
                         <label className='required-field create-label'>

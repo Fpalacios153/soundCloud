@@ -35,7 +35,7 @@ function SongDetails() {
         e.preventDefault();
         await dispatch(deleteSong(song.id))
         await setSong(null)
-        await history.push('/you/library')
+        await history.push('/you/songs')
     };
     // if (!song && song.Artist) return null
 

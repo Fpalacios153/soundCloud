@@ -27,7 +27,7 @@ function AlbumView() {
     const Delete = async (e) => {
         e.preventDefault();
         await dispatch(deleteAlbum(albumId))
-        await history.push('/you/library')
+        await history.push('/you/albums')
     }
     if (!album && album.Songs) return null
     return (

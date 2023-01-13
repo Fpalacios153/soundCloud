@@ -82,6 +82,8 @@
 .description-comments-container {
     width: 80%;
     padding-left: 3em;
+    min-height: 56vh;
+
 }
 
 .description-container {

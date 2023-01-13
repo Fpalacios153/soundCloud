@@ -72,11 +72,22 @@ export const getSongByCurrentUser = () => async dispatch => {
 }
 //create songs
 export const createSong = (song, albumId) => async dispatch => {
+    const { title, description, url, previewImage } = song
+    const formData = new FormData()
+
+    formData.append("title", title)
+    formData.append("description", description)
+    formData.append("previewImage", previewImage)
+    if (url) formData.append("audio", url);
+
     const response = await csrfFetch(`/api/songs/${albumId}`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(song)
+        headers: {
+            "Content-Type": "multipart/form-data",
+        },
+        body: formData,
     })
+
     if (response.ok) {
         const song = await response.json();
         dispatch(create(song));

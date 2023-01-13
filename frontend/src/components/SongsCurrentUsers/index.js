@@ -48,7 +48,7 @@ export default function UsersSongs() {
                     <div className='current-titles'>User has no Songs</div>
                 )}
                 <div className='song-container'>
-                    <div className='song-list'>
+                    <div className='song-list screen-adjustment'>
                         {isLoaded && songs.length > 0 && songs.map(song => (
                             <div className='song-tiles' key={song.id} >
                                 <div className='song-button-div'>

@@ -26,7 +26,7 @@ const AlbumBrowser = () => {
                 <h2 className="allSAtitles">All Albums</h2>
                 <div className="album-container">
                     <ul>
-                        <div className="album-list">
+                        <div className="album-list ">
                             {albums.map(album => (
                                 <li className='album-tiles' key={album.id}>
                                     <NavLink className='remove-line' to={`/albums/${album.id}`} key={album.id}>

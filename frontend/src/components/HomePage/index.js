@@ -27,7 +27,7 @@ export const HomePage = () => {
                 </div>
             </div>
             <div className='app'>
-                <div className='app-Container'>
+                <div className='app-Container screen-adjustment'>
                     <div className='center'>
                     </div>
                     <div className='trendingTracks'>

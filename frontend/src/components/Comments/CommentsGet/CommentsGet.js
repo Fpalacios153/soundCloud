@@ -64,12 +64,9 @@ export default function CommentsGet({ song }) {
                     </div>
 
                     <div className="comments-time-button-container">
-
-
                         {changeDate(comment.createdAt)}
 
                         {currentUser.id === comment.userId ? (
-
                             <>
                                 <div>
                                     <UpdateCommentModal commentId={comment.id} />

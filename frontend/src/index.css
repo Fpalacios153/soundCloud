@@ -33,3 +33,8 @@ body {
     font-weight: 100;
     padding-left: 2em;
 }
+
+.border-top {
+    border: 1px solid #f2f2f2;
+
+}

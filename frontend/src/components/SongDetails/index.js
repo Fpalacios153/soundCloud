@@ -70,7 +70,7 @@ function SongDetails() {
                             <CommentCreate songId={songId} />
                             {!sessionUser ? (<NavLink to='/'>Back to home page</NavLink>) :
                                 song && song.Artist && sessionUser.id === song.Artist.userId && (
-                                    <div>
+                                    <div className="edit-delete-song-container">
                                         <button className="delete-button" onClick={songDelete}>
                                             <i className="fa fa-trash" aria-hidden="true"></i>
                                             Delete

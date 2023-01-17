@@ -18,7 +18,7 @@ export default function CommentsGet({ song }) {
     }, [])
     let numberOfComments;
     if (commentsArr.length > 0) {
-        numberOfComments = commentsArr.length + 1
+        numberOfComments = commentsArr.length
     } else numberOfComments = 0
 
     const changeDate = (data) => {

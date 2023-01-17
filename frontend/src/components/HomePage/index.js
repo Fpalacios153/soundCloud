@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import DemoUser from '../DemoUser';
 import Footer from '../Footer/Footer';
@@ -8,6 +9,7 @@ import SongDetails from '../SongDetails';
 import './HomePage.css'
 
 export const HomePage = () => {
+    const [bottomLogin, setBottomLogin] = useState(false)
 
     return (
         <>
@@ -20,14 +22,14 @@ export const HomePage = () => {
                         </div>
                         <div className='leftNav'>
                             <DemoUser />
-                            <LoginFormModal />
-                            <SignupFormModal />
+                            <LoginFormModal whichLogin={true} />
+                            <SignupFormModal top={true} />
                         </div>
                     </div>
                 </div>
             </div>
             <div className='app'>
-                <div className='app-Container'>
+                <div className='app-Container screen-adjustment'>
                     <div className='center'>
                     </div>
                     <div className='trendingTracks'>
@@ -39,29 +41,22 @@ export const HomePage = () => {
                             <GetAllSongs />
                         </div>
                     </div>
-
-                    {/* <div className='github-containter'>
-                    <div >
-                    <div>
-                    Never Stop listening
-                    </div>
-                    </div>
-                </div> */}
                     <div className='bottom-container'>
                         <div className='thanks'>
                             <div style={{ fontWeight: '100', fontSize: '36px' }}>
                                 Thanks for listening. Now join in</div>
                         </div>
-                        <div className='thanks' style={{ fontWeight: '100', fontSize: '24px' }}>Save tracks, follow artists and build playlists. All for free.</div>
+                        <div className='thanks' style={{ fontWeight: '100', fontSize: '24px' }}>Upload tracks, comment on tracks and build playlists. All for free.</div>
                     </div>
                     <span className='bottom-signup'>
-                        <SignupFormModal />
+                        <SignupFormModal top={false} />
                     </span>
-                    {/* <div className='bottom-login'>
-                        Already have an account?
-                        <LoginFormModal />
-                    </div> */}
-                    {/* <div style={{ border: 'solid 1px black' }}></div> */}
+                    <div className='bottom-login'>
+                        <div className='bottom-login-text'>
+                            Already have an account?
+                        </div>
+                        <LoginFormModal whichLogin={false} />
+                    </div>
                 </div>
                 <Footer />
             </div>

@@ -81,7 +81,9 @@
 
 .description-comments-container {
     width: 80%;
-    padding-left: 3em;
+    padding-left: 1em;
+    min-height: 56vh;
+
 }
 
 .description-container {
@@ -97,4 +99,11 @@
 
 .bottom-artist-title {
     padding-left: 5px;
+    /* padding-right: 18px; */
+    /* background-color: #f50; */
+    width: 9%;
+}
+
+.edit-delete-song-container {
+    padding-left: 4.5em;
 }

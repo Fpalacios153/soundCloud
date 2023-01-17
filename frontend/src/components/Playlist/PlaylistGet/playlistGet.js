@@ -26,11 +26,11 @@ export default function PlaylistGet() {
                         <CreatePlaylistModal />
                     </div>
                 </div>
-                <div className="playlist-item-container">
+                <div className="playlist-item-container screen-adjustment">
                     {playistArr.map(playlist => (
                         <NavLink key={playlist.id} className='remove-line' to={`/playlists/${playlist.id}`}>
 
-                            <div className='playlist-container' key={playlist.id}>
+                            <div className='song-tiles' key={playlist.id}>
                                 <img
                                     className="playlist-image"
                                     src={playlist.previewImage}

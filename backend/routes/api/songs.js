@@ -6,23 +6,26 @@ const { Artist } = require('../../db/models');
 const { requireAuth, isAuthorized, isAuthorizedSong } = require('../../utils/auth');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
+const { singlePublicFileUpload, singleMulterUpload } = require('../../awsS3')
+const asyncHandler = require('express-async-handler')
+
 
 
 const router = express.Router();
 
-const validateSongs = [
-    check('title')
-        .exists({ checkFalsy: true })
-        .withMessage('Song title is required'),
-    check('url')
-        .exists({ checkFalsy: true })
-        // .isLength({ min: 4 })
-        .withMessage('Audio is required'),
-    // check('imageUrl')
-    //     .endsWith('.jpeg' || '.png')
-    //     .withMessage('Must be a jpeg or png file'),
-    handleValidationErrors
-]
+// const validateSongs = [
+//     check('title')
+//         .exists({ checkFalsy: true })
+//         .withMessage('Song title is required'),
+//     // check('url')
+//     //     .exists({ checkFalsy: true })
+//     //     // .isLength({ min: 4 })
+//     //     .withMessage('Audio is required'),
+//     // check('imageUrl')
+//     //     .endsWith('.jpeg' || '.png')
+//     //     .withMessage('Must be a jpeg or png file'),
+//     handleValidationErrors
+// ]
 
 router.get('/user', requireAuth, async (req, res) => {
     const { user } = req;
@@ -74,25 +77,33 @@ router.get('/:songId', async (req, res) => {
     res.json(songById)
 })
 
-router.post('/:albumId', validateSongs, requireAuth, isAuthorized, async (req, res) => {
+router.post('/:albumId',
+    // validateSongs,
+    requireAuth,
+    isAuthorized,
+    singleMulterUpload("audio"),
+    asyncHandler(async (req, res) => {
+        let { albumId } = req.params
+        let { title, description, imageUrl } = req.body
+        const songFile = await singlePublicFileUpload(req.file)
 
-    let { albumId } = req.params
-    let { title, description, imageUrl, url } = req.body
+        const album = await Album.findByPk(albumId);
 
-    const album = await Album.findByPk(albumId);
-    const artist = album.artistId
-    const songInAlbum = await album.createSong({
-        title,
-        description,
-        url,
-        previewImage: imageUrl, //added this to check later
-        artistId: artist
+        const artist = album.artistId
+
+        const songInAlbum = await album.createSong({
+            title,
+            description,
+            url: songFile,
+            previewImage: imageUrl, //added this to check later
+            artistId: artist
+        })
+
+        res.json(songInAlbum)
     })
+)
 
-    res.json(songInAlbum)
-})
-
-router.put('/:songId', validateSongs, requireAuth, isAuthorizedSong, async (req, res) => {
+router.put('/:songId', requireAuth, isAuthorizedSong, async (req, res) => {
 
     let { title, description, url, imageUrl } = req.body
     let { songId } = req.params

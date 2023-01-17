@@ -35,7 +35,7 @@ function SongDetails() {
         e.preventDefault();
         await dispatch(deleteSong(song.id))
         await setSong(null)
-        await history.push('/you/library')
+        await history.push('/you/songs')
     };
     // if (!song && song.Artist) return null
 
@@ -70,7 +70,7 @@ function SongDetails() {
                             <CommentCreate songId={songId} />
                             {!sessionUser ? (<NavLink to='/'>Back to home page</NavLink>) :
                                 song && song.Artist && sessionUser.id === song.Artist.userId && (
-                                    <div>
+                                    <div className="edit-delete-song-container">
                                         <button className="delete-button" onClick={songDelete}>
                                             <i className="fa fa-trash" aria-hidden="true"></i>
                                             Delete

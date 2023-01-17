@@ -43,6 +43,7 @@
     width: 70%;
     padding-left: 100px;
     padding-top: 20px;
+    min-height: 56vh;
 }
 
 .add-song-playlist-container {

@@ -1,7 +1,7 @@
 .entire-comments-container {
     display: flex;
     flex-direction: column;
-    /* padding-left: 3em; */
+    /* padding-left: 1em; */
 }
 
 .comments-title-container {

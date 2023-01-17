@@ -15,6 +15,7 @@ const app = express();
 
 app.use(morgan('dev'));
 app.use(cookieParser());
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // Security Middleware
@@ -28,18 +29,18 @@ app.use(
   helmet.crossOriginResourcePolicy({
     policy: "cross-origin"
   })
-  );
+);
 
-  // Set the _csrf token and create req.csrfToken method
+// Set the _csrf token and create req.csrfToken method
 app.use(
-    csurf({
-      cookie: {
-        secure: isProduction,
-        sameSite: isProduction && "Lax",
-        httpOnly: true
-      }
-    })
-    );
+  csurf({
+    cookie: {
+      secure: isProduction,
+      sameSite: isProduction && "Lax",
+      httpOnly: true
+    }
+  })
+);
 app.use(routes);
 
 //Catch unhandled requests and forward to error handler.

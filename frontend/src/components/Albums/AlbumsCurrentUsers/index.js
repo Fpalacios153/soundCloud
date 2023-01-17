@@ -22,8 +22,8 @@ export default function UsersAlbums() {
     return (
         <>
 
-            <div className='allAlbum-container'>
-                <h2 className='allSAtitles'>My Albums</h2>
+            <h2 className='allSAtitles'>My Albums</h2>
+            <div className='allAlbum-container screen-adjustment'>
                 {!albums.length && (
                     <div className='current-titles'>User has no Albums</div>
                 )}

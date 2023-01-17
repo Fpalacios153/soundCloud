@@ -1,18 +1,18 @@
 .album-tiles {
     width: 13.2em;
-    /* height: 150px; */
     border-radius: 3px;
     background-size: contain;
     list-style-type: none;
-    padding-left: 3.2em;
+    padding: 1em;
 }
+
 
 .album-container {
     display: flex;
-    height: 350px;
+    overflow-x: auto;
+    overflow-y: hidden;
     width: 100%;
     flex-direction: column;
-    /* min-height: 82vh; */
 
 }
 
@@ -29,18 +29,12 @@
     display: flex;
     justify-content: 'center';
     align-items: center;
-    padding-left: 9px;
+    /* padding-left: 9px; */
+    padding-left: 3.2em;
+
 
 }
 
-.album-container {
-    overflow-x: auto;
-    overflow-y: hidden;
-
-    height: 280px;
-    width: 100%;
-    /* flex-wrap: wrap; */
-}
 
 .allSAtitles {
     font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;

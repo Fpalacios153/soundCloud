@@ -27,7 +27,7 @@ function AlbumView() {
     const Delete = async (e) => {
         e.preventDefault();
         await dispatch(deleteAlbum(albumId))
-        await history.push('/you/library')
+        await history.push('/you/albums')
     }
     if (!album && album.Songs) return null
     return (
@@ -70,7 +70,7 @@ function AlbumView() {
                         <div className='song-list-table'>
                             {album && album.Songs && album.Songs.map((song, i) => (
                                 <ul key={song.id}  >
-                                    <li className='song-list-points'>
+                                    <li className='song-list-points border-top'>
                                         <div className="song-list-container">
                                             <div className="song-button-img-container">
                                                 <button className="small-button" onClick={() => setSong(song)}></button>

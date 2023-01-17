@@ -20,15 +20,28 @@
     flex-wrap: wrap;
     padding-left: 3em;
     padding-right: 2.8em;
-    min-height: 82vh;
+    /* min-height: 82vh; */
 }
 
 .playlist-container {
-    padding: 8px;
-
+    padding: 1em;
 }
 
 .playlist-image {
     width: 15em;
     height: 15em;
+}
+
+@media only screen and (max-width: 1440px) {
+    .screen-adjustment {
+        /* background-color: aqua; */
+        min-height: 59vh;
+    }
+}
+
+@media only screen and (min-width: 1441px) {
+    .screen-adjustment {
+        /* background-color: red; */
+        min-height: 75vh;
+    }
 }

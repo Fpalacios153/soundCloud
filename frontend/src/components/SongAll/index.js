@@ -29,7 +29,7 @@ const GetAllSongs = () => {
                 {sessionUser ? (
                     <h2 className="allSongs">All Songs</h2>) : null}
                 <div className='song-container'>
-                    <div className='song-list'>
+                    <div className='song-list screen-adjustment'>
                         {song.map((song) => (
                             <div className='song-tiles' key={song.id} >
                                 <div className='song-button-div'>

@@ -12,7 +12,7 @@ const EditAlbum = ({ setShowModal }) => {
     // const history = useHistory()
     const [title, setTitle] = useState(album.title)
     const [description, setDescription] = useState(album.description)
-    const [imageUrl, setPreviewImage] = useState(album.previewImage)
+    const [previewImage, setPreviewImage] = useState(album.previewImage)
     const [validationErrors, setValidationErrors] = useState('')
     const [hasSubmitted, setHasSubmitted] = useState(false)
 
@@ -22,11 +22,11 @@ const EditAlbum = ({ setShowModal }) => {
         if (!title.length) errors.push('Title required')
         if (title.length > 40) errors.push('Song title must be less than 40 characters')
 
-        if (!imageUrl.includes('.png') && !imageUrl.includes('.jpeg') && !imageUrl.includes('.jpg')) errors.push('Image must be in jpeg, jpg or png format')
+        // if (!imageUrl.includes('.png') && !imageUrl.includes('.jpeg') && !imageUrl.includes('.jpg')) errors.push('Image must be in jpeg, jpg or png format')
         if (description.length > 255) errors.push('Description can only be 255 characters long')
         setValidationErrors(errors)
-    }, [title, imageUrl, description])
-
+    }, [title, previewImage, description])
+    console.log(album)
     // const user = useSelector(state => state.session.user)
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -35,7 +35,7 @@ const EditAlbum = ({ setShowModal }) => {
         const album = {
             title,
             description,
-            imageUrl,
+            previewImage,
 
         }
         if (!validationErrors.length) {
@@ -43,6 +43,10 @@ const EditAlbum = ({ setShowModal }) => {
             await setShowModal(false)
 
         }
+    }
+    const updateFile = (e) => {
+        const file = e.target.files[0];
+        if (file) setPreviewImage(file)
     }
     // const handleSubmit = async (e) => {
     //     e.preventDefault();
@@ -103,13 +107,22 @@ const EditAlbum = ({ setShowModal }) => {
                             />
                         </label>
                         <label className='required-field create-label'>
-                            Upload Image:
+                            Upload Image(PNG or JPEG):
                             <input
+                                className="create-input"
+                                type='file'
+                                onChange={updateFile}
+                                accept="image/png, image/jpeg"
+                            // value={file}
+                            // size={}
+                            />
+                            {/* <img src={previewImage}></img> */}
+                            {/* <input
                                 className="create-input"
                                 type='text'
                                 value={imageUrl}
                                 onChange={(e) => setPreviewImage(e.target.value)}
-                            />
+                            /> */}
                         </label>
                         <label className="create-label">
                             Description:

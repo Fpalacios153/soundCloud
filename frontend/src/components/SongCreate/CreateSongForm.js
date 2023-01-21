@@ -13,18 +13,17 @@ const CreateSong = () => {
     const [url, setSelectedFile] = useState(null)
     const [validationErrors, setValidationErrors] = useState([])
     const [hasSubmitted, setHasSubmitted] = useState(false)
-
+    const [boolean, setBoolean] = useState(false)
 
     const { albumId } = useParams()
 
-    // const user = useSelector(state => state.session.user)
     useEffect(() => {
         const error = []
         if (!title.length) error.push('Song title is required')
         if (title.length > 40) error.push('Song title must be less than 40 characters')
-        // if (!url.length) error.push('Audio is required')
-        // if (!url.endsWith('.mp3')) error.push('Audio file must be in mp3 format')
-        // if (!imageUrl.includes('.png') && !imageUrl.includes('.jpeg') && !imageUrl.includes('.jpg')) error.push('Image must be in jpeg, jpg or png format')
+        if (!url) error.push('Audio is required')
+        // if (!previewImage) error.push('Image is required')
+
         if (description.length > 255) error.push('Description can only be 255 characters long')
 
         setValidationErrors(error)
@@ -41,6 +40,7 @@ const CreateSong = () => {
             url,
         }
         if (!validationErrors.length) {
+            setBoolean(true)
             let createdSong = await dispatch(createSong(song, albumId))
 
             if (createdSong) { history.push(`/songs/${createdSong.id}`) }
@@ -60,6 +60,7 @@ const CreateSong = () => {
         const file = e.target.files[0];
         if (file) setPreviewImage(file);
     };
+
     return (
         <>
             <div className="create-album-container">
@@ -133,7 +134,12 @@ const CreateSong = () => {
                     <div className="button-container">
                         <p className='required-field-end bottom-words'> Required fields</p>
                         <div style={{ paddingRight: '7.3em' }}>
-                            <button className="save-create-button" type="submit">Save</button>
+                            {boolean ?
+                                <button
+                                    disabled={true}>LOADING</button>
+                                :
+                                <button className="save-create-button" type="submit">Save</button>
+                            }
                             {/* <button onClick={handleCancelClick} type="button">Cancel</button> */}
                         </div>
                     </div>

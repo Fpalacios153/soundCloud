@@ -124,22 +124,29 @@ router.post('/',
     })
 )
 
-router.put('/:albumId', validateAlbums, requireAuth, isAuthorized, async (req, res) => {
+router.put('/:albumId',
+    singleMulterUpload("image"),
+    validateAlbums,
+    requireAuth,
+    isAuthorized,
+    async (req, res) => {
 
-    let { albumId } = req.params;
+        let { albumId } = req.params;
+        let { title, description } = req.body
 
-    let { title, description, imageUrl } = req.body
-
-    const album = await Album.findByPk(albumId)
+        const albumImageUrl = await singlePublicFileUpload(req.file);
 
 
-    album.title = title,
-        album.description = description,
-        album.previewImage = imageUrl
+        const album = await Album.findByPk(albumId)
 
-    await album.save()
-    return res.json(album)
-})
+
+        album.title = title,
+            album.description = description,
+            album.previewImage = albumImageUrl
+
+        await album.save()
+        return res.json(album)
+    })
 
 router.delete('/:albumId', requireAuth, isAuthorized, async (req, res) => {
 

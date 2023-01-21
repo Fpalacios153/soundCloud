@@ -83,7 +83,7 @@ const CreateAlbum = () => {
                             />
                         </label>
                         <label className='required-field create-label'>
-                            Upload Image:
+                            Upload Image(PNG or JPEG):
                             <input
                                 // placeholder="Accepted file types: png, jpeg, jpg"
                                 // value={updateFile}

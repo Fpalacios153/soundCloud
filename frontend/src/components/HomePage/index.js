@@ -1,15 +1,13 @@
-import { useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
 import DemoUser from '../DemoUser';
 import Footer from '../Footer/Footer';
 import LoginFormModal from '../ModalLoginForm';
 import SignupFormModal from '../ModalSignupForm';
 import GetAllSongs from '../SongAll';
-import SongDetails from '../SongDetails';
+// import SongDetails from '../SongDetails';
 import './HomePage.css'
 
 export const HomePage = () => {
-    const [bottomLogin, setBottomLogin] = useState(false)
+    // const [bottomLogin, setBottomLogin] = useState(false)
 
     return (
         <>
@@ -17,7 +15,7 @@ export const HomePage = () => {
                 <div className='topPart'>
                     <div className='nav'>
                         <div className='logo-container'>
-                            <h1 className='logo'></h1>
+                            <h1 className='logo'> </h1>
                             <h1 className='logoWords'>CLOUDSOUNDS</h1>
                         </div>
                         <div className='leftNav'>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink, useHistory, useParams } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { getAlbumsByCurrentUser } from '../../../store/albums'
 import missingImage from '../../images/missingImage.png'
 

@@ -73,7 +73,7 @@ export const createPlaylist = (playist) => async dispatch => {
 }
 // add song to playlist
 export const addSongToPlaylist = (songId, playlistId) => async dispatch => {
-    const numbers = { songId, playlistId }
+    // const numbers = { songId, playlistId }
     const response = await csrfFetch(`/api/playlists/${playlistId}/add`, {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
-import { editPlaylist, getOnePlaylists } from "../../../store/playlist";
+import { useParams } from "react-router-dom";
+import { editPlaylist, } from "../../../store/playlist";
 
 export default function EditPlaylist({ setShowModal }) {
     const dispatch = useDispatch()
-    const history = useHistory()
+    // const history = useHistory()
     const { playlistId } = useParams()
     const playlistToBeEdited = useSelector(state => state.playlist[playlistId])
     const [name, setName] = useState(playlistToBeEdited.name)

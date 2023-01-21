@@ -11,7 +11,7 @@ import missingImage from '../images/missingImage.png'
 
 const GetAllSongs = () => {
     const dispatch = useDispatch()
-    const [isLoaded, setIsLoaded] = useState(false)
+    const [, setIsLoaded] = useState(false)
     const sessionUser = useSelector(state => state.session.user)
 
 

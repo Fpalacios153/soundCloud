@@ -17,7 +17,7 @@ import missingImage from '../images/missingImage.png'
 function SongDetails() {
     const dispatch = useDispatch()
     const history = useHistory()
-    const [isLoaded, setIsLoaded] = useState(false)
+    const [, setIsLoaded] = useState(false)
 
 
 

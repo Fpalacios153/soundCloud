@@ -11,7 +11,7 @@ const CreateAlbum = () => {
     const history = useHistory()
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
-    const [imageUrl, setPreviewImage] = useState('')
+    const [previewImage, setPreviewImage] = useState(null)
     const [hasSubmitted, setHasSubmitted] = useState(false)
     const [validationErrors, setValidationErrors] = useState([[]])
 
@@ -20,12 +20,12 @@ const CreateAlbum = () => {
     useEffect(() => {
         const errors = []
         if (!title.length) errors.push('Title required')
-        if (!imageUrl.includes('.png') && !imageUrl.includes('.jpeg') && !imageUrl.includes('.jpg')) errors.push('Image must be in jpeg, jpg or png format')
+        // if (!imageUrl.includes('.png') && !imageUrl.includes('.jpeg') && !imageUrl.includes('.jpg')) errors.push('Image must be in jpeg, jpg or png format')
         if (description.length > 255) errors.push('Description can only be 255 characters long')
         if (title.length > 40) errors.push('Song title must be less than 40 characters')
 
         setValidationErrors(errors)
-    }, [title, imageUrl, description])
+    }, [title, previewImage, description])
 
     // const user = useSelector(state => state.session.user)
     const handleSubmit = async (e) => {
@@ -35,29 +35,23 @@ const CreateAlbum = () => {
         const album = {
             title,
             description,
-            imageUrl,
+            previewImage,
 
         }
         if (!validationErrors.length) {
+            console.log(album)
             let newAlbum = await dispatch(createAlbum(album))
 
             if (newAlbum) {
                 history.push(`/albums/${newAlbum.id}`)
             }
         }
-        // if(validationErrors.length) return alert ("You cannot submit")
-        // if (!title.length) {
-        //     setValidationErrors([]);
-        //     // history.push(`/you/library`)
-        //     return dispatch(createAlbum(album))
-        //         .catch(async (res) => {
-        //             const data = await res.json();
-        //             if (data && data.errors) setValidationErrors(data.errors)
-        //         })
-        // }
-        // if (title.length) {
-        //     setValidationErrors([]);
 
+    }
+    const updateFile = (e) => {
+        const file = e.target.files[0];
+        console.log(file, 'appppppppppppples')
+        if (file) setPreviewImage(file)
     }
     // const handleCancelClick = (e) => {
     //     e.preventDefault();
@@ -93,11 +87,11 @@ const CreateAlbum = () => {
                         <label className='required-field create-label'>
                             Upload Image:
                             <input
-                                placeholder="Accepted file types: png, jpeg, jpg"
+                                // placeholder="Accepted file types: png, jpeg, jpg"
+                                // value={updateFile}
                                 className="create-input"
-                                type='text'
-                                value={imageUrl}
-                                onChange={(e) => setPreviewImage(e.target.value)}
+                                type='file'
+                                onChange={updateFile}
                             />
                         </label>
                         <label className="create-label">

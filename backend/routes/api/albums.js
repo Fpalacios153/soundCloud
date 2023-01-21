@@ -6,6 +6,10 @@ const { Artist } = require('../../db/models');
 const { requireAuth, isAuthorized } = require('../../utils/auth');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
+const asyncHandler = require('express-async-handler')
+
+const { singlePublicFileUpload, singleMulterUpload } = require('../../awsS3')
+
 
 
 
@@ -81,37 +85,44 @@ router.get('/', async (req, res) => {
     res.json(albums)
 })
 
-router.post('/', validateAlbums, requireAuth, async (req, res) => {
+router.post('/',
+    requireAuth,
+    singleMulterUpload("image"),
+    validateAlbums,
+    asyncHandler(async (req, res) => {
+        const { title, description } = req.body;
+        const albumImageUrl = await singlePublicFileUpload(req.file);
 
-    let { title, description, imageUrl } = req.body;
-    let id = req.user.id
-    const getArtist = await Artist.findOne({
-        where: {
-            userId: id
+        let id = req.user.id
+
+        const getArtist = await Artist.findOne({
+            where: {
+                userId: id
+            }
+        });
+        if (!getArtist) {
+
+            const newArtists = await Artist.create({
+                name: req.user.username,
+                userId: req.user.id,
+                previewImage: 'image url'
+            })
+            const newAlbum = await newArtists.createAlbum({
+                title,
+                description,
+                previewImage: albumImageUrl
+            })
+            return res.json(newAlbum)
         }
-    });
-    if (!getArtist) {
-
-        const newArtists = await Artist.create({
-            name: req.user.username,
-            userId: req.user.id,
-            previewImage: 'image url'
-        })
-        const newAlbum = await newArtists.createAlbum({
+        const newAlbum = await getArtist.createAlbum({
+            // artistId :getArtist.id,
             title,
             description,
-            previewImage: imageUrl
+            previewImage: albumImageUrl
         })
-        return res.json(newAlbum)
-    }
-    const newAlbum = await getArtist.createAlbum({
-        // artistId :getArtist.id,
-        title,
-        description,
-        previewImage: imageUrl
+        res.json(newAlbum)
     })
-    res.json(newAlbum)
-});
+)
 
 router.put('/:albumId', validateAlbums, requireAuth, isAuthorized, async (req, res) => {
 

@@ -13,19 +13,19 @@ const asyncHandler = require('express-async-handler')
 
 const router = express.Router();
 
-// const validateSongs = [
-//     check('title')
-//         .exists({ checkFalsy: true })
-//         .withMessage('Song title is required'),
-//     // check('url')
-//     //     .exists({ checkFalsy: true })
-//     //     // .isLength({ min: 4 })
-//     //     .withMessage('Audio is required'),
-//     // check('imageUrl')
-//     //     .endsWith('.jpeg' || '.png')
-//     //     .withMessage('Must be a jpeg or png file'),
-//     handleValidationErrors
-// ]
+const validateSongs = [
+    check('title')
+        .exists({ checkFalsy: true })
+        .withMessage('Song title is required'),
+    // check('url')
+    //     .exists({ checkFalsy: true })
+    //     // .isLength({ min: 4 })
+    //     .withMessage('Audio is required'),
+    // check('imageUrl')
+    //     .endsWith('.jpeg' || '.png')
+    //     .withMessage('Must be a jpeg or png file'),
+    handleValidationErrors
+]
 
 router.get('/user', requireAuth, async (req, res) => {
     const { user } = req;
@@ -78,10 +78,10 @@ router.get('/:songId', async (req, res) => {
 })
 
 router.post('/:albumId',
-    // validateSongs,
     requireAuth,
     isAuthorized,
     singleMulterUpload("audio"),
+    validateSongs,
     asyncHandler(async (req, res) => {
         let { albumId } = req.params
         let { title, description, imageUrl } = req.body

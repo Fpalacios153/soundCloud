@@ -1,5 +1,5 @@
 .album-tiles {
-    width: 13.2em;
+    width: 14.5em;
     border-radius: 3px;
     background-size: contain;
     list-style-type: none;
@@ -30,7 +30,7 @@
     justify-content: 'center';
     align-items: center;
     /* padding-left: 9px; */
-    padding-left: 3.2em;
+    padding-left: 35px;
 
 
 }
@@ -42,7 +42,6 @@
     font-size: 24px;
     color: #333;
     padding-left: 2em;
-
 }
 
 ul {

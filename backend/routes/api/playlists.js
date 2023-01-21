@@ -38,7 +38,6 @@ router.get('/:playlistId', async (req, res) => {
             model: Song, through: { attributes: [] }
         }
     })
-    console.log(playlists)
     if (!playlists) {
         res.status(404);
         return res.json({
@@ -53,7 +52,6 @@ router.post('/:playlistId/add', requireAuth, isAuthorizedPlaylist, async (req, r
     let { playlistId } = req.params;
 
     let { songId } = req.body;
-    console.log(songId, playlistId, 'ddaswlkufghaweskjfhklawefghaliwerfaqewjklf')
 
     // const playlist = await Playlist.findByPk(playlistId);
     const song = await Song.findByPk(songId)
@@ -94,8 +92,6 @@ router.put('/:playlistId', validatePlaylist, requireAuth, isAuthorizedPlaylist, 
             model: Song, through: { attributes: [] }
         }
     });
-
-    console.log(playlist)
     playlist.name = name
     playlist.previewImage = imageUrl
     // playlist.Songs = playlist.Songs

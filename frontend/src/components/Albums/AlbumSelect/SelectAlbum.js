@@ -27,7 +27,7 @@ export default function SelectUserAlbum() {
     return (
         <>
             <div className='select-album-container'>
-                {albums.length > 0 && (<h2 className="allSAtitles" style={{ margin: 'auto', paddingTop: '1em' }}>Select Album to Add Song</h2>)}
+                {albums.length > 0 && (<h2 className="uploadTitle" style={{ margin: 'auto', paddingTop: '1em' }}>Select Album to Add Song</h2>)}
                 <div className='curr-album-container'
                     style={{
                         display: 'flex',
@@ -45,10 +45,11 @@ export default function SelectUserAlbum() {
                         </>
                     )}
                     <ul>
-                        <div className='album-list' >
+                        <div className='album-list-current' >
                             {isLoaded && albums.map(album => (
                                 <li key={album.id} className='album-tiles current-tiles'
-                                    style={{ padding: '2em' }}                                >
+                                    style={{ padding: '1em' }}
+                                >
                                     <NavLink to={`/albums/${album.id}`} key={album.id}>
                                         <img style={{ height: '15em', width: '15em' }}
                                             onError={e => { e.currentTarget.src = missingImage }}

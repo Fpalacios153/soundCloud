@@ -39,7 +39,6 @@ const CreateAlbum = () => {
 
         }
         if (!validationErrors.length) {
-            console.log(album)
             let newAlbum = await dispatch(createAlbum(album))
 
             if (newAlbum) {
@@ -50,7 +49,6 @@ const CreateAlbum = () => {
     }
     const updateFile = (e) => {
         const file = e.target.files[0];
-        console.log(file, 'appppppppppppples')
         if (file) setPreviewImage(file)
     }
     // const handleCancelClick = (e) => {

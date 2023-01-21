@@ -30,7 +30,6 @@ export default function EditPlaylist({ setShowModal }) {
             name,
             imageUrl
         }
-        // console.log(playlist.id)
         if (!validationErrors.length) {
             let editedPlaylist = await (dispatch(editPlaylist(playlist, playlistId)))
             if (editedPlaylist) {

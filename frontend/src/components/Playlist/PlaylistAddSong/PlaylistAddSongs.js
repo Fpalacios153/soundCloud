@@ -6,15 +6,12 @@ export default function PlaylistAddSongs({ songId, setShowModal }) {
     const dispatch = useDispatch()
 
     const playlists = useSelector(state => state.playlist)
-    console.log(playlists)
     const playlistArray = Object.values(playlists)
-    console.log(playlistArray)
     const [isLoaded, setIsLoaded] = useState(false)
     const [selectedPlaylist, setSelectedPlaylist] = useState('')
     useEffect(() => {
         dispatch(getUsersPlaylists()).then(() => setIsLoaded(true))
     }, [])
-    console.log(selectedPlaylist)
     const onSubmit = async (e) => {
         e.preventDefault()
 

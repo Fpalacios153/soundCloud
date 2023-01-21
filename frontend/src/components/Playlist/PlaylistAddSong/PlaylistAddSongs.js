@@ -11,7 +11,7 @@ export default function PlaylistAddSongs({ songId, setShowModal }) {
     const [selectedPlaylist, setSelectedPlaylist] = useState('')
     useEffect(() => {
         dispatch(getUsersPlaylists()).then(() => setIsLoaded(true))
-    }, [])
+    }, [dispatch])
     const onSubmit = async (e) => {
         e.preventDefault()
 

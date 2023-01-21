@@ -6,7 +6,8 @@ const { Artist } = require('../../db/models');
 const { requireAuth, isAuthorized, isAuthorizedSong } = require('../../utils/auth');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
-const { singlePublicFileUpload, singleMulterUpload } = require('../../awsS3')
+const { multiplePublicFileUpload,
+    multipleMulterUpload } = require('../../awsS3')
 const asyncHandler = require('express-async-handler')
 
 
@@ -80,22 +81,21 @@ router.get('/:songId', async (req, res) => {
 router.post('/:albumId',
     requireAuth,
     isAuthorized,
-    singleMulterUpload("audio"),
+    multipleMulterUpload('audioAndImage'),
     validateSongs,
     asyncHandler(async (req, res) => {
         let { albumId } = req.params
-        let { title, description, imageUrl } = req.body
-        const songFile = await singlePublicFileUpload(req.file)
+        let { title, description, } = req.body
+        const audioAndImageFile = await multiplePublicFileUpload(req.files)
 
         const album = await Album.findByPk(albumId);
-
         const artist = album.artistId
 
         const songInAlbum = await album.createSong({
             title,
             description,
-            url: songFile,
-            previewImage: imageUrl, //added this to check later
+            url: audioAndImageFile[0],
+            previewImage: audioAndImageFile[1],
             artistId: artist
         })
 

@@ -90,6 +90,7 @@ const CreateAlbum = () => {
                                 className="create-input"
                                 type='file'
                                 onChange={updateFile}
+                                accept="image/png, image/jpeg"
                             />
                         </label>
                         <label className="create-label">

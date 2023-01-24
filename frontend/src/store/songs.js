@@ -73,13 +73,22 @@ export const getSongByCurrentUser = () => async dispatch => {
 //create songs
 export const createSong = (song, albumId) => async dispatch => {
     const { title, description, url, previewImage } = song
+
     const formData = new FormData()
 
     formData.append("title", title)
     formData.append("description", description)
-    formData.append("previewImage", previewImage)
-    if (url) formData.append("audio", url);
 
+    if (url) formData.append("audioAndImage", url);
+    if (previewImage) formData.append("audioAndImage", previewImage)
+
+    // if (images && images.length !== 0) {
+    //     for (var i = 0; i < images.length; i++) {
+    //         formData.append("image", images[i]);
+    //         // formData.append("image", images[1]);
+    //     }
+
+    // }
     const response = await csrfFetch(`/api/songs/${albumId}`, {
         method: 'POST',
         headers: {

@@ -17,7 +17,6 @@ export default function PlaylistDetails() {
     const [isLoaded, setIsLoaded] = useState(false)
 
     const details = useSelector(state => state.playlist[playlistId])
-    console.log(details)
 
     useEffect(() => {
         dispatch(getOnePlaylists(playlistId)).then(() => setIsLoaded(true))

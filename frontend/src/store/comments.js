@@ -5,7 +5,7 @@ import { csrfFetch } from "./csrf";
 
 const GET_COMMENTS = 'comments/GET_COMMENTS'
 const CREATE_COMMENTS = 'comments/CREATE_COMMENTS'
-const UPDATE_COMMENTS = 'comments/UPDATE_COMMENTS'
+// const UPDATE_COMMENTS = 'comments/UPDATE_COMMENTS'
 const DELETE_COMMENTS = 'comments/DELETE_COMMENTS'
 
 // action creator
@@ -17,10 +17,10 @@ const createCom = comment => ({
     type: CREATE_COMMENTS,
     comment
 })
-const updateCom = comment => ({
-    type: UPDATE_COMMENTS,
-    comment
-})
+// const updateCom = comment => ({
+//     type: UPDATE_COMMENTS,
+//     comment
+// })
 const deleteCom = commentId => ({
     type: DELETE_COMMENTS,
     commentId
@@ -37,7 +37,6 @@ export const getSongComments = (songId) => async dispatch => {
     return response
 }
 export const createComment = (body, songId) => async dispatch => {
-    console.log(body)
     const response = await csrfFetch(`/api/comments/${songId}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

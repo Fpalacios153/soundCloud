@@ -14,7 +14,7 @@ export default function PlaylistGet() {
     useEffect(() => {
         dispatch(getUsersPlaylists())
 
-    }, [])
+    }, [dispatch])
     return (
         <>
             <div className="entire-playlist-container">

@@ -4,30 +4,30 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 
-const CreateSong = ({ createNew, setCreateNew }) => {
+const CreateSong = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
-    const [imageUrl, setPreviewImage] = useState('')
+    const [previewImage, setPreviewImage] = useState(null)
     const [url, setSelectedFile] = useState(null)
     const [validationErrors, setValidationErrors] = useState([])
     const [hasSubmitted, setHasSubmitted] = useState(false)
+    const [boolean, setBoolean] = useState(false)
 
     const { albumId } = useParams()
 
-    // const user = useSelector(state => state.session.user)
     useEffect(() => {
         const error = []
         if (!title.length) error.push('Song title is required')
         if (title.length > 40) error.push('Song title must be less than 40 characters')
-        // if (!url.length) error.push('Audio is required')
-        // if (!url.endsWith('.mp3')) error.push('Audio file must be in mp3 format')
-        if (!imageUrl.includes('.png') && !imageUrl.includes('.jpeg') && !imageUrl.includes('.jpg')) error.push('Image must be in jpeg, jpg or png format')
+        if (!url) error.push('Audio is required')
+        // if (!previewImage) error.push('Image is required')
+
         if (description.length > 255) error.push('Description can only be 255 characters long')
 
         setValidationErrors(error)
-    }, [title, url, imageUrl, description])
+    }, [title, url, previewImage, description])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -36,11 +36,11 @@ const CreateSong = ({ createNew, setCreateNew }) => {
         const song = {
             title,
             description,
-            imageUrl,
-            url
+            previewImage,
+            url,
         }
         if (!validationErrors.length) {
-
+            setBoolean(true)
             let createdSong = await dispatch(createSong(song, albumId))
 
             if (createdSong) { history.push(`/songs/${createdSong.id}`) }
@@ -50,6 +50,17 @@ const CreateSong = ({ createNew, setCreateNew }) => {
         const file = e.target.files[0];
         if (file) setSelectedFile(file);
     };
+    // for multiple file upload
+    // const updateFiles = (e) => {
+    //     const files = e.target.files;
+    //     setImages(files);
+    // };
+
+    const updateFileImage = (e) => {
+        const file = e.target.files[0];
+        if (file) setPreviewImage(file);
+    };
+
     return (
         <>
             <div className="create-album-container">
@@ -81,25 +92,29 @@ const CreateSong = ({ createNew, setCreateNew }) => {
                             Upload a file:
                             <input
                                 className="create-input"
-                                // className="audio"
-                                // placeholder="Accepted file types: mp3"
                                 type='file'
-                                // value={url}
-                                onChange={
-                                    updateFile
-                                    // (e) => setSelectedFile(e.target.value)
-                                }
+                                onChange={updateFile}
+                                accept='audio/*'
+                            // value={url}
+                            // className="audio"
+                            // placeholder="Accepted file types: mp3"
                             />
                         </label>
                         <label className='required-field create-label'>
-                            Upload Image:
+                            Upload Image (PNG or JPEG):
                             <input
+                                className="create-input"
+                                type='file'
+                                onChange={updateFileImage}
+                                accept="image/png, image/jpeg"
+                            />
+                            {/* <input
                                 placeholder="Accepted file types: png, jpeg, jpg"
                                 className="create-input"
                                 type='text'
                                 value={imageUrl}
                                 onChange={(e) => setPreviewImage(e.target.value)}
-                            />
+                            /> */}
                         </label>
                         <label className="create-label">
                             Description:
@@ -119,7 +134,12 @@ const CreateSong = ({ createNew, setCreateNew }) => {
                     <div className="button-container">
                         <p className='required-field-end bottom-words'> Required fields</p>
                         <div style={{ paddingRight: '7.3em' }}>
-                            <button className="save-create-button" type="submit">Save</button>
+                            {boolean ?
+                                <button
+                                    disabled={true}>LOADING</button>
+                                :
+                                <button className="save-create-button" type="submit">Save</button>
+                            }
                             {/* <button onClick={handleCancelClick} type="button">Cancel</button> */}
                         </div>
                     </div>

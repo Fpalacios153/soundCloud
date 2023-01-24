@@ -1,6 +1,6 @@
 import { useHistory, useParams, Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { deleteAlbum } from '../../../store/albums'
 import { getOneAlbum } from "../../../store/albums";
 import './GetOneAlbum.css'

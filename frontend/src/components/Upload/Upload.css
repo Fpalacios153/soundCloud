@@ -1,11 +1,8 @@
 .upload-container {
-    background: linear-gradient(0.25turn, #ff9626, #e58a02, #f50);
-    /* height: 100vh; */
+    background: linear-gradient(0.25turn, #ff9626, #e58a02, rgb(255, 85, 0));
 }
 
 .upload-subcontainer {
-    /* position: relative;
-    top: 2em; */
     background-color: white;
     margin: auto;
     width: 75%;
@@ -23,7 +20,6 @@
     margin-top: 10px;
     background-color: #f2f2f2;
     width: 75%;
-    /* height: 13%; */
     border-radius: 3px;
     margin-bottom: 10px;
 }

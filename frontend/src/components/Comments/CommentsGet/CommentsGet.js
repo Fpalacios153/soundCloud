@@ -15,7 +15,7 @@ export default function CommentsGet({ song }) {
 
     useEffect(() => {
         dispatch(getSongComments(song.id)).then(() => setIsLoaded(true))
-    }, [])
+    }, [dispatch, song.id])
     let numberOfComments;
     if (commentsArr.length > 0) {
         numberOfComments = commentsArr.length

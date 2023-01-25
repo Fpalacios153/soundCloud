@@ -98,7 +98,7 @@ export const editAlbum = (album, albumId) => async dispatch => {
     if (previewImage) formData.append("image", previewImage)
 
     const response = await csrfFetch(`/api/albums/${albumId}`, {
-        method: 'PUT',
+        method: 'PATCH',
         headers: {
             "Content-Type": "multipart/form-data",
         },

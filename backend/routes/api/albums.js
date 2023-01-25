@@ -124,7 +124,7 @@ router.post('/',
     })
 )
 
-router.put('/:albumId',
+router.patch('/:albumId',
     singleMulterUpload("image"),
     validateAlbums,
     requireAuth,
@@ -132,19 +132,25 @@ router.put('/:albumId',
     async (req, res) => {
 
         let { albumId } = req.params;
-        let { title, description } = req.body
+        let { title, description, image } = req.body
 
-        const albumImageUrl = await singlePublicFileUpload(req.file);
-
-
+        let albumImageUrl;
+        if (!image) {
+            albumImageUrl = await singlePublicFileUpload(req.file);
+        }
         const album = await Album.findByPk(albumId)
 
-
-        album.title = title,
-            album.description = description,
+        if (title) album.title = title
+        if (description) album.description = description
+        //to deal with no file selected
+        if (image) {
+            album.previewImage = image
+        } else {
             album.previewImage = albumImageUrl
+        }
+        album.description = description,
 
-        await album.save()
+            await album.save()
         return res.json(album)
     })
 

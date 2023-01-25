@@ -26,7 +26,6 @@ const EditAlbum = ({ setShowModal }) => {
         if (description.length > 255) errors.push('Description can only be 255 characters long')
         setValidationErrors(errors)
     }, [title, previewImage, description])
-    console.log(album)
     // const user = useSelector(state => state.session.user)
     const handleSubmit = async (e) => {
         e.preventDefault();

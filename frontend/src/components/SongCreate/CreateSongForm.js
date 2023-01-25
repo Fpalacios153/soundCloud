@@ -135,8 +135,14 @@ const CreateSong = () => {
                         <p className='required-field-end bottom-words'> Required fields</p>
                         <div style={{ paddingRight: '7.3em' }}>
                             {boolean ?
-                                <button
-                                    disabled={true}>LOADING</button>
+                                <div>
+
+                                    <button
+                                        className="button-spinner"
+                                        disabled={true}>UPLOADING
+                                        <div className="spin"></div>
+                                    </button>
+                                </div>
                                 :
                                 <button className="save-create-button" type="submit">Save</button>
                             }

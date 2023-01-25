@@ -14,7 +14,7 @@ export const EditSong = ({ setEdited, edited, setShowModal }) => {
 
     const [title, setTitle] = useState(song.title)
     const [description, setDescription] = useState(song.description)
-    const [imageUrl, setPreviewImage] = useState(song.previewImage)
+    const [previewImage, setPreviewImage] = useState(song.previewImage)
     const [url, setSelectedFile] = useState(song.url)
     const [validationErrors, setValidationErrors] = useState([])
     const [hasSubmitted, setHasSubmitted] = useState(false)
@@ -22,15 +22,15 @@ export const EditSong = ({ setEdited, edited, setShowModal }) => {
     useEffect(() => {
         const error = []
         if (!title.length) error.push('Song title is required')
-        if (!url.length) error.push('Audio is required')
         if (title.length > 40) error.push('Song title must be less than 40 characters')
 
-        if (!url.endsWith('.mp3')) error.push('Audio file must be in mp3 format')
-        if (!imageUrl.includes('.png') && !imageUrl.includes('.jpeg') && !imageUrl.includes('.jpg')) error.push('Image must be in jpeg, jpg or png format')
+        // if (!url.length) error.push('Audio is required')
+        // if (!url.endsWith('.mp3')) error.push('Audio file must be in mp3 format')
+        // if (!imageUrl.includes('.png') && !imageUrl.includes('.jpeg') && !imageUrl.includes('.jpg')) error.push('Image must be in jpeg, jpg or png format')
         if (description.length > 255) error.push('Description can only be 255 characters long')
 
         setValidationErrors(error)
-    }, [title, url, imageUrl, description])
+    }, [title, url, previewImage, description])
     // const user = useSelector(state => state.session.user)
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -38,7 +38,7 @@ export const EditSong = ({ setEdited, edited, setShowModal }) => {
         const song = {
             title,
             description,
-            imageUrl,
+            previewImage,
             url
         }
         if (!validationErrors.length) {
@@ -48,8 +48,21 @@ export const EditSong = ({ setEdited, edited, setShowModal }) => {
         }
 
     }
+    const updateFile = (e) => {
+        const file = e.target.files[0];
+        if (file) setSelectedFile(file);
+    };
+    // for multiple file upload
+    // const updateFiles = (e) => {
+    //     const files = e.target.files;
+    //     setImages(files);
+    // };
 
-
+    const updateFileImage = (e) => {
+        const file = e.target.files[0];
+        if (file) setPreviewImage(file);
+    };
+    // console.log(imageUrl)
 
     return (
         <>
@@ -82,20 +95,29 @@ export const EditSong = ({ setEdited, edited, setShowModal }) => {
                             Upload a file:
                             <input
                                 className="create-input"
-                                // className="audio"
-                                type='text'
-                                value={url}
-                                onChange={(e) => setSelectedFile(e.target.value)}
+                                type='file'
+                                onChange={updateFile}
+                                accept='audio/*'
+                            // value={url}
+                            // className="audio"
+                            // placeholder="Accepted file types: mp3"
                             />
                         </label>
                         <label className='required-field create-label'>
-                            Upload Image:
+                            Upload Image (PNG or JPEG):
                             <input
+                                className="create-input"
+                                type='file'
+                                onChange={updateFileImage}
+                                accept="image/png, image/jpeg"
+                            />
+                            {/* <input
+                                placeholder="Accepted file types: png, jpeg, jpg"
                                 className="create-input"
                                 type='text'
                                 value={imageUrl}
                                 onChange={(e) => setPreviewImage(e.target.value)}
-                            />
+                            /> */}
                         </label>
                         <label className="create-label">
                             Description:

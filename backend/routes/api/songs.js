@@ -103,55 +103,23 @@ router.post('/:albumId',
     })
 )
 
-router.patch('/:songId', requireAuth, isAuthorizedSong, multipleMulterUpload('audioAndImage'),
-    async (req, res) => {
+router.put('/:songId', requireAuth, isAuthorizedSong, async (req, res) => {
 
-        let { title, description, url, previewImage, audioAndImage } = req.body
-        let { songId } = req.params
-        console.log(req.body)
-        console.log(url, previewImage, '=============')
-        console.log(req.files, '------------')
-        let audioAndImageFile;
-        if (!audioAndImage) {
-            audioAndImageFile = await multiplePublicFileUpload(req.files)
-            console.log(audioAndImageFile[0], '{{{{{{{{')
-            console.log(audioAndImageFile[1], '{{{{{{{{')
-        }
+    let { title, description, url, imageUrl } = req.body
+    let { songId } = req.params
 
+    const song = await Song.findByPk(songId)
 
-        const song = await Song.findByPk(songId)
+    song.title = title,
+        song.description = description,
+        song.url = url,
+        song.previewImage = imageUrl
 
-        song.title = title
-        song.description = description
-        if (audioAndImage) {
-            song.url = audioAndImage[0]
-            song.previewImage = audioAndImage[1]
-        } else {
-            song.url = audioAndImageFile[0]
-            song.previewImage = audioAndImageFile[1]
-        }
-        // if (url && previewImage) {
-        //     song.url = url
-        //     song.previewImage = previewImage
-        // }
-        // if (url && !previewImage) {
-        //     song.url = url
-        //     song.previewImage = audioAndImageFile[0]
-        // } else {
-        //     song.url = audioAndImageFile[0]
-        // }
-        // if (previewImage && !url) {
-        //     song.previewImage = previewImage
-        //     song.url = audioAndImageFile[0]
-        //     // song.url =
+    await song.save()
 
-        // }
+    res.json(song)
 
-        await song.save()
-
-        res.json(song)
-
-    })
+})
 router.delete('/:songId', requireAuth, isAuthorizedSong, async (req, res) => {
 
     let { songId } = req.params

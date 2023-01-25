@@ -77,7 +77,6 @@ const EditAlbum = ({ setShowModal }) => {
 
     // const handleCancelClick = (e) => {
     //     e.preventDefault();
-    console.log(previewImage)
     // };
     return (
         <>
@@ -123,7 +122,6 @@ const EditAlbum = ({ setShowModal }) => {
                                 value={imageUrl}
                                 onChange={(e) => setPreviewImage(e.target.value)}
                             /> */}
-                            {/* <img style={{ width: '10em', height: '10em' }} src={previewImage.type}></img> */}
                         </label>
                         <label className="create-label">
                             Description:

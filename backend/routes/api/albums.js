@@ -148,9 +148,9 @@ router.patch('/:albumId',
         } else {
             album.previewImage = albumImageUrl
         }
-        album.description = description
+        album.description = description,
 
-        await album.save()
+            await album.save()
         return res.json(album)
     })
 

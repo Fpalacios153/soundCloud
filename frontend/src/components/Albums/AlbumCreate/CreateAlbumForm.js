@@ -87,7 +87,7 @@ const CreateAlbum = () => {
                             <input
                                 // placeholder="Accepted file types: png, jpeg, jpg"
                                 // value={updateFile}
-                                className="create-input"
+                                className="custom-file-upload"
                                 type='file'
                                 onChange={updateFile}
                                 accept="image/png, image/jpeg"

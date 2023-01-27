@@ -12,10 +12,3 @@
     line-height: 20px;
     white-space: nowrap;
 }
-
-.custom-file-upload {
-    border: 1px solid #ccc;
-    display: inline-block;
-    padding: 6px 12px;
-    cursor: pointer;
-}

@@ -89,9 +89,9 @@ const CreateSong = () => {
                             />
                         </label>
                         <label className='required-field create-label'>
-                            Upload a file:
+                            Upload a song file:
                             <input
-                                className="custom-file-upload"
+                                className="custom-file-upload create-input"
                                 type='file'
                                 onChange={updateFile}
                                 accept='audio/*'
@@ -103,7 +103,7 @@ const CreateSong = () => {
                         <label className='required-field create-label'>
                             Upload Image (PNG or JPEG):
                             <input
-                                className="custom-file-upload"
+                                className="custom-file-upload create-input"
                                 type='file'
                                 onChange={updateFileImage}
                                 accept="image/png, image/jpeg"

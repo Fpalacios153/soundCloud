@@ -26,6 +26,7 @@
     font-size: 30px;
     text-align: center;
     margin: 5px;
+    padding: 10px;
 }
 
 .create-div {
@@ -35,15 +36,18 @@
 
 .create-input {
     width: 90%;
-    margin: 7px;
+    margin: 8px;
+    padding: 6px 3px;
     justify-content: center;
     align-items: center;
+    font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
+
 
 }
 
 .create-label {
-    padding: 10px;
-    /* text-align: center; */
+    padding: 9px 7px;
+    font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
 }
 
 .required-field::before {
@@ -84,4 +88,10 @@
 .bottom-words {
     padding-left: 1em;
     align-items: center;
+}
+
+.custom-file-upload {
+    border: 1px solid rgb(113, 113, 113);
+    cursor: pointer;
+    border-radius: 3px;
 }

@@ -28,7 +28,6 @@ export default function PlaylistGet() {
                 </div>
                 {!playistArr.length ?
                     <div className='current-titles'>
-
                         User has no playlists
                     </div> : null}
                 <div className="playlist-item-container screen-adjustment">

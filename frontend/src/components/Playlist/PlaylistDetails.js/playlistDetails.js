@@ -19,15 +19,17 @@ export default function PlaylistDetails() {
     const details = useSelector(state => state.playlist[playlistId])
 
     useEffect(() => {
-        dispatch(getOnePlaylists(playlistId)).then(() => setIsLoaded(true))
+        dispatch(getOnePlaylists(playlistId))
+        // .then(() => setIsLoaded(true))
     }, [dispatch, playlistId])
 
     const toDelete = (id) => {
         dispatch(deletePlaylist(id))
         history.push(`/you/playlists`)
+        // setSong('')
 
     }
-    return details && isLoaded ? (
+    return details ? (
         <>
             <div className="detail-container">
                 <div className="album-background">
@@ -54,7 +56,7 @@ export default function PlaylistDetails() {
                     <div className="playlist-details-song-container">
 
                         {details.Songs.length > 0 ?
-                            (details.Songs?.map((song, i) => (
+                            (details.Songs.map((song, i) => (
                                 <ul key={song.id}  >
                                     <li className='song-list-points border-top'>
                                         <div className="song-list-container">
@@ -74,7 +76,7 @@ export default function PlaylistDetails() {
                             :
                             (
                                 <>
-                                    <div>Playlist has no songs yet</div>
+                                    <div className="current-titles">Playlist has no songs yet</div>
                                 </>
                             )
                         }

@@ -13,11 +13,13 @@
     align-items: center;
 }
 
+
 .select-words {
     font-size: 30px;
     color: #333;
     font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
     font-weight: 100;
+    text-align: center;
 }
 
 .curr-album-container {
@@ -31,7 +33,7 @@
 
 .select-album-container {
     display: flex;
-    height: 350px;
+    /* height: 350px; */
     width: 100%;
     flex-direction: column;
 

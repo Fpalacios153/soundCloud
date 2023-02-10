@@ -27,7 +27,10 @@ export default function SelectUserAlbum() {
     return (
         <>
             <div className='select-album-container'>
-                {albums.length > 0 && (<h2 className="uploadTitle" style={{ margin: 'auto', paddingTop: '1em' }}>Select Album to Add Song</h2>)}
+                {albums.length > 0 && (
+                    <h2 className="uploadTitle" style={{ margin: 'auto', paddingTop: '1em' }}>
+                        Select Album to Add Song
+                    </h2>)}
                 <div className='curr-album-container'
                     style={{
                         display: 'flex',
@@ -38,8 +41,11 @@ export default function SelectUserAlbum() {
                     {!albums.length && (
                         <>
                             <div className='no-albums-title'>
-
-                                <div className="allSAtitles select-words">User does not have any Albums, Create one to add songs!</div>
+                                <div className="select-words">User does not have any Albums,
+                                    <div>
+                                        Create one to add songs!
+                                    </div>
+                                </div>
                                 {/* <h2 className="allSAtitles select-words"> Create one to add songs!</h2> */}
                             </div>
                         </>

@@ -50,10 +50,12 @@
     width: 350px;
     height: auto;
     border-radius: 5px;
+
 }
 
 .add-song-label-container {
     padding: 20px;
+    width: 75%;
 }
 
 .add-playlist-button {
@@ -89,3 +91,38 @@
 
 
 }
+
+.add-song-no-playlist-title {
+    text-align: center;
+    padding: 10px;
+}
+
+.playlist-select {
+    width: 100%;
+    height: 30px;
+}
+
+/* <form className="add-song-playlist-container" onSubmit={onSubmit}>
+<div className="add-song-label-container">
+    <label>
+        <select
+            name="rating"
+            required
+            value={selectedPlaylist}
+            onChange={(e) => setSelectedPlaylist(e.target.value)}
+            className='playlist-select'
+        >
+
+            <option hidden disabled required  >Select Playlist </option>
+            {playlistArray.map(playlist => (
+                <option required key={playlist.id} value={playlist.id}>{playlist.name}</option>
+            ))}
+        </select>
+    </label>
+
+</div>
+<div className="playlist-button-container">
+    <button className="playlist-cancel-button" onClick={() => setShowModal(false)}>Cancel</button>
+    <button className="save-create-button" type="submit">Save</button>
+</div>
+</form> */

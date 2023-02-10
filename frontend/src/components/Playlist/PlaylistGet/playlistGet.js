@@ -26,6 +26,10 @@ export default function PlaylistGet() {
                         <CreatePlaylistModal />
                     </div>
                 </div>
+                {!playistArr.length ?
+                    <div className='current-titles'>
+                        User has no playlists
+                    </div> : null}
                 <div className="playlist-item-container screen-adjustment">
                     {playistArr.map(playlist => (
                         <NavLink key={playlist.id} className='remove-line' to={`/playlists/${playlist.id}`}>
@@ -41,6 +45,8 @@ export default function PlaylistGet() {
                             </div>
                         </NavLink>
                     ))}
+
+
 
                 </div>
             </div>

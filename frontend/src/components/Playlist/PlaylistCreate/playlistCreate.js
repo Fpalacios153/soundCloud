@@ -14,6 +14,7 @@ export default function CreatePlaylist() {
     useEffect(() => {
         const errors = []
         if (!name.length) errors.push('Name required')
+        if (name.length > 60) errors.push('Name must be less than 60 characters')
         if (!imageUrl.includes('.png') && !imageUrl.includes('.jpeg') && !imageUrl.includes('.jpg')) errors.push('Image must be in jpeg, jpg or png format')
         setValidationErrors(errors)
     }, [name, imageUrl])
@@ -57,10 +58,10 @@ export default function CreatePlaylist() {
                         <label className='required-field create-label'>
                             Name:
                             <input
-                                // maxLength={41}
+                                maxLength={61}
                                 className="create-input"
                                 type='text'
-                                // placeholder="Name"
+                                placeholder="Playlist Name"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                             />
@@ -71,7 +72,7 @@ export default function CreatePlaylist() {
                                 // maxLength={41}
                                 className="create-input"
                                 type='text'
-                                // placeholder="Name"
+                                placeholder="Accepts jpeg, jpg,and png formats"
                                 value={imageUrl}
                                 onChange={(e) => setPreviewImage(e.target.value)}
                             />

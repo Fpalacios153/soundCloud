@@ -1,4 +1,4 @@
-# Welcome to CloudSounds:A SoundCloud Clone
+# Welcome to CloudSounds: A SoundCloud Clone
 
 ## Description 
  CloudSounds is a clone of SoundCloud. It allows users to listen to music uploaded by other users and upload their own music to share. **[Click here to view CloudSounds Live Site](https://soundcloud-clo.herokuapp.com/)** 

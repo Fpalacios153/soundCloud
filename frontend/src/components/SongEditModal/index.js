@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import { EditSong } from './EditForm';
 
-function EditModal({ }) {
+function EditModal() {
   const [showModal, setShowModal] = useState(false);
 
   return (

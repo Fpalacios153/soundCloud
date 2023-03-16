@@ -4,7 +4,7 @@ import AlbumBrowser from "../Albums/AlbumsAll";
 import Footer from "../Footer/Footer";
 import LibraryPage from "../LibraryPage/Library";
 import ProfileButton from "../Navigation/ProfileButton";
-import PlaylistDetails from "../Playlist/PlaylistDetails.js/playlistDetails";
+import PlaylistDetails from "../Playlist/PlaylistDetails/playlistDetails";
 import GetAllSongs from "../SongAll";
 import SongDetails from "../SongDetails";
 import UploadHolder from "../Upload/Upload";

@@ -1,12 +1,13 @@
 import React from 'react';
-import { Link, NavLink, Route, Switch } from 'react-router-dom';
+// import { Link, NavLink, Route, Switch } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import DemoUser from '../DemoUser';
 import LoginFormModal from '../ModalLoginForm';
 import SignupFormModal from '../ModalSignupForm';
-import { HomePage } from '../HomePage';
-import SongDetails from '../SongDetails';
+// import { HomePage } from '../HomePage';
+// import SongDetails from '../SongDetails';
 import './Navigation.css';
 // import AudioPlayer from '../AudioPlayer';
 
@@ -39,7 +40,7 @@ function Navigation({ isLoaded }) {
           <div className='topPart'>
             <div className='nav'>
               <div className='logo-container'>
-                <h1 className='logo'></h1>
+                <h1 className='logo'> </h1>
                 <h1 className='logoWords'>CLOUDSOUNDS</h1>
               </div>
               <div className='leftNav'>

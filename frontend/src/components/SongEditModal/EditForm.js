@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { editSong } from "../../store/songs";
 
 
 
 export const EditSong = ({ setEdited, edited, setShowModal }) => {
     const dispatch = useDispatch()
-    const history = useHistory()
+    // const history = useHistory()
     const { songId } = useParams()
     const song = useSelector(state => state.songs[songId])
 
@@ -17,7 +17,7 @@ export const EditSong = ({ setEdited, edited, setShowModal }) => {
     const [imageUrl, setPreviewImage] = useState(song.previewImage)
     const [url, setSelectedFile] = useState(song.url)
     const [validationErrors, setValidationErrors] = useState([])
-    const [hasSubmitted, setHasSubmitted] = useState(false)
+    // const [hasSubmitted, setHasSubmitted] = useState(false)
 
     useEffect(() => {
         const error = []

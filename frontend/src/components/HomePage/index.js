@@ -11,22 +11,22 @@ export const HomePage = () => {
 
     return (
         <>
-            <div className='app-Container'>
-                <div className='topPart'>
-                    <div className='nav'>
-                        <div className='logo-container'>
-                            <h1 className='logo'> </h1>
-                            <h1 className='logoWords'>CLOUDSOUNDS</h1>
-                        </div>
-                        <div className='leftNav'>
-                            <DemoUser />
-                            <LoginFormModal whichLogin={true} />
-                            <SignupFormModal top={true} />
+            <div className='app'>
+                <div className='app-Container'>
+                    <div className='topPart'>
+                        <div className='nav'>
+                            <div className='logo-container'>
+                                <h1 className='logo'> </h1>
+                                <h1 className='logoWords'>CLOUDSOUNDS</h1>
+                            </div>
+                            <div className='leftNav'>
+                                <DemoUser />
+                                <LoginFormModal whichLogin={true} />
+                                <SignupFormModal top={true} />
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className='app'>
                 <div className='app-Container screen-adjustment'>
                     <div className='center'>
                     </div>

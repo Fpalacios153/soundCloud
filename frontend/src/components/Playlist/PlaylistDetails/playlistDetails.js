@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Link, useHistory, useParams } from "react-router-dom"
 import { useSongContext } from "../../../context/setSongContext"
@@ -14,7 +14,7 @@ export default function PlaylistDetails() {
     const dispatch = useDispatch()
     const history = useHistory()
     const { setSong } = useSongContext()
-    const [isLoaded, setIsLoaded] = useState(false)
+    // const [isLoaded, setIsLoaded] = useState(false)
 
     const details = useSelector(state => state.playlist[playlistId])
 
